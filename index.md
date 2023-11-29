@@ -7,33 +7,18 @@ description: Document Web Capture from Mobile Camera Documentation Homepage
 
 # Document Web Capture from Mobile Camera
 
-<!-- * [Glossary of Terms]({{site.glossary}})
-* [Introduction]({{site.introduction}}) 
-* [Getting Started]({{site.gettingstarted}}) 
-* [Related APIs]({{site.api}}) 
-* [Security]({{site.security}}) 
-* [References]({{site.references}})  -->
-
-- [Viewer Configuration]({{ site.viewer }}index.html)
-    - [ViewerConfig]({{ site.viewer }}viewerconfig.html)
-        - [Structure]({{ site.viewer }}viewerconfig.html#structure)
-        - [Default ViewerConfig]({{ site.viewer }}viewerconfig.html#default-viewerconfig)
-    - [How to customize viewer]({{ site.viewer }}customize.html)
-        - [Viewer Style]({{ site.viewer }}customize.html#viewer-style)
-        - [Viewer properties]({{ site.viewer }}customize.html#viewer-properties)
-
-- [User Interface]({{ site.ui }}index.html)
-    - [UiConfig]({{ site.ui }}uiconfig.html)
-        - [Structure]({{ site.ui }}uiconfig.html#structure)
-        - [How to configure]({{ site.ui }}uiconfig.html#how-to-configure)
-        - [Reference]({{ site.ui }}uiconfig.html#reference)
-    - [Default Elements]({{ site.ui }}default_elements.html)
-    - [Default User Interface]({{ site.ui }}default_ui.html)
-        - [Edit viewer]({{ site.ui }}default_ui.html#edit-viewer)
-        - [Capture viewer]({{ site.ui }}default_ui.html#capture-viewer)
-        - [Perspective viewer]({{ site.ui }}default_ui.html#perspective-viewer)
-        - [Browse viewer]({{ site.ui }}default_ui.html#browse-viewer)
-    - [How to customize UI]({{ site.ui }}customize/index.html)
-        - [Layout]({{ site.ui }}customize/layout.html)
-        - [Elements]({{ site.ui }}customize/elements.html)
-        - [Update UI dynamically]({{ site.ui }}customize/dynamically.html)
+- [Introduction]({{ site.introduction }}index.html)
+- Getting started
+    - [System requirement]({{ site.gettingstarted }}sys_requirement.html)
+    - [License]({{ site.gettingstarted }}license.html)
+    - [Adding the dependency]({{ site.gettingstarted }}add_dependency.html)
+    - [Creating HelloWorld]({{ site.gettingstarted }}helloworld.html)
+-  Code gallery
+    - [Use cases]({{ site.codegallery }}usecases/index.html)
+        - [Sample1]({{ site.codegallery }}usecases/sample1.html)
+        - [Sample2]({{ site.codegallery }}usecases/sample2.html)
+        - [Sample3]({{ site.codegallery }}usecases/sample3.html)
+        - [Sample4]({{ site.codegallery }}usecases/sample4.html)
+    - [Demo]({{ site.codegallery }}demo/index.html)
+- [Related API reference]({{ site.api }}relatedapi.html)
+- [Release notes]({{ site.releasenotes }}index.html)
