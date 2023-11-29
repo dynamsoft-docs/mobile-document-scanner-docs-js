@@ -7,7 +7,7 @@ title: Document Web Capture from Mobile Camera - Creating HelloWorld
 keywords: Documentation, Document Web Capture from Mobile Camera, Creating HelloWorld
 breadcrumbText: Creating HelloWorld
 description: Document Web Capture from Mobile Camera Documentation Creating HelloWorld
-permalink: /gettinggettingstarted/helloworld.html
+permalink: /gettingstarted/helloworld.html
 ---
 
 # Creating HelloWorld
