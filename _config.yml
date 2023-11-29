@@ -1,0 +1,51 @@
+repository: dynamsoft-docs/document-viewer-docs
+repositoryUrl: https://github.com/dynamsoft-docs/document-viewer-docs/blob/main
+docFullPath: https://www.dynamsoft.com/document-viewer/docs
+firstLevelUrl: /document-viewer/docs
+docHomePage: /document-viewer/docs/
+
+introduction: /document-viewer/docs/introduction/
+gettingstarted: /document-viewer/docs/gettingstarted/
+features: /document-viewer/docs/features/
+viewer: /document-viewer/docs/viewer/
+ui: /document-viewer/docs/ui/
+api: /document-viewer/docs/api/
+
+
+
+license: /document-viewer/docs/license/
+
+enumerations: /document-viewer/docs/programming/enumerations/
+parameters_reference: /document-viewer/docs/parameters/reference/
+release_notes: /document-viewer/docs/release-notes/
+
+useVersionTree: true
+
+assets: /document-viewer/docs/assets/
+edit_icon: /document-viewer/docs/assets/img-icon/edit-icon.png
+smile_icon: /document-viewer/docs/assets/img-icon/icon-smile.png
+sad_icon: /document-viewer/docs/assets/img-icon/icon-sad.png
+
+baseurl: "/document-viewer/docs"
+
+download: "/document-viewer/downloads/1000023-confirmation/"
+
+plugins:
+  - jemoji
+  - jekyll-sitemap
+
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default-layout"
+      noTitleIndex: true
+      needAutoGenerateSidebar: true
+      needGenerateH3Content: true
+  - scope:
+      path: "Hide_Tree_Page.html"
+    values:
+      sitemap: false
+
+url: "https://www.dynamsoft.com" # sitemap root
