@@ -1,7 +1,7 @@
 ---
 layout: default-layout
-title: Dynamsoft Document Viewer - FAQ
-description: This is the FAQ page of Dynamsoft Document Viewer.
+title: Document Web Capture from Mobile Camera - FAQ
+description: This is the FAQ page of Document Web Capture from Mobile Camera.
 keywords: faq
 needAutoGenerateSidebar: true
 ---

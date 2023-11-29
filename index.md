@@ -1,11 +1,11 @@
 ---
 layout: home-page
-title: Dynamsoft Document Viewer Documentation
-keywords: Dynamsoft Document Viewer, documentation
-description: Dynamsoft Document Viewer Documentation Homepage
+title: Document Web Capture from Mobile Camera Documentation
+keywords: Document Web Capture from Mobile Camera, documentation
+description: Document Web Capture from Mobile Camera Documentation Homepage
 ---
 
-# Dynamsoft Document Viewer 
+# Document Web Capture from Mobile Camera
 
 <!-- * [Glossary of Terms]({{site.glossary}})
 * [Introduction]({{site.introduction}}) 
