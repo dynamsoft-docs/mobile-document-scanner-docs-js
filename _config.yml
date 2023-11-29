@@ -1,0 +1,47 @@
+repository: dynamsoft-docs/DocWebCapture-MobileCam-Docs
+repositoryUrl: https://github.com/dynamsoft-docs/DocWebCapture-MobileCam-Docs/blob/main
+docFullPath: https://www.dynamsoft.com/doc-web-capture/docs
+firstLevelUrl: /doc-web-capture/docs
+docHomePage: /doc-web-capture/docs/
+
+introduction: /doc-web-capture/docs/introduction/
+gettingstarted: /doc-web-capture/docs/gettingstarted/
+features: /doc-web-capture/docs/features/
+api: /document-viewer/docs/api/
+
+
+
+license: /doc-web-capture/docs/license/
+
+release_notes: /doc-web-capture/docs/release-notes/
+
+useVersionTree: true
+
+assets: /doc-web-capture/docs/assets/
+edit_icon: /doc-web-capture/docs/assets/img-icon/edit-icon.png
+smile_icon: /doc-web-capture/docs/assets/img-icon/icon-smile.png
+sad_icon: /doc-web-capture/docs/assets/img-icon/icon-sad.png
+
+baseurl: "/doc-web-capture/docs"
+
+download: "/doc-web-capture/downloads/1000023-confirmation/"
+
+plugins:
+  - jemoji
+  - jekyll-sitemap
+
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default-layout"
+      noTitleIndex: true
+      needAutoGenerateSidebar: true
+      needGenerateH3Content: true
+  - scope:
+      path: "Hide_Tree_Page.html"
+    values:
+      sitemap: false
+
+url: "https://www.dynamsoft.com" # sitemap root
