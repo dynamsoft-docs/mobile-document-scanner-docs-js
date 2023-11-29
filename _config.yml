@@ -10,7 +10,7 @@ codegallery: /doc-web-capture/docs/codegallery/
 api: /doc-web-capture/docs/api/
 
 
-release_notes: /doc-web-capture/docs/releasenotes/
+releasenotes: /doc-web-capture/docs/releasenotes/
 
 useVersionTree: true
 
