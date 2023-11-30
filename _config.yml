@@ -6,14 +6,11 @@ docHomePage: /doc-web-capture/docs/
 
 introduction: /doc-web-capture/docs/introduction/
 gettingstarted: /doc-web-capture/docs/gettingstarted/
-features: /doc-web-capture/docs/features/
+codegallery: /doc-web-capture/docs/codegallery/
 api: /doc-web-capture/docs/api/
 
 
-
-license: /doc-web-capture/docs/license/
-
-release_notes: /doc-web-capture/docs/release-notes/
+releasenotes: /doc-web-capture/docs/releasenotes/
 
 useVersionTree: true
 
