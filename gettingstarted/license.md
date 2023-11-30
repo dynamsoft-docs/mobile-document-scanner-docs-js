@@ -31,7 +31,6 @@ await Dynamsoft.DDV.setConfig({
     license: "*Your-License-String*",
     engineResourcePath: "*lead to a folder containing the distributed WASM files*",
 });
-
 // DDN license initialization
 Dynamsoft.License.LicenseManager.initLicense("*Your-License-String*");
 ```

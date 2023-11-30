@@ -44,5 +44,3 @@ Apart from the browsers, the operating systems may impose some limitations of th
 
 - [Dynamsoft Document Viewer - System Requirements](https://officecn.dynamsoft.com:808/document-viewer/docs/gettingstarted/sys_requirement.html)
 - [Dynamsoft Document Normalizer - System Requirements](https://www.dynamsoft.com/document-normalizer/docs/web/programming/javascript/user-guide/index.html#system-requirements)
-
-
