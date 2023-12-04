@@ -19,3 +19,15 @@ This part will introduce four popular use cases which can be achieved by DWC fro
 - Sample 1
 
     This sample demonstrates the use case ...
+
+- Sample 2
+
+    This sample demonstrates the use case ...
+
+- Sample 3
+
+    This sample demonstrates the use case ...
+
+- Sample 4
+
+    This sample demonstrates the use case ...
