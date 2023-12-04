@@ -11,3 +11,11 @@ permalink: /codegallery/usecases/index.html
 ---
 
 # Use Cases
+
+Because the two SDKs, DDV and DDN, support comprehensive functions and flexible and efficient development, DWC from Mobile Camera can meet a variety of different workflows and needs. 
+
+This part will introduce four popular use cases which can be achieved by DWC from Mobile Camera solution.
+
+- Sample 1
+
+    This sample demonstrates the use case ...
