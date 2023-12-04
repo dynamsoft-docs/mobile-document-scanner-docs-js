@@ -14,16 +14,16 @@ permalink: /gettingstarted/sys_requirement.html
 
 As DWC from Mobile Camera solution is implemented by Dynamsoft Document Viewer and Dynamsoft Document Normalizer, these two SDKs requires the following features to work:
 
-## Secure context (HTTPS deployment)
+- **Secure context (HTTPS deployment)**
 
   When deploying your application / website for production, make sure to serve it via a secure HTTPS connection. This is required for two reasons
   
   - Access to the camera video stream is only granted in a security context. Most browsers impose this restriction.
-  > Some browsers like Chrome may grant the access for `http://127.0.0.1` and `http://localhost` or even for pages opened directly from the local disk (`file:///...`). This can be helpful for temporary development and test.
+    > Some browsers like Chrome may grant the access for `http://127.0.0.1` and `http://localhost` or even for pages opened directly from the local disk (`file:///...`). This can be helpful for temporary development and test.
   
   - Dynamsoft License requires a secure context to work.
 
-## `WebAssembly`, `Blob`, `URL`/`createObjectURL`, `Web Workers`
+- **`WebAssembly`, `Blob`, `URL`/`createObjectURL`, `Web Workers`**
 
   The above four features are required for the SDKs to work.
 
