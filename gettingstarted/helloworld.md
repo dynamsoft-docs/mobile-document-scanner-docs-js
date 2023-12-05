@@ -379,4 +379,8 @@ document.getElementById("restore").onclick = () => {
 
 ## More use cases
 
-## Demo
+We provide some samples which demonstrate the popular use cases, for example, review and adjust the boundaries, edit the result images, export the result images in PDF format and so on.
+
+Please refer to the [Use Case]({{ site.codegallery }}usecases/index.html) section.
+
+## [Demo]({{ site.codegallery }}demo/index.html)
