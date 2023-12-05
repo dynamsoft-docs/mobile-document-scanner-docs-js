@@ -26,8 +26,6 @@ We’ll build on this skeleton page:
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DWC from Mobile Camera HelloWorld</title>
-    <link rel="stylesheet" href="../Resources/ddv.css">
-    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
 </body>
@@ -381,4 +379,8 @@ document.getElementById("restore").onclick = () => {
 
 ## More use cases
 
-## Demo
+We provide some samples which demonstrate the popular use cases, for example, review and adjust the boundaries, edit the result images, export the result images in PDF format and so on.
+
+Please refer to the [Use Case]({{ site.codegallery }}usecases/index.html) section.
+
+## [Demo]({{ site.codegallery }}demo/index.html)

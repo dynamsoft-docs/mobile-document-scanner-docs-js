@@ -10,4 +10,4 @@ description: Document Web Capture from Mobile Camera Documentation Use Cases Sam
 permalink: /codegallery/usecases/sample3.html
 ---
 
-# Sample3
+# Capture continuously & Review and Adjust the detected boundaries & Edit result images

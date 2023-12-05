@@ -10,4 +10,4 @@ description: Document Web Capture from Mobile Camera Documentation Use Cases Sam
 permalink: /codegallery/usecases/sample4.html
 ---
 
-# Sample4
+# Detect boundaried from the existed image

@@ -16,18 +16,26 @@ Because the two SDKs, DDV and DDN, support comprehensive functions and flexible 
 
 This part will introduce four popular use cases which can be achieved by DWC from Mobile Camera solution.
 
-- Sample 1
+- [Review and Adjust the detected boundaries]({{ site.codegallery }}usecases/sample1.html)
 
-    This sample demonstrates the use case ...
+    This sample demonstrates the use case to review and adjust the detected boundaries and export the result images in PDF format.
 
-- Sample 2
+    [Check out it online]()
 
-    This sample demonstrates the use case ...
+- [Capture continuously & Edit result images]({{ site.codegallery }}usecases/sample2.html)
 
-- Sample 3
+    This sample demonstrates the use case to capture continuously and edit the result images before exporting.
 
-    This sample demonstrates the use case ...
+    [Check out it online]()
 
-- Sample 4
+- [Capture continuously & Review and Adjust the detected boundaries & Edit result images]({{ site.codegallery }}usecases/sample3.html)
 
-    This sample demonstrates the use case ...
+    This sample demonstrates the whole docment capture workflow: Capture continuously & Review and Adjust the detected boundaries & Edit result images.
+
+    [Check out it online]()
+
+- [Detect boundaried from the existed image]({{ site.codegallery }}usecases/sample4.html)
+
+    This sample demonstrates the use case that supports detect the boundaries from the existed image which is from local directory/album. 
+
+    [Check out it online]()
