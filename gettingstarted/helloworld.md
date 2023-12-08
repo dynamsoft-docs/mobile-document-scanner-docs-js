@@ -43,6 +43,7 @@ To build the solution, we need to include five packages
 2. `dynamsoft-core`: Required, it includes `LicenseManager` class for `dynamsoft-document-normalizer`.
 3. `dynamsoft-document-normalizer`: Required, it provides functions to detect boundaries or perform normalization.
 4. `dynamsoft-capture-vision-router`: Required, it defines the class `CaptureVisionRouter`, which controls the whole process.
+5. `utils`: Optional, it includes the configuration code for document boundaries function. You can also copy the configuration code to your own code.
 
 ### Use a CDN
 
@@ -55,6 +56,7 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/.../utils.js"></script>
   ```
 
 - UNPKG
@@ -64,6 +66,7 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
   <script src="https://unpkg.com/dynamsoft-core@3.0.10/dist/core.js"></script>
   <script src="https://unpkg.com/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
   <script src="https://unpkg.com/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
+  <script src="https://unpkg.com//.../utils.js"></script>
   ```
 
 ### Host the SDK yourself
@@ -100,6 +103,7 @@ Depending on how you downloaded the SDK and where you put it, you can typically 
   <script src="./distributables/dynamsoft-core@3.0.10/dist/core.js"></script>
   <script src="./distributables/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
   <script src="./distributables/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
+  <script src="./distributables/untils"></script>
   ```
 
 or
@@ -109,6 +113,7 @@ or
   <script src="./node_modules/dynamsoft-core/dist/core.js"></script>
   <script src="./node_modules/dynamsoft-document-normalizer/dist/ddn.js"></script>
   <script src="./node_modules/dynamsoft-capture-vision-router/dist/cvr.js"></script>
+  <script src="./node_modules/untils"></script>
   ```
 
 ## Define necessary HTML elements
@@ -133,10 +138,10 @@ For HelloWorld, we define below elements.
 
 ```html
 <link rel="stylesheet" href="../Resources/ddv.css">
-<link rel="stylesheet" href="./helloworld.css">
+<link rel="stylesheet" href="./index.css">
 ```
 
-`helloworld.css` content:
+`index.css` content:
 
 ```css
 html,body {
@@ -190,20 +195,20 @@ html,body {
 // Initialize DDV
 await Dynamsoft.DDV.setConfig({
     license: "*******",
-    engineResourcePath: "********",
+    engineResourcePath: "*******",
 });
 
 // Initialize DDN
-Dynamsoft.License.LicenseManager.initLicense("********************");
+Dynamsoft.License.LicenseManager.initLicense("*******");
 Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
-
-const router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
 ```
 
 ## Configure document boundaries function
 
+Since the related configuration code is packaged in `utils.js`, only need to call the following function.
+
 ```javascript
-Dynamsoft.DDV.setProcessingHandler("documentBoundariesDetect", new DDNNormalizeHandler());
+await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
 ```
 
 ## Create capture viewer
@@ -265,7 +270,7 @@ document.getElementById("restore").onclick = () => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DocWebCapture</title>
     <link rel="stylesheet" href="../Resources/ddv.css">
-    <link rel="stylesheet" href="./helloworld.css">
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <div id="container"></div>
@@ -281,6 +286,7 @@ document.getElementById("restore").onclick = () => {
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/.../utils.js"></script>
 <script type="module">
     // Initialize DDV
     await Dynamsoft.DDV.setConfig({
@@ -292,52 +298,10 @@ document.getElementById("restore").onclick = () => {
     Dynamsoft.License.LicenseManager.initLicense("********************");
     Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
 
-    const router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
-
     // Configure document boundaries function
-    class DDNDetectHandler extends Dynamsoft.DDV.DocumentDetect {
-        async detect(image, config) {
-            if(!router) {
-                return Promise.resolve({
-                    success: false,
-                });
-            }
-            // Define DSImage according to the usage of DDN.
-            const DSImage = {
-                bytes: new Uint8Array(image.data.slice(0)),
-                width: image.width,
-                height: image.height,
-                stride: image.width * 4,
-                format: 10,
-            };
-            // Use DDN normalized module
-            const results = await router.capture(DSImage, "detect-document-boundaries");
+    await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
 
-             // Filter the results and generate corresponding return values.
-             if (results.items.length <= 0) {
-                return Promise.resolve({
-                    success: false,
-                });
-            }
-
-            const quad = [];
-            results.items[0].location.points.forEach(p => {
-                quad.push([p.x, p.y]);
-            });
-
-            const detectResult = this.processDetectResult(
-                quad,
-                image.width,
-                image.height,
-                config,
-            );
-
-            return Promise.resolve(detectResult);
-        }
-    }
-    Dynamsoft.DDV.setProcessingHandler("documentBoundariesDetect", new DDNDetectHandler());
-
-    //Create capture viewer
+    //Create a capture viewer
     const captureViewer = new Dynamsoft.DDV.CaptureViewer({
         container: "container",
         viewerConfig: {
@@ -354,17 +318,18 @@ document.getElementById("restore").onclick = () => {
 
     // Display the result image
     captureViewer.on("captured", async (e) => {
-        const pageData =  await captureViewer.currentDocument.getPageData(e.pageUid);
-        //Original image
-        document.getElementById("original").src = URL.createObjectURL(pageData.raw.data); 
-        // Normalized image
-        document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data); 
         // Stop video stream and hide capture viewer's container
         captureViewer.stop();
         document.getElementById("container").style.display = "none";
+
+        const pageData =  await captureViewer.currentDocument.getPageData(e.pageUid);
+        // Original image
+        document.getElementById("original").src = URL.createObjectURL(pageData.raw.data); 
+        // Normalized image
+        document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data); 
     });
 
-    // Restore function
+    // Restore Button function
     document.getElementById("restore").onclick = () => {
         captureViewer.currentDocument.deleteAllPages();
         captureViewer.play({
@@ -376,6 +341,8 @@ document.getElementById("restore").onclick = () => {
 </script>
 </html>
 ```
+
+## Download the whole project
 
 ## More use cases
 
