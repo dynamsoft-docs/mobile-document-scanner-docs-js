@@ -379,7 +379,7 @@ document.getElementById("restore").onclick = () => {
 
 ## Download the whole project
 
-Please notice that the sample code Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
+Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 
 `UiConfig` part is organized into `uiConfig.js` and referenced in the core code to minimize the length of the core code.
 
