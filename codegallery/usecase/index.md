@@ -18,7 +18,7 @@ This part will introduce four popular use cases which can be achieved by DWC fro
 
 - [Review and Adjust the detected boundaries]({{ site.codegallery }}usecases/sample1.html)
 
-    This sample demonstrates the use case to review and adjust the detected boundaries and export the result images in PDF format.
+    This sample demonstrates the use case to review and adjust the detected boundaries.
 
     [Check out it online]()
 
