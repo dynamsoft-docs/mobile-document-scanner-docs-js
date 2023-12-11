@@ -20,7 +20,7 @@ In this sample, we would like to achieve the workflow as below.
 
 ![Flow chart for sample1](/assets/imgs/sample1.png)
 
-Since this sample is based on HelloWorld, the basic steps are introduced in [Creating HelloWorld]({{ site.gettingstarted }}helloworld.html) section, we will omit these steps in this section. 
+Since this sample is based on HelloWorld, the basic steps are introduced in [Creating HelloWorld]({{ site.gettingstarted }}helloworld.html) chapter, this chapter will not be further elaborated.
 
 ## Create a perspective viewer
 
