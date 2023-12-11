@@ -298,6 +298,8 @@ perspectiveViewer.on("downloadPDF",() => {
             a.click();
         });
     });
+</script>
+</html>
 ```
 
 ## Download the whole project
