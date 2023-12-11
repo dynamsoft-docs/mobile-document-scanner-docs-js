@@ -24,10 +24,10 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
 
 ## Create a perspective viewer
 
-- Customize the viewer's `UiConfig` based on the default one to implement the workflow.
+- Customize the viewer's `UiConfig` based on the [default one](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/default_ui.html#perspective-viewer) to implement the workflow.
 
     ```javascript
-    const mobilePerspectiveUiConfig = {
+    const newPerspectiveUiConfig = {
         type: Dynamsoft.DDV.Elements.Layout,
         flexDirection: "column",
         children: [
@@ -92,9 +92,9 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
     const perspectiveViewer = new Dynamsoft.DDV.PerspectiveViewer({
         container: "container",
         groupUid: captureViewer.groupUid, // Data synchronisation with the capture viewer
-        uiConfig: mobilePerspectiveUiConfig, // Configure the new UiConfig
+        uiConfig: newPerspectiveUiConfig, // Configure the new UiConfig
         viewerConfig:{
-            scrollToLatest: true,
+            scrollToLatest: true, // Navigate to the latest image automatically
         }
     });
     ```
@@ -253,7 +253,7 @@ document.getElementById("restore").onclick = () => {
     });
 
     // Define new UiConfig for perspecitve viewer
-    const mobilePerspectiveUiConfig = {
+    const newPerspectiveUiConfig = {
         type: Dynamsoft.DDV.Elements.Layout,
         flexDirection: "column",
         children: [
@@ -314,7 +314,7 @@ document.getElementById("restore").onclick = () => {
     const perspectiveViewer = new Dynamsoft.DDV.PerspectiveViewer({
         container: "container",
         groupUid: captureViewer.groupUid, // Data synchronisation with the capture viewer
-        uiConfig: mobilePerspectiveUiConfig, // Configure the new UiConfig
+        uiConfig: newPerspectiveUiConfig, // Configure the new UiConfig
         viewerConfig:{
             scrollToLatest: true,
         }
@@ -387,6 +387,6 @@ Please note that in order to be compatible with desktop devices as much as possi
 
 Sometimes, you may want to add some auxiliary text to icons to show better user guidance.
 
-### Reference
+### Refer to
 
 - [Customize Elements' Display Text](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/customize/elements.html#display-text)

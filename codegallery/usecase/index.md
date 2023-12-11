@@ -34,8 +34,8 @@ This part will introduce four popular use cases which can be achieved by DWC fro
 
     [Check out it online]()
 
-- [Detect boundaried from the existed image]({{ site.codegallery }}usecases/sample4.html)
+- [Detect boundaries on the existing images]({{ site.codegallery }}usecases/sample4.html)
 
-    This sample demonstrates the use case that supports detect the boundaries from the existed image which is from local directory/album. 
+    This sample demonstrates the use case that supports detect the boundaries on the existing images which are from local directory/album. 
 
     [Check out it online]()
