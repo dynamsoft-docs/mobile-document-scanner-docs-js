@@ -35,7 +35,7 @@ We’ll build on this skeleton page:
 </html>
 ```
 
-## Include the Related SDK
+## Adding the dependency
 
 To build the solution, we need to include five packages
 
@@ -120,8 +120,15 @@ or
 
 For HelloWorld, we define below elements.
 
+- Container to hold the viewer
+
 ```html
 <div id="container"></div>
+```
+
+- Restore button and `img` element for displaying the result image
+
+```html
 <div id="imageContainer">
     <div id="restore">Restore</div>
     <span>Original Image:</span>
