@@ -36,7 +36,7 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
                 className: "ddv-perspective-viewer-header-mobile",
                 children: [
                     {   
-                        // Add a "Back" button in perspective viewer's header and bind the event.
+                        // Add a "Back" button in perspective viewer's header and bind the event to go back to the capture viewer.
                         // The event will be registered later.
                         type: Dynamsoft.DDV.Elements.Button,
                         className: "ddv-button-back",
@@ -107,81 +107,75 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
 
 ## Configure the workflow
 
-### Step one
-
-Define a function to control the viewers' visibility.
-
-```javascript
-function viewerSwitch(capture, perspective){
-    if(capture) {
-        captureViewer.show();
-        captureViewer.play({
-            resolution: [1920,1080],
-            fill: true,
-        });
-    } else {
-        captureViewer.hide();
-        captureViewer.stop();
-    }
-
-    if(perspective) {
-        perspectiveViewer.show();
-    } else {
-        perspectiveViewer.hide();
-    }
-}
-```
-
-### Step two
-
-Register the relavant events to customize the interaction behavior between viewers.
-
-- Register `captured` event in `captureViewer` to hide the capture viewer and show the perspective viewer once an image is captured.
+- Define a function to control the viewers' visibility.
 
     ```javascript
-    captureViewer.on("captured", () => {
-        viewerSwitch(false, true);
-    });
-    ```
-
-- Register an event in `perspectiveViewer` to delete the current image and go back the capture viewer.
-
-    ```javascript
-    // Event for clicking "Back" button
-    perspectiveViewer.on("backToCaptureViewer",() => {
-        viewerSwitch(true, false);
-        perspectiveViewer.currentDocument.deleteAllPages();
-    });
-    ```
-
-- Register an event in `perspectiveViewer` to determine if there are no images in the viewer when clicking "DeleteCurrent" & "DeletedAll" buttons.
-
-    ```javascript
-    // Event for clicking "DeleteCurrent" & "DeletedAll" buttons
-    perspectiveViewer.on("noImageBack", () => {
-        // Determine if there are no images in the viewer
-        const count = perspectiveViewer.currentDocument.pages.length;
-        // If yes, back to the capture viewer
-        if(count === 0) {
-            viewerSwitch(true,false)
+    function viewerSwitch(capture, perspective){
+        if(capture) {
+            captureViewer.show();
+            captureViewer.play({
+                resolution: [1920,1080],               
+            });
+        } else {
+            captureViewer.hide();
+            captureViewer.stop();
         }
-    });
+
+        if(perspective) {
+            perspectiveViewer.show();
+        } else {
+            perspectiveViewer.hide();
+        }
+    }
     ```
 
-- Register an event in `perspectiveViewer` to display the result image.
+- Register the relavant events to customize the interaction behavior between viewers.
+    - Register `captured` event in `captureViewer` to hide the capture viewer and show the perspective viewer once an image is captured.
 
-    ```javascript
-    perspectiveViewer.on("done", async () => {
-        // hide viewers and container
-        viewerSwitch(false, false);
-        document.getElementById("container").style.display = "none";
+        ```javascript
+        captureViewer.on("captured", () => {
+            viewerSwitch(false, true);
+        });
+        ```
 
-        const pageUid = perspectiveViewer.getCurrentPageUid()
-        const pageData =  await captureViewer.currentDocument.getPageData(pageUid);
-        // Normalized image
-        document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data);
-    });
-    ```
+    - Register an event in `perspectiveViewer` to delete the current image and go back the capture viewer.
+
+        ```javascript
+        // Event for clicking "Back" button
+        perspectiveViewer.on("backToCaptureViewer",() => {
+            viewerSwitch(true, false);
+            perspectiveViewer.currentDocument.deleteAllPages();
+        });
+        ```
+
+    - Register an event in `perspectiveViewer` to determine if there are no images in the viewer when clicking "DeleteCurrent" & "DeletedAll" buttons.
+
+        ```javascript
+        // Event for clicking "DeleteCurrent" & "DeletedAll" buttons
+        perspectiveViewer.on("noImageBack", () => {
+            // Determine if there are no images in the viewer
+            const count = perspectiveViewer.currentDocument.pages.length;
+            // If yes, back to the capture viewer
+            if(count === 0) {
+                viewerSwitch(true,false)
+            }
+        });
+        ```
+
+    - Register an event in `perspectiveViewer` to display the result image.
+
+        ```javascript
+        perspectiveViewer.on("done", async () => {
+            // hide viewers and container
+            viewerSwitch(false, false);
+            document.getElementById("container").style.display = "none";
+
+            const pageUid = perspectiveViewer.getCurrentPageUid()
+            const pageData =  await captureViewer.currentDocument.getPageData(pageUid);
+            // Normalized image
+            document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data);
+        });
+        ```
 
 For now, we finish the main workflow for this sample, can add the restore function to capture new image additionally.
 
@@ -202,7 +196,7 @@ document.getElementById("restore").onclick = () => {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DocWebCapture</title>
+    <title>DWC from Mobile Camera - Review and Adjust the detected boundaries</title>
     <link rel="stylesheet" href="../Resources/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
@@ -242,7 +236,7 @@ document.getElementById("restore").onclick = () => {
             enableAutoDetect: true
         }
     });
-    // Play video stream
+    // Play video stream in 1080P
     captureViewer.play({ 
         resolution: [1920,1080],
         fill: true
@@ -359,8 +353,7 @@ document.getElementById("restore").onclick = () => {
         if(capture) {
             captureViewer.show();
             captureViewer.play({
-                resolution: [1920,1080],
-                fill: true,
+                resolution: [1920,1080],                
             });
         } else {
             captureViewer.hide();
