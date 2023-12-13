@@ -30,7 +30,7 @@ This part will introduce four popular use cases which can be achieved by DWC fro
 
 - [Capture continuously & Review and Adjust the detected boundaries & Edit result images]({{ site.codegallery }}usecases/sample3.html)
 
-    This sample demonstrates the whole docment capture workflow: Capture continuously & Review and Adjust the detected boundaries & Edit result images.
+    This sample demonstrates a relatively complete document capturing workflow: Capture continuously & Review and Adjust the detected boundaries & Edit result images.
 
     [Check out it online]()
 

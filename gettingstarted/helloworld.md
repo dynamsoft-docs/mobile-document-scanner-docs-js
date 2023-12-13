@@ -218,7 +218,7 @@ Since the related configuration code is packaged in `utils.js`, only need to cal
 await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
 ```
 
-## Create capture viewer
+## Create a capture viewer
 
 ```javascript
 const captureViewer = new Dynamsoft.DDV.CaptureViewer({
@@ -229,10 +229,9 @@ const captureViewer = new Dynamsoft.DDV.CaptureViewer({
         enableAutoDetect: true
     }
 });
-// Play video stream
+// Play video stream in 1080P
 captureViewer.play({ 
     resolution: [1920,1080],
-    fill: true
 });
 ```
 
@@ -260,7 +259,6 @@ document.getElementById("restore").onclick = () => {
     captureViewer.currentDocument.deleteAllPages();
     captureViewer.play({
         resolution: [1920,1080],
-        fill: true,
     });
     document.getElementById("container").style.display = "";
 };
@@ -275,7 +273,7 @@ document.getElementById("restore").onclick = () => {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DocWebCapture</title>
+    <title>DWC from Mobile Camera HelloWorld</title>
     <link rel="stylesheet" href="../Resources/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
@@ -317,10 +315,9 @@ document.getElementById("restore").onclick = () => {
             enableAutoDetect: true
         }
     });
-    // Play video stream
+    // Play video stream in 1080P
     captureViewer.play({ 
         resolution: [1920,1080],
-        fill: true
     });
 
     // Display the result image
@@ -341,7 +338,6 @@ document.getElementById("restore").onclick = () => {
         captureViewer.currentDocument.deleteAllPages();
         captureViewer.play({
             resolution: [1920,1080],
-            fill: true,
         });
         document.getElementById("container").style.display = "";
     };

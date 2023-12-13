@@ -78,7 +78,7 @@ Depending on how you downloaded the SDK and where you put it, you can typically 
   <script src="./distributables/dynamsoft-core@3.0.10/dist/core.js"></script>
   <script src="./distributables/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
   <script src="./distributables/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
-  <script src="./distributables/untils"></script>
+  <script src="./distributables/untils.js"></script>
   ```
 
 or
