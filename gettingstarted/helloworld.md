@@ -11,3 +11,346 @@ permalink: /gettingstarted/helloworld.html
 ---
 
 # Creating HelloWorld
+
+In this section, we’ll break down and show all the steps needed to build the HelloWorld solution in a web page.
+
+- Check out [HelloWorld]()
+
+We’ll build on this skeleton page:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DWC from Mobile Camera HelloWorld</title>
+</head>
+<body>
+</body>
+<script type="module">
+// Write your code here.
+</script>
+</html>
+```
+
+## Adding the dependency
+
+To build the solution, we need to include five packages
+
+1. `dynamsoft-document-viewer`: Required, it provides functions to create the viewers.
+2. `dynamsoft-core`: Required, it includes `LicenseManager` class for `dynamsoft-document-normalizer`.
+3. `dynamsoft-document-normalizer`: Required, it provides functions to detect boundaries or perform normalization.
+4. `dynamsoft-capture-vision-router`: Required, it defines the class `CaptureVisionRouter`, which controls the whole process.
+5. `utils`: Optional, it includes the configuration code for document boundaries function. You can also copy the configuration code to your own code.
+
+### Use a CDN
+
+The simplest way to include the SDK is to use either the [jsDelivr](https://jsdelivr.com/) or [UNPKG](https://unpkg.com/) CDN.
+
+- jsDelivr
+
+  ```html
+  <script src="https://cdn.jsdelivr.net/npm/ddv"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/.../utils.js"></script>
+  ```
+
+- UNPKG
+
+  ```html
+  <script src="https://unpkg.com/ddv"></script>
+  <script src="https://unpkg.com/dynamsoft-core@3.0.10/dist/core.js"></script>
+  <script src="https://unpkg.com/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
+  <script src="https://unpkg.com/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
+  <script src="https://unpkg.com//.../utils.js"></script>
+  ```
+
+### Host the SDK yourself
+
+Besides using the CDN, you can also download the Solution and host related files on your own website/server before including it in your application.
+
+Options to download the SDK:
+
+- From the website
+
+  [Download the JavaScript ZIP package]()
+
+- yarn
+
+  ```cmd
+  yarn add ddv
+  yarn add dynamsoft-capture-vision-router@2.0.11
+  ```
+
+- npm
+
+  ```cmd
+  npm install ddv
+  npm install dynamsoft-capture-vision-router@2.0.11
+  ```
+
+> Note: Upon installation of `dynamsoft-capture-vision-router`, the compatible versions of `dynamsoft-document-normalizer` and `dynamsoft-core` will be automatically downloaded.
+
+Depending on how you downloaded the SDK and where you put it, you can typically include it like this:
+
+  ```html
+  <!-- Upon extracting the zip package into your project, you can generally include it in the following manner -->
+  <script src="./distributables/ddvjs"></script>
+  <script src="./distributables/dynamsoft-core@3.0.10/dist/core.js"></script>
+  <script src="./distributables/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
+  <script src="./distributables/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
+  <script src="./distributables/untils"></script>
+  ```
+
+or
+
+  ```html
+  <script src="./node_modules/ddvjs"></script>
+  <script src="./node_modules/dynamsoft-core/dist/core.js"></script>
+  <script src="./node_modules/dynamsoft-document-normalizer/dist/ddn.js"></script>
+  <script src="./node_modules/dynamsoft-capture-vision-router/dist/cvr.js"></script>
+  <script src="./node_modules/untils"></script>
+  ```
+
+## Define necessary HTML elements
+
+For HelloWorld, we define below elements.
+
+- Container to hold the viewer
+
+```html
+<div id="container"></div>
+```
+
+- Restore button and `img` element for displaying the result image
+
+```html
+<div id="imageContainer">
+    <div id="restore">Restore</div>
+    <span>Original Image:</span>
+    <img id="original">
+    <span>Normalized Image:</span>
+    <img id="normalized">
+</div>
+```
+
+## Link CSS to HTML
+
+`ddv.css` is the necessary css file which defines the viewer style of Dynamsoft Document Viewer.
+`index.css` defines the style of elements which is in Helloworld.
+
+```html
+<link rel="stylesheet" href="../Resources/ddv.css">
+<link rel="stylesheet" href="./index.css">
+```
+
+`index.css` content:
+
+```css
+html,body {
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding:0;
+    overscroll-behavior-y: none;
+    overflow: hidden;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+}
+
+#imageContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+
+#imageContainer img {
+    width: 80%;
+    height: 40%;
+    object-fit: contain;
+    border:none;
+}
+
+#restore {
+    display: flex;
+    width: 80px;
+    height: 40px;
+    align-items: center;
+    background: #fe8e14;
+    justify-content: center;
+    color: white;
+    user-select: none;
+    cursor: pointer;
+}
+```
+
+## Related SDK initialization
+
+```javascript
+// Initialize DDV
+await Dynamsoft.DDV.setConfig({
+    license: "*******",
+    engineResourcePath: "*******",
+});
+
+// Initialize DDN
+Dynamsoft.License.LicenseManager.initLicense("*******");
+Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+```
+
+## Configure document boundaries function
+
+Since the related configuration code is packaged in `utils.js`, only need to call the following function.
+
+```javascript
+await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
+```
+
+## Create a capture viewer
+
+```javascript
+const captureViewer = new Dynamsoft.DDV.CaptureViewer({
+    container: "container",
+    viewerConfig: {
+        acceptedPolygonConfidence: 60,
+        enableAutoCapture: true,
+        enableAutoDetect: true
+    }
+});
+// Play video stream in 1080P
+captureViewer.play({ 
+    resolution: [1920,1080],
+});
+```
+
+## Display the result image
+
+Use the capture event to obtain the result image.
+
+```javascript
+captureViewer.on("captured", async (e) => {
+    const pageData =  await captureViewer.currentDocument.getPageData(e.pageUid);
+    //Original image
+    document.getElementById("original").src = URL.createObjectURL(pageData.raw.data); 
+    // Normalized image
+    document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data); 
+    // Stop video stream and hide capture viewer's container
+    captureViewer.stop();
+    document.getElementById("container").style.display = "none";
+});
+```
+
+For now, we finish the main workflow for HelloWorld, can add the restore function to capture new image additionally.
+
+```javascript
+document.getElementById("restore").onclick = () => {
+    captureViewer.currentDocument.deleteAllPages();
+    captureViewer.play({
+        resolution: [1920,1080],
+    });
+    document.getElementById("container").style.display = "";
+};
+```
+
+## Review the complete code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DWC from Mobile Camera HelloWorld</title>
+    <link rel="stylesheet" href="../Resources/ddv.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="container"></div>
+    <div id="imageContainer">
+        <div id="restore">Restore</div>
+        <span>Original Image:</span>
+        <img id="original">
+        <span>Normalized Image:</span>
+        <img id="normalized">
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/ddv"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/.../utils.js"></script>
+<script type="module">
+    // Initialize DDV
+    await Dynamsoft.DDV.setConfig({
+        license: "*******",
+        engineResourcePath: "********",
+    });
+
+    // Initialize DDN
+    Dynamsoft.License.LicenseManager.initLicense("********************");
+    Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+
+    // Configure document boundaries function
+    await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
+
+    //Create a capture viewer
+    const captureViewer = new Dynamsoft.DDV.CaptureViewer({
+        container: "container",
+        viewerConfig: {
+            acceptedPolygonConfidence: 60,
+            enableAutoCapture: true,
+            enableAutoDetect: true
+        }
+    });
+    // Play video stream in 1080P
+    captureViewer.play({ 
+        resolution: [1920,1080],
+    });
+
+    // Display the result image
+    captureViewer.on("captured", async (e) => {
+        // Stop video stream and hide capture viewer's container
+        captureViewer.stop();
+        document.getElementById("container").style.display = "none";
+
+        const pageData =  await captureViewer.currentDocument.getPageData(e.pageUid);
+        // Original image
+        document.getElementById("original").src = URL.createObjectURL(pageData.raw.data); 
+        // Normalized image
+        document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data); 
+    });
+
+    // Restore Button function
+    document.getElementById("restore").onclick = () => {
+        captureViewer.currentDocument.deleteAllPages();
+        captureViewer.play({
+            resolution: [1920,1080],
+        });
+        document.getElementById("container").style.display = "";
+    };
+</script>
+</html>
+```
+
+## Download the whole project
+
+## More use cases
+
+We provide some samples which demonstrate the popular use cases, for example, review and adjust the boundaries, edit the result images, export the result images in PDF format and so on.
+
+Please refer to the [Use Case]({{ site.codegallery }}usecases/index.html) section.
+
+## [Demo]({{ site.codegallery }}demo/index.html)
