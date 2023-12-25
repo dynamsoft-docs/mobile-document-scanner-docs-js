@@ -34,7 +34,7 @@ We’ll build on this skeleton page:
 <body>
 </body>
 <script type="module">
-// Write your code here.
+// Write your code here
 </script>
 </html>
 ```
@@ -128,7 +128,7 @@ To review the detected boundaries on the loaded image(s), we will create a persp
                     Dynamsoft.DDV.Elements.Pagination,
                     {
                         // Bind event for "PerspectiveAll" button
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.PerspectiveAll,
                         events: {
                             click: "downloadPDF"
@@ -144,8 +144,8 @@ To review the detected boundaries on the loaded image(s), we will create a persp
                     Dynamsoft.DDV.Elements.FullQuad,
                     Dynamsoft.DDV.Elements.RotateLeft,
                     {
-                        // Replace the default "RotateRight" button with an "AddNew" button in perspective viewer's footer and bind event to the new button.
-                        // The event will be registered later.
+                        // Replace the default "RotateRight" button with an "AddNew" button in perspective viewer's footer and bind event to the new button
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.Button,
                         className: "ddv-load-image2 addNewButton", 
                         events: {
@@ -243,7 +243,7 @@ perspectiveViewer.on("downloadPDF",() => {
                     Dynamsoft.DDV.Elements.Pagination,
                     {
                         // Bind event for "PerspectiveAll" button
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.PerspectiveAll,
                         events: {
                             click: "downloadPDF"
@@ -259,8 +259,8 @@ perspectiveViewer.on("downloadPDF",() => {
                     Dynamsoft.DDV.Elements.FullQuad,
                     Dynamsoft.DDV.Elements.RotateLeft,
                     {
-                        // Replace the default "RotateRight" button with an "AddNew" button in perspective viewer's footer and bind event to the new button.
-                        // The event will be registered later.
+                        // Replace the default "RotateRight" button with an "AddNew" button in perspective viewer's footer and bind event to the new button
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.Button,
                         className: "ddv-load-image2 addNewButton", 
                         events: {
@@ -283,12 +283,12 @@ perspectiveViewer.on("downloadPDF",() => {
         }
     });
 
-    // Register an event in `perspectiveViewer` to add existing image(s).
+    // Register an event in `perspectiveViewer` to add existing image(s)
     perspectiveViewer.on("addNew",() => {
         ......
     });
 
-    // Register an event in `perspectiveViewer` to download the result image(s) in PDF format.
+    // Register an event in `perspectiveViewer` to download the result image(s) in PDF format
     perspectiveViewer.on("downloadPDF",() => {
         perspectiveViewer.currentDocument.saveToPdf().then((blob) => {
             const url = URL.createObjectURL(blob);

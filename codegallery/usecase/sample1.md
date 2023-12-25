@@ -36,8 +36,8 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
                 className: "ddv-perspective-viewer-header-mobile",
                 children: [
                     {   
-                        // Add a "Back" button in perspective viewer's header and bind the event to go back to the capture viewer.
-                        // The event will be registered later.
+                        // Add a "Back" button in perspective viewer's header and bind the event to go back to the capture viewer
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.Button,
                         className: "ddv-button-back",
                         events:{
@@ -47,7 +47,7 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
                     Dynamsoft.DDV.Elements.Pagination,
                     {
                         // Bind event for "PerspectiveAll" button
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.PerspectiveAll,
                         events:{
                             click: "done"
@@ -65,15 +65,15 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
                     Dynamsoft.DDV.Elements.RotateRight,
                     {
                         // Bind event for "DeleteCurrent" button
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.DeleteCurrent,
                         events: {
                             click: "noImageBack"
                         },
                     },
                     {
-                        // Bind event for "DeleteCurrent" button
-                        // The event will be registered later.
+                        // Bind event for "DeleteAll" button
+                        // The event will be registered later
                         type:Dynamsoft.DDV.Elements.DeleteAll,
                         events: {
                             click: "noImageBack"
@@ -256,8 +256,8 @@ document.getElementById("restore").onclick = () => {
                 className: "ddv-perspective-viewer-header-mobile",
                 children: [
                     {   
-                        // Add a "Back" button in perspective viewer's header and bind the event.
-                        // The event will be registered later.
+                        // Add a "Back" button in perspective viewer's header and bind the event
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.Button,
                         className: "ddv-button-back",
                         events:{
@@ -267,7 +267,7 @@ document.getElementById("restore").onclick = () => {
                     Dynamsoft.DDV.Elements.Pagination,
                     {
                         // Bind event for "PerspectiveAll" button
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.PerspectiveAll,
                         events:{
                             click: "done"
@@ -285,7 +285,7 @@ document.getElementById("restore").onclick = () => {
                     Dynamsoft.DDV.Elements.RotateRight,
                     {
                         // Bind event for "DeleteCurrent" button
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.DeleteCurrent,
                         events: {
                             click: "noImageBack"
@@ -293,7 +293,7 @@ document.getElementById("restore").onclick = () => {
                     },
                     {
                         // Bind event for "DeleteCurrent" button
-                        // The event will be registered later.
+                        // The event will be registered later
                         type:Dynamsoft.DDV.Elements.DeleteAll,
                         events: {
                             click: "noImageBack"

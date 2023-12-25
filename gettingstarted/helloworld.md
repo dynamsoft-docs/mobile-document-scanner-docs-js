@@ -30,7 +30,7 @@ We’ll build on this skeleton page:
 <body>
 </body>
 <script type="module">
-// Write your code here.
+// Write your code here
 </script>
 </html>
 ```
