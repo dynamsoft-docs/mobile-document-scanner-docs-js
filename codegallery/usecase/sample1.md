@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Camera - Use Cases - Sample1
-keywords: Documentation, Document Web Capture from Mobile Camera, Use Cases, Sample1
-breadcrumbText: Sample1
-description: Document Web Capture from Mobile Camera Documentation Use Cases Sample1
+title: Document Web Capture from Mobile Camera - Use Cases - Review and Adjust the detected boundaries
+keywords: Documentation, Document Web Capture from Mobile Camera, Use Cases, Review and Adjust the detected boundaries
+breadcrumbText: Review and Adjust the detected boundaries
+description: Document Web Capture from Mobile Camera Documentation Use Cases Review and Adjust the detected boundaries
 permalink: /codegallery/usecases/sample1.html
 ---
 

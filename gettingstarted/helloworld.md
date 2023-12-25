@@ -277,7 +277,10 @@ document.getElementById("restore").onclick = () => {
 
 ## Download the whole project
 
-
+- Hello World - [Github]() \| [Run]()
+- Angular App - [Github]() \| [Run]()
+- React App - [Github]() \| [Run]()
+- Vue App - [Github]() \| [Run]()
 
 ## More use cases
 
@@ -285,4 +288,4 @@ We provide some samples which demonstrate the popular use cases, for example, re
 
 Please refer to the [Use Case]({{ site.codegallery }}usecases/index.html) section.
 
-## [Demo]({{ site.codegallery }}demo/index.html)
+<!-- ## [Demo]({{ site.codegallery }}demo/index.html) -->
