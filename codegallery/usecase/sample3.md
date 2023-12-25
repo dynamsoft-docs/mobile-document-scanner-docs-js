@@ -34,7 +34,7 @@ We’ll build on this skeleton page:
 <body>
 </body>
 <script type="module">
-// Write your code here.
+// Write your code here
 </script>
 </html>
 ```
@@ -136,7 +136,7 @@ To capture images, we need to create a capture viewer.
                     },
                     {
                         // Bind click event to "ImagePreview" element
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.ImagePreview,
                         events: { 
                             click: "showPerspectiveViewer" 
@@ -183,18 +183,18 @@ To capture images, we need to create a capture viewer.
                 className: "ddv-perspective-viewer-header-mobile",
                 children: [
                     {   
-                        // Add a "Back" button in perspective viewer's header and bind the event to go back to capture viewer.
-                        // The event will be registered later.
+                        // Add a "Back" button in perspective viewer's header and bind the event to go back to capture viewer
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.Button,
                         className: "ddv-button-back",
                         events:{
-                            click: "backtoCaptureViewer"
+                            click: "backToCaptureViewer"
                         }
                     },
                     Dynamsoft.DDV.Elements.Pagination,
                     {
                         // Bind event for "PerspectiveAll" button to show the edit viewer
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.PerspectiveAll,
                         events:{
                             click: "showEditViewer"
@@ -257,10 +257,11 @@ To review and edit the captured images, we create an edit viewer.
                 children: [
                     {
                         // Add a "Back" buttom to header and bind click event to go back to the perspective viewer
-                        // The event will be registered later.
-                        type: Dynamsoft.DDV.Elements.Back,
+                        // The event will be registered later
+                        type: Dynamsoft.DDV.Elements.Button,
+                        className: "ddv-button-back",
                         events: {
-                            click: "backtoPerspectiveViewer"
+                            click: "backToPerspectiveViewer"
                         },
                     },
                     Dynamsoft.DDV.Elements.Pagination,
@@ -343,7 +344,7 @@ To review and edit the captured images, we create an edit viewer.
 - Register an event in `perspectiveViewer` to go back the capture viewer.
 
     ```javascript
-    perspectiveViewer.on("backtoCaptureViewer",() => {
+    perspectiveViewer.on("backToCaptureViewer",() => {
         switchViewer(1,0,0);
     });    
     ```
@@ -351,7 +352,7 @@ To review and edit the captured images, we create an edit viewer.
 - Register an event in `editViewer` to go back the perspective viewer.
 
     ```javascript
-    editViewer.on("backtoPerspectiveViewer",() => {
+    editViewer.on("backToPerspectiveViewer",() => {
         switchViewer(0,1,0);
     });    
     ```
@@ -423,7 +424,7 @@ To review and edit the captured images, we create an edit viewer.
                     },
                     {
                         // Bind click event to "ImagePreview" element
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.ImagePreview,
                         events: { 
                             click: "showPerspectiveViewer" 
@@ -460,18 +461,18 @@ To review and edit the captured images, we create an edit viewer.
                 className: "ddv-perspective-viewer-header-mobile",
                 children: [
                     {   
-                        // Add a "Back" button in perspective viewer's header and bind the event to go back to capture viewer.
-                        // The event will be registered later.
+                        // Add a "Back" button in perspective viewer's header and bind the event to go back to capture viewer
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.Button,
                         className: "ddv-button-back",
                         events:{
-                            click: "backtoCaptureViewer"
+                            click: "backToCaptureViewer"
                         }
                     },
                     Dynamsoft.DDV.Elements.Pagination,
                     {
                         // Bind event for "PerspectiveAll" button to show the edit viewer
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.PerspectiveAll,
                         events:{
                             click: "showEditViewer"
@@ -516,10 +517,11 @@ To review and edit the captured images, we create an edit viewer.
                 children: [
                     {
                         // Add a "Back" buttom to header and bind click event to go back to the perspective viewer
-                        // The event will be registered later.
-                        type: Dynamsoft.DDV.Elements.Back,
+                        // The event will be registered later
+                        type: Dynamsoft.DDV.Elements.Button,
+                        className: "ddv-button-back",
                         events: {
-                            click: "backtoPerspectiveViewer"
+                            click: "backToPerspectiveViewer"
                         },
                     },
                     Dynamsoft.DDV.Elements.Pagination,
@@ -550,23 +552,23 @@ To review and edit the captured images, we create an edit viewer.
         uiConfig: newEditViewerUiConfig, // Configure the new UiConfig
     });
 
-    // Register an event in `captureViewer` to show the perspective viewer.
+    // Register an event in `captureViewer` to show the perspective viewer
     captureViewer.on("showPerspectiveViewer",() => {
         viewerSwitch(0,1,0);
     });
 
-    // Register an event in `perspectiveViewer` to show the edit viewer.
+    // Register an event in `perspectiveViewer` to show the edit viewer
     perspectiveViewer.on("showEditViewer",() => {
         switchViewer(0,0,1)
     });    
 
-    // Register an event in `perspectiveViewer` to go back the capture viewer.
-    perspectiveViewer.on("backtoCaptureViewer",() => {
+    // Register an event in `perspectiveViewer` to go back the capture viewer
+    perspectiveViewer.on("backToCaptureViewer",() => {
         switchViewer(1,0,0);
     });    
 
-    // Register an event in `editViewer` to go back the perspective viewer.
-    editViewer.on("backtoPerspectiveViewer",() => {
+    // Register an event in `editViewer` to go back the perspective viewer
+    editViewer.on("backToPerspectiveViewer",() => {
         switchViewer(0,1,0);
     });    
 

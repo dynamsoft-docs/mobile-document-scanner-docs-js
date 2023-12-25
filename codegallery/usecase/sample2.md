@@ -34,7 +34,7 @@ We’ll build on this skeleton page:
 <body>
 </body>
 <script type="module">
-// Write your code here.
+// Write your code here
 </script>
 </html>
 ```
@@ -143,7 +143,7 @@ To capture images, we need to create a capture viewer.
                     },
                     {
                         // Bind click event to "ImagePreview" element
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.ImagePreview,
                         events: { 
                             click: "showEditViewer" 
@@ -180,7 +180,7 @@ To capture images, we need to create a capture viewer.
 To review and edit the captured images, we create an edit viewer. 
 
 - Customize the capture viewer `UiConfig` based on the [default one](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/default_ui.html#edit-viewer) to implement the workflow.
-    - Add a "Back" buttom to header and bind click event to go back the capture viewer
+    - Add a "Back" button to header and bind click event to go back the capture viewer
     ```javascript
     const newEditViewerUiConfig = {
         type: Dynamsoft.DDV.Elements.Layout,
@@ -192,11 +192,11 @@ To review and edit the captured images, we create an edit viewer.
                 className: "ddv-edit-viewer-header-mobile",
                 children: [
                     {
-                        // Add a "Back" buttom to header and bind click event to go back to the capture viewer
-                        // The event will be registered later.
+                        // Add a "Back" button to header and bind click event to go back to the capture viewer
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.Back,
                         events: {
-                            click: "backtoCaptureViewer"
+                            click: "backToCaptureViewer"
                         },
                     },
                     Dynamsoft.DDV.Elements.Pagination,
@@ -258,7 +258,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
 - Register an event in `editViewer` to go back the capture viewer
 
     ```javascript
-    editViewer.on("backtoCaptureViewer",() => {
+    editViewer.on("backToCaptureViewer",() => {
         captureViewer.show();
         editViewer.hide();
         captureViewer.play({
@@ -334,7 +334,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
                     },
                     {
                         // Bind click event to "ImagePreview" element
-                        // The event will be registered later.
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.ImagePreview,
                         events: { 
                             click: "showEditViewer" 
@@ -372,11 +372,11 @@ Since the workflow in this sample is very simple, only the two events mentioned 
                 className: "ddv-edit-viewer-header-mobile",
                 children: [
                     {
-                        // Add a "Back" buttom to header and bind click event to go back the capture viewer
-                        // The event will be registered later.
+                        // Add a "Back" button to header and bind click event to go back the capture viewer
+                        // The event will be registered later
                         type: Dynamsoft.DDV.Elements.Back,
                         events: {
-                            click: "backtoCaptureViewer"
+                            click: "backToCaptureViewer"
                         },
                     },
                     Dynamsoft.DDV.Elements.Pagination,
@@ -419,7 +419,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
     });
 
     // Register an event in `editViewer` to go back the capture viewer
-    editViewer.on("backtoCaptureViewer",() => {
+    editViewer.on("backToCaptureViewer",() => {
         captureViewer.show();
         editViewer.hide();
         captureViewer.play({
