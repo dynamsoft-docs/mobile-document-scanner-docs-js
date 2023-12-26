@@ -135,11 +135,17 @@ Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
 
 ## Configure document boundaries function
 
-Since the related configuration code is packaged in `utils.js`, only need to call the following function.
+- Step one: The related configuration code is packaged in `utils.js`, so it should be imported.
 
-```javascript
-await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
-```
+    ```javascript
+    import { isMobile, initDocDetectModule } from "./utils.js";
+    ```
+
+- Step two: Call the following function.
+
+    ```javascript
+    await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
+    ```
 
 ## Create a capture viewer
 
@@ -197,7 +203,7 @@ document.getElementById("restore").onclick = () => {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DWC from Mobile Camera HelloWorld</title>
-    <link rel="stylesheet" href="../Resources/ddv.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -214,61 +220,67 @@ document.getElementById("restore").onclick = () => {
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/.../utils.js"></script>
 <script type="module">
-    // Initialize DDV
-    await Dynamsoft.DDV.setConfig({
-        license: "*******",
-        engineResourcePath: "********",
-    });
+    import { isMobile, initNormalizedModule } from "./utils.js";
 
-    // Initialize DDN
-    Dynamsoft.License.LicenseManager.initLicense("********************");
-    Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+    (async () => {
+        // Initialize DDV
+        await Dynamsoft.DDV.setConfig({
+            license: "*******",
+            engineResourcePath: "********",
+        });
 
-    // Configure document boundaries function
-    await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
+        // Initialize DDN
+        Dynamsoft.License.LicenseManager.initLicense("********************");
+        Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
 
-    //Create a capture viewer
-    const captureViewer = new Dynamsoft.DDV.CaptureViewer({
-        container: "container",
-        viewerConfig: {
-            acceptedPolygonConfidence: 60,
-            enableAutoCapture: true,
-            enableAutoDetect: true
-        }
-    });
-    // Play video stream in 1080P
-    captureViewer.play({ 
-        resolution: [1920,1080],
-    });
+        // Configure document boundaries function
+        await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
 
-    // Display the result image
-    captureViewer.on("captured", async (e) => {
-        // Stop video stream and hide capture viewer's container
-        captureViewer.stop();
-        document.getElementById("container").style.display = "none";
-
-        const pageData =  await captureViewer.currentDocument.getPageData(e.pageUid);
-        // Original image
-        document.getElementById("original").src = URL.createObjectURL(pageData.raw.data); 
-        // Normalized image
-        document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data); 
-    });
-
-    // Restore Button function
-    document.getElementById("restore").onclick = () => {
-        captureViewer.currentDocument.deleteAllPages();
-        captureViewer.play({
+        //Create a capture viewer
+        const captureViewer = new Dynamsoft.DDV.CaptureViewer({
+            container: "container",
+            viewerConfig: {
+                acceptedPolygonConfidence: 60,
+                enableAutoCapture: true,
+                enableAutoDetect: true
+            }
+        });
+        // Play video stream in 1080P
+        captureViewer.play({ 
             resolution: [1920,1080],
         });
-        document.getElementById("container").style.display = "";
-    };
+
+        // Display the result image
+        captureViewer.on("captured", async (e) => {
+            // Stop video stream and hide capture viewer's container
+            captureViewer.stop();
+            document.getElementById("container").style.display = "none";
+
+            const pageData =  await captureViewer.currentDocument.getPageData(e.pageUid);
+            // Original image
+            document.getElementById("original").src = URL.createObjectURL(pageData.raw.data); 
+            // Normalized image
+            document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data); 
+        });
+
+        // Restore Button function
+        document.getElementById("restore").onclick = () => {
+            captureViewer.currentDocument.deleteAllPages();
+            captureViewer.play();
+            document.getElementById("container").style.display = "";
+        };
+    })();
 </script>
 </html>
 ```
 
 ## Download the whole project
+
+- Hello World - [Github]() \| [Run]()
+- Angular App - [Github]() \| [Run]()
+- React App - [Github]() \| [Run]()
+- Vue App - [Github]() \| [Run]()
 
 ## More use cases
 
@@ -276,4 +288,4 @@ We provide some samples which demonstrate the popular use cases, for example, re
 
 Please refer to the [Use Case]({{ site.codegallery }}usecases/index.html) section.
 
-## [Demo]({{ site.codegallery }}demo/index.html)
+<!-- ## [Demo]({{ site.codegallery }}demo/index.html) -->

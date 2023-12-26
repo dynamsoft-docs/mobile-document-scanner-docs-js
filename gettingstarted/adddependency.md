@@ -16,7 +16,7 @@ To build the solution, we need to include four packages
 
 1. `dynamsoft-document-viewer`: Required, it provides functions to create the viewers.
 2. `dynamsoft-core`: Required, it includes `LicenseManager` class for `dynamsoft-document-normalizer`.
-3. `dynamsoft-document-normalizer`: Required, it provides functions to detect boundaries or perform normalization.
+3. `dynamsoft-document-normalizer`: Required, it provides functions to detect boundaries.
 4. `dynamsoft-capture-vision-router`: Required, it defines the class `CaptureVisionRouter`, which controls the whole process.
 
 ## Use a CDN

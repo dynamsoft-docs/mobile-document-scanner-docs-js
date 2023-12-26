@@ -6,7 +6,7 @@ noTitleIndex: true
 title: Document Web Capture from Mobile Camera - Use Cases
 keywords: Documentation, Document Web Capture from Mobile Camera, Use Cases
 breadcrumbText: Use Cases
-description: Document Web Capture from Mobile Camera Documentation Use Cases Sample1
+description: Document Web Capture from Mobile Camera Documentation Use Cases 
 permalink: /codegallery/usecases/index.html
 ---
 
