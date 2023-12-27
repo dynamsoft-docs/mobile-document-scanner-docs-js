@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Camera - Use Cases - Relatively complete document capturing workflow
-keywords: Documentation, Document Web Capture from Mobile Camera, Use Cases, Relatively complete document capturing workflow
+title: Document Web Capture from Mobile Cameras - Use Cases - Relatively complete document capturing workflow
+keywords: Documentation, Document Web Capture from Mobile Cameras, Use Cases, Relatively complete document capturing workflow
 breadcrumbText: Relatively complete document capturing workflow
-description: Document Web Capture from Mobile Camera Documentation Use Cases Relatively complete document capturing workflow
+description: Document Web Capture from Mobile Cameras Documentation Use Cases Relatively complete document capturing workflow
 permalink: /codegallery/usecases/sample3.html
 ---
 
@@ -29,7 +29,7 @@ We’ll build on this skeleton page:
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DWC from Mobile Camera - Relatively complete document capturing workflow</title>
+    <title>DWC from Mobile Cameras - Relatively complete document capturing workflow</title>
 </head>
 <body>
 </body>
@@ -372,7 +372,7 @@ To review and edit the captured images, we create an edit viewer.
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DWC from Mobile Camera - Relatively complete document capturing workflow</title>
+    <title>DWC from Mobile Cameras - Relatively complete document capturing workflow</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>

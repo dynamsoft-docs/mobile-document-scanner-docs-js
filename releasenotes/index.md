@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Camera - Release Notes
-keywords: Documentation, Document Web Capture from Mobile Camera, Release Notes
+title: Document Web Capture from Mobile Cameras - Release Notes
+keywords: Documentation, Document Web Capture from Mobile Cameras, Release Notes
 breadcrumbText: Release Notes
-description: Document Web Capture from Mobile Camera Documentation Release Notes
+description: Document Web Capture from Mobile Cameras Documentation Release Notes
 permalink: /releasenotes/index.html
 ---
 
@@ -16,5 +16,5 @@ permalink: /releasenotes/index.html
 
 Includes
 
-- [Dynamsoft Document Viewer Javascript Edition 1.0.0]()
+- [Dynamsoft Document Viewer Javascript Edition 1.0.0](https://www.dynamsoft.com/document-viewer/docs/releasenotes/index.html)
 - [Dynamsoft Document Normalizer Javascript Edition 2.0.11](https://www.dynamsoft.com/document-normalizer/docs/web/programming/javascript/release-notes/javascript-2.html#2011-08242023)
