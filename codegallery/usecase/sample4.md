@@ -59,7 +59,7 @@ For this sample, we define below element.
 `index.css` defines the style of elements which is in this sample.
 
 ```html
-<link rel="stylesheet" href="../Resources/ddv.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
 <link rel="stylesheet" href="./index.css">
 ```
 
@@ -89,23 +89,17 @@ html,body {
 ```javascript
 // Initialize DDV
 await Dynamsoft.DDV.setConfig({
-    license: "*******",
-    engineResourcePath: "*******",
+    license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+    engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",
 });
 
 // Initialize DDN
-Dynamsoft.License.LicenseManager.initLicense("*******");
+Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
 Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+
+const router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
+router.maxCvsSideLength = 99999;
 ```
-
-<!-- ## Configure document boundaries function
-
-Since the related configuration code is packaged in `utils.js`, only need to call the following function.
-
-```javascript
-const input = document.createElement("input");
-await ...
-``` -->
 
 ## Create a perspective viewer
 
@@ -172,31 +166,53 @@ To review the detected boundaries on the loaded image(s), we will create a persp
     });
     ```
 
+- Create a document and open it in the perspective viewer
+
+    ```javascript
+    const doc = Dynamsoft.DDV.documentManager.createDocument();
+    perspectiveViewer.openDocument(doc.uid);
+    ```
+
+## Configure image input function with document boundaries detection
+
+- Step one: The related function code is packaged in `utils.js`, so it should be imported.
+
+```javascript
+import { isMobile, createFileInput } from "./utils.js";
+```
+
+- Step two: Create the following function
+
+```javascript
+const loadImageInput = createFileInput(perspectiveViewer, router);
+```
+
 ## Configure the workflow
 
 Since the workflow in this sample is very simple, only the two events mentioned above need to be registered.
 
 - Register an event in `perspectiveViewer` to add existing image(s).
 
-```javascript
-perspectiveViewer.on("addNew",() => {
-    ......
-});
-```
+    ```javascript
+    perspectiveViewer.on("addNew",() => {
+        delete loadImageInput.files;
+        loadImageInput.click();
+    });
+    ```
 
 - Register an event in `perspectiveViewer` to download the result image(s) in PDF format.
 
-```javascript
-perspectiveViewer.on("downloadPDF",() => {
-    perspectiveViewer.currentDocument.saveToPdf().then((blob) => {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `test.pdf`;
-        a.click();
+    ```javascript
+    perspectiveViewer.on("downloadPDF",() => {
+        perspectiveViewer.currentDocument.saveToPdf({mimeType:"application/octet-stream"}).then((blob) => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `test.pdf`;
+            a.click();
+        });
     });
-});
-```
+    ```
 
 ## Review the complete code
 
@@ -208,7 +224,7 @@ perspectiveViewer.on("downloadPDF",() => {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DWC from Mobile Camera - Detect boundaries on the existing images</title>
-    <link rel="stylesheet" href="../Resources/ddv.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -218,86 +234,93 @@ perspectiveViewer.on("downloadPDF",() => {
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/.../utils.js"></script>
 <script type="module">
-    // Initialize DDV
-    await Dynamsoft.DDV.setConfig({
-        license: "*******",
-        engineResourcePath: "********",
-    });
+    import { isMobile, createFileInput } from "./utils.js";
 
-    // Initialize DDN
-    Dynamsoft.License.LicenseManager.initLicense("********************");
-    Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
-
-    // Define new UiConfig for perspecitve viewer
-    const newPerspectiveUiConfig = {
-        type: Dynamsoft.DDV.Elements.Layout,
-        flexDirection: "column",
-        children: [
-            {
-                type: Dynamsoft.DDV.Elements.Layout,
-                className: "ddv-perspective-viewer-header-mobile",
-                children: [
-                    Dynamsoft.DDV.Elements.Blank,
-                    Dynamsoft.DDV.Elements.Pagination,
-                    {
-                        // Bind event for "PerspectiveAll" button
-                        // The event will be registered later
-                        type: Dynamsoft.DDV.Elements.PerspectiveAll,
-                        events: {
-                            click: "downloadPDF"
-                        }
-                    }
-                ],
-            },
-            Dynamsoft.DDV.Elements.MainView,
-            {
-                type: Dynamsoft.DDV.Elements.Layout,
-                className: "ddv-perspective-viewer-footer-mobile",
-                children: [
-                    Dynamsoft.DDV.Elements.FullQuad,
-                    Dynamsoft.DDV.Elements.RotateLeft,
-                    {
-                        // Replace the default "RotateRight" button with an "AddNew" button in perspective viewer's footer and bind event to the new button
-                        // The event will be registered later
-                        type: Dynamsoft.DDV.Elements.Button,
-                        className: "ddv-load-image2 addNewButton", 
-                        events: {
-                            click: "addNew"
-                        }
-                    }
-                    Dynamsoft.DDV.Elements.DeleteCurrent,
-                    Dynamsoft.DDV.Elements.DeleteAll,
-                ],
-            },
-        ],
-    };
-
-    // Create a perspective viewer
-    const perspectiveViewer = new Dynamsoft.DDV.PerspectiveViewer({
-        container: "container",
-        uiConfig: newPerspectiveUiConfig, // Configure the new UiConfig
-        viewerConfig: {
-            scrollToLatest: true, // Navigate to the latest image automatically
-        }
-    });
-
-    // Register an event in `perspectiveViewer` to add existing image(s)
-    perspectiveViewer.on("addNew",() => {
-        ......
-    });
-
-    // Register an event in `perspectiveViewer` to download the result image(s) in PDF format
-    perspectiveViewer.on("downloadPDF",() => {
-        perspectiveViewer.currentDocument.saveToPdf().then((blob) => {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = `test.pdf`;
-            a.click();
+    (async () => {
+        // Initialize DDV
+        await Dynamsoft.DDV.setConfig({
+            license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+            engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/engine",
         });
-    });
+
+        // Initialize DDN
+        Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
+        Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+
+        const router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
+        router.maxCvsSideLength = 99999;
+
+        // Define new UiConfig for perspecitve viewer
+        const newPerspectiveUiConfig = {
+            type: Dynamsoft.DDV.Elements.Layout,
+            flexDirection: "column",
+            children: [
+                {
+                    type: Dynamsoft.DDV.Elements.Layout,
+                    className: "ddv-perspective-viewer-header-mobile",
+                    children: [
+                        Dynamsoft.DDV.Elements.Blank,
+                        Dynamsoft.DDV.Elements.Pagination,
+                        {
+                            // Bind event for "PerspectiveAll" button
+                            // The event will be registered later
+                            type: Dynamsoft.DDV.Elements.PerspectiveAll,
+                            events: {
+                                click: "downloadPDF"
+                            }
+                        }
+                    ],
+                },
+                Dynamsoft.DDV.Elements.MainView,
+                {
+                    type: Dynamsoft.DDV.Elements.Layout,
+                    className: "ddv-perspective-viewer-footer-mobile",
+                    children: [
+                        Dynamsoft.DDV.Elements.FullQuad,
+                        Dynamsoft.DDV.Elements.RotateLeft,
+                        {
+                            // Replace the default "RotateRight" button with an "AddNew" button in perspective viewer's footer and bind event to the new button
+                            // The event will be registered later
+                            type: Dynamsoft.DDV.Elements.Button,
+                            className: "ddv-load-image2 addNewButton", 
+                            events: {
+                                click: "addNew"
+                            }
+                        }
+                        Dynamsoft.DDV.Elements.DeleteCurrent,
+                        Dynamsoft.DDV.Elements.DeleteAll,
+                    ],
+                },
+            ],
+        };
+
+        // Create a perspective viewer
+        const perspectiveViewer = new Dynamsoft.DDV.PerspectiveViewer({
+            container: "container",
+            uiConfig: newPerspectiveUiConfig, // Configure the new UiConfig
+            viewerConfig: {
+                scrollToLatest: true, // Navigate to the latest image automatically
+            }
+        });
+
+        // Register an event in `perspectiveViewer` to add existing image(s)
+        perspectiveViewer.on("addNew",() => {
+            delete loadImageInput.files;
+            loadImageInput.click();
+        });
+
+        // Register an event in `perspectiveViewer` to download the result image(s) in PDF format
+        perspectiveViewer.on("downloadPDF",() => {
+            perspectiveViewer.currentDocument.saveToPdf({mimeType:"application/octet-stream"}).then((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `test.pdf`;
+                a.click();
+            });
+        });
+    })();
 </script>
 </html>
 ```

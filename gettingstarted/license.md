@@ -28,9 +28,9 @@ The following code snippets are using the public trial license to initialize the
 ```javascript
 // DDV license initialization
 await Dynamsoft.DDV.setConfig({
-    license: "*Your-License-String*",
-    engineResourcePath: "*lead to a folder containing the distributed WASM files*",
+    license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", // Public trial license which is valid for 24 hours
+    engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",// lead to a folder containing the distributed WASM files
 });
 // DDN license initialization
-Dynamsoft.License.LicenseManager.initLicense("*Your-License-String*");
+Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9"); // Public trial license which is valid for 24 hours
 ```
