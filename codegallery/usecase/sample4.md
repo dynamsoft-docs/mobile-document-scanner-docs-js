@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Camera - Use Cases - Detect boundaries on the existing images
-keywords: Documentation, Document Web Capture from Mobile Camera, Use Cases, Detect boundaries on the existing images
+title: Document Web Capture from Mobile Cameras - Use Cases - Detect boundaries on the existing images
+keywords: Documentation, Document Web Capture from Mobile Cameras, Use Cases, Detect boundaries on the existing images
 breadcrumbText: Detect boundaries on the existing images
-description: Document Web Capture from Mobile Camera Documentation Use Cases Detect boundaries on the existing images
+description: Document Web Capture from Mobile Cameras Documentation Use Cases Detect boundaries on the existing images
 permalink: /codegallery/usecases/sample4.html
 ---
 
@@ -29,7 +29,7 @@ We’ll build on this skeleton page:
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DWC from Mobile Camera - Detect boundaries on the existing images</title>
+    <title>DWC from Mobile Cameras - Detect boundaries on the existing images</title>
 </head>
 <body>
 </body>
@@ -223,7 +223,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DWC from Mobile Camera - Detect boundaries on the existing images</title>
+    <title>DWC from Mobile Cameras - Detect boundaries on the existing images</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
