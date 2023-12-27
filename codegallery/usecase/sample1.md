@@ -24,7 +24,7 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
 
 ## Create a perspective viewer
 
-- Customize the viewer's `UiConfig` based on the [default one](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/default_ui.html#perspective-viewer) to implement the workflow.
+- Customize the viewer's `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#perspective-viewer) to implement the workflow.
 
     ```javascript
     const newPerspectiveUiConfig = {
@@ -386,4 +386,4 @@ Sometimes, you may want to add some auxiliary text to icons to show better user 
 
 ### Refer to
 
-- [Customize Elements' Display Text](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/customize/elements.html#display-text)
+- [Customize Elements' Display Text](https://www.dynamsoft.com/document-viewer/docs/ui/customize/elements.html#display-text)

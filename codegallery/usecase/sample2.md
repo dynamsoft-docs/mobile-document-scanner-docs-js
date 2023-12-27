@@ -118,7 +118,7 @@ Dynamsoft.DDV.setProcessingHandler("imageFilter", new Dynamsoft.DDV.ImageFilter(
 
 To capture images, we need to create a capture viewer.
 
-- Customize the capture viewer `UiConfig` based on the [default one](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/default_ui.html#capture-viewer) to implement the workflow.
+- Customize the capture viewer `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#capture-viewer) to implement the workflow.
     - Bind click event to "ImagePreview" element to show the edit viewer
     ```javascript
     const newCaptureViewerUiConfig = {
@@ -185,7 +185,7 @@ To capture images, we need to create a capture viewer.
 
 To review and edit the captured images, we create an edit viewer. 
 
-- Customize the capture viewer `UiConfig` based on the [default one](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/default_ui.html#edit-viewer) to implement the workflow.
+- Customize the capture viewer `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#edit-viewer) to implement the workflow.
     - Add a "Back" button to header and bind click event to go back the capture viewer
     ```javascript
     const newEditViewerUiConfig = {
@@ -452,4 +452,4 @@ Sometimes, you may want to add some auxiliary text to icons to show better user 
 
 ### Refer to
 
-- [Customize Elements' Display Text](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/customize/elements.html#display-text)
+- [Customize Elements' Display Text](https://www.dynamsoft.com/document-viewer/docs/ui/customize/elements.html#display-text)
