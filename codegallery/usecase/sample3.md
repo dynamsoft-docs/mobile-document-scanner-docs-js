@@ -58,7 +58,7 @@ Please refer to [Adding the dependency]({{ site.gettingstarted }}add_dependency.
 
 `index.css` content:
 
-```css
+```html
 html,body {
     width: 100%;
     height: 100%;
