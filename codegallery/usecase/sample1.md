@@ -14,7 +14,7 @@ permalink: /codegallery/usecases/sample1.html
 
 This sample adds a perspective viewer based on HelloWorld solution to review and adjust the detected boundaries on the captured image.
 
-Check out [this sample]()
+[Check out it online](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/review-adjust-detected-boundaries/)
 
 In this sample, we would like to achieve the workflow as below.
 
@@ -113,9 +113,7 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
     function viewerSwitch(capture, perspective){
         if(capture) {
             captureViewer.show();
-            captureViewer.play({
-                resolution: [1920,1080],               
-            });
+            captureViewer.play();
         } else {
             captureViewer.hide();
             captureViewer.stop();
@@ -355,9 +353,7 @@ document.getElementById("restore").onclick = () => {
         function viewerSwitch(capture, perspective){
             if(capture) {
                 captureViewer.show();
-                captureViewer.play({
-                    resolution: [1920,1080],                
-                });
+                captureViewer.play();
             } else {
                 captureViewer.hide();
                 captureViewer.stop();
@@ -375,6 +371,8 @@ document.getElementById("restore").onclick = () => {
 ```
 
 ## Download the whole project
+
+[Github](https://github.com/Dynamsoft/DocWebCapture-MobileCam/tree/master/samples/review-adjust-detected-boundaries) \| [Run](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/review-adjust-detected-boundaries/)
 
 Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 
