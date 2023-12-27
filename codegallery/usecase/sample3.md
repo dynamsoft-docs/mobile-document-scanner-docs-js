@@ -14,7 +14,7 @@ permalink: /codegallery/usecases/sample3.html
 
 This sample demonstrates a relatively complete document capturing workflow: Capture continuously & Review and Adjust the detected boundaries & Edit result images.
 
-Check out [this sample]()
+[Check out it online](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/relatively-complete-doc-capturing-workflow/)
 
 In this sample, we would like to achieve the workflow as below.
 
@@ -111,7 +111,7 @@ Dynamsoft.DDV.setProcessingHandler("imageFilter", new Dynamsoft.DDV.ImageFilter(
 
 To capture images, we need to create a capture viewer.
 
-- Customize the capture viewer `UiConfig` based on the [default one](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/default_ui.html#capture-viewer) to implement the workflow.
+- Customize the capture viewer `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#capture-viewer) to implement the workflow.
     - Bind click event to "ImagePreview" element to show the perspective viewer
     ```javascript
     const newCaptureViewerUiConfig = {
@@ -176,7 +176,7 @@ To capture images, we need to create a capture viewer.
 
 ## Create a perspective viewer
 
-- Customize the viewer's `UiConfig` based on the [default one](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/default_ui.html#perspective-viewer) to implement the workflow.
+- Customize the viewer's `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#perspective-viewer) to implement the workflow.
     - Add a "Back" buttom to header and bind click event to go back to the capture viewer
     - Bind click event to "PerspectiveAll" button to show the edit viewer
     ```javascript
@@ -249,7 +249,7 @@ To capture images, we need to create a capture viewer.
 
 To review and edit the captured images, we create an edit viewer. 
 
-- Customize the capture viewer `UiConfig` based on the [default one](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/default_ui.html#edit-viewer) to implement the workflow.
+- Customize the capture viewer `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#edit-viewer) to implement the workflow.
     - Add a "Back" buttom to header and bind click event to go back the perspective viewer
     ```javascript
     const newEditViewerUiConfig = {
@@ -320,9 +320,7 @@ To review and edit the captured images, we create an edit viewer.
         editViewer.hide();
         if(capture) {
             captureViewer.show();
-            captureViewer.play({
-                resolution: [1920,1080],
-            });
+            captureViewer.play();
         } else {
             captureViewer.stop();
         }
@@ -587,9 +585,7 @@ To review and edit the captured images, we create an edit viewer.
             editViewer.hide();
             if(capture) {
                 captureViewer.show();
-                captureViewer.play({
-                    resolution: [1920,1080],
-                });
+                captureViewer.play();
             } else {
                 captureViewer.stop();
             }
@@ -602,6 +598,8 @@ To review and edit the captured images, we create an edit viewer.
 
 ## Download the whole project
 
+[Github](https://github.com/Dynamsoft/DocWebCapture-MobileCam/tree/master/samples/relatively-complete-doc-capturing-workflow) \| [Run](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/relatively-complete-doc-capturing-workflow/)
+
 Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 
 `UiConfig` part is organized into `uiConfig.js` and referenced in the core code to minimize the length of the core code.
@@ -613,4 +611,4 @@ Sometimes, you may want to add some auxiliary text to icons to show better user 
 
 ### Refer to
 
-- [Customize Elements' Display Text](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/customize/elements.html#display-text)
+- [Customize Elements' Display Text](https://www.dynamsoft.com/document-viewer/docs/ui/customize/elements.html#display-text)

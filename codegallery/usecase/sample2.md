@@ -14,7 +14,7 @@ permalink: /codegallery/usecases/sample2.html
 
 This sample demonstrates the use case to capture continuously and edit the result images before exporting.
 
-Check out [this sample]()
+[Check out it online](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/capture-continuously-edit-result-images/)
 
 In this sample, we would like to achieve the workflow as below.
 
@@ -118,7 +118,7 @@ Dynamsoft.DDV.setProcessingHandler("imageFilter", new Dynamsoft.DDV.ImageFilter(
 
 To capture images, we need to create a capture viewer.
 
-- Customize the capture viewer `UiConfig` based on the [default one](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/default_ui.html#capture-viewer) to implement the workflow.
+- Customize the capture viewer `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#capture-viewer) to implement the workflow.
     - Bind click event to "ImagePreview" element to show the edit viewer
     ```javascript
     const newCaptureViewerUiConfig = {
@@ -185,7 +185,7 @@ To capture images, we need to create a capture viewer.
 
 To review and edit the captured images, we create an edit viewer. 
 
-- Customize the capture viewer `UiConfig` based on the [default one](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/default_ui.html#edit-viewer) to implement the workflow.
+- Customize the capture viewer `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#edit-viewer) to implement the workflow.
     - Add a "Back" button to header and bind click event to go back the capture viewer
     ```javascript
     const newEditViewerUiConfig = {
@@ -267,9 +267,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
     editViewer.on("backToCaptureViewer",() => {
         captureViewer.show();
         editViewer.hide();
-        captureViewer.play({
-            resolution: [1920,1080],
-        });
+        captureViewer.play();
     });
     ```
 
@@ -430,9 +428,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
         editViewer.on("backToCaptureViewer",() => {
             captureViewer.show();
             editViewer.hide();
-            captureViewer.play({
-                resolution: [1920,1080],
-            });
+            captureViewer.play();
         });
     })();
 </script>
@@ -440,6 +436,8 @@ Since the workflow in this sample is very simple, only the two events mentioned 
 ```
 
 ## Download the whole project
+
+[Github](https://github.com/Dynamsoft/DocWebCapture-MobileCam/tree/master/samples/capture-continuously-edit-result-images) \| [Run](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/capture-continuously-edit-result-images/)
 
 Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 
@@ -452,4 +450,4 @@ Sometimes, you may want to add some auxiliary text to icons to show better user 
 
 ### Refer to
 
-- [Customize Elements' Display Text](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/customize/elements.html#display-text)
+- [Customize Elements' Display Text](https://www.dynamsoft.com/document-viewer/docs/ui/customize/elements.html#display-text)

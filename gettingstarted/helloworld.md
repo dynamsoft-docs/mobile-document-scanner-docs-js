@@ -14,7 +14,7 @@ permalink: /gettingstarted/helloworld.html
 
 In this section, we’ll break down and show all the steps needed to build the HelloWorld solution in a web page.
 
-- Check out [HelloWorld]()
+- Check out [HelloWorld](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/hello-world/hello-world/) online
 
 We’ll build on this skeleton page:
 
@@ -186,9 +186,7 @@ For now, we finish the main workflow for HelloWorld, can add the restore functio
 ```javascript
 document.getElementById("restore").onclick = () => {
     captureViewer.currentDocument.deleteAllPages();
-    captureViewer.play({
-        resolution: [1920,1080],
-    });
+    captureViewer.play();
     document.getElementById("container").style.display = "";
 };
 ```
@@ -277,10 +275,10 @@ document.getElementById("restore").onclick = () => {
 
 ## Download the whole project
 
-- Hello World - [Github]() \| [Run]()
-- Angular App - [Github]() \| [Run]()
-- React App - [Github]() \| [Run]()
-- Vue App - [Github]() \| [Run]()
+- Hello World - [Github](https://github.com/Dynamsoft/DocWebCapture-MobileCam/tree/master/samples/hello-world/hello-world) \| [Run](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/hello-world/hello-world/)
+  - Angular App - [Github](https://github.com/Dynamsoft/DocWebCapture-MobileCam/tree/master/samples/hello-world/hello-world-angular) \| [Run](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/hello-world/hello-world-angular/)
+  - React App - [Github](https://github.com/Dynamsoft/DocWebCapture-MobileCam/tree/master/samples/hello-world/hello-world-react) \| [Run](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/hello-world/hello-world-react/)
+  - Vue3 App - [Github](https://github.com/Dynamsoft/DocWebCapture-MobileCam/tree/master/samples/hello-world/hello-world-vue3) \| [Run](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/hello-world/hello-world-vue3/)
 
 ## More use cases
 

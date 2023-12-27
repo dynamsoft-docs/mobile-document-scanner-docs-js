@@ -14,7 +14,7 @@ permalink: /codegallery/usecases/sample4.html
 
 This sample demonstrates how to detect the boundaries on the existing images which are from local directory/album. 
 
-Check out [this sample]()
+[Check out it online](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/detect-boundaries-on-existing-images/)
 
 In this sample, we would like to achieve the workflow as below.
 
@@ -327,6 +327,8 @@ Since the workflow in this sample is very simple, only the two events mentioned 
 
 ## Download the whole project
 
+[Github](https://github.com/Dynamsoft/DocWebCapture-MobileCam/tree/master/samples/detect-boundaries-on-existing-images) \| [Run](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/detect-boundaries-on-existing-images/)
+
 Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 
 `UiConfig` part is organized into `uiConfig.js` and referenced in the core code to minimize the length of the core code.
@@ -338,4 +340,4 @@ Sometimes, you may want to add some auxiliary text to icons to show better user 
 
 ### Refer to
 
-- [Customize Elements' Display Text](https://officecn.dynamsoft.com:808/document-viewer/docs/ui/customize/elements.html#display-text)
+- [Customize Elements' Display Text](https://www.dynamsoft.com/document-viewer/docs/ui/customize/elements.html#display-text)
