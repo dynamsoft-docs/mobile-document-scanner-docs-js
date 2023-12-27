@@ -197,7 +197,7 @@ document.getElementById("restore").onclick = () => {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DWC from Mobile Camera - Review and Adjust the detected boundaries</title>
-    <link rel="stylesheet" href="../Resources/ddv.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -212,160 +212,164 @@ document.getElementById("restore").onclick = () => {
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/.../utils.js"></script>
 <script type="module">
-    // Initialize DDV
-    await Dynamsoft.DDV.setConfig({
-        license: "*******",
-        engineResourcePath: "********",
-    });
 
-    // Initialize DDN
-    Dynamsoft.License.LicenseManager.initLicense("********************");
-    Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+    import { isMobile, initDocDetectModule } from "./utils.js";
 
-    // Configure document boundaries function
-    await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
+    (async () => {
+        // Initialize DDV
+        await Dynamsoft.DDV.setConfig({
+            license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+            engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/engine",
+        });
 
-    //Create a capture viewer
-    const captureViewer = new Dynamsoft.DDV.CaptureViewer({
-        container: "container",
-        viewerConfig: {
-            acceptedPolygonConfidence: 60,
-            enableAutoCapture: true,
-            enableAutoDetect: true
-        }
-    });
-    // Play video stream in 1080P
-    captureViewer.play({ 
-        resolution: [1920,1080],
-        fill: true
-    });
-    // Register captured event
-    captureViewer.on("captured", () => {
-        viewerSwitch(false, true);
-    });
+        // Initialize DDN
+        Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
+        Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
 
-    // Define new UiConfig for perspecitve viewer
-    const newPerspectiveUiConfig = {
-        type: Dynamsoft.DDV.Elements.Layout,
-        flexDirection: "column",
-        children: [
-            {
-                type: Dynamsoft.DDV.Elements.Layout,
-                className: "ddv-perspective-viewer-header-mobile",
-                children: [
-                    {   
-                        // Add a "Back" button in perspective viewer's header and bind the event
-                        // The event will be registered later
-                        type: Dynamsoft.DDV.Elements.Button,
-                        className: "ddv-button-back",
-                        events:{
-                            click: "backToCaptureViewer"
-                        }
-                    },
-                    Dynamsoft.DDV.Elements.Pagination,
-                    {
-                        // Bind event for "PerspectiveAll" button
-                        // The event will be registered later
-                        type: Dynamsoft.DDV.Elements.PerspectiveAll,
-                        events:{
-                            click: "done"
-                        }
-                    },
-                ],
-            },
-            Dynamsoft.DDV.Elements.MainView,
-            {
-                type: Dynamsoft.DDV.Elements.Layout,
-                className: "ddv-perspective-viewer-footer-mobile",
-                children: [
-                    Dynamsoft.DDV.Elements.FullQuad,
-                    Dynamsoft.DDV.Elements.RotateLeft,
-                    Dynamsoft.DDV.Elements.RotateRight,
-                    {
-                        // Bind event for "DeleteCurrent" button
-                        // The event will be registered later
-                        type: Dynamsoft.DDV.Elements.DeleteCurrent,
-                        events: {
-                            click: "noImageBack"
+        // Configure document boundaries function
+        await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
+
+        //Create a capture viewer
+        const captureViewer = new Dynamsoft.DDV.CaptureViewer({
+            container: "container",
+            viewerConfig: {
+                acceptedPolygonConfidence: 60,
+                enableAutoCapture: true,
+                enableAutoDetect: true
+            }
+        });
+        // Play video stream in 1080P
+        captureViewer.play({ 
+            resolution: [1920,1080],
+            fill: true
+        });
+        // Register captured event
+        captureViewer.on("captured", () => {
+            viewerSwitch(false, true);
+        });
+
+        // Define new UiConfig for perspecitve viewer
+        const newPerspectiveUiConfig = {
+            type: Dynamsoft.DDV.Elements.Layout,
+            flexDirection: "column",
+            children: [
+                {
+                    type: Dynamsoft.DDV.Elements.Layout,
+                    className: "ddv-perspective-viewer-header-mobile",
+                    children: [
+                        {   
+                            // Add a "Back" button in perspective viewer's header and bind the event
+                            // The event will be registered later
+                            type: Dynamsoft.DDV.Elements.Button,
+                            className: "ddv-button-back",
+                            events:{
+                                click: "backToCaptureViewer"
+                            }
                         },
-                    },
-                    {
-                        // Bind event for "DeleteCurrent" button
-                        // The event will be registered later
-                        type:Dynamsoft.DDV.Elements.DeleteAll,
-                        events: {
-                            click: "noImageBack"
+                        Dynamsoft.DDV.Elements.Pagination,
+                        {
+                            // Bind event for "PerspectiveAll" button
+                            // The event will be registered later
+                            type: Dynamsoft.DDV.Elements.PerspectiveAll,
+                            events:{
+                                click: "done"
+                            }
                         },
-                    }
-                ],
-            },
-        ],
-    };
+                    ],
+                },
+                Dynamsoft.DDV.Elements.MainView,
+                {
+                    type: Dynamsoft.DDV.Elements.Layout,
+                    className: "ddv-perspective-viewer-footer-mobile",
+                    children: [
+                        Dynamsoft.DDV.Elements.FullQuad,
+                        Dynamsoft.DDV.Elements.RotateLeft,
+                        Dynamsoft.DDV.Elements.RotateRight,
+                        {
+                            // Bind event for "DeleteCurrent" button
+                            // The event will be registered later
+                            type: Dynamsoft.DDV.Elements.DeleteCurrent,
+                            events: {
+                                click: "noImageBack"
+                            },
+                        },
+                        {
+                            // Bind event for "DeleteCurrent" button
+                            // The event will be registered later
+                            type:Dynamsoft.DDV.Elements.DeleteAll,
+                            events: {
+                                click: "noImageBack"
+                            },
+                        }
+                    ],
+                },
+            ],
+        };
 
-    // Create a perspective viewer
-    const perspectiveViewer = new Dynamsoft.DDV.PerspectiveViewer({
-        container: "container",
-        groupUid: captureViewer.groupUid, // Data synchronisation with the capture viewer
-        uiConfig: newPerspectiveUiConfig, // Configure the new UiConfig
-        viewerConfig:{
-            scrollToLatest: true,
+        // Create a perspective viewer
+        const perspectiveViewer = new Dynamsoft.DDV.PerspectiveViewer({
+            container: "container",
+            groupUid: captureViewer.groupUid, // Data synchronisation with the capture viewer
+            uiConfig: newPerspectiveUiConfig, // Configure the new UiConfig
+            viewerConfig:{
+                scrollToLatest: true,
+            }
+        }); 
+
+        // Register the event for "Back" button
+        perspectiveViewer.on("backToCaptureViewer",() => {
+            viewerSwitch(true, false);
+            perspectiveViewer.currentDocument.deleteAllPages();
+        });
+
+        // Register the event for "DeleteCurrent" & "DeletedAll" buttons
+        perspectiveViewer.on("noImageBack", () => {
+            // Determine if there are no images in the viewer
+            const count = perspectiveViewer.currentDocument.pages.length;
+            if(count === 0) {
+                viewerSwitch(true,false)
+            }
+        }); 
+
+        // Register the event for "PerspectiveAll" button to display the result image
+        perspectiveViewer.on("done", async () => {
+            // hide viewers and container
+            viewerSwitch(false, false);
+            document.getElementById("container").style.display = "none";
+
+            const pageUid = perspectiveViewer.getCurrentPageUid()
+            const pageData =  await captureViewer.currentDocument.getPageData(pageUid);
+            // Normalized image
+            document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data);
+        });
+
+        // Restore Button function
+        document.getElementById("restore").onclick = () => {
+            perspectiveViewer.currentDocument.deleteAllPages();
+            document.getElementById("container").style.display = "";
+            viewerSwitch(true, false)
+        };
+
+        // Control viewers' visibility.
+        function viewerSwitch(capture, perspective){
+            if(capture) {
+                captureViewer.show();
+                captureViewer.play({
+                    resolution: [1920,1080],                
+                });
+            } else {
+                captureViewer.hide();
+                captureViewer.stop();
+            }
+
+            if(perspective) {
+                perspectiveViewer.show();
+            } else {
+                perspectiveViewer.hide();
+            }
         }
-    }); 
-
-    // Register the event for "Back" button
-    perspectiveViewer.on("backToCaptureViewer",() => {
-        viewerSwitch(true, false);
-        perspectiveViewer.currentDocument.deleteAllPages();
-    });
-
-    // Register the event for "DeleteCurrent" & "DeletedAll" buttons
-    perspectiveViewer.on("noImageBack", () => {
-        // Determine if there are no images in the viewer
-        const count = perspectiveViewer.currentDocument.pages.length;
-        if(count === 0) {
-            viewerSwitch(true,false)
-        }
-    }); 
-
-    // Register the event for "PerspectiveAll" button to display the result image
-    perspectiveViewer.on("done", async () => {
-        // hide viewers and container
-        viewerSwitch(false, false);
-        document.getElementById("container").style.display = "none";
-
-        const pageUid = perspectiveViewer.getCurrentPageUid()
-        const pageData =  await captureViewer.currentDocument.getPageData(pageUid);
-        // Normalized image
-        document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data);
-    });
-
-    // Restore Button function
-    document.getElementById("restore").onclick = () => {
-        perspectiveViewer.currentDocument.deleteAllPages();
-        document.getElementById("container").style.display = "";
-        viewerSwitch(true, false)
-    };
-
-    // Control viewers' visibility.
-    function viewerSwitch(capture, perspective){
-        if(capture) {
-            captureViewer.show();
-            captureViewer.play({
-                resolution: [1920,1080],                
-            });
-        } else {
-            captureViewer.hide();
-            captureViewer.stop();
-        }
-
-        if(perspective) {
-            perspectiveViewer.show();
-        } else {
-            perspectiveViewer.hide();
-        }
-    }
+    })();
 </script>
 </html>
 ```

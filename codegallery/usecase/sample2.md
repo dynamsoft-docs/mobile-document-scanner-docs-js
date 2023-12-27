@@ -59,7 +59,7 @@ For this sample, we define below element.
 `index.css` defines the style of elements which is in this sample.
 
 ```html
-<link rel="stylesheet" href="../Resources/ddv.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
 <link rel="stylesheet" href="./index.css">
 ```
 
@@ -85,22 +85,28 @@ html,body {
 ```javascript
 // Initialize DDV
 await Dynamsoft.DDV.setConfig({
-    license: "*******",
-    engineResourcePath: "*******",
+    license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+    engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",
 });
 
 // Initialize DDN
-Dynamsoft.License.LicenseManager.initLicense("*******");
+Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
 Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
 ```
 
 ## Configure document boundaries function
 
-Since the related configuration code is packaged in `utils.js`, only need to call the following function.
+- Step one: The related configuration code is packaged in `utils.js`, so it should be imported.
 
-```javascript
-await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
-```
+    ```javascript
+    import { isMobile, initDocDetectModule } from "./utils.js";
+    ```
+
+- Step two: Call the following function.
+
+    ```javascript
+    await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
+    ```
 
 ## Configure image filter feature which is in edit viewer
 
@@ -277,7 +283,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DWC from Mobile Camera - Capture continuously & Edit result images</title>
-    <link rel="stylesheet" href="../Resources/ddv.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -287,145 +293,148 @@ Since the workflow in this sample is very simple, only the two events mentioned 
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/.../utils.js"></script>
 <script type="module">
-    // Initialize DDV
-    await Dynamsoft.DDV.setConfig({
-        license: "*******",
-        engineResourcePath: "*******",
-    });
+    import { isMobile, initDocDetectModule } from "./utils.js";
 
-    // Initialize DDN
-    Dynamsoft.License.LicenseManager.initLicense("*******");
-    Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+    (async () => {
+        // Initialize DDV
+        await Dynamsoft.DDV.setConfig({
+            license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+            engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",
+        });
 
-    // Configure document boundaries function
-    await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
+        // Initialize DDN
+        Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
+        Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
 
-    // Configure image filter feature which is in edit viewer
-    Dynamsoft.DDV.setProcessingHandler("imageFilter", new Dynamsoft.DDV.ImageFilter());
+        // Configure document boundaries function
+        await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
 
-    // Define new UiConfig for capture viewer
-    const newCaptureViewerUiConfig = {
-        type: Dynamsoft.DDV.Elements.Layout,
-        flexDirection: "column",
-        children: [
-            {
-                type: Dynamsoft.DDV.Elements.Layout,
-                className: "ddv-capture-viewer-header-mobile",
-                children: [
-                    {
-                        type: Dynamsoft.DDV.Elements.CameraResolution,
-                        className: "ddv-capture-viewer-resolution",
-                    },
-                    Dynamsoft.DDV.Elements.Flashlight,
-                ],
-            },
-            Dynamsoft.DDV.Elements.MainView,
-            {
-                type: Dynamsoft.DDV.Elements.Layout,
-                className: "ddv-capture-viewer-footer-mobile",
-                children: [
-                    Dynamsoft.DDV.Elements.AutoDetect,
-                    Dynamsoft.DDV.Elements.AutoCapture,
-                    {
-                        type: Dynamsoft.DDV.Elements.Capture,
-                        className: "ddv-capture-viewer-captureButton",
-                    },
-                    {
-                        // Bind click event to "ImagePreview" element
-                        // The event will be registered later
-                        type: Dynamsoft.DDV.Elements.ImagePreview,
-                        events: { 
-                            click: "showEditViewer" 
+        // Configure image filter feature which is in edit viewer
+        Dynamsoft.DDV.setProcessingHandler("imageFilter", new Dynamsoft.DDV.ImageFilter());
+
+        // Define new UiConfig for capture viewer
+        const newCaptureViewerUiConfig = {
+            type: Dynamsoft.DDV.Elements.Layout,
+            flexDirection: "column",
+            children: [
+                {
+                    type: Dynamsoft.DDV.Elements.Layout,
+                    className: "ddv-capture-viewer-header-mobile",
+                    children: [
+                        {
+                            type: Dynamsoft.DDV.Elements.CameraResolution,
+                            className: "ddv-capture-viewer-resolution",
                         },
-                    },
-                    Dynamsoft.DDV.Elements.CameraConvert,
-                ],
-            },
-        ],
-    };
-
-    // Create a capture viewer
-    const captureViewer = new Dynamsoft.DDV.CaptureViewer({
-        container: "container",
-        uiConfig: newCaptureViewerUiConfig, // Configure the new UiConfig
-        viewerConfig: {
-            acceptedPolygonConfidence: 60, // Configure the accpeted confidence to 60
-            enableAutoCapture: true, // Enable auto capture
-            enableAutoDetect: true, // Enable real-time detection
-        },
-    });
-    // Play video stream in 1080P
-    captureViewer.play({
-        resolution: [1920,1080],
-    });
-
-    // Define new UiConfig for edit viewer
-    const newEditViewerUiConfig = {
-        type: Dynamsoft.DDV.Elements.Layout,
-        flexDirection: "column",
-        className: "ddv-edit-viewer-mobile",
-        children: [
-            {
-                type: Dynamsoft.DDV.Elements.Layout,
-                className: "ddv-edit-viewer-header-mobile",
-                children: [
-                    {
-                        // Add a "Back" button to header and bind click event to go back the capture viewer
-                        // The event will be registered later
-                        type: Dynamsoft.DDV.Elements.Back,
-                        events: {
-                            click: "backToCaptureViewer"
+                        Dynamsoft.DDV.Elements.Flashlight,
+                    ],
+                },
+                Dynamsoft.DDV.Elements.MainView,
+                {
+                    type: Dynamsoft.DDV.Elements.Layout,
+                    className: "ddv-capture-viewer-footer-mobile",
+                    children: [
+                        Dynamsoft.DDV.Elements.AutoDetect,
+                        Dynamsoft.DDV.Elements.AutoCapture,
+                        {
+                            type: Dynamsoft.DDV.Elements.Capture,
+                            className: "ddv-capture-viewer-captureButton",
                         },
-                    },
-                    Dynamsoft.DDV.Elements.Pagination,
-                    Dynamsoft.DDV.Elements.Download,
-                ],
+                        {
+                            // Bind click event to "ImagePreview" element
+                            // The event will be registered later
+                            type: Dynamsoft.DDV.Elements.ImagePreview,
+                            events: { 
+                                click: "showEditViewer" 
+                            },
+                        },
+                        Dynamsoft.DDV.Elements.CameraConvert,
+                    ],
+                },
+            ],
+        };
+
+        // Create a capture viewer
+        const captureViewer = new Dynamsoft.DDV.CaptureViewer({
+            container: "container",
+            uiConfig: newCaptureViewerUiConfig, // Configure the new UiConfig
+            viewerConfig: {
+                acceptedPolygonConfidence: 60, // Configure the accpeted confidence to 60
+                enableAutoCapture: true, // Enable auto capture
+                enableAutoDetect: true, // Enable real-time detection
             },
-            Dynamsoft.DDV.Elements.MainView,
-            {
-                type: Dynamsoft.DDV.Elements.Layout,
-                className: "ddv-edit-viewer-footer-mobile",
-                children: [
-                    Dynamsoft.DDV.Elements.DisplayMode,
-                    Dynamsoft.DDV.Elements.RotateLeft,
-                    Dynamsoft.DDV.Elements.Crop,
-                    Dynamsoft.DDV.Elements.Filter,
-                    Dynamsoft.DDV.Elements.Undo,
-                    Dynamsoft.DDV.Elements.Delete,
-                    Dynamsoft.DDV.Elements.Load,
-                ],
-            },
-        ],
-    };
-
-    // Create an edit viewer
-    const editViewer = new Dynamsoft.DDV.EditViewer({
-        container: "container",
-        groupUid: captureViewer.groupUid, // Data synchronisation with the capture viewer
-        uiConfig: newEditViewerUiConfig, // Configure the new UiConfig
-        viewerConfig: {
-            scrollToLatest: true, // Navigate to the latest image automatically
-        }
-    });
-    editViewer.hide();
-
-    // Register an event in `captureViewer` to show the edit viewer.
-    captureViewer.on("showEditViewer",() => {
-        captureViewer.hide();
-        captureViewer.stop();
-        editViewer.show();
-    });
-
-    // Register an event in `editViewer` to go back the capture viewer
-    editViewer.on("backToCaptureViewer",() => {
-        captureViewer.show();
-        editViewer.hide();
+        });
+        // Play video stream in 1080P
         captureViewer.play({
             resolution: [1920,1080],
         });
-    });
+
+        // Define new UiConfig for edit viewer
+        const newEditViewerUiConfig = {
+            type: Dynamsoft.DDV.Elements.Layout,
+            flexDirection: "column",
+            className: "ddv-edit-viewer-mobile",
+            children: [
+                {
+                    type: Dynamsoft.DDV.Elements.Layout,
+                    className: "ddv-edit-viewer-header-mobile",
+                    children: [
+                        {
+                            // Add a "Back" button to header and bind click event to go back the capture viewer
+                            // The event will be registered later
+                            type: Dynamsoft.DDV.Elements.Back,
+                            events: {
+                                click: "backToCaptureViewer"
+                            },
+                        },
+                        Dynamsoft.DDV.Elements.Pagination,
+                        Dynamsoft.DDV.Elements.Download,
+                    ],
+                },
+                Dynamsoft.DDV.Elements.MainView,
+                {
+                    type: Dynamsoft.DDV.Elements.Layout,
+                    className: "ddv-edit-viewer-footer-mobile",
+                    children: [
+                        Dynamsoft.DDV.Elements.DisplayMode,
+                        Dynamsoft.DDV.Elements.RotateLeft,
+                        Dynamsoft.DDV.Elements.Crop,
+                        Dynamsoft.DDV.Elements.Filter,
+                        Dynamsoft.DDV.Elements.Undo,
+                        Dynamsoft.DDV.Elements.Delete,
+                        Dynamsoft.DDV.Elements.Load,
+                    ],
+                },
+            ],
+        };
+
+        // Create an edit viewer
+        const editViewer = new Dynamsoft.DDV.EditViewer({
+            container: "container",
+            groupUid: captureViewer.groupUid, // Data synchronisation with the capture viewer
+            uiConfig: newEditViewerUiConfig, // Configure the new UiConfig
+            viewerConfig: {
+                scrollToLatest: true, // Navigate to the latest image automatically
+            }
+        });
+        editViewer.hide();
+
+        // Register an event in `captureViewer` to show the edit viewer.
+        captureViewer.on("showEditViewer",() => {
+            captureViewer.hide();
+            captureViewer.stop();
+            editViewer.show();
+        });
+
+        // Register an event in `editViewer` to go back the capture viewer
+        editViewer.on("backToCaptureViewer",() => {
+            captureViewer.show();
+            editViewer.hide();
+            captureViewer.play({
+                resolution: [1920,1080],
+            });
+        });
+    })();
 </script>
 </html>
 ```

@@ -67,7 +67,7 @@ For HelloWorld, we define below elements.
 `index.css` defines the style of elements which is in Helloworld.
 
 ```html
-<link rel="stylesheet" href="../Resources/ddv.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
 <link rel="stylesheet" href="./index.css">
 ```
 
@@ -124,12 +124,12 @@ html,body {
 ```javascript
 // Initialize DDV
 await Dynamsoft.DDV.setConfig({
-    license: "*******",
-    engineResourcePath: "*******",
+    license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+    engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",
 });
 
 // Initialize DDN
-Dynamsoft.License.LicenseManager.initLicense("*******");
+Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
 Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
 ```
 
@@ -221,17 +221,17 @@ document.getElementById("restore").onclick = () => {
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
 <script type="module">
-    import { isMobile, initNormalizedModule } from "./utils.js";
+    import { isMobile, initDocDetectModule } from "./utils.js";
 
     (async () => {
         // Initialize DDV
         await Dynamsoft.DDV.setConfig({
-            license: "*******",
-            engineResourcePath: "********",
+            license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+            engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/engine",
         });
 
         // Initialize DDN
-        Dynamsoft.License.LicenseManager.initLicense("********************");
+        Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
         Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
 
         // Configure document boundaries function
