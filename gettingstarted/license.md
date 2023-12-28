@@ -14,7 +14,7 @@ permalink: /gettingstarted/license.html
 
 ## Get a trial key
 
-- A free public trial license is available for every new device for first use of Document. The public trial license is the default key used in samples. You can also find the public trial license on the following parts of this page.
+- A free public trial license is available for every new device for first use of Mobile Web Capture. The public trial license is the default key used in samples. You can also find the public trial license on the following parts of this page.
 - If your free key is expired, please visit <a href="https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&source=docs" target="_blank">Private Trial License Page</a> to get a 30-day trial extension.
 
 ## Get a full license
