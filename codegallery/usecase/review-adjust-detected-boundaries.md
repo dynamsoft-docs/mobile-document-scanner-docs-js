@@ -7,7 +7,7 @@ title: Document Web Capture from Mobile Cameras - Use Cases - Review and Adjust 
 keywords: Documentation, Document Web Capture from Mobile Cameras, Use Cases, Review and Adjust the detected boundaries
 breadcrumbText: Review and Adjust the detected boundaries
 description: Document Web Capture from Mobile Cameras Documentation Use Cases Review and Adjust the detected boundaries
-permalink: /codegallery/usecases/sample1.html
+permalink: /codegallery/usecases/review-adjust-detected-boundaries.html
 ---
 
 # Review and Adjust the detected boundaries
@@ -18,7 +18,7 @@ This sample adds a perspective viewer based on HelloWorld solution to review and
 
 In this sample, we would like to achieve the workflow as below.
 
-![Flow chart for sample1](/assets/imgs/sample1.png)
+![Flow chart for review-adjust-detected-boundaries](/assets/imgs/review-adjust-detected-boundaries.png)
 
 Since this sample is based on HelloWorld, the basic steps are introduced in [Creating HelloWorld]({{ site.gettingstarted }}helloworld.html) chapter, this chapter will not be further elaborated.
 
