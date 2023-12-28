@@ -14,7 +14,7 @@ permalink: /codegallery/usecases/detect-boundaries-on-existing-images.html
 
 This sample demonstrates how to detect the boundaries on the existing images which are from local directory/album. 
 
-[Check out it online](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/detect-boundaries-on-existing-images/)
+[Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/detect-boundaries-on-existing-images/)
 
 In this sample, we would like to achieve the workflow as below.
 
@@ -327,7 +327,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
 
 ## Download the whole project
 
-[Github](https://github.com/Dynamsoft/DocWebCapture-MobileCam/tree/master/samples/detect-boundaries-on-existing-images) \| [Run](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/detect-boundaries-on-existing-images/)
+[Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/detect-boundaries-on-existing-images) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/detect-boundaries-on-existing-images/)
 
 Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 
