@@ -14,7 +14,7 @@ permalink: /introduction/index.html
 
 Mobile Web Capture is a solution which is designed to capture document in web browser from the mobile devices. 
 
-It is implemented by Dynamsoft Document Viewer SDK and Dynamsoft Document Normalizer SDK, which means the primary features the solution can achieve are 
+It is implemented by [Dynamsoft Document Viewer SDK](https://www.dynamsoft.com/document-viewer/docs/introduction/index.html) and [Dynamsoft Document Normalizer SDK](https://www.dynamsoft.com/document-normalizer/docs/web/programming/javascript/), which means the primary features the solution can achieve are 
 
 - Capture document images from video stream;
 - Detect document boundaries in real-time;
