@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Camera - Creating HelloWorld
-keywords: Documentation, Document Web Capture from Mobile Camera, Creating HelloWorld
+title: Mobile Web Capture - Creating HelloWorld
+keywords: Documentation, Mobile Web Capture, Creating HelloWorld
 breadcrumbText: Creating HelloWorld
-description: Document Web Capture from Mobile Camera Documentation Creating HelloWorld
+description: Mobile Web Capture Documentation Creating HelloWorld
 permalink: /gettingstarted/helloworld.html
 ---
 
@@ -14,7 +14,7 @@ permalink: /gettingstarted/helloworld.html
 
 In this section, we’ll break down and show all the steps needed to build the HelloWorld solution in a web page.
 
-- Check out [HelloWorld]()
+- Check out [HelloWorld](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world/hello-world/) online
 
 We’ll build on this skeleton page:
 
@@ -25,96 +25,19 @@ We’ll build on this skeleton page:
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DWC from Mobile Camera HelloWorld</title>
+    <title>Mobile Web Capture - HelloWorld</title>
 </head>
 <body>
 </body>
 <script type="module">
-// Write your code here.
+// Write your code here
 </script>
 </html>
 ```
 
 ## Adding the dependency
 
-To build the solution, we need to include five packages
-
-1. `dynamsoft-document-viewer`: Required, it provides functions to create the viewers.
-2. `dynamsoft-core`: Required, it includes `LicenseManager` class for `dynamsoft-document-normalizer`.
-3. `dynamsoft-document-normalizer`: Required, it provides functions to detect boundaries or perform normalization.
-4. `dynamsoft-capture-vision-router`: Required, it defines the class `CaptureVisionRouter`, which controls the whole process.
-5. `utils`: Optional, it includes the configuration code for document boundaries function. You can also copy the configuration code to your own code.
-
-### Use a CDN
-
-The simplest way to include the SDK is to use either the [jsDelivr](https://jsdelivr.com/) or [UNPKG](https://unpkg.com/) CDN.
-
-- jsDelivr
-
-  ```html
-  <script src="https://cdn.jsdelivr.net/npm/ddv"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/.../utils.js"></script>
-  ```
-
-- UNPKG
-
-  ```html
-  <script src="https://unpkg.com/ddv"></script>
-  <script src="https://unpkg.com/dynamsoft-core@3.0.10/dist/core.js"></script>
-  <script src="https://unpkg.com/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
-  <script src="https://unpkg.com/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
-  <script src="https://unpkg.com//.../utils.js"></script>
-  ```
-
-### Host the SDK yourself
-
-Besides using the CDN, you can also download the Solution and host related files on your own website/server before including it in your application.
-
-Options to download the SDK:
-
-- From the website
-
-  [Download the JavaScript ZIP package]()
-
-- yarn
-
-  ```cmd
-  yarn add ddv
-  yarn add dynamsoft-capture-vision-router@2.0.11
-  ```
-
-- npm
-
-  ```cmd
-  npm install ddv
-  npm install dynamsoft-capture-vision-router@2.0.11
-  ```
-
-> Note: Upon installation of `dynamsoft-capture-vision-router`, the compatible versions of `dynamsoft-document-normalizer` and `dynamsoft-core` will be automatically downloaded.
-
-Depending on how you downloaded the SDK and where you put it, you can typically include it like this:
-
-  ```html
-  <!-- Upon extracting the zip package into your project, you can generally include it in the following manner -->
-  <script src="./distributables/ddvjs"></script>
-  <script src="./distributables/dynamsoft-core@3.0.10/dist/core.js"></script>
-  <script src="./distributables/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
-  <script src="./distributables/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
-  <script src="./distributables/untils"></script>
-  ```
-
-or
-
-  ```html
-  <script src="./node_modules/ddvjs"></script>
-  <script src="./node_modules/dynamsoft-core/dist/core.js"></script>
-  <script src="./node_modules/dynamsoft-document-normalizer/dist/ddn.js"></script>
-  <script src="./node_modules/dynamsoft-capture-vision-router/dist/cvr.js"></script>
-  <script src="./node_modules/untils"></script>
-  ```
+Please refer to [Adding the dependency]({{ site.gettingstarted }}add_dependency.html).
 
 ## Define necessary HTML elements
 
@@ -144,7 +67,7 @@ For HelloWorld, we define below elements.
 `index.css` defines the style of elements which is in Helloworld.
 
 ```html
-<link rel="stylesheet" href="../Resources/ddv.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
 <link rel="stylesheet" href="./index.css">
 ```
 
@@ -201,22 +124,28 @@ html,body {
 ```javascript
 // Initialize DDV
 await Dynamsoft.DDV.setConfig({
-    license: "*******",
-    engineResourcePath: "*******",
+    license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+    engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",
 });
 
 // Initialize DDN
-Dynamsoft.License.LicenseManager.initLicense("*******");
+Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
 Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
 ```
 
 ## Configure document boundaries function
 
-Since the related configuration code is packaged in `utils.js`, only need to call the following function.
+- Step one: The related configuration code is packaged in `utils.js`, so it should be imported.
 
-```javascript
-await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
-```
+    ```javascript
+    import { isMobile, initDocDetectModule } from "./utils.js";
+    ```
+
+- Step two: Call the following function.
+
+    ```javascript
+    await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
+    ```
 
 ## Create a capture viewer
 
@@ -257,9 +186,7 @@ For now, we finish the main workflow for HelloWorld, can add the restore functio
 ```javascript
 document.getElementById("restore").onclick = () => {
     captureViewer.currentDocument.deleteAllPages();
-    captureViewer.play({
-        resolution: [1920,1080],
-    });
+    captureViewer.play();
     document.getElementById("container").style.display = "";
 };
 ```
@@ -273,8 +200,8 @@ document.getElementById("restore").onclick = () => {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DWC from Mobile Camera HelloWorld</title>
-    <link rel="stylesheet" href="../Resources/ddv.css">
+    <title>Mobile Web Capture - HelloWorld</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -287,65 +214,71 @@ document.getElementById("restore").onclick = () => {
         <img id="normalized">
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/ddv"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/.../utils.js"></script>
 <script type="module">
-    // Initialize DDV
-    await Dynamsoft.DDV.setConfig({
-        license: "*******",
-        engineResourcePath: "********",
-    });
+    import { isMobile, initDocDetectModule } from "./utils.js";
 
-    // Initialize DDN
-    Dynamsoft.License.LicenseManager.initLicense("********************");
-    Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+    (async () => {
+        // Initialize DDV
+        await Dynamsoft.DDV.setConfig({
+            license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+            engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/engine",
+        });
 
-    // Configure document boundaries function
-    await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
+        // Initialize DDN
+        Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
+        Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
 
-    //Create a capture viewer
-    const captureViewer = new Dynamsoft.DDV.CaptureViewer({
-        container: "container",
-        viewerConfig: {
-            acceptedPolygonConfidence: 60,
-            enableAutoCapture: true,
-            enableAutoDetect: true
-        }
-    });
-    // Play video stream in 1080P
-    captureViewer.play({ 
-        resolution: [1920,1080],
-    });
+        // Configure document boundaries function
+        await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
 
-    // Display the result image
-    captureViewer.on("captured", async (e) => {
-        // Stop video stream and hide capture viewer's container
-        captureViewer.stop();
-        document.getElementById("container").style.display = "none";
-
-        const pageData =  await captureViewer.currentDocument.getPageData(e.pageUid);
-        // Original image
-        document.getElementById("original").src = URL.createObjectURL(pageData.raw.data); 
-        // Normalized image
-        document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data); 
-    });
-
-    // Restore Button function
-    document.getElementById("restore").onclick = () => {
-        captureViewer.currentDocument.deleteAllPages();
-        captureViewer.play({
+        //Create a capture viewer
+        const captureViewer = new Dynamsoft.DDV.CaptureViewer({
+            container: "container",
+            viewerConfig: {
+                acceptedPolygonConfidence: 60,
+                enableAutoCapture: true,
+                enableAutoDetect: true
+            }
+        });
+        // Play video stream in 1080P
+        captureViewer.play({ 
             resolution: [1920,1080],
         });
-        document.getElementById("container").style.display = "";
-    };
+
+        // Display the result image
+        captureViewer.on("captured", async (e) => {
+            // Stop video stream and hide capture viewer's container
+            captureViewer.stop();
+            document.getElementById("container").style.display = "none";
+
+            const pageData =  await captureViewer.currentDocument.getPageData(e.pageUid);
+            // Original image
+            document.getElementById("original").src = URL.createObjectURL(pageData.raw.data); 
+            // Normalized image
+            document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data); 
+        });
+
+        // Restore Button function
+        document.getElementById("restore").onclick = () => {
+            captureViewer.currentDocument.deleteAllPages();
+            captureViewer.play();
+            document.getElementById("container").style.display = "";
+        };
+    })();
 </script>
 </html>
 ```
 
 ## Download the whole project
+
+- Hello World - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world/hello-world/)
+  - Angular App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-angular) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world/hello-world-angular/)
+  - React App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-react) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world/hello-world-react/)
+  - Vue3 App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-vue3) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world/hello-world-vue3/)
 
 ## More use cases
 
@@ -353,4 +286,4 @@ We provide some samples which demonstrate the popular use cases, for example, re
 
 Please refer to the [Use Case]({{ site.codegallery }}usecases/index.html) section.
 
-## [Demo]({{ site.codegallery }}demo/index.html)
+{% comment %}  ## [Demo]({{ site.codegallery }}demo/index.html) {% endcomment %} 

@@ -3,16 +3,16 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Camera - System Requirement
-keywords: Documentation, Document Web Capture from Mobile Camera, System Requirement
+title: Mobile Web Capture - System Requirement
+keywords: Documentation, Mobile Web Capture, System Requirement
 breadcrumbText: System Requirement
-description: Document Web Capture from Mobile Camera Documentation System Requirement
+description: Mobile Web Capture Documentation System Requirement
 permalink: /gettingstarted/sys_requirement.html
 ---
 
 # System Requirements
 
-As DWC from Mobile Camera solution is implemented by Dynamsoft Document Viewer and Dynamsoft Document Normalizer, these two SDKs requires the following features to work:
+As Mobile Web Capture solution is implemented by Dynamsoft Document Viewer and Dynamsoft Document Normalizer, these two SDKs requires the following features to work:
 
 - **Secure context (HTTPS deployment)**
 
@@ -33,14 +33,14 @@ The following table is a list of supported browsers based on the above requireme
 
   | Browser Name |             Version              |
   | :----------: | :------------------------------: |
-  |    Chrome    |             v75+                 |
-  |   Firefox    |             v65+                 |
-  |    Safari    |             v14+                 |
-  |     Edge     |             v79+                 |
+  |    Chrome    |             latest               |
+  |   Firefox    |             latest               |
+  |    Safari    |             latest               |
+  |     Edge     |             latest               |
 
 Apart from the browsers, the operating systems may impose some limitations of their own that could restrict the use of the SDKs.
 
 ## Reference
 
-- [Dynamsoft Document Viewer - System Requirements](https://officecn.dynamsoft.com:808/document-viewer/docs/gettingstarted/sys_requirement.html)
+- [Dynamsoft Document Viewer - System Requirements](https://www.dynamsoft.com/document-viewer/docs/gettingstarted/sys_requirement.html)
 - [Dynamsoft Document Normalizer - System Requirements](https://www.dynamsoft.com/document-normalizer/docs/web/programming/javascript/user-guide/index.html#system-requirements)

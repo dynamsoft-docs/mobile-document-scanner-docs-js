@@ -1,7 +1,7 @@
 ---
 layout: default-layout
-title: Document Web Capture from Mobile Camera - FAQ
-description: This is the FAQ page of Document Web Capture from Mobile Camera.
+title: Mobile Web Capture - FAQ
+description: This is the FAQ page of Mobile Web Capture.
 keywords: faq
 needAutoGenerateSidebar: true
 ---

@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Camera - License
-keywords: Documentation, Document Web Capture from Mobile Camera, License
+title: Mobile Web Capture - License
+keywords: Documentation, Mobile Web Capture, License
 breadcrumbText: License
-description: Document Web Capture from Mobile Camera Documentation License
+description: Mobile Web Capture Documentation License
 permalink: /gettingstarted/license.html
 ---
 
@@ -15,7 +15,7 @@ permalink: /gettingstarted/license.html
 ## Get a trial key
 
 - A free public trial license is available for every new device for first use of Document. The public trial license is the default key used in samples. You can also find the public trial license on the following parts of this page.
-- If your free key is expired, please visit <a href="https://www.dynamsoft.com/customer/license/trialLicense?product=dwc&utm_source=docs" target="_blank">Private Trial License Page</a> to get a 30-day trial extension.
+- If your free key is expired, please visit <a href="https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&source=docs" target="_blank">Private Trial License Page</a> to get a 30-day trial extension.
 
 ## Get a full license
 
@@ -28,9 +28,9 @@ The following code snippets are using the public trial license to initialize the
 ```javascript
 // DDV license initialization
 await Dynamsoft.DDV.setConfig({
-    license: "*Your-License-String*",
-    engineResourcePath: "*lead to a folder containing the distributed WASM files*",
+    license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", // Public trial license which is valid for 24 hours
+    engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",// lead to a folder containing the distributed WASM files
 });
 // DDN license initialization
-Dynamsoft.License.LicenseManager.initLicense("*Your-License-String*");
+Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9"); // Public trial license which is valid for 24 hours
 ```
