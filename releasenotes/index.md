@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Cameras - Release Notes
-keywords: Documentation, Document Web Capture from Mobile Cameras, Release Notes
+title: Mobile Web Capture - Release Notes
+keywords: Documentation, Mobile Web Capture, Release Notes
 breadcrumbText: Release Notes
-description: Document Web Capture from Mobile Cameras Documentation Release Notes
+description: Mobile Web Capture Documentation Release Notes
 permalink: /releasenotes/index.html
 ---
 

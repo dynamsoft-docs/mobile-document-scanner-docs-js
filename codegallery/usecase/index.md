@@ -3,18 +3,18 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Cameras - Use Cases
-keywords: Documentation, Document Web Capture from Mobile Cameras, Use Cases
+title: Mobile Web Capture - Use Cases
+keywords: Documentation, Mobile Web Capture, Use Cases
 breadcrumbText: Use Cases
-description: Document Web Capture from Mobile Cameras Documentation Use Cases 
+description: Mobile Web Capture Documentation Use Cases 
 permalink: /codegallery/usecases/index.html
 ---
 
 # Use Cases
 
-Because the two SDKs, DDV and DDN, support comprehensive functions and flexible and efficient development, DWC from Mobile Cameras can meet a variety of different workflows and needs. 
+Because the two SDKs, DDV and DDN, support comprehensive functions and flexible and efficient development, Mobile Web Capture can meet a variety of different workflows and needs. 
 
-This part will introduce four popular use cases which can be achieved by DWC from Mobile Cameras solution.
+This part will introduce four popular use cases which can be achieved by Mobile Web Capture solution.
 
 - [Review and Adjust the detected boundaries]({{ site.codegallery }}usecases/review-adjust-detected-boundaries.html)
 

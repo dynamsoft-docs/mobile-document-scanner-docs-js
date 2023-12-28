@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Cameras - Demo
-keywords: Documentation, Document Web Capture from Mobile Cameras, Demo
+title: Mobile Web Capture - Demo
+keywords: Documentation, Mobile Web Capture, Demo
 breadcrumbText: Demo
-description: Document Web Capture from Mobile Cameras Documentation Demo
+description: Mobile Web Capture Documentation Demo
 permalink: /codegallery/demo/index.html
 ---
 

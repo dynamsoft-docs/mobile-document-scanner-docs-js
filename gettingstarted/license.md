@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Cameras - License
-keywords: Documentation, Document Web Capture from Mobile Cameras, License
+title: Mobile Web Capture - License
+keywords: Documentation, Mobile Web Capture, License
 breadcrumbText: License
-description: Document Web Capture from Mobile Cameras Documentation License
+description: Mobile Web Capture Documentation License
 permalink: /gettingstarted/license.html
 ---
 
