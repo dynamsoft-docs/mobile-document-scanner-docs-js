@@ -14,10 +14,10 @@ permalink: /gettingstarted/add_dependency.html
 
 To build the solution, we need to include four packages
 
-1. `dynamsoft-document-viewer`: Required, it provides functions to create the viewers.
-2. `dynamsoft-core`: Required, it includes `LicenseManager` class for `dynamsoft-document-normalizer`.
-3. `dynamsoft-document-normalizer`: Required, it provides functions to detect boundaries.
-4. `dynamsoft-capture-vision-router`: Required, it defines the class `CaptureVisionRouter`, which controls the whole process.
+1. `dynamsoft-document-viewer`: Required. It provides functions to create the viewers.
+2. `dynamsoft-core`: Required. It includes `LicenseManager` class for `dynamsoft-document-normalizer`.
+3. `dynamsoft-document-normalizer`: Required. It provides functions to detect boundaries.
+4. `dynamsoft-capture-vision-router`: Required. It defines the class `CaptureVisionRouter`, which controls the whole process.
 
 ## Use a CDN
 
@@ -43,7 +43,7 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 
 ## Host the SDK yourself
 
-Besides using the CDN, you can also download the Solution and host related files on your own website/server before including it in your application.
+Besides using the CDN, you can also download the SDK and host related files on your own website/server before including it in your application.
 
 Options to download the SDK:
 
