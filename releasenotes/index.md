@@ -12,7 +12,7 @@ permalink: /releasenotes/index.html
 
 # Release Notes
 
-## 1.0.0.x (DD/MM/YYYY)
+## 1.0.0.0 (28/12/2023)
 
 Includes
 
