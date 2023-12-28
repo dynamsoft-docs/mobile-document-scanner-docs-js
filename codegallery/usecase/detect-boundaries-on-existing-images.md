@@ -7,7 +7,7 @@ title: Document Web Capture from Mobile Cameras - Use Cases - Detect boundaries 
 keywords: Documentation, Document Web Capture from Mobile Cameras, Use Cases, Detect boundaries on the existing images
 breadcrumbText: Detect boundaries on the existing images
 description: Document Web Capture from Mobile Cameras Documentation Use Cases Detect boundaries on the existing images
-permalink: /codegallery/usecases/sample4.html
+permalink: /codegallery/usecases/detect-boundaries-on-existing-images.html
 ---
 
 # Detect boundaries on the existing images
@@ -18,7 +18,7 @@ This sample demonstrates how to detect the boundaries on the existing images whi
 
 In this sample, we would like to achieve the workflow as below.
 
-![Flow chart for sample4](/assets/imgs/sample4.png)
+![Flow chart for detect-boundaries-on-existing-images](/assets/imgs/detect-boundaries-on-existing-images.png)
 
 We’ll build on this skeleton page:
 
