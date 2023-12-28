@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Cameras - Adding the dependency
-keywords: Documentation, Document Web Capture from Mobile Cameras, Adding the dependency
+title: Mobile Web Capture - Adding the dependency
+keywords: Documentation, Mobile Web Capture, Adding the dependency
 breadcrumbText: Adding the dependency
-description: Document Web Capture from Mobile Cameras Documentation Adding the dependency
+description: Mobile Web Capture Documentation Adding the dependency
 permalink: /gettingstarted/add_dependency.html
 ---
 

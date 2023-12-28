@@ -1,11 +1,11 @@
 ---
 layout: home-page
-title: Document Web Capture from Mobile Cameras Documentation
-keywords: Document Web Capture from Mobile Cameras, documentation
-description: Document Web Capture from Mobile Cameras Documentation Homepage
+title: Mobile Web Capture Documentation
+keywords: Mobile Web Capture, documentation
+description: Mobile Web Capture Documentation Homepage
 ---
 
-# Document Web Capture from Mobile Cameras
+# Mobile Web Capture
 
 - [Introduction]({{ site.introduction }}index.html)
 - Getting started

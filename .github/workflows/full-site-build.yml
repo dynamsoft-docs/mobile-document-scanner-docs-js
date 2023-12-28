@@ -35,7 +35,7 @@ jobs:
           cd DocWebCapture-MobileCam-Docs && git pull && cd .. && cp -rfp ./DocWebCapture-MobileCam-Docs/* ./DWCDoc/
           cd Docs-Template-Repo-Preview && git pull && cd .. && cp -rfp ./Docs-Template-Repo-Preview/* ./DWCDoc/
           cd DWCDoc && bundle exec jekyll build
-          #python3 /home/ubuntu/ftp.py /home/ubuntu/DWCDoc/_site/ ./www.dynamsoft.com/doc-web-capture/docs/ prod
+          #python3 /home/ubuntu/ftp.py /home/ubuntu/DWCDoc/_site/ ./www.dynamsoft.com/mobile-web-capture/docs/ prod
 
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
@@ -45,7 +45,7 @@ jobs:
           password: ${{ secrets.FTP_DYNAMSOFT_LOCAL_PASSWORD }}
           port: 21 
           local-dir: /home/ubuntu/DWCDoc/_site/
-          server-dir: /www.dynamsoft.com/doc-web-capture/docs/        
+          server-dir: /www.dynamsoft.com/mobile-web-capture/docs/        
 
 
   Build-Preview:
@@ -82,5 +82,5 @@ jobs:
           password: ${{ secrets.FTP_TEST_SITE_PASSWORD }}
           port: 7500 
           local-dir: /home/ubuntu/DWCDocPreview/_site/
-          server-dir: /www.dynamsoft.com/doc-web-capture/docs/
+          server-dir: /www.dynamsoft.com/mobile-web-capture/docs/
 

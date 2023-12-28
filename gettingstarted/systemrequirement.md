@@ -3,16 +3,16 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Cameras - System Requirement
-keywords: Documentation, Document Web Capture from Mobile Cameras, System Requirement
+title: Mobile Web Capture - System Requirement
+keywords: Documentation, Mobile Web Capture, System Requirement
 breadcrumbText: System Requirement
-description: Document Web Capture from Mobile Cameras Documentation System Requirement
+description: Mobile Web Capture Documentation System Requirement
 permalink: /gettingstarted/sys_requirement.html
 ---
 
 # System Requirements
 
-As DWC from Mobile Cameras solution is implemented by Dynamsoft Document Viewer and Dynamsoft Document Normalizer, these two SDKs requires the following features to work:
+As Mobile Web Capture solution is implemented by Dynamsoft Document Viewer and Dynamsoft Document Normalizer, these two SDKs requires the following features to work:
 
 - **Secure context (HTTPS deployment)**
 

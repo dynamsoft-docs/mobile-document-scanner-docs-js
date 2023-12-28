@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Cameras - Use Cases - Review and Adjust the detected boundaries
-keywords: Documentation, Document Web Capture from Mobile Cameras, Use Cases, Review and Adjust the detected boundaries
+title: Mobile Web Capture - Use Cases - Review and Adjust the detected boundaries
+keywords: Documentation, Mobile Web Capture, Use Cases, Review and Adjust the detected boundaries
 breadcrumbText: Review and Adjust the detected boundaries
-description: Document Web Capture from Mobile Cameras Documentation Use Cases Review and Adjust the detected boundaries
+description: Mobile Web Capture Documentation Use Cases Review and Adjust the detected boundaries
 permalink: /codegallery/usecases/review-adjust-detected-boundaries.html
 ---
 
@@ -194,7 +194,7 @@ document.getElementById("restore").onclick = () => {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DWC from Mobile Cameras - Review and Adjust the detected boundaries</title>
+    <title>Mobile Web Capture - Review and Adjust the detected boundaries</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>

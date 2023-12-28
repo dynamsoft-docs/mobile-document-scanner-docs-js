@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Document Web Capture from Mobile Cameras - Creating HelloWorld
-keywords: Documentation, Document Web Capture from Mobile Cameras, Creating HelloWorld
+title: Mobile Web Capture - Creating HelloWorld
+keywords: Documentation, Mobile Web Capture, Creating HelloWorld
 breadcrumbText: Creating HelloWorld
-description: Document Web Capture from Mobile Cameras Documentation Creating HelloWorld
+description: Mobile Web Capture Documentation Creating HelloWorld
 permalink: /gettingstarted/helloworld.html
 ---
 
@@ -25,7 +25,7 @@ We’ll build on this skeleton page:
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DWC from Mobile Cameras HelloWorld</title>
+    <title>Mobile Web Capture - HelloWorld</title>
 </head>
 <body>
 </body>
@@ -200,7 +200,7 @@ document.getElementById("restore").onclick = () => {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DWC from Mobile Cameras HelloWorld</title>
+    <title>Mobile Web Capture - HelloWorld</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
