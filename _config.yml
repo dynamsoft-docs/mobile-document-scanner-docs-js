@@ -21,7 +21,7 @@ sad_icon: /doc-web-capture/docs/assets/img-icon/icon-sad.png
 
 baseurl: "/doc-web-capture/docs"
 
-download: "/doc-web-capture/downloads/1000023-confirmation/"
+download: "/doc-web-capture/downloads/1000032-confirmation/"
 
 plugins:
   - jemoji
