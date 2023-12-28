@@ -1,1 +1,1 @@
-# DocWebCapture-MobileCam-Docs
+# mobile-web-capture-Docs

@@ -14,7 +14,7 @@ permalink: /codegallery/usecases/capture-continuously-edit-result-images.html
 
 This sample demonstrates the use case to capture continuously and edit the result images before exporting.
 
-[Check out it online](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/capture-continuously-edit-result-images/)
+[Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/capture-continuously-edit-result-images/)
 
 In this sample, we would like to achieve the workflow as below.
 
@@ -437,7 +437,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
 
 ## Download the whole project
 
-[Github](https://github.com/Dynamsoft/DocWebCapture-MobileCam/tree/master/samples/capture-continuously-edit-result-images) \| [Run](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/capture-continuously-edit-result-images/)
+[Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/capture-continuously-edit-result-images) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/capture-continuously-edit-result-images/)
 
 Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 

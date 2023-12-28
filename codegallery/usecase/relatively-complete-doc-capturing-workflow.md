@@ -14,7 +14,7 @@ permalink: /codegallery/usecases/relatively-complete-doc-capturing-workflow.html
 
 This sample demonstrates a relatively complete document capturing workflow: Capture continuously & Review and Adjust the detected boundaries & Edit result images.
 
-[Check out it online](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/relatively-complete-doc-capturing-workflow/)
+[Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/relatively-complete-doc-capturing-workflow/)
 
 In this sample, we would like to achieve the workflow as below.
 
@@ -598,7 +598,7 @@ To review and edit the captured images, we create an edit viewer.
 
 ## Download the whole project
 
-[Github](https://github.com/Dynamsoft/DocWebCapture-MobileCam/tree/master/samples/relatively-complete-doc-capturing-workflow) \| [Run](https://dynamsoft.github.io/DocWebCapture-MobileCam/samples/relatively-complete-doc-capturing-workflow/)
+[Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/relatively-complete-doc-capturing-workflow) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/relatively-complete-doc-capturing-workflow/)
 
 Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 
