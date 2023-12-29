@@ -12,9 +12,9 @@ permalink: /codegallery/usecases/index.html
 
 # Use Cases
 
-Because the two SDKs, DDV and DDN, support comprehensive functions and flexible and efficient development, Mobile Web Capture can meet a variety of different workflows and needs. 
+Because the two SDKs, DDV and DDN, support comprehensive functions and flexible and efficient development, Mobile Web Capture can meet various workflows and needs. 
 
-This part will introduce four popular use cases which can be achieved by Mobile Web Capture solution.
+This part will introduce four popular use cases that the Mobile Web Capture solution can achieve.
 
 - [Review and Adjust the detected boundaries]({{ site.codegallery }}usecases/review-adjust-detected-boundaries.html)
 
@@ -36,6 +36,6 @@ This part will introduce four popular use cases which can be achieved by Mobile 
 
 - [Detect boundaries on the existing images]({{ site.codegallery }}usecases/detect-boundaries-on-existing-images.html)
 
-    This sample demonstrates the use case that supports detect the boundaries on the existing images which are from local directory/album. 
+    This sample demonstrates the use case that supports detecting the boundaries on the existing images from the local directory/album. 
 
     [Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/detect-boundaries-on-existing-images/)
