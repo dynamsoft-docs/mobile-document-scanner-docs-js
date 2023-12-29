@@ -20,22 +20,22 @@ This part will introduce four popular use cases that the Mobile Web Capture solu
 
     This sample demonstrates the use case to review and adjust the detected boundaries.
 
-    [Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/review-adjust-detected-boundaries/)
+    [Check it out online](https://dynamsoft.github.io/mobile-web-capture/samples/review-adjust-detected-boundaries/)
 
 - [Capture continuously & Edit result images]({{ site.codegallery }}usecases/capture-continuously-edit-result-images.html)
 
     This sample demonstrates the use case to capture continuously and edit the result images before exporting.
 
-    [Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/capture-continuously-edit-result-images/)
+    [Check it out online](https://dynamsoft.github.io/mobile-web-capture/samples/capture-continuously-edit-result-images/)
 
 - [Relatively complete document capturing workflow]({{ site.codegallery }}usecases/relatively-complete-doc-capturing-workflow.html)
 
     This sample demonstrates a relatively complete document capturing workflow: Capture continuously & Review and Adjust the detected boundaries & Edit result images.
 
-    [Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/relatively-complete-doc-capturing-workflow/)
+    [Check it out online](https://dynamsoft.github.io/mobile-web-capture/samples/relatively-complete-doc-capturing-workflow/)
 
 - [Detect boundaries on the existing images]({{ site.codegallery }}usecases/detect-boundaries-on-existing-images.html)
 
     This sample demonstrates the use case that supports detecting the boundaries on the existing images from the local directory/album. 
 
-    [Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/detect-boundaries-on-existing-images/)
+    [Check it out online](https://dynamsoft.github.io/mobile-web-capture/samples/detect-boundaries-on-existing-images/)
