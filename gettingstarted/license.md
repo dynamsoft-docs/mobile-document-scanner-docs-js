@@ -23,7 +23,7 @@ permalink: /gettingstarted/license.html
 
 ## Initialize the license
 
-The following code snippets are using the public trial license to initialize the license. You can replace the public trial license with your own license key.
+The following code snippets are using the public trial license to initialize the license. You can replace the public trial license with your own license key in the two places noted below.
 
 ```javascript
 // DDV license initialization
