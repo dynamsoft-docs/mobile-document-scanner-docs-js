@@ -110,7 +110,7 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
 - Define a function to control the viewers' visibility.
 
     ```javascript
-    function viewerSwitch(capture, perspective){
+    function switchViewer(capture, perspective){
         if(capture) {
             captureViewer.show();
             captureViewer.play();
@@ -132,7 +132,7 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
 
         ```javascript
         captureViewer.on("captured", () => {
-            viewerSwitch(false, true);
+            switchViewer(false, true);
         });
         ```
 
@@ -141,7 +141,7 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
         ```javascript
         // Event for clicking "Back" button
         perspectiveViewer.on("backToCaptureViewer",() => {
-            viewerSwitch(true, false);
+            switchViewer(true, false);
             perspectiveViewer.currentDocument.deleteAllPages();
         });
         ```
@@ -155,7 +155,7 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
             const count = perspectiveViewer.currentDocument.pages.length;
             // If yes, back to the capture viewer
             if(count === 0) {
-                viewerSwitch(true,false)
+                switchViewer(true,false)
             }
         });
         ```
@@ -165,7 +165,7 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
         ```javascript
         perspectiveViewer.on("done", async () => {
             // hide viewers and container
-            viewerSwitch(false, false);
+            switchViewer(false, false);
             document.getElementById("container").style.display = "none";
 
             const pageUid = perspectiveViewer.getCurrentPageUid()
@@ -181,7 +181,7 @@ For now, we finish the main workflow for this sample, can add the restore functi
 document.getElementById("restore").onclick = () => {
     perspectiveViewer.currentDocument.deleteAllPages();
     document.getElementById("container").style.display = "";
-    viewerSwitch(true, false)
+    switchViewer(true, false)
 };
 ```
 
@@ -195,7 +195,7 @@ document.getElementById("restore").onclick = () => {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mobile Web Capture - Review and Adjust the detected boundaries</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -206,24 +206,28 @@ document.getElementById("restore").onclick = () => {
         <img id="normalized">
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/core.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
 <script type="module">
 
     import { isMobile, initDocDetectModule } from "./utils.js";
 
     (async () => {
-        // Initialize DDV
-        await Dynamsoft.DDV.setConfig({
-            license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
-            engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/engine",
-        });
+        //Preloads the Document Normalizer module.
+        Dynamsoft.Core.CoreModule.loadWasm(["DDN"]);
+        //Preloads the Document Viewer module.
+        Dynamsoft.DDV.Core.loadWasm();
 
         // Initialize DDN
-        Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
-        Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+        await Dynamsoft.License.LicenseManager.initLicense(
+            "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+            true
+        );
+        // Initialize DDV
+        await Dynamsoft.DDV.Core.init();
 
         // Configure document boundaries function
         await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
@@ -244,7 +248,7 @@ document.getElementById("restore").onclick = () => {
         });
         // Register captured event
         captureViewer.on("captured", () => {
-            viewerSwitch(false, true);
+            switchViewer(false, true);
         });
 
         // Define new UiConfig for perspecitve viewer
@@ -317,7 +321,7 @@ document.getElementById("restore").onclick = () => {
 
         // Register the event for "Back" button
         perspectiveViewer.on("backToCaptureViewer",() => {
-            viewerSwitch(true, false);
+            switchViewer(true, false);
             perspectiveViewer.currentDocument.deleteAllPages();
         });
 
@@ -326,14 +330,14 @@ document.getElementById("restore").onclick = () => {
             // Determine if there are no images in the viewer
             const count = perspectiveViewer.currentDocument.pages.length;
             if(count === 0) {
-                viewerSwitch(true,false)
+                switchViewer(true,false)
             }
         }); 
 
         // Register the event for "PerspectiveAll" button to display the result image
         perspectiveViewer.on("done", async () => {
             // hide viewers and container
-            viewerSwitch(false, false);
+            switchViewer(false, false);
             document.getElementById("container").style.display = "none";
 
             const pageUid = perspectiveViewer.getCurrentPageUid()
@@ -346,11 +350,11 @@ document.getElementById("restore").onclick = () => {
         document.getElementById("restore").onclick = () => {
             perspectiveViewer.currentDocument.deleteAllPages();
             document.getElementById("container").style.display = "";
-            viewerSwitch(true, false)
+            switchViewer(true, false)
         };
 
         // Control viewers' visibility.
-        function viewerSwitch(capture, perspective){
+        function switchViewer(capture, perspective){
             if(capture) {
                 captureViewer.show();
                 captureViewer.play();

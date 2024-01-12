@@ -52,7 +52,7 @@ Please refer to [Adding the dependency]({{ site.gettingstarted }}add_dependency.
 `index.css` defines the style of elements which is in this sample.
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.css">
 <link rel="stylesheet" href="./index.css">
 ```
 
@@ -438,7 +438,7 @@ To review and edit the captured images, we create an edit viewer.
 - Define a function to control the viewers' visibility.
 
     ```javascript
-    function viewerSwitch(capture, perspective, edit) {
+    function switchViewer(capture, perspective, edit) {
         captureViewer.hide();
         perspectiveViewer.hide();
         editViewer.hide();
@@ -457,7 +457,7 @@ To review and edit the captured images, we create an edit viewer.
 
     ```javascript
     captureViewer.on("showPerspectiveViewer",() => {
-        viewerSwitch(0,1,0);
+        switchViewer(0,1,0);
     });
     ```
 
@@ -495,29 +495,33 @@ To review and edit the captured images, we create an edit viewer.
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mobile Web Capture - Relatively complete document capturing workflow</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <div id="container"></div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/core.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
 <script type="module">
     import { isMobile, initDocDetectModule } from "./utils.js";
 
     (async () => {
-        // Initialize DDV
-        await Dynamsoft.DDV.setConfig({
-            license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
-            engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",
-        });
+        //Preloads the Document Normalizer module.
+        Dynamsoft.Core.CoreModule.loadWasm(["DDN"]);
+        //Preloads the Document Viewer module.
+        Dynamsoft.DDV.Core.loadWasm();
 
         // Initialize DDN
-        Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
-        Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+        await Dynamsoft.License.LicenseManager.initLicense(
+            "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+            true
+        );
+        // Initialize DDV
+        await Dynamsoft.DDV.Core.init();
 
         // Configure document boundaries function
         await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
@@ -684,7 +688,7 @@ To review and edit the captured images, we create an edit viewer.
 
         // Register an event in `captureViewer` to show the perspective viewer
         captureViewer.on("showPerspectiveViewer",() => {
-            viewerSwitch(0,1,0);
+            switchViewer(0,1,0);
         });
 
         // Register an event in `perspectiveViewer` to show the edit viewer
@@ -703,7 +707,7 @@ To review and edit the captured images, we create an edit viewer.
         });    
 
         // Control viewers' visibility.
-        function viewerSwitch(capture, perspective, edit) {
+        function switchViewer(capture, perspective, edit) {
             captureViewer.hide();
             perspectiveViewer.hide();
             editViewer.hide();

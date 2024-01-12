@@ -67,7 +67,7 @@ For HelloWorld, we define below elements.
 `index.css` defines the style of elements which is in Helloworld.
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.css">
 <link rel="stylesheet" href="./index.css">
 ```
 
@@ -122,15 +122,18 @@ html,body {
 ## Related SDK initialization
 
 ```javascript
-// Initialize DDV
-await Dynamsoft.DDV.setConfig({
-    license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
-    engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",
-});
+//Preloads the Document Normalizer module.
+Dynamsoft.Core.CoreModule.loadWasm(["DDN"]);
+//Preloads the Document Viewer module.
+Dynamsoft.DDV.Core.loadWasm();
 
 // Initialize DDN
-Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
-Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+await Dynamsoft.License.LicenseManager.initLicense(
+    "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+    true
+);
+// Initialize DDV
+await Dynamsoft.DDV.Core.init();
 ```
 
 ## Configure document boundaries function
@@ -325,7 +328,7 @@ document.getElementById("restore").onclick = () => {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mobile Web Capture - HelloWorld</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -338,23 +341,27 @@ document.getElementById("restore").onclick = () => {
         <img id="normalized">
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/ddv.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.10/dist/core.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.11/dist/ddn.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.11/dist/cvr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/core.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
 <script type="module">
     import { isMobile, initDocDetectModule } from "./utils.js";
 
     (async () => {
-        // Initialize DDV
-        await Dynamsoft.DDV.setConfig({
-            license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
-            engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.0.0/dist/engine",
-        });
+        //Preloads the Document Normalizer module.
+        Dynamsoft.Core.CoreModule.loadWasm(["DDN"]);
+        //Preloads the Document Viewer module.
+        Dynamsoft.DDV.Core.loadWasm();
 
         // Initialize DDN
-        Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
-        Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+        await Dynamsoft.License.LicenseManager.initLicense(
+            "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+            true
+        );
+        // Initialize DDV
+        await Dynamsoft.DDV.Core.init();
 
         // Configure document boundaries function
         await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
@@ -400,9 +407,9 @@ document.getElementById("restore").onclick = () => {
 ## Download the whole project
 
 - Hello World - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world/hello-world/)
-  - Angular App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-angular) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world/hello-world-angular/)
-  - React App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-react) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world/hello-world-react/)
-  - Vue3 App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-vue3) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world/hello-world-vue3/)
+  - Angular App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-angular)
+  - React App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-react)
+  - Vue3 App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-vue3)
 
 ## More use cases
 
