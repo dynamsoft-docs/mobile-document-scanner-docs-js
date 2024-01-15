@@ -78,12 +78,12 @@ html,body {
 ```javascript
 // Initialize DDV
 await Dynamsoft.DDV.setConfig({
-    license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+    license: "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9",
     engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",
 });
 
 // Initialize DDN
-Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9");
+Dynamsoft.License.LicenseManager.initLicense("DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9");
 Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
 ```
 
@@ -517,7 +517,7 @@ To review and edit the captured images, we create an edit viewer.
 
         // Initialize DDN
         await Dynamsoft.License.LicenseManager.initLicense(
-            "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+            "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9",
             true
         );
         // Initialize DDV
