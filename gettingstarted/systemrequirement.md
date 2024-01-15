@@ -33,7 +33,7 @@ The following table is a list of supported browsers based on the above requireme
 
   | Browser Name |             Version              |
   | :----------: | :------------------------------: |
-  |    Chrome    |             v75+                 |
+  |    Chrome    |             v78+                 |
   |   Firefox    |             v79+                 |
   |    Safari    |             v15+                 |
   |     Edge     |             v92+                 |
