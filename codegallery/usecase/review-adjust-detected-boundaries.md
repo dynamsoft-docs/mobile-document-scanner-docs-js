@@ -223,7 +223,7 @@ document.getElementById("restore").onclick = () => {
 
         // Initialize DDN
         await Dynamsoft.License.LicenseManager.initLicense(
-            "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9",
+            "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9",
             true
         );
         // Initialize DDV

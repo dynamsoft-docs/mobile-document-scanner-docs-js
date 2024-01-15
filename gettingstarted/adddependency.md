@@ -63,6 +63,8 @@ Options to download the SDK:
   yarn add dynamsoft-utility@1.0.20
   yarn add dynamsoft-document-normalizer@2.0.20
   yarn add dynamsoft-capture-vision-router@2.0.30
+  yarn add dynamsoft-capture-vision-std@1.0.0
+  yarn add dynamsoft-image-processing@2.0.30
   ```
 
 - npm
@@ -74,6 +76,8 @@ Options to download the SDK:
   npm install dynamsoft-utility@1.0.20
   npm install dynamsoft-document-normalizer@2.0.20
   npm install dynamsoft-capture-vision-router@2.0.30
+  npm install dynamsoft-capture-vision-std@1.0.0
+  npm install dynamsoft-image-processing@2.0.30
   ```
 
 
@@ -97,4 +101,21 @@ or
   <script src="./node_modules/dynamsoft-license@3.0.20/dist/license.js"></script>
   <script src="./node_modules/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
   <script src="./node_modules/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
+  ```
+
+## Specify the location of the engine files
+
+This is usually only required with frameworks like Angular or React, etc. where the referenced JavaScript files such as cvr.js, ddn.js are compiled into another file, or using the SDKs completely offline.
+
+The purpose is to tell the SDK where to find the engine files (*.worker.js, *.wasm.js and *.wasm, etc.). The API is called [`Dynamsoft.Core.CoreModule.engineResourcePaths`](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/api-reference/core/core-module-class.html?product=ddn&lang=javascript#engineresourcepaths):
+
+  ```typescript
+  //The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
+  Dynamsoft.DDV.Core.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/engine";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.ddn = "https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.20/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.30/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.std = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.0.0/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.0.30/dist/";
   ```
