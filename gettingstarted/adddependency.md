@@ -81,8 +81,8 @@ Options to download the SDK:
 
 
 
-Depending on how you downloaded the SDK and where you put it, you can typically include it like this:
-
+Depending on where you put it, you can typically include it like this:
+{% comment %}
   ```html
   <!-- Upon extracting the zip package into your project, you can generally include it in the following manner -->
   <script src="./distributables/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
@@ -93,7 +93,7 @@ Depending on how you downloaded the SDK and where you put it, you can typically 
   ```
 
 or
-
+{% endcomment %}
   ```html
   <script src="./node_modules/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
   <script src="./node_modules/dynamsoft-core@3.0.30/dist/core.js"></script>
