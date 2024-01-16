@@ -2,7 +2,7 @@ repository: dynamsoft-docs/mobile-web-capture-docs
 repositoryUrl: https://github.com/dynamsoft-docs/mobile-web-capture-docs/blob/main
 docFullPath: https://www.dynamsoft.com/mobile-web-capture/docs
 firstLevelUrl: /mobile-web-capture/docs
-docHomePage: /mobile-web-capture/docs/
+docHomePage: /mobile-web-capture/docs/introduction/
 
 introduction: /mobile-web-capture/docs/introduction/
 gettingstarted: /mobile-web-capture/docs/gettingstarted/
