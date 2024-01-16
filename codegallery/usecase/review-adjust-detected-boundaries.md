@@ -99,7 +99,7 @@ Since this sample is based on HelloWorld, the basic steps are introduced in [Cre
     });
     ```
 
-- Since this viewer only shows when captured a image, it should be hidden at first.
+- Since this viewer only shows when captured an image, it should be hidden at first.
 
     ```javascript
     perspectiveViewer.hide();
