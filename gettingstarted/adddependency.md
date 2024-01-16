@@ -48,7 +48,7 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 
 Besides using the CDN, you can also download the SDKs and host related files on your own website/server before including it in your application. When using a CDN, resources related to `dynamsoft-image-processing` and `dynamsoft-capture-vision-std` are automatically loaded over the network; When using them locally, these two packages need to be configured manually.
 
-**Step 1** Option to download the SDK:
+**Step 1** Download the SDKs:
 {% comment %}
 - From the website
 
@@ -81,7 +81,9 @@ Besides using the CDN, you can also download the SDKs and host related files on 
 
 
 
-**Step 2** Depending on where you put it, you can typically include it like this:
+**Step 2** Include the SDKs
+
+Depending on where you put them, you can typically include them like this:
 {% comment %}
   ```html
   <script src="./distributables/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
@@ -109,7 +111,7 @@ If you would like to use the SDKs completely offline, please refer to [Use your 
 
 This is usually only required with frameworks like Angular or React, etc. where the referenced JavaScript files such as cvr.js, ddn.js are compiled into another file, or hosting the engine files and using the SDKs completely offline. The purpose is to tell the SDK where to find the engine files (*.worker.js, *.wasm.js and *.wasm, etc.). 
 
-### Uses the jsDelivr CDN with frameworks like Angular or React, etc.
+### Use the jsDelivr CDN with frameworks like Angular or React, etc.
   ```typescript
   Dynamsoft.DDV.Core.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/engine";
   Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/";
