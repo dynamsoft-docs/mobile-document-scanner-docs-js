@@ -23,14 +23,11 @@ permalink: /gettingstarted/license.html
 
 ## Initialize the license
 
-The following code snippets are using the public trial license to initialize the license. You can replace the public trial license with your own license key in the two places noted below.
+The following code snippet is using the public trial license to initialize the license. You can replace the public trial license with your own license key.
 
 ```javascript
-// DDV license initialization
-await Dynamsoft.DDV.setConfig({
-    license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", // Public trial license which is valid for 24 hours
-    engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",// lead to a folder containing the distributed WASM files
-});
-// DDN license initialization
-Dynamsoft.License.LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9"); // Public trial license which is valid for 24 hours
+await Dynamsoft.License.LicenseManager.initLicense(
+    "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9",
+    true
+); // Public trial license which is valid for 24 hours
 ```
