@@ -53,7 +53,7 @@ Options to download the SDK:
 - From the website
 
   [Download the JavaScript ZIP package](https://www.dynamsoft.com/mobile-web-capture/downloads/)
-{% endcomment %}
+
 - yarn
 
   ```cmd
@@ -65,6 +65,7 @@ Options to download the SDK:
   yarn add dynamsoft-capture-vision-std@1.0.0
   yarn add dynamsoft-image-processing@2.0.30
   ```
+{% endcomment %}
 
 - npm
 
