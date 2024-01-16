@@ -45,6 +45,13 @@ Please refer to [Adding the dependency]({{ site.gettingstarted }}add_dependency.
 
 ## Define necessary HTML elements
 
+For this sample, we define below element.
+
+- Container to hold the viewer
+
+```html
+<div id="container"></div>
+```
 
 ## Link CSS to HTML
 
