@@ -49,11 +49,11 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 Besides using the CDN, you can also download the SDKs and host related files on your own website/server before including it in your application. When using a CDN, resources related to `dynamsoft-image-processing` and `dynamsoft-capture-vision-std` are automatically loaded over the network; When using them locally, these two packages need to be configured manually.
 
 Options to download the SDK:
-
+{% comment %}
 - From the website
 
   [Download the JavaScript ZIP package](https://www.dynamsoft.com/mobile-web-capture/downloads/)
-
+{% endcomment %}
 - yarn
 
   ```cmd
