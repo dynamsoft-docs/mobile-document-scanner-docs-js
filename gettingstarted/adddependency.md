@@ -48,7 +48,7 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 
 Besides using the CDN, you can also download the SDKs and host related files on your own website/server before including it in your application. When using a CDN, resources related to `dynamsoft-image-processing` and `dynamsoft-capture-vision-std` are automatically loaded over the network; When using them locally, these two packages need to be configured manually.
 
-Option to download the SDK:
+**Step 1** Option to download the SDK:
 {% comment %}
 - From the website
 
@@ -81,10 +81,9 @@ Option to download the SDK:
 
 
 
-Depending on where you put it, you can typically include it like this:
+**Step 2** Depending on where you put it, you can typically include it like this:
 {% comment %}
   ```html
-  <!-- Upon extracting the zip package into your project, you can generally include it in the following manner -->
   <script src="./distributables/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
   <script src="./distributables/dynamsoft-core@3.0.30/dist/core.js"></script>
   <script src="./distributables/dynamsoft-license@3.0.20/dist/license.js"></script>
@@ -102,12 +101,16 @@ or
   <script src="./node_modules/dynamsoft-capture-vision-router/dist/cvr.js"></script>
   ```
 
+**Step 3** Specify the location of the engine files(optinal)
+
+If you would like to use the SDKs completely offline, please refer to [Use your own hosted engine files](#use-your-own-hosted-engine-files).
+
 ## Specify the location of the engine files
 
-This is usually only required with frameworks like Angular or React, etc. where the referenced JavaScript files such as cvr.js, ddn.js are compiled into another file, or using the SDKs completely offline. The purpose is to tell the SDK where to find the engine files (*.worker.js, *.wasm.js and *.wasm, etc.). 
+This is usually only required with frameworks like Angular or React, etc. where the referenced JavaScript files such as cvr.js, ddn.js are compiled into another file, or hosting the engine files and using the SDKs completely offline. The purpose is to tell the SDK where to find the engine files (*.worker.js, *.wasm.js and *.wasm, etc.). 
 
+### Uses the jsDelivr CDN with frameworks like Angular or React, etc.
   ```typescript
-  //The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
   Dynamsoft.DDV.Core.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/engine";
   Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/";
   Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/";
@@ -115,4 +118,17 @@ This is usually only required with frameworks like Angular or React, etc. where 
   Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.30/dist/";
   Dynamsoft.Core.CoreModule.engineResourcePaths.std = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.0.0/dist/";
   Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.0.30/dist/";
+  ```
+
+### Use your own hosted engine files
+
+  ```typescript
+  //Feel free to change it to your own location of these files
+  Dynamsoft.DDV.Core.engineResourcePath = "./node_modules/dynamsoft-document-viewer/dist/engine";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.core = "./node_modules/dynamsoft-core/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.license = "./node_modules/dynamsoft-license/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.ddn = "./node_modules/dynamsoft-document-normalizer/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "./node_modules/dynamsoft-capture-vision-router/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.std = "./node_modules/dynamsoft-capture-vision-std/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "./node_modules/dynamsoft-image-processing/dist/";
   ```
