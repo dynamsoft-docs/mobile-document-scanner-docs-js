@@ -48,7 +48,7 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 
 Besides using the CDN, you can also download the SDKs and host related files on your own website/server before including it in your application. When using a CDN, resources related to `dynamsoft-image-processing` and `dynamsoft-capture-vision-std` are automatically loaded over the network; When using them locally, these two packages need to be configured manually.
 
-Options to download the SDK:
+Option to download the SDK:
 {% comment %}
 - From the website
 
@@ -81,8 +81,8 @@ Options to download the SDK:
 
 
 
-Depending on how you downloaded the SDK and where you put it, you can typically include it like this:
-
+Depending on where you put it, you can typically include it like this:
+{% comment %}
   ```html
   <!-- Upon extracting the zip package into your project, you can generally include it in the following manner -->
   <script src="./distributables/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
@@ -93,7 +93,7 @@ Depending on how you downloaded the SDK and where you put it, you can typically 
   ```
 
 or
-
+{% endcomment %}
   ```html
   <script src="./node_modules/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
   <script src="./node_modules/dynamsoft-core@3.0.30/dist/core.js"></script>
