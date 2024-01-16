@@ -95,11 +95,11 @@ Depending on where you put it, you can typically include it like this:
 or
 {% endcomment %}
   ```html
-  <script src="./node_modules/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
-  <script src="./node_modules/dynamsoft-core@3.0.30/dist/core.js"></script>
-  <script src="./node_modules/dynamsoft-license@3.0.20/dist/license.js"></script>
-  <script src="./node_modules/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
-  <script src="./node_modules/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
+  <script src="./node_modules/dynamsoft-document-viewer/dist/ddv.js"></script>
+  <script src="./node_modules/dynamsoft-core/dist/core.js"></script>
+  <script src="./node_modules/dynamsoft-license/dist/license.js"></script>
+  <script src="./node_modules/dynamsoft-document-normalizer/dist/ddn.js"></script>
+  <script src="./node_modules/dynamsoft-capture-vision-router/dist/cvr.js"></script>
   ```
 
 ## Specify the location of the engine files
