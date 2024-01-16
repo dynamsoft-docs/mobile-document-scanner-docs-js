@@ -87,15 +87,18 @@ html,body {
 ## Related SDK initialization
 
 ```javascript
-// Initialize DDV
-await Dynamsoft.DDV.setConfig({
-    license: "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9",
-    engineResourcePath: "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine",
-});
+//Preloads the Document Normalizer module.
+Dynamsoft.Core.CoreModule.loadWasm(["DDN"]);
+//Preloads the Document Viewer module.
+Dynamsoft.DDV.Core.loadWasm();
 
 // Initialize DDN
-Dynamsoft.License.LicenseManager.initLicense("DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9");
-Dynamsoft.CVR.CaptureVisionRouter.preloadModule(["DDN"]);
+await Dynamsoft.License.LicenseManager.initLicense(
+    "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9",
+    true
+);
+// Initialize DDV
+await Dynamsoft.DDV.Core.init();
 
 const router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
 router.maxCvsSideLength = 99999;

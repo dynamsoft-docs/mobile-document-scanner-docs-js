@@ -12,13 +12,13 @@ permalink: /gettingstarted/add_dependency.html
 
 # Adding the dependency
 
-To build the solution, we need to include four packages
+To build the solution, we need to include five packages
 
 1. `dynamsoft-document-viewer`: Required. It provides functions to create the viewers.
 2. `dynamsoft-core`: Required. It encompasses common classes, interfaces, and enumerations that are shared across all SDKs in DCV architecture.
 3. `dynamsoft-license`: Required. It introduces the `LicenseManager` class.
-3. `dynamsoft-document-normalizer`: Required. It defines interfaces and enumerations specifically tailored to the document normalizer module.
-4. `dynamsoft-capture-vision-router`: Required. It defines the class `CaptureVisionRouter`, which governs the entire image processing workflow.
+4. `dynamsoft-document-normalizer`: Required. It defines interfaces and enumerations specifically tailored to the document normalizer module.
+5. `dynamsoft-capture-vision-router`: Required. It defines the class `CaptureVisionRouter`, which governs the entire image processing workflow.
 
 ## Use a CDN
 
@@ -37,16 +37,16 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 - UNPKG
 
   ```html
-  <script src="https://unpkg.com/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
-  <script src="https://unpkg.com/npm/dynamsoft-core@3.0.30/dist/core.js"></script>
-  <script src="https://unpkg.com/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
-  <script src="https://unpkg.com/npm/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
-  <script src="https://unpkg.com/npm/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
+  <script src="https://unpkg.com/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
+  <script src="https://unpkg.com/dynamsoft-core@3.0.30/dist/core.js"></script>
+  <script src="https://unpkg.com/dynamsoft-license@3.0.20/dist/license.js"></script>
+  <script src="https://unpkg.com/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
+  <script src="https://unpkg.com/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
   ```
 
 ## Host yourself
 
-Besides using the CDN, you can also download the SDKs and host related files on your own website/server before including it in your application.
+Besides using the CDN, you can also download the SDKs and host related files on your own website/server before including it in your application. When using a CDN, resources related to `dynamsoft-image-processing` and `dynamsoft-capture-vision-std` are automatically loaded over the network; When using them locally, these two packages need to be configured manually.
 
 Options to download the SDK:
 
@@ -60,7 +60,6 @@ Options to download the SDK:
   yarn add dynamsoft-document-viewer@1.1.0
   yarn add dynamsoft-core@3.0.30
   yarn add dynamsoft-license@3.0.20
-  yarn add dynamsoft-utility@1.0.20
   yarn add dynamsoft-document-normalizer@2.0.20
   yarn add dynamsoft-capture-vision-router@2.0.30
   yarn add dynamsoft-capture-vision-std@1.0.0
@@ -73,7 +72,6 @@ Options to download the SDK:
   npm install dynamsoft-document-viewer@1.1.0
   npm install dynamsoft-core@3.0.30
   npm install dynamsoft-license@3.0.20
-  npm install dynamsoft-utility@1.0.20
   npm install dynamsoft-document-normalizer@2.0.20
   npm install dynamsoft-capture-vision-router@2.0.30
   npm install dynamsoft-capture-vision-std@1.0.0
