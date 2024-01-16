@@ -104,9 +104,7 @@ or
 
 ## Specify the location of the engine files
 
-This is usually only required with frameworks like Angular or React, etc. where the referenced JavaScript files such as cvr.js, ddn.js are compiled into another file, or using the SDKs completely offline.
-
-The purpose is to tell the SDK where to find the engine files (*.worker.js, *.wasm.js and *.wasm, etc.). The API is called [`Dynamsoft.Core.CoreModule.engineResourcePaths`](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/api-reference/core/core-module-class.html?product=ddn&lang=javascript#engineresourcepaths):
+This is usually only required with frameworks like Angular or React, etc. where the referenced JavaScript files such as cvr.js, ddn.js are compiled into another file, or using the SDKs completely offline. The purpose is to tell the SDK where to find the engine files (*.worker.js, *.wasm.js and *.wasm, etc.). 
 
   ```typescript
   //The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
