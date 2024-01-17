@@ -41,10 +41,19 @@ We’ll build on this skeleton page:
 
 ## Adding the dependency
 
-Please refer to [Adding the dependency]({{ site.gettingstarted }}add_dependency.html).
+This sample is using a CDN to include the SDKs. Please refer to [Adding the dependency - Use a CDN]({{ site.gettingstarted }}add_dependency.html#use-a-cdn).
+
+If you would like to host the resources files on your own server. Please refer to [Adding the dependency - Host yourself]({{ site.gettingstarted }}add_dependency.html#host-yourself).
 
 ## Define necessary HTML elements
 
+For this sample, we define below element.
+
+- Container to hold the viewer
+
+```html
+<div id="container"></div>
+```
 
 ## Link CSS to HTML
 
