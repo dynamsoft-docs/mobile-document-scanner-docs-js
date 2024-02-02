@@ -419,4 +419,4 @@ We provide some samples which demonstrate the popular use cases, for example, re
 
 Please refer to the [Use Case]({{ site.codegallery }}usecases/index.html) section.
 
-{% comment %}  ## [Demo]({{ site.codegallery }}demo/index.html) {% endcomment %} 
+## [Demo](https://demo.dynamsoft.com/mobile-web-capture/)
