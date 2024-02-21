@@ -149,8 +149,8 @@ To review the detected boundaries on the loaded image(s), we will create a persp
                         className: "ddv-load-image2 addNewButton", 
                         events: {
                             click: "addNew"
-                        }
-                    }
+                        },
+                    },
                     Dynamsoft.DDV.Elements.DeleteCurrent,
                     Dynamsoft.DDV.Elements.DeleteAll,
                 ],
@@ -333,8 +333,8 @@ Since the workflow in this sample is very simple, only the two events mentioned 
                             type: Dynamsoft.DDV.Elements.PerspectiveAll,
                             events: {
                                 click: "downloadPDF"
-                            }
-                        }
+                            },
+                        },
                     ],
                 },
                 Dynamsoft.DDV.Elements.MainView,
@@ -351,8 +351,8 @@ Since the workflow in this sample is very simple, only the two events mentioned 
                             className: "ddv-load-image2 addNewButton", 
                             events: {
                                 click: "addNew"
-                            }
-                        }
+                            },
+                        },
                         Dynamsoft.DDV.Elements.DeleteCurrent,
                         Dynamsoft.DDV.Elements.DeleteAll,
                     ],
