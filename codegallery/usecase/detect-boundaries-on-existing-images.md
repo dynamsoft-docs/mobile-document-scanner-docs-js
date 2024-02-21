@@ -369,6 +369,13 @@ Since the workflow in this sample is very simple, only the two events mentioned 
             }
         });
 
+        // Create a document and open it in the perspectiveViewer
+        const doc = Dynamsoft.DDV.documentManager.createDocument();
+        perspectiveViewer.openDocument(doc.uid);
+
+        // Create an image input with document boundaries detection
+        const loadImageInput = createFileInput(perspectiveViewer, router);
+
         // Register an event in `perspectiveViewer` to add existing image(s)
         perspectiveViewer.on("addNew",() => {
             delete loadImageInput.files;
