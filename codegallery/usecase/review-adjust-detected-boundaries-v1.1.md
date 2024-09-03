@@ -20,7 +20,7 @@ In this sample, we would like to achieve the workflow as below.
 
 ![Flow chart for review-adjust-detected-boundaries](/assets/imgs/review-adjust-detected-boundaries.png)
 
-Since this sample is based on HelloWorld, the basic steps are introduced in [Creating HelloWorld]({{ site.gettingstarted }}helloworld.html) chapter, this chapter will not be further elaborated.
+Since this sample is based on HelloWorld, the basic steps are introduced in [Creating HelloWorld]({{ site.gettingstarted }}helloworld-v1.1.html) chapter, this chapter will not be further elaborated.
 
 ## Create a perspective viewer
 
