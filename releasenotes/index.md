@@ -19,8 +19,6 @@ Includes
 - [Dynamsoft Document Viewer Javascript Edition 2.0](https://www.dynamsoft.com/document-viewer/docs/releasenotes/index.html#20-20082024)
 - [Dynamsoft Document Normalizer Javascript Edition 2.2.10](https://www.dynamsoft.com/document-normalizer/docs/web/programming/javascript/release-notes/javascript-2.html#2210-04092024)
 
-# Release Notes
-
 ## 1.1.0 (01/16/2024)
 
 Includes

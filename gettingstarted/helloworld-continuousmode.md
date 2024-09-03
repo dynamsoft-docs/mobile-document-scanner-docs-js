@@ -753,7 +753,7 @@ Since the workflow in this sample is very simple, only the four events mentioned
 
 ## Download the whole project
 
-[Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/capture-continuously-edit-result-images) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/capture-continuously-edit-result-images/)
+[Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world-continuous-mode) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world-continuous-mode/)
 
 Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 

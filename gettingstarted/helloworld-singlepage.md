@@ -14,7 +14,7 @@ permalink: /gettingstarted/helloworld-singlepage.html
 
 In this section, we’ll break down and show all the steps needed to build the HelloWorld - Single Page solution in a web page.
 
-- Check out [HelloWorld - Single Page](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world-singlepage/hello-world/) online
+- Check out [HelloWorld - Single Page](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world-singlepage/hello-world/hello-world.html) online
 
 We’ll build on this skeleton page:
 
@@ -597,7 +597,7 @@ btnRestart.addEventListener("click", async () => {
 
 ## Download the whole project
 
-- Hello World - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world-singlepage/hello-world/)
+- Hello World - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world-singlepage/hello-world) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world-singlepage/hello-world/hello-world.html)
   - Angular App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world-singlepage/hello-world-angular)
   - React App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world-singlepage/hello-world-react)
   - Vue3 App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world-singlepage/hello-world-vue3)

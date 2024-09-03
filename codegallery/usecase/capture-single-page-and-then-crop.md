@@ -14,13 +14,12 @@ permalink: /codegallery/usecases/capture-single-page-and-then-crop.html
 
 This sample adds a perspective viewer based on HelloWorld solution to review and adjust the detected boundaries on the captured image.
 
-[Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/review-adjust-detected-boundaries/)
+[Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/capture-single-page-and-then-crop/)
 
 In this sample, we would like to achieve the workflow as below.
 
 ![Flow chart for review-adjust-detected-boundaries](/assets/imgs/review-adjust-detected-boundaries.png)
 
-Since this sample is based on HelloWorld, the basic steps are introduced in [Creating HelloWorld]({{ site.gettingstarted }}helloworld.html) chapter, this chapter will not be further elaborated.
 
 ## Create a perspective viewer
 
@@ -376,7 +375,7 @@ document.getElementById("restore").onclick = () => {
 
 ## Download the whole project
 
-[Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/review-adjust-detected-boundaries) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/review-adjust-detected-boundaries/)
+[Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/capture-single-page-and-then-crop) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/capture-single-page-and-then-crop/)
 
 Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 
