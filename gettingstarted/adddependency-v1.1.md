@@ -7,7 +7,7 @@ title: Mobile Web Capture - Adding the dependency
 keywords: Documentation, Mobile Web Capture, Adding the dependency
 breadcrumbText: Adding the dependency
 description: Mobile Web Capture Documentation Adding the dependency
-permalink: /gettingstarted/add_dependency.html
+permalink: /gettingstarted/add_dependency-v1.1.html
 ---
 
 # Adding the dependency
@@ -27,21 +27,21 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 - jsDelivr
 
   ```html
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.2.10/dist/ddn.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
   ```
 
 - UNPKG
 
   ```html
-  <script src="https://unpkg.com/dynamsoft-document-viewer@2.0.0/dist/ddv.js"></script>
-  <script src="https://unpkg.com/dynamsoft-core@3.2.10/dist/core.js"></script>
-  <script src="https://unpkg.com/dynamsoft-license@3.2.10/dist/license.js"></script>
-  <script src="https://unpkg.com/dynamsoft-document-normalizer@2.2.10/dist/ddn.js"></script>
-  <script src="https://unpkg.com/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
+  <script src="https://unpkg.com/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
+  <script src="https://unpkg.com/dynamsoft-core@3.0.30/dist/core.js"></script>
+  <script src="https://unpkg.com/dynamsoft-license@3.0.20/dist/license.js"></script>
+  <script src="https://unpkg.com/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
+  <script src="https://unpkg.com/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
   ```
 
 ## Host yourself
@@ -57,26 +57,26 @@ Besides using the CDN, you can also download the SDKs and host related files on 
 - yarn
 
   ```cmd
-  yarn add dynamsoft-document-viewer@2.0.0
-  yarn add dynamsoft-core@3.2.10
-  yarn add dynamsoft-license@3.2.10
-  yarn add dynamsoft-document-normalizer@2.2.10
-  yarn add dynamsoft-capture-vision-router@2.2.10
-  yarn add dynamsoft-capture-vision-std@1.2.0
-  yarn add dynamsoft-image-processing@2.2.10
+  yarn add dynamsoft-document-viewer@1.1.0
+  yarn add dynamsoft-core@3.0.30
+  yarn add dynamsoft-license@3.0.20
+  yarn add dynamsoft-document-normalizer@2.0.20
+  yarn add dynamsoft-capture-vision-router@2.0.30
+  yarn add dynamsoft-capture-vision-std@1.0.0
+  yarn add dynamsoft-image-processing@2.0.30
   ```
 {% endcomment %}
 
 - npm
 
   ```cmd
-  npm install dynamsoft-document-viewer@2.0.0
-  npm install dynamsoft-core@3.2.10
-  npm install dynamsoft-license@3.2.10
-  npm install dynamsoft-document-normalizer@2.2.10
-  npm install dynamsoft-capture-vision-router@2.2.10
-  npm install dynamsoft-capture-vision-std@1.2.0
-  npm install dynamsoft-image-processing@2.2.10
+  npm install dynamsoft-document-viewer@1.1.0
+  npm install dynamsoft-core@3.0.30
+  npm install dynamsoft-license@3.0.20
+  npm install dynamsoft-document-normalizer@2.0.20
+  npm install dynamsoft-capture-vision-router@2.0.30
+  npm install dynamsoft-capture-vision-std@1.0.0
+  npm install dynamsoft-image-processing@2.0.30
   ```
 
 
@@ -86,11 +86,11 @@ Besides using the CDN, you can also download the SDKs and host related files on 
 Depending on where you put them, you can typically include them like this:
 {% comment %}
   ```html
-  <script src="./distributables/dynamsoft-document-viewer@2.0.0/dist/ddv.js"></script>
-  <script src="./distributables/dynamsoft-core@3.2.10/dist/core.js"></script>
-  <script src="./distributables/dynamsoft-license@3.2.10/dist/license.js"></script>
-  <script src="./distributables/dynamsoft-document-normalizer@2.2.10/dist/ddn.js"></script>
-  <script src="./distributables/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
+  <script src="./distributables/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
+  <script src="./distributables/dynamsoft-core@3.0.30/dist/core.js"></script>
+  <script src="./distributables/dynamsoft-license@3.0.20/dist/license.js"></script>
+  <script src="./distributables/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
+  <script src="./distributables/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
   ```
 
 or
@@ -113,13 +113,13 @@ This is usually only required with frameworks like Angular or React, etc. where 
 
 ### Use the jsDelivr CDN with frameworks like Angular or React, etc.
   ```typescript
-  Dynamsoft.DDV.Core.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/engine";
-  Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/";
-  Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/";
-  Dynamsoft.Core.CoreModule.engineResourcePaths.ddn = "https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.2.10/dist/";
-  Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/";
-  Dynamsoft.Core.CoreModule.engineResourcePaths.std = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.2.0/dist/";
-  Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.2.10/dist/";
+  Dynamsoft.DDV.Core.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/engine";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.core = "https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.license = "https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.ddn = "https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.20/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.cvr = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.30/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.std = "https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-std@1.0.0/dist/";
+  Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "https://cdn.jsdelivr.net/npm/dynamsoft-image-processing@2.0.30/dist/";
   ```
 
 ### Use your own hosted engine files

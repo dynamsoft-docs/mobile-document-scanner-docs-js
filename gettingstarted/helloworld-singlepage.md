@@ -3,11 +3,11 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Mobile Web Capture - Creating HelloWorld
-keywords: Documentation, Mobile Web Capture, Creating HelloWorld
-breadcrumbText: Creating HelloWorld
-description: Mobile Web Capture Documentation Creating HelloWorld
-permalink: /gettingstarted/helloworld.html
+title: Mobile Web Capture - Creating HelloWorld - Single Page
+keywords: Documentation, Mobile Web Capture, Creating HelloWorld - Single Page
+breadcrumbText: Creating HelloWorld - Single Page
+description: Mobile Web Capture Documentation Creating HelloWorld - Single Page
+permalink: /gettingstarted/helloworld-singlepage.html
 ---
 
 # Creating HelloWorld
@@ -69,7 +69,7 @@ For HelloWorld, we define below elements.
 `index.css` defines the style of elements which is in Helloworld.
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.css">
 <link rel="stylesheet" href="./index.css">
 ```
 
@@ -330,7 +330,7 @@ document.getElementById("restore").onclick = () => {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mobile Web Capture - HelloWorld</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -343,11 +343,11 @@ document.getElementById("restore").onclick = () => {
         <img id="normalized">
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/core.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.2.10/dist/ddn.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
 <script type="module">
     import { isMobile, initDocDetectModule } from "./utils.js";
 

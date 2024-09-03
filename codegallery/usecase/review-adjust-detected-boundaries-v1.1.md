@@ -7,7 +7,7 @@ title: Mobile Web Capture - Use Cases - Review and Adjust the detected boundarie
 keywords: Documentation, Mobile Web Capture, Use Cases, Review and Adjust the detected boundaries
 breadcrumbText: Review and Adjust the detected boundaries
 description: Mobile Web Capture Documentation Use Cases Review and Adjust the detected boundaries
-permalink: /codegallery/usecases/review-adjust-detected-boundaries.html
+permalink: /codegallery/usecases/review-adjust-detected-boundaries-v1.1.html
 ---
 
 # Review and Adjust the detected boundaries

@@ -7,7 +7,7 @@ title: Mobile Web Capture - Use Cases - Relatively complete document capturing w
 keywords: Documentation, Mobile Web Capture, Use Cases, Relatively complete document capturing workflow
 breadcrumbText: Relatively complete document capturing workflow
 description: Mobile Web Capture Documentation Use Cases Relatively complete document capturing workflow
-permalink: /codegallery/usecases/relatively-complete-doc-capturing-workflow.html
+permalink: /codegallery/usecases/relatively-complete-doc-capturing-workflow-v1.1.html
 ---
 
 # Relatively complete document capturing workflow

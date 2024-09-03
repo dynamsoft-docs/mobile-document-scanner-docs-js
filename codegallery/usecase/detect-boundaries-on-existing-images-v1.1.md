@@ -7,7 +7,7 @@ title: Mobile Web Capture - Use Cases - Detect boundaries on the existing images
 keywords: Documentation, Mobile Web Capture, Use Cases, Detect boundaries on the existing images
 breadcrumbText: Detect boundaries on the existing images
 description: Mobile Web Capture Documentation Use Cases Detect boundaries on the existing images
-permalink: /codegallery/usecases/detect-boundaries-on-existing-images.html
+permalink: /codegallery/usecases/detect-boundaries-on-existing-images-v1.1.html
 ---
 
 # Detect boundaries on the existing images
@@ -61,7 +61,7 @@ For this sample, we define below element.
 `index.css` defines the style of elements which is in this sample.
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.css">
 <link rel="stylesheet" href="./index.css">
 ```
 
@@ -285,17 +285,17 @@ Since the workflow in this sample is very simple, only the two events mentioned 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mobile Web Capture - Detect boundaries on the existing images</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <div id="container"></div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.2.10/dist/ddn.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/core.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
 <script type="module">
     import { isMobile, createFileInput } from "./utils.js";
 
