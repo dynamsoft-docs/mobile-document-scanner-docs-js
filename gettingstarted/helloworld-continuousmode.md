@@ -3,22 +3,23 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Mobile Web Capture - Use Cases - Relatively complete document capturing workflow
-keywords: Documentation, Mobile Web Capture, Use Cases, Relatively complete document capturing workflow
-breadcrumbText: Relatively complete document capturing workflow
-description: Mobile Web Capture Documentation Use Cases Relatively complete document capturing workflow
-permalink: /codegallery/usecases/relatively-complete-doc-capturing-workflow.html
+title: Mobile Web Capture - Creating HelloWorld - Continuous Mode
+keywords: Documentation, Mobile Web Capture, Creating HelloWorld - Continuous Mode
+breadcrumbText: Creating HelloWorld - Continuous Mode
+description: Mobile Web Capture Documentation Creating HelloWorld - Continuous Mode
+permalink: /gettingstarted/helloworld-continuousmode.html
 ---
 
-# Relatively complete document capturing workflow
+# Creating HelloWorld - Continuous Mode
 
-This sample demonstrates a relatively complete document capturing workflow: Capture continuously & Review and Adjust the detected boundaries & Edit result images.
+This sample demonstrates the use case to capture continuously and edit the result images before exporting.
 
-[Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/relatively-complete-doc-capturing-workflow/)
+- Check out [HelloWorld - Continuous Mode](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world-continuous-mode/) online
+
 
 In this sample, we would like to achieve the workflow as below.
 
-![Flow chart for relatively-complete-doc-capturing-workflow](/assets/imgs/relatively-complete-doc-capturing-workflow.png)
+![Flow chart for capture-continuously-edit-result-images](/assets/imgs/capture-continuously-edit-result-images.png)
 
 We’ll build on this skeleton page:
 
@@ -29,7 +30,7 @@ We’ll build on this skeleton page:
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mobile Web Capture - Relatively complete document capturing workflow</title>
+    <title>Mobile Web Capture - HelloWorld - Continuous Mode</title>
 </head>
 <body>
 </body>
@@ -44,6 +45,14 @@ We’ll build on this skeleton page:
 This sample is using a CDN to include the SDKs. Please refer to [Adding the dependency - Use a CDN]({{ site.gettingstarted }}add_dependency.html#use-a-cdn).
 
 If you would like to host the resources files on your own server. Please refer to [Adding the dependency - Host yourself]({{ site.gettingstarted }}add_dependency.html#host-yourself).
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.2.10/dist/ddn.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.js"></script>
+```
 
 ## Define necessary HTML elements
 
@@ -61,13 +70,14 @@ For this sample, we define below element.
 `index.css` defines the style of elements which is in this sample.
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.css">
 <link rel="stylesheet" href="./index.css">
+<link rel="stylesheet" href="./css/iconfont.css">
 ```
 
 `index.css` content:
 
-```html
+```css
 html,body {
     width: 100%;
     height: 100%;
@@ -79,6 +89,27 @@ html,body {
 #container {
     width: 100%;
     height: 100%;
+}
+```
+
+`iconfont.css` content:
+
+```css
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1724659624433') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 22px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-perspective:before {
+  content: "\e6a2";
 }
 ```
 
@@ -248,7 +279,7 @@ Dynamsoft.DDV.setProcessingHandler("imageFilter", new Dynamsoft.DDV.ImageFilter(
 To capture images, we need to create a capture viewer.
 
 - Customize the capture viewer `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#capture-viewer) to implement the workflow.
-    - Bind click event to "ImagePreview" element to show the perspective viewer
+    - Bind click event to "ImagePreview" element to show the edit viewer
     ```javascript
     const newCaptureViewerUiConfig = {
         type: Dynamsoft.DDV.Elements.Layout,
@@ -276,13 +307,13 @@ To capture images, we need to create a capture viewer.
                         type: Dynamsoft.DDV.Elements.Capture,
                         className: "ddv-capture-viewer-captureButton",
                     },
-                    {
+                    {   
                         // Bind click event to "ImagePreview" element
-                        // The event will be registered later
+                        // The event will be registered later.
                         type: Dynamsoft.DDV.Elements.ImagePreview,
-                        events: { 
-                            click: "showPerspectiveViewer" 
-                        },
+                        events:{ 
+                            click: "showEditViewer",
+                        }
                     },
                     Dynamsoft.DDV.Elements.CameraConvert,
                 ],
@@ -310,10 +341,83 @@ To capture images, we need to create a capture viewer.
     });
     ```
 
+## Create an edit viewer
+
+To review and edit the captured images, we create an edit viewer.
+
+- Customize the capture viewer `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#edit-viewer) to implement the workflow.
+    - Add a "Back" button to header and bind click event to go back the capture viewer
+    ```javascript
+    const newEditViewerUiConfig  = {
+        type:  Dynamsoft.DDV.Elements.Layout,
+        flexDirection: "column",
+        className: "ddv-edit-viewer-mobile",
+        children: [
+            {
+                type:  Dynamsoft.DDV.Elements.Layout,
+                className: "ddv-edit-viewer-header-mobile",
+                children: [
+                    {   
+                        // Add a "Back" button to header and bind click event to go back the capture viewer
+                        // The event will be registered later
+                        type: Dynamsoft.DDV.Elements.Button,
+                        className: "ddv-button-back",
+                        events:{
+                            click: "backToCaptureViewer"
+                        }
+                    },
+                    Dynamsoft.DDV.Elements.Pagination,
+                    Dynamsoft.DDV.Elements.Load,
+                    Dynamsoft.DDV.Elements.Download,
+                ],
+            },
+            Dynamsoft.DDV.Elements.MainView,
+            {
+                type:  Dynamsoft.DDV.Elements.Layout,
+                className: "ddv-edit-viewer-footer-mobile",
+                children: [
+                    Dynamsoft.DDV.Elements.DisplayMode,
+                    Dynamsoft.DDV.Elements.RotateLeft,
+                    {
+                        type: Dynamsoft.DDV.Elements.Button,
+                        className: "iconfont icon-perspective",
+                        events:{
+                            click: "showPerspectiveViewer"
+                        }
+                    },
+                    Dynamsoft.DDV.Elements.Filter,
+                    Dynamsoft.DDV.Elements.Undo,
+                    Dynamsoft.DDV.Elements.Delete,
+                    Dynamsoft.DDV.Elements.AnnotationSet,
+                ],
+            },
+        ],
+    };
+    ```
+
+- Create the viewer by using the new `UiConfig`.
+
+    ```javascript
+    // Create an edit viewer
+    const editViewer = new Dynamsoft.DDV.EditViewer({
+        container: "container",
+        groupUid: captureViewer.groupUid, // Data synchronisation with the capture viewer
+        uiConfig: newEditViewerUiConfig, // Configure the new UiConfig
+        viewerConfig: {
+            scrollToLatest: true, // Navigate to the latest image automatically
+        }
+    });
+    ```
+
+- Since this viewer only shows when clicking "ImagePreview" element in the capture viewer, it should be hidden at first.
+
+    ```javascript
+    editViewer.hide();
+    ```
+
 ## Create a perspective viewer
 
 - Customize the viewer's `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#perspective-viewer) to implement the workflow.
-    - Add a "Back" buttom to header and bind click event to go back to the capture viewer
     - Bind click event to "PerspectiveAll" button to show the edit viewer
     ```javascript
     const newPerspectiveUiConfig = {
@@ -324,19 +428,11 @@ To capture images, we need to create a capture viewer.
                 type: Dynamsoft.DDV.Elements.Layout,
                 className: "ddv-perspective-viewer-header-mobile",
                 children: [
-                    {   
-                        // Add a "Back" button in perspective viewer's header and bind the event to go back to capture viewer
-                        // The event will be registered later
-                        type: Dynamsoft.DDV.Elements.Button,
-                        className: "ddv-button-back",
-                        events:{
-                            click: "backToCaptureViewer"
-                        }
-                    },
+                    Dynamsoft.DDV.Elements.Blank,
                     Dynamsoft.DDV.Elements.Pagination,
-                    {
+                    {   
                         // Bind event for "PerspectiveAll" button to show the edit viewer
-                        // The event will be registered later
+                        // The event will be registered later.
                         type: Dynamsoft.DDV.Elements.PerspectiveAll,
                         events:{
                             click: "showEditViewer"
@@ -380,122 +476,47 @@ To capture images, we need to create a capture viewer.
     perspectiveViewer.hide();
     ```
 
+## Configure the workflow
 
-## Create an edit viewer
+Since the workflow in this sample is very simple, only the four events mentioned above need to be registered to switch the viewers.
 
-To review and edit the captured images, we create an edit viewer. 
-
-- Customize the capture viewer `UiConfig` based on the [default one](https://www.dynamsoft.com/document-viewer/docs/ui/default_ui.html#edit-viewer) to implement the workflow.
-    - Add a "Back" buttom to header and bind click event to go back the perspective viewer
-    ```javascript
-    const newEditViewerUiConfig = {
-        type: Dynamsoft.DDV.Elements.Layout,
-        flexDirection: "column",
-        className: "ddv-edit-viewer-mobile",
-        children: [
-            {
-                type: Dynamsoft.DDV.Elements.Layout,
-                className: "ddv-edit-viewer-header-mobile",
-                children: [
-                    {
-                        // Add a "Back" buttom to header and bind click event to go back to the perspective viewer
-                        // The event will be registered later
-                        type: Dynamsoft.DDV.Elements.Button,
-                        className: "ddv-button-back",
-                        events: {
-                            click: "backToPerspectiveViewer"
-                        },
-                    },
-                    Dynamsoft.DDV.Elements.Pagination,
-                    Dynamsoft.DDV.Elements.Download,
-                ],
-            },
-            Dynamsoft.DDV.Elements.MainView,
-            {
-                type: Dynamsoft.DDV.Elements.Layout,
-                className: "ddv-edit-viewer-footer-mobile",
-                children: [
-                    Dynamsoft.DDV.Elements.DisplayMode,
-                    Dynamsoft.DDV.Elements.RotateLeft,
-                    Dynamsoft.DDV.Elements.Crop,
-                    Dynamsoft.DDV.Elements.Filter,
-                    Dynamsoft.DDV.Elements.Undo,
-                    Dynamsoft.DDV.Elements.Delete,
-                    Dynamsoft.DDV.Elements.Load,
-                ],
-            },
-        ],
-    };
-    ```
-
-- Create the viewer by using the new `UiConfig`.
+- Register an event in `captureViewer` to show the edit viewer.
 
     ```javascript
-    // Create an edit viewer
-    const editViewer = new Dynamsoft.DDV.EditViewer({
-        container: "container",
-        groupUid: captureViewer.groupUid, // Data synchronisation with the capture viewer
-        uiConfig: newEditViewerUiConfig, // Configure the new UiConfig
+    captureViewer.on("showEditViewer",() => {
+        captureViewer.hide();
+        captureViewer.stop();
+        editViewer.show();
     });
     ```
 
-- Since this viewer only shows when clicking "PerspectiveAll" button in the perspective viewer, it should be hidden at first.
+- Register an event in `editViewer`
 
     ```javascript
-    editViewer.hide();
-    ```
-
-## Configure the workflow
-
-- Define a function to control the viewers' visibility.
-
-    ```javascript
-    function switchViewer(capture, perspective, edit) {
-        captureViewer.hide();
-        perspectiveViewer.hide();
+    //go back the capture viewer
+    editViewer.on("backToCaptureViewer",() => {
+        captureViewer.show();
         editViewer.hide();
-        if(capture) {
-            captureViewer.show();
-            captureViewer.play();
-        } else {
-            captureViewer.stop();
-        }
-        if(perspective) perspectiveViewer.show();
-        if(edit) editViewer.show();
-    }
-    ```
+        captureViewer.play();
+    });
 
-- Register an event in `captureViewer` to show the perspective viewer.
-
-    ```javascript
-    captureViewer.on("showPerspectiveViewer",() => {
-        switchViewer(0,1,0);
+    //show the perspective viewer
+    editViewer.on("showPerspectiveViewer",() => {
+        editViewer.hide();
+        perspectiveViewer.show();
     });
     ```
 
 - Register an event in `perspectiveViewer` to show the edit viewer.
 
     ```javascript
-    perspectiveViewer.on("showEditViewer",() => {
-        switchViewer(0,0,1)
-    });    
+    captureViewer.on("showEditViewer",() => {
+        captureViewer.hide();
+        captureViewer.stop();
+        editViewer.show();
+    });
     ```
 
-- Register an event in `perspectiveViewer` to go back the capture viewer.
-
-    ```javascript
-    perspectiveViewer.on("backToCaptureViewer",() => {
-        switchViewer(1,0,0);
-    });    
-    ```
-
-- Register an event in `editViewer` to go back the perspective viewer.
-
-    ```javascript
-    editViewer.on("backToPerspectiveViewer",() => {
-        switchViewer(0,1,0);
-    });    
-    ```
 
 ## Review the complete code
 
@@ -506,18 +527,18 @@ To review and edit the captured images, we create an edit viewer.
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mobile Web Capture - Relatively complete document capturing workflow</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.css">
+    <title>Mobile Web Capture - HelloWorld - Continuous Mode</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <div id="container"></div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@1.1.0/dist/ddv.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.0.30/dist/core.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.0.20/dist/license.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.0.20/dist/ddn.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.0.30/dist/cvr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.2.10/dist/ddn.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.js"></script>
 <script type="module">
     import { isMobile, initDocDetectModule } from "./utils.js";
 
@@ -568,13 +589,13 @@ To review and edit the captured images, we create an edit viewer.
                             type: Dynamsoft.DDV.Elements.Capture,
                             className: "ddv-capture-viewer-captureButton",
                         },
-                        {
+                        {   
                             // Bind click event to "ImagePreview" element
-                            // The event will be registered later
+                            // The event will be registered later.
                             type: Dynamsoft.DDV.Elements.ImagePreview,
-                            events: { 
-                                click: "showPerspectiveViewer" 
-                            },
+                            events:{ 
+                                click: "showEditViewer",
+                            }
                         },
                         Dynamsoft.DDV.Elements.CameraConvert,
                     ],
@@ -597,17 +618,18 @@ To review and edit the captured images, we create an edit viewer.
             resolution: [1920,1080],
         });
 
-        // Define new UiConfig for perspective viewer
-        const newPerspectiveUiConfig = {
-            type: Dynamsoft.DDV.Elements.Layout,
+        // Define new UiConfig for edit viewer
+        const newEditViewerUiConfig = {
+            type:  Dynamsoft.DDV.Elements.Layout,
             flexDirection: "column",
+            className: "ddv-edit-viewer-mobile",
             children: [
                 {
-                    type: Dynamsoft.DDV.Elements.Layout,
-                    className: "ddv-perspective-viewer-header-mobile",
+                    type:  Dynamsoft.DDV.Elements.Layout,
+                    className: "ddv-edit-viewer-header-mobile",
                     children: [
                         {   
-                            // Add a "Back" button in perspective viewer's header and bind the event to go back to capture viewer
+                            // Add a "Back" button to header and bind click event to go back the capture viewer
                             // The event will be registered later
                             type: Dynamsoft.DDV.Elements.Button,
                             className: "ddv-button-back",
@@ -616,9 +638,58 @@ To review and edit the captured images, we create an edit viewer.
                             }
                         },
                         Dynamsoft.DDV.Elements.Pagination,
+                        Dynamsoft.DDV.Elements.Load,
+                        Dynamsoft.DDV.Elements.Download,
+                    ],
+                },
+                Dynamsoft.DDV.Elements.MainView,
+                {
+                    type:  Dynamsoft.DDV.Elements.Layout,
+                    className: "ddv-edit-viewer-footer-mobile",
+                    children: [
+                        Dynamsoft.DDV.Elements.DisplayMode,
+                        Dynamsoft.DDV.Elements.RotateLeft,
                         {
+                            type: Dynamsoft.DDV.Elements.Button,
+                            className: "iconfont icon-perspective",
+                            events:{
+                                click: "showPerspectiveViewer"
+                            }
+                        },
+                        Dynamsoft.DDV.Elements.Filter,
+                        Dynamsoft.DDV.Elements.Undo,
+                        Dynamsoft.DDV.Elements.Delete,
+                        Dynamsoft.DDV.Elements.AnnotationSet,
+                    ],
+                },
+            ],
+        };
+
+        // Create an edit viewer
+        const editViewer = new Dynamsoft.DDV.EditViewer({
+            container: "container",
+            groupUid: captureViewer.groupUid, // Data synchronisation with the capture viewer
+            uiConfig: newEditViewerUiConfig, // Configure the new UiConfig
+            viewerConfig: {
+                scrollToLatest: true, // Navigate to the latest image automatically
+            }
+        });
+        editViewer.hide();
+
+         // Define new UiConfig for perspective viewer
+        const newPerspectiveUiConfig = {
+            type: Dynamsoft.DDV.Elements.Layout,
+            flexDirection: "column",
+            children: [
+                {
+                    type: Dynamsoft.DDV.Elements.Layout,
+                    className: "ddv-perspective-viewer-header-mobile",
+                    children: [
+                        Dynamsoft.DDV.Elements.Blank,
+                        Dynamsoft.DDV.Elements.Pagination,
+                        {   
                             // Bind event for "PerspectiveAll" button to show the edit viewer
-                            // The event will be registered later
+                            // The event will be registered later.
                             type: Dynamsoft.DDV.Elements.PerspectiveAll,
                             events:{
                                 click: "showEditViewer"
@@ -641,104 +712,48 @@ To review and edit the captured images, we create an edit viewer.
             ],
         };
 
-        // Create a perspective viewer
+        // Create an perspective viewer
         const perspectiveViewer = new Dynamsoft.DDV.PerspectiveViewer({
             container: "container",
-            groupUid: captureViewer.groupUid, // Data synchronisation with the capture viewer
-            uiConfig: newPerspectiveUiConfig, // Configure the new UiConfig
-            viewerConfig:{
-                scrollToLatest: true, // Navigate to the latest image automatically
-            }
+            groupUid: captureViewer.groupUid, // Data sync with the capture viewer 
+            uiConfig: newPerspectiveUiConfig,
         });
 
-        // Define new UiConfig for edit viewer
-        const newEditViewerUiConfig = {
-            type: Dynamsoft.DDV.Elements.Layout,
-            flexDirection: "column",
-            className: "ddv-edit-viewer-mobile",
-            children: [
-                {
-                    type: Dynamsoft.DDV.Elements.Layout,
-                    className: "ddv-edit-viewer-header-mobile",
-                    children: [
-                        {
-                            // Add a "Back" buttom to header and bind click event to go back to the perspective viewer
-                            // The event will be registered later
-                            type: Dynamsoft.DDV.Elements.Button,
-                            className: "ddv-button-back",
-                            events: {
-                                click: "backToPerspectiveViewer"
-                            },
-                        },
-                        Dynamsoft.DDV.Elements.Pagination,
-                        Dynamsoft.DDV.Elements.Download,
-                    ],
-                },
-                Dynamsoft.DDV.Elements.MainView,
-                {
-                    type: Dynamsoft.DDV.Elements.Layout,
-                    className: "ddv-edit-viewer-footer-mobile",
-                    children: [
-                        Dynamsoft.DDV.Elements.DisplayMode,
-                        Dynamsoft.DDV.Elements.RotateLeft,
-                        Dynamsoft.DDV.Elements.Crop,
-                        Dynamsoft.DDV.Elements.Filter,
-                        Dynamsoft.DDV.Elements.Undo,
-                        Dynamsoft.DDV.Elements.Delete,
-                        Dynamsoft.DDV.Elements.Load,
-                    ],
-                },
-            ],
-        }; 
+        perspectiveViewer.hide();
 
-        // Create an edit viewer
-        const editViewer = new Dynamsoft.DDV.EditViewer({
-            container: "container",
-            groupUid: captureViewer.groupUid, // Data synchronisation with the capture viewer
-            uiConfig: newEditViewerUiConfig, // Configure the new UiConfig
-        });
-
-        // Register an event in `captureViewer` to show the perspective viewer
-        captureViewer.on("showPerspectiveViewer",() => {
-            switchViewer(0,1,0);
-        });
-
-        // Register an event in `perspectiveViewer` to show the edit viewer
-        perspectiveViewer.on("showEditViewer",() => {
-            switchViewer(0,0,1)
-        });    
-
-        // Register an event in `perspectiveViewer` to go back the capture viewer
-        perspectiveViewer.on("backToCaptureViewer",() => {
-            switchViewer(1,0,0);
-        });    
-
-        // Register an event in `editViewer` to go back the perspective viewer
-        editViewer.on("backToPerspectiveViewer",() => {
-            switchViewer(0,1,0);
-        });    
-
-        // Control viewers' visibility.
-        function switchViewer(capture, perspective, edit) {
+        // Register an event in `captureViewer` to show the edit viewer.
+        captureViewer.on("showEditViewer",() => {
             captureViewer.hide();
-            perspectiveViewer.hide();
+            captureViewer.stop();
+            editViewer.show();
+        });
+
+        // Register an event in `editViewer` to go back the capture viewer
+        editViewer.on("backToCaptureViewer",() => {
+            captureViewer.show();
             editViewer.hide();
-            if(capture) {
-                captureViewer.show();
-                captureViewer.play();
-            } else {
-                captureViewer.stop();
-            }
-            if(perspective) perspectiveViewer.show();
-            if(edit) editViewer.show();
-        }
+            captureViewer.play();
+        });
+
+        // Register an event in `editViewer` to show the perspective viewer
+        editViewer.on("showPerspectiveViewer",() => {
+            editViewer.hide();
+            perspectiveViewer.show();
+        });
+
+        // Register an event in `perspective` to show the edit viewer
+        perspectiveViewer.on("showEditViewer",() => {
+            perspectiveViewer.hide();
+            editViewer.show();
+        });
     })();
 </script>
+</html>
 ```
 
 ## Download the whole project
 
-[Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/relatively-complete-doc-capturing-workflow) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/relatively-complete-doc-capturing-workflow/)
+[Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/capture-continuously-edit-result-images) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/capture-continuously-edit-result-images/)
 
 Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 

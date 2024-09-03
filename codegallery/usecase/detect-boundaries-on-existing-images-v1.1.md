@@ -7,7 +7,7 @@ title: Mobile Web Capture - Use Cases - Detect boundaries on the existing images
 keywords: Documentation, Mobile Web Capture, Use Cases, Detect boundaries on the existing images
 breadcrumbText: Detect boundaries on the existing images
 description: Mobile Web Capture Documentation Use Cases Detect boundaries on the existing images
-permalink: /codegallery/usecases/detect-boundaries-on-existing-images.html
+permalink: /codegallery/usecases/detect-boundaries-on-existing-images-v1.1.html
 ---
 
 # Detect boundaries on the existing images
@@ -18,7 +18,7 @@ This sample demonstrates how to detect the boundaries on the existing images whi
 
 In this sample, we would like to achieve the workflow as below.
 
-![Flow chart for detect-boundaries-on-existing-images](/assets/imgs/detect-boundaries-on-existing-images.png)
+![Flow chart for detect-boundaries-on-existing-images](/assets/imgs/detect-boundaries-on-existing-images-v1.1.png)
 
 We’ll build on this skeleton page:
 

@@ -7,7 +7,7 @@ title: Mobile Web Capture - Creating HelloWorld
 keywords: Documentation, Mobile Web Capture, Creating HelloWorld
 breadcrumbText: Creating HelloWorld
 description: Mobile Web Capture Documentation Creating HelloWorld
-permalink: /gettingstarted/helloworld.html
+permalink: /gettingstarted/helloworld-v1.1.html
 ---
 
 # Creating HelloWorld

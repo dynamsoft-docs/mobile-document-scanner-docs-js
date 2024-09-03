@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Mobile Web Capture - System Requirement
-keywords: Documentation, Mobile Web Capture, System Requirement
-breadcrumbText: System Requirement
-description: Mobile Web Capture Documentation System Requirement
+title: Mobile Web Capture - System Requirements
+keywords: Documentation, Mobile Web Capture, System Requirements
+breadcrumbText: System Requirements
+description: Mobile Web Capture Documentation System Requirements
 permalink: /gettingstarted/sys_requirement.html
 ---
 

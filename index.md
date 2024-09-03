@@ -9,16 +9,16 @@ description: Mobile Web Capture Documentation Homepage
 
 - [Introduction]({{ site.introduction }}index.html)
 - Getting started
-    - [System requirement]({{ site.gettingstarted }}sys_requirement.html)
+    - [System Requirements]({{ site.gettingstarted }}sys_requirement.html)
     - [License]({{ site.gettingstarted }}license.html)
-    - [Adding the dependency]({{ site.gettingstarted }}add_dependency.html)
-    - [Creating HelloWorld]({{ site.gettingstarted }}helloworld.html)
+    - [Adding the Dependency]({{ site.gettingstarted }}add_dependency.html)
+    - [Creating HelloWorld - Single Page]({{ site.gettingstarted }}helloworld-singlepage.html)
+    - [Creating HelloWorld- Continuous Mode]({{ site.gettingstarted }}helloworld-continuousmode.html)
 -  Code gallery
     - [Use cases]({{ site.codegallery }}usecases/index.html)
-        - [Review and Adjust the detected boundaries]({{ site.codegallery }}usecases/review-adjust-detected-boundaries.html)
-        - [Capture continuously & Edit result images]({{ site.codegallery }}usecases/capture-continuously-edit-result-images.html)
-        - [Relatively complete document capturing workflow]({{ site.codegallery }}usecases/relatively-complete-doc-capturing-workflow.html)
-        - [Detect boundaries on the existing images]({{ site.codegallery }}usecases/detect-boundaries-on-existing-images.html)
+        - [Capture Single Page and Then Crop]({{ site.codegallery }}usecases/capture-single-page-and-then-crop.html)
+        - [Complete Document Capturing Workflow]({{ site.codegallery }}usecases/complete-doc-capturing-workflow.html)
+        - [Detect Boundaries on the Existing Image]({{ site.codegallery }}usecases/detect-boundaries-on-existing-image.html)
     <!-- - [Demo]({{ site.codegallery }}demo/index.html) -->
 - [Related API reference]({{ site.api }}relatedapi.html)
 - [Release notes]({{ site.releasenotes }}index.html)
