@@ -3,14 +3,14 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Mobile Web Capture - Use Cases - Review and Adjust the detected boundaries
-keywords: Documentation, Mobile Web Capture, Use Cases, Review and Adjust the detected boundaries
-breadcrumbText: Review and Adjust the detected boundaries
-description: Mobile Web Capture Documentation Use Cases Review and Adjust the detected boundaries
+title: Mobile Web Capture - Use Cases - Capture Single Page and Then Crop
+keywords: Documentation, Mobile Web Capture, Use Cases, Capture Single Page and Then Crop
+breadcrumbText: Capture Single Page and Then Crop
+description: Mobile Web Capture Documentation Use Cases Capture Single Page and Then Crop
 permalink: /codegallery/usecases/capture-single-page-and-then-crop.html
 ---
 
-# Review and Adjust the detected boundaries
+# Capture Single Page and Then Crop
 
 This sample adds a perspective viewer based on HelloWorld solution to review and adjust the detected boundaries on the captured image.
 
@@ -194,7 +194,7 @@ document.getElementById("restore").onclick = () => {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mobile Web Capture - Review and Adjust the detected boundaries</title>
+    <title>Mobile Web Capture - Capture Single Page and Then Crop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>

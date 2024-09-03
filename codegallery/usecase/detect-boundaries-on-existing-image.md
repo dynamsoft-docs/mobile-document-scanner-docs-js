@@ -3,18 +3,18 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Mobile Web Capture - Use Cases - Detect boundaries on the existing images
-keywords: Documentation, Mobile Web Capture, Use Cases, Detect boundaries on the existing images
-breadcrumbText: Detect boundaries on the existing images
-description: Mobile Web Capture Documentation Use Cases Detect boundaries on the existing images
-permalink: /codegallery/usecases/detect-boundaries-on-existing-images.html
+title: Mobile Web Capture - Use Cases - Detect Boundaries on the Existing Image
+keywords: Documentation, Mobile Web Capture, Use Cases, Detect Boundaries on the Existing Image
+breadcrumbText: Detect Boundaries on the Existing Image
+description: Mobile Web Capture Documentation Use Cases Detect Boundaries on the Existing Image
+permalink: /codegallery/usecases/detect-boundaries-on-existing-image.html
 ---
 
-# Detect boundaries on the existing images
+# Detect Boundaries on the Existing Image
 
-This sample demonstrates how to detect the boundaries on the existing images which are from local directory/album. 
+This sample demonstrates how to detect the boundaries on the existing image which are from local directory/album.
 
-[Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/detect-boundaries-on-existing-images/)
+[Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/detect-boundaries-on-existing-image/)
 
 In this sample, we would like to achieve the workflow as below.
 
@@ -29,7 +29,7 @@ We’ll build on this skeleton page:
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mobile Web Capture - Detect boundaries on the existing images</title>
+    <title>Mobile Web Capture - Detect Boundaries on the Existing Image</title>
 </head>
 <body>
 </body>
@@ -81,8 +81,34 @@ html,body {
     height: 100%;
 }
 
-.addNewButton {
+#imageContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+
+#imageContainer img {
+    width: 80%;
+    height: 40%;
+    object-fit: contain;
+    border:none;
+}
+
+#restore {
+    display: flex;
+    width: 80px;
+    height: 40px;
+    align-items: center;
     background: #fe8e14;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    user-select: none;
 }
 ```
 
@@ -130,7 +156,7 @@ To review the detected boundaries on the loaded image(s), we will create a persp
                         // The event will be registered later
                         type: Dynamsoft.DDV.Elements.PerspectiveAll,
                         events: {
-                            click: "downloadPDF"
+                            click: "showPerspectiveResult"
                         }
                     }
                 ],
@@ -237,6 +263,7 @@ export function createFileInput(viewer, router){
         }
 
         if(sourceArray.length > 0) {
+            viewer.currentDocument.deleteAllPages();
             viewer.currentDocument.loadSource(sourceArray);
         }
 
@@ -261,19 +288,31 @@ Since the workflow in this sample is very simple, only the two events mentioned 
     });
     ```
 
-- Register an event in `perspectiveViewer` to download the result image(s) in PDF format.
+- Register an event in `perspectiveViewer` to display the result image
 
     ```javascript
-    perspectiveViewer.on("downloadPDF",() => {
-        perspectiveViewer.currentDocument.saveToPdf({mimeType:"application/octet-stream"}).then((blob) => {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = `test.pdf`;
-            a.click();
-        });
+    perspectiveViewer.on("showPerspectiveResult", async () => {
+        document.getElementById("container").style.display = "none";
+        document.getElementById("imageContainer").style.display = "flex";
+
+        const pageData =  await perspectiveViewer.currentDocument.getPageData(perspectiveViewer.getCurrentPageUid());
+        // Original image
+        document.getElementById("original").src = URL.createObjectURL(pageData.raw.data);
+        // Normalized image
+        document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data);
     });
     ```
+
+
+For now, we finish the main workflow, can add the restore function to readjust the boundaries or load a new existing image to adjust its boundaries.
+
+```javascript
+document.getElementById("restore").onclick = () => {
+    captureViewer.currentDocument.deleteAllPages();
+    captureViewer.play();
+    document.getElementById("container").style.display = "";
+};
+```
 
 ## Review the complete code
 
@@ -284,18 +323,18 @@ Since the workflow in this sample is very simple, only the two events mentioned 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mobile Web Capture - Detect boundaries on the existing images</title>
+    <title>Mobile Web Capture - Detect Boundaries on the Existing Image</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <div id="container"></div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.2.10/dist/ddn.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.js"></script>
 <script type="module">
     import { isMobile, createFileInput } from "./utils.js";
 
@@ -332,7 +371,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
                             // The event will be registered later
                             type: Dynamsoft.DDV.Elements.PerspectiveAll,
                             events: {
-                                click: "downloadPDF"
+                                click: "showPerspectiveResult"
                             },
                         },
                     ],
@@ -382,16 +421,23 @@ Since the workflow in this sample is very simple, only the two events mentioned 
             loadImageInput.click();
         });
 
-        // Register an event in `perspectiveViewer` to download the result image(s) in PDF format
-        perspectiveViewer.on("downloadPDF",() => {
-            perspectiveViewer.currentDocument.saveToPdf({mimeType:"application/octet-stream"}).then((blob) => {
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = `test.pdf`;
-                a.click();
-            });
+        // Register an event in `perspectiveViewer` to display the result image
+        perspectiveViewer.on("showPerspectiveResult", async () => {
+            document.getElementById("container").style.display = "none";
+            document.getElementById("imageContainer").style.display = "flex";
+
+            const pageData =  await perspectiveViewer.currentDocument.getPageData(perspectiveViewer.getCurrentPageUid());
+            // Original image
+            document.getElementById("original").src = URL.createObjectURL(pageData.raw.data);
+            // Normalized image
+            document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data);
         });
+
+        // Restore Button function
+        document.getElementById("restore").onclick = () => {
+            document.getElementById("container").style.display = "";
+            document.getElementById("imageContainer").style.display = "none";
+        };
     })();
 </script>
 </html>
@@ -399,7 +445,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
 
 ## Download the whole project
 
-[Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/detect-boundaries-on-existing-images) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/detect-boundaries-on-existing-images/)
+[Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/detect-boundaries-on-existing-image) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/detect-boundaries-on-existing-image/)
 
 Please note that in order to be compatible with desktop devices as much as possible, some compatibility codes have been added to the whole project code.
 

@@ -3,16 +3,16 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Mobile Web Capture - Use Cases - Relatively complete document capturing workflow
-keywords: Documentation, Mobile Web Capture, Use Cases, Relatively complete document capturing workflow
-breadcrumbText: Relatively complete document capturing workflow
-description: Mobile Web Capture Documentation Use Cases Relatively complete document capturing workflow
+title: Mobile Web Capture - Use Cases - Complete Document Capturing Workflow
+keywords: Documentation, Mobile Web Capture, Use Cases, Complete Document Capturing Workflow
+breadcrumbText: Complete Document Capturing Workflow
+description: Mobile Web Capture Documentation Use Cases Complete Document Capturing Workflow
 permalink: /codegallery/usecases/complete-doc-capturing-workflow.html
 ---
 
-# Relatively complete document capturing workflow
+# Complete Document Capturing Workflow
 
-This sample demonstrates a relatively complete document capturing workflow: Capture continuously & Review and Adjust the detected boundaries & Edit result images.
+This sample demonstrates a complete document capturing workflow: Capture continuously & Review and Adjust the detected boundaries & Edit result images.
 
 [Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/relatively-complete-doc-capturing-workflow/)
 
@@ -29,7 +29,7 @@ We’ll build on this skeleton page:
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mobile Web Capture - Relatively complete document capturing workflow</title>
+    <title>Mobile Web Capture - Complete Document Capturing Workflow</title>
 </head>
 <body>
 </body>
@@ -407,6 +407,7 @@ To review and edit the captured images, we create an edit viewer.
                         },
                     },
                     Dynamsoft.DDV.Elements.Pagination,
+                    Dynamsoft.DDV.Elements.Load,
                     Dynamsoft.DDV.Elements.Download,
                 ],
             },
@@ -421,7 +422,7 @@ To review and edit the captured images, we create an edit viewer.
                     Dynamsoft.DDV.Elements.Filter,
                     Dynamsoft.DDV.Elements.Undo,
                     Dynamsoft.DDV.Elements.Delete,
-                    Dynamsoft.DDV.Elements.Load,
+                    Dynamsoft.DDV.Elements.AnnotationSet,
                 ],
             },
         ],
@@ -506,7 +507,7 @@ To review and edit the captured images, we create an edit viewer.
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mobile Web Capture - Relatively complete document capturing workflow</title>
+    <title>Mobile Web Capture - Complete Document Capturing Workflow</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.css">
     <link rel="stylesheet" href="./index.css">
 </head>
@@ -671,6 +672,7 @@ To review and edit the captured images, we create an edit viewer.
                             },
                         },
                         Dynamsoft.DDV.Elements.Pagination,
+                        Dynamsoft.DDV.Elements.Load,
                         Dynamsoft.DDV.Elements.Download,
                     ],
                 },
@@ -685,7 +687,7 @@ To review and edit the captured images, we create an edit viewer.
                         Dynamsoft.DDV.Elements.Filter,
                         Dynamsoft.DDV.Elements.Undo,
                         Dynamsoft.DDV.Elements.Delete,
-                        Dynamsoft.DDV.Elements.Load,
+                        Dynamsoft.DDV.Elements.AnnotationSet,  
                     ],
                 },
             ],

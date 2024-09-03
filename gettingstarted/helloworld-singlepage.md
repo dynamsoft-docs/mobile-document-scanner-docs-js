@@ -10,11 +10,11 @@ description: Mobile Web Capture Documentation Creating HelloWorld - Single Page
 permalink: /gettingstarted/helloworld-singlepage.html
 ---
 
-# Creating HelloWorld
+# Creating HelloWorld - Single Page
 
-In this section, we’ll break down and show all the steps needed to build the HelloWorld solution in a web page.
+In this section, we’ll break down and show all the steps needed to build the HelloWorld - Single Page solution in a web page.
 
-- Check out [HelloWorld](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world/hello-world/) online
+- Check out [HelloWorld - Single Page](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world-singlepage/hello-world/) online
 
 We’ll build on this skeleton page:
 
@@ -22,10 +22,9 @@ We’ll build on this skeleton page:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mobile Web Capture - HelloWorld</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Web Capture - HelloWorld - Single Page</title>
 </head>
 <body>
 </body>
@@ -41,283 +40,297 @@ This sample is using a CDN to include the SDKs. Please refer to [Adding the depe
 
 If you would like to host the resources files on your own server. Please refer to [Adding the dependency - Host yourself]({{ site.gettingstarted }}add_dependency.html#host-yourself).
 
+  ```html
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.2.10/dist/ddn.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/dce.js"></script>
+  ```
+
 ## Define necessary HTML elements
 
 For HelloWorld, we define below elements.
 
-- Container to hold the viewer
+- Container for displaying the video stream, captured image, and normalized result image.
 
 ```html
-<div id="container"></div>
+<div id="div-ui-container" style="margin-top: 10px; height: 450px"></div>
+<div id="div-image-container" style="display: none; width: 100%; height: 70vh"></div>
+<div id="normalized-result"></div>
 ```
 
-- Restore button and `img` element for displaying the result image
+- Start/Restart Detection, Confirm Boundary, Normalize button to get the normalized result
 
 ```html
-<div id="imageContainer">
-    <div id="restore">Restore</div>
-    <span>Original Image:</span>
-    <img id="original">
-    <span>Normalized Image:</span>
-    <img id="normalized">
-</div>
+<button id="start-detecting">Start Detecting</button>
+<button id="restart-detecting" style="display: none">Restart Detecting</button>
+<button id="confirm-quad-for-normalization">Confirm the Boundary</button>
+<button id="normalize-with-confirmed-quad" disabled>Normalize</button><br />
+<input type="checkbox" style="vertical-align: middle" id="auto-normalize" /><label style="vertical-align: middle" for="auto-normalize">Normalize Automatically</label>
+
 ```
 
-## Link CSS to HTML
+## Define variables
 
-`ddv.css` is the necessary css file which defines the viewer style of Dynamsoft Document Viewer.
-`index.css` defines the style of elements which is in Helloworld.
+```javascript
+let quads = [];
+let cameraEnhancer = null;
+let router = null;
+let items;
+let layer;
+let originalImage;
+let imageEditorView;
+let promiseCVRReady;
+let frameCount = 0;
 
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.css">
-<link rel="stylesheet" href="./index.css">
-```
-
-`index.css` content:
-
-```css
-html,body {
-    width: 100%;
-    height: 100%;
-    margin:0;
-    padding:0;
-    overscroll-behavior-y: none;
-    overflow: hidden;
-}
-
-#container {
-    width: 100%;
-    height: 100%;
-}
-
-#imageContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    box-sizing: border-box;
-    align-items: center;
-    flex-direction: column;
-    padding: 10px 0px;
-}
-
-#imageContainer img {
-    width: 80%;
-    height: 40%;
-    object-fit: contain;
-    border:none;
-}
-
-#restore {
-    display: flex;
-    width: 80px;
-    height: 40px;
-    align-items: center;
-    background: #fe8e14;
-    justify-content: center;
-    color: white;
-    user-select: none;
-    cursor: pointer;
-}
+const btnStart = document.querySelector("#start-detecting");
+const btnRestart = document.querySelector("#restart-detecting");
+const cameraViewContainer = document.querySelector("#div-ui-container");
+const normalizedImageContainer = document.querySelector("#normalized-result");
+const btnEdit = document.querySelector("#confirm-quad-for-normalization");
+const btnNormalize = document.querySelector("#normalize-with-confirmed-quad");
+const imageEditorViewContainer = document.querySelector("#div-image-container");
+const autoNormalize = document.querySelector("#auto-normalize");
 ```
 
 ## Related SDK initialization
 
 ```javascript
+/** LICENSE ALERT - README
+ * To use the library, you need to first call the method initLicense() to initialize the license using a license key string.
+ */
+Dynamsoft.License.LicenseManager.initLicense("DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9");
+
 //Preloads the Document Normalizer module.
 Dynamsoft.Core.CoreModule.loadWasm(["DDN"]);
-//Preloads the Document Viewer module.
-Dynamsoft.DDV.Core.loadWasm();
 
-// Initialize DDN
-await Dynamsoft.License.LicenseManager.initLicense(
-    "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9",
-    true
-);
-// Initialize DDV
-await Dynamsoft.DDV.Core.init();
 ```
 
-## Configure document boundaries function
-
-- Step one: The related configuration code is packaged in `utils.js`, so it should be imported.
-
-    ```javascript
-    import { isMobile, initDocDetectModule } from "./utils.js";
-    ```
-
-- Step two: Call the following function.
-
-    ```javascript
-    await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
-    ```
-
-`utils.js` content:
+## Creates a CameraEnhancer instance and prepares an ImageEditorView instance
 
 ```javascript
-export function isMobile(){
-    return "ontouchstart" in document.documentElement;
+async function initDCE() {
+      const view = await Dynamsoft.DCE.CameraView.createInstance();
+      cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance(view);
+      imageEditorView = await Dynamsoft.DCE.ImageEditorView.createInstance(imageEditorViewContainer);
+      /* Creates an image editing layer for drawing found document boundaries. */
+      layer = imageEditorView.createDrawingLayer();
+      cameraViewContainer.append(view.getUIElement());
+    }
+```
+
+## Creates a CaptureVisionRouter instance
+
+```javascript
+/**
+ * Creates a CaptureVisionRouter instance and configure the task to detect document boundaries.
+ * Also, make sure the original image is returned after it has been processed.
+ */
+let cvrReady = (async function initCVR() {
+await initDCE();
+router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
+router.setInput(cameraEnhancer);
+/**
+ * Sets the result types to be returned.
+ * Because we need to normalize the original image later, here we set the return result type to
+ * include both the quadrilateral and original image data.
+ */
+let newSettings = await router.getSimplifiedSettings("DetectDocumentBoundaries_Default");
+newSettings.capturedResultItemTypes |= Dynamsoft.Core.EnumCapturedResultItemType.CRIT_ORIGINAL_IMAGE;
+await router.updateSettings("DetectDocumentBoundaries_Default", newSettings);
+
+/* Defines the result receiver for the task.*/
+const resultReceiver = new Dynamsoft.CVR.CapturedResultReceiver();
+resultReceiver.onCapturedResultReceived = handleCapturedResult;
+router.addResultReceiver(resultReceiver);
+})();
+```
+
+## Defines the callback function
+
+```javascript
+/**
+ * Defines the callback function that is executed after each image has been processed.
+ */
+async function handleCapturedResult(result) {
+    /* Do something with the result */
+    /* Saves the image data of the current frame for subsequent image editing. */
+    const originalImage = result.items.filter((item) => item.type === 1);
+    originalImageData = originalImage.length && originalImage[0].imageData;
+    if (!autoNormalize.checked) {
+    /* why > 1? Because the "result items" always contain a result of the original image. */
+    if (result.items.length > 1) {
+        items = result.items;
+    }
+    } else if (originalImageData) {
+    /** If "Normalize Automatically" is checked, the library uses the document boundaries found in consecutive
+        * image frames to decide whether conditions are suitable for automatic normalization.
+        */
+    if (result.items.length <= 1) {
+        frameCount = 0;
+        return;
+    }
+    frameCount++;
+    /**
+        * In our case, we determine a good condition for "automatic normalization" to be
+        * "getting document boundary detected for 30 consecutive frames".
+        *
+        * NOTE that this condition will not be valid should you add a CapturedResultFilter
+        * with ResultDeduplication enabled.
+        */
+    if (frameCount === 30) {
+        frameCount = 0;
+        normalizedImageContainer.innerHTML = "";
+        /**
+        * When the condition is met, we use the document boundary found in this image frame
+        * to normalize the document by setting the coordinates of the ROI (region of interest)
+        * in the built-in template "NormalizeDocument_Default".
+        */
+        let settings = await router.getSimplifiedSettings("NormalizeDocument_Default");
+        settings.roiMeasuredInPercentage = 0;
+        settings.roi.points = result.items[1].location.points;
+        await router.updateSettings("NormalizeDocument_Default", settings);
+        /**
+        * After that, executes the normalization and shows the result on the page.
+        */
+        let normalizeResult = await router.capture(originalImageData, "NormalizeDocument_Default");
+        normalizedImageContainer.append(normalizeResult.items[0].toCanvas());
+        cameraViewContainer.style.display = "none";
+        btnStart.style.display = "none";
+        btnRestart.style.display = "inline";
+        btnEdit.disabled = true;
+        await router.stopCapturing();
+    }
+    }
 }
+```
+## Normalize Automatically Checkbox
 
-export async function initDocDetectModule(DDV, CVR) {
-    const router = await CVR.CaptureVisionRouter.createInstance();
+```javascript
+autoNormalize.addEventListener("change", () => {
+    btnEdit.style.display = autoNormalize.checked ? "none" : "inline";
+    btnNormalize.style.display = autoNormalize.checked ? "none" : "inline";
+});
+```
 
-    class DDNNormalizeHandler extends DDV.DocumentDetect {
-        async detect(image, config) {
-            if (!router) {
-                return Promise.resolve({
-                    success: false
-                });
-            };
-    
-            let width = image.width;
-            let height = image.height;
-            let ratio = 1;
-            let data;
-    
-            if (height > 720) {
-                ratio = height / 720;
-                height = 720;
-                width = Math.floor(width / ratio);
-                data = compress(image.data, image.width, image.height, width, height);
-            } else {
-                data = image.data.slice(0);
-            }
-    
-    
-            // Define DSImage according to the usage of DDN
-            const DSImage = {
-                bytes: new Uint8Array(data),
-                width,
-                height,
-                stride: width * 4, //RGBA
-                format: 10 // IPF_ABGR_8888
-            };
-    
-            // Use DDN normalized module
-            const results = await router.capture(DSImage, 'detect-document-boundaries');
-    
-            // Filter the results and generate corresponding return values
-            if (results.items.length <= 0) {
-                return Promise.resolve({
-                    success: false
-                });
-            };
-    
-            const quad = [];
-            results.items[0].location.points.forEach((p) => {
-                quad.push([p.x * ratio, p.y * ratio]);
-            });
-    
-            const detectResult = this.processDetectResult({
-                location: quad,
-                width: image.width,
-                height: image.height,
-                config
-            });
-    
-            return Promise.resolve(detectResult);
-        }
-    }
-  
-    DDV.setProcessingHandler('documentBoundariesDetect', new DDNNormalizeHandler())
-}
+## Start Detecting Button
 
-function compress(
-    imageData,
-    imageWidth,
-    imageHeight,
-    newWidth,
-    newHeight,
-) {
-    let source = null;
+```javascript
+btnStart.addEventListener("click", async () => {
     try {
-        source = new Uint8ClampedArray(imageData);
-    } catch (error) {
-        source = new Uint8Array(imageData);
+    await (promiseCVRReady = promiseCVRReady || (async () => {
+        await cvrReady;
+        /* Starts streaming the video. */
+        await cameraEnhancer.open();
+        /* Uses the built-in template "DetectDocumentBoundaries_Default" to start a continuous boundary detection task. */
+        await router.startCapturing("DetectDocumentBoundaries_Default");
+    })());
+    } catch (ex) {
+    let errMsg = ex.message || ex;
+    console.error(errMsg);
+    alert(errMsg);
     }
-  
-    const scaleW = newWidth / imageWidth;
-    const scaleH = newHeight / imageHeight;
-    const targetSize = newWidth * newHeight * 4;
-    const targetMemory = new ArrayBuffer(targetSize);
-    let distData = null;
-  
-    try {
-        distData = new Uint8ClampedArray(targetMemory, 0, targetSize);
-    } catch (error) {
-        distData = new Uint8Array(targetMemory, 0, targetSize);
+})
+```
+
+## Confirm the Boundary Button
+
+```javascript
+btnEdit.addEventListener("click", async () => {
+    if (!cameraEnhancer.isOpen() || items.length <= 1) return;
+    /* Stops the detection task since we assume we have found a good boundary. */
+    router.stopCapturing();
+    /* Hides the cameraView and shows the imageEditorView. */
+    cameraViewContainer.style.display = "none";
+    imageEditorViewContainer.style.display = "block";
+    /* Draws the image on the imageEditorView first. */
+    imageEditorView.setOriginalImage(originalImageData);
+    quads = [];
+    /* Draws the document boundary (quad) over the image. */
+    for (let i = 0; i < items.length; i++) {
+    if (items[i].type === Dynamsoft.Core.EnumCapturedResultItemType.CRIT_ORIGINAL_IMAGE) continue;
+    const points = items[i].location.points;
+    const quad = new Dynamsoft.DCE.QuadDrawingItem({ points });
+    quads.push(quad);
+    layer.addDrawingItems(quads);
     }
-  
-    const filter = (distCol, distRow) => {
-        const srcCol = Math.min(imageWidth - 1, distCol / scaleW);
-        const srcRow = Math.min(imageHeight - 1, distRow / scaleH);
-        const intCol = Math.floor(srcCol);
-        const intRow = Math.floor(srcRow);
-  
-        let distI = (distRow * newWidth) + distCol;
-        let srcI = (intRow * imageWidth) + intCol;
-  
-        distI *= 4;
-        srcI *= 4;
-  
-        for (let j = 0; j <= 3; j += 1) {
-            distData[distI + j] = source[srcI + j];
-        }
+    btnStart.style.display = "none";
+    btnRestart.style.display = "inline";
+    btnNormalize.disabled = false;
+    btnEdit.disabled = true;
+});
+```
+
+## Normalize Button
+
+```javascript
+btnNormalize.addEventListener("click", async () => {
+    /* Gets the selected quadrilateral. */
+    let seletedItems = imageEditorView.getSelectedDrawingItems();
+    let quad;
+    if (seletedItems.length) {
+    quad = seletedItems[0].getQuad();
+    } else {
+    quad = items[1].location;
+    }
+    const isPointOverBoundary = (point) => {
+    if (point.x < 0 ||
+        point.x > originalImageData.width ||
+        point.y < 0 ||
+        point.y > originalImageData.height) {
+        return true;
+    } else {
+        return false;
+    }
     };
-  
-    for (let col = 0; col < newWidth; col += 1) {
-        for (let row = 0; row < newHeight; row += 1) {
-            filter(col, row);
-        }
+    /* Check if the points beyond the boundaries of the image. */
+    if (quad.points.some(point => isPointOverBoundary(point))) {
+    alert("The document boundaries extend beyond the boundaries of the image and cannot be used to normalize the document.");
+    return;
     }
-  
-    return distData;
-}
-```
 
-## Create a capture viewer
-
-```javascript
-const captureViewer = new Dynamsoft.DDV.CaptureViewer({
-    container: "container",
-    viewerConfig: {
-        acceptedPolygonConfidence: 60,
-        enableAutoCapture: true,
-        enableAutoDetect: true
+    /* Hides the imageEditorView. */
+    imageEditorViewContainer.style.display = "none";
+    /* Removes the old normalized image if any. */
+    normalizedImageContainer.innerHTML = "";
+    /**
+    * Sets the coordinates of the ROI (region of interest)
+    * in the built-in template "NormalizeDocument_Default".
+    */
+    let newSettings = await router.getSimplifiedSettings("NormalizeDocument_Default");
+    newSettings.roiMeasuredInPercentage = 0;
+    newSettings.roi.points = quad.points;
+    await router.updateSettings("NormalizeDocument_Default", newSettings);
+    /* Executes the normalization and shows the result on the page. */
+    let normalizeResult = await router.capture(originalImageData, "NormalizeDocument_Default");
+    if (normalizeResult.items[0]) {
+    normalizedImageContainer.append(normalizeResult.items[0].toCanvas());
     }
-});
-// Play video stream in 1080P
-captureViewer.play({ 
-    resolution: [1920,1080],
-});
-```
-
-## Display the result image
-
-Use the capture event to obtain the result image.
-
-```javascript
-captureViewer.on("captured", async (e) => {
-    const pageData =  await captureViewer.currentDocument.getPageData(e.pageUid);
-    //Original image
-    document.getElementById("original").src = URL.createObjectURL(pageData.raw.data); 
-    // Normalized image
-    document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data); 
-    // Stop video stream and hide capture viewer's container
-    captureViewer.stop();
-    document.getElementById("container").style.display = "none";
+    layer.clearDrawingItems();
+    btnNormalize.disabled = true;
+    btnEdit.disabled = true;
 });
 ```
 
-For now, we finish the main workflow for HelloWorld, can add the restore function to capture new image additionally.
+For now, we finish the main workflow for HelloWorld, can add the restart function to capture new image additionally.
+
+## Restart Detecting Button
 
 ```javascript
-document.getElementById("restore").onclick = () => {
-    captureViewer.currentDocument.deleteAllPages();
-    captureViewer.play();
-    document.getElementById("container").style.display = "";
-};
+btnRestart.addEventListener("click", async () => {
+    /* Reset the UI elements and restart the detection task. */
+    imageEditorViewContainer.style.display = "none";
+    normalizedImageContainer.innerHTML = "";
+    cameraViewContainer.style.display = "block";
+    btnStart.style.display = "inline";
+    btnRestart.style.display = "none";
+    btnNormalize.disabled = true;
+    btnEdit.disabled = false;
+    layer.clearDrawingItems();
+
+    await router.startCapturing("DetectDocumentBoundaries_Default");
+})
 ```
 
 ## Review the complete code
@@ -326,92 +339,268 @@ document.getElementById("restore").onclick = () => {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mobile Web Capture - HelloWorld</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.css">
-    <link rel="stylesheet" href="./index.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Web Capture - HelloWorld - Single Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.2.10/dist/ddn.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/dce.js"></script>
 </head>
 <body>
-    <div id="container"></div>
-    <div id="imageContainer">
-        <div id="restore">Restore</div>
-        <span>Original Image:</span>
-        <img id="original">
-        <span>Normalized Image:</span>
-        <img id="normalized">
-    </div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@2.0.0/dist/ddv.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-core@3.2.10/dist/core.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-license@3.2.10/dist/license.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-normalizer@2.2.10/dist/ddn.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-capture-vision-router@2.2.10/dist/cvr.js"></script>
-<script type="module">
-    import { isMobile, initDocDetectModule } from "./utils.js";
+   <h1 style="font-size: 1.5em">
+    Detect the boundary of a document and normalize it
+  </h1>
+  <button id="start-detecting">Start Detecting</button>
+  <button id="restart-detecting" style="display: none">Restart Detecting</button>
+  <button id="confirm-quad-for-normalization">Confirm the Boundary</button>
+  <button id="normalize-with-confirmed-quad" disabled>Normalize</button><br />
+  <input type="checkbox" style="vertical-align: middle" id="auto-normalize" /><label style="vertical-align: middle" for="auto-normalize">Normalize Automatically</label>
+  <div id="div-ui-container" style="margin-top: 10px; height: 450px"></div>
+  <div id="div-image-container" style="display: none; width: 100%; height: 70vh"></div>
+  <div id="normalized-result"></div>
+   <script>
+    let quads = [];
+    let cameraEnhancer = null;
+    let router = null;
+    let items;
+    let layer;
+    let originalImage;
+    let imageEditorView;
+    let promiseCVRReady;
+    let frameCount = 0;
 
-    (async () => {
-        //Preloads the Document Normalizer module.
-        Dynamsoft.Core.CoreModule.loadWasm(["DDN"]);
-        //Preloads the Document Viewer module.
-        Dynamsoft.DDV.Core.loadWasm();
+    const btnStart = document.querySelector("#start-detecting");
+    const btnRestart = document.querySelector("#restart-detecting");
+    const cameraViewContainer = document.querySelector("#div-ui-container");
+    const normalizedImageContainer = document.querySelector("#normalized-result");
+    const btnEdit = document.querySelector("#confirm-quad-for-normalization");
+    const btnNormalize = document.querySelector("#normalize-with-confirmed-quad");
+    const imageEditorViewContainer = document.querySelector("#div-image-container");
+    const autoNormalize = document.querySelector("#auto-normalize");
 
-        // Initialize DDN
-        await Dynamsoft.License.LicenseManager.initLicense(
-            "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9",
-            true
-        );
-        // Initialize DDV
-        await Dynamsoft.DDV.Core.init();
+    /** LICENSE ALERT - README
+     * To use the library, you need to first call the method initLicense() to initialize the license using a license key string.
+     */
+    Dynamsoft.License.LicenseManager.initLicense("DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9");
+    /**
+     * The license "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwMjQ5NjE5NyJ9" is a temporary license for testing good for 24 hours.
+     * You can visit https://www.dynamsoft.com/customer/license/trialLicense?utm_source=github&architecture=dcv&product=ddn&package=js to get your own trial license good for 30 days.
+     * LICENSE ALERT - THE END
+     */
 
-        // Configure document boundaries function
-        await initDocDetectModule(Dynamsoft.DDV, Dynamsoft.CVR);
+    /**
+     * Preloads the `DocumentNormalizer` module, saving time in preparing for document border detection and image normalization.
+     */
+    Dynamsoft.Core.CoreModule.loadWasm(["DDN"]);
 
-        //Create a capture viewer
-        const captureViewer = new Dynamsoft.DDV.CaptureViewer({
-            container: "container",
-            viewerConfig: {
-                acceptedPolygonConfidence: 60,
-                enableAutoCapture: true,
-                enableAutoDetect: true
-            }
-        });
-        // Play video stream in 1080P
-        captureViewer.play({ 
-            resolution: [1920,1080],
-        });
+    /**
+     * Creates a CameraEnhancer instance and prepares an ImageEditorView instance for later use.
+     */
+    async function initDCE() {
+      const view = await Dynamsoft.DCE.CameraView.createInstance();
+      cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance(view);
+      imageEditorView = await Dynamsoft.DCE.ImageEditorView.createInstance(imageEditorViewContainer);
+      /* Creates an image editing layer for drawing found document boundaries. */
+      layer = imageEditorView.createDrawingLayer();
+      cameraViewContainer.append(view.getUIElement());
+    }
 
-        // Display the result image
-        captureViewer.on("captured", async (e) => {
-            // Stop video stream and hide capture viewer's container
-            captureViewer.stop();
-            document.getElementById("container").style.display = "none";
+    /**
+     * Creates a CaptureVisionRouter instance and configure the task to detect document boundaries.
+     * Also, make sure the original image is returned after it has been processed.
+     */
+    let cvrReady = (async function initCVR() {
+      await initDCE();
+      router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
+      router.setInput(cameraEnhancer);
+      /**
+       * Sets the result types to be returned.
+       * Because we need to normalize the original image later, here we set the return result type to
+       * include both the quadrilateral and original image data.
+       */
+      let newSettings = await router.getSimplifiedSettings("DetectDocumentBoundaries_Default");
+      newSettings.capturedResultItemTypes |= Dynamsoft.Core.EnumCapturedResultItemType.CRIT_ORIGINAL_IMAGE;
+      await router.updateSettings("DetectDocumentBoundaries_Default", newSettings);
 
-            const pageData =  await captureViewer.currentDocument.getPageData(e.pageUid);
-            // Original image
-            document.getElementById("original").src = URL.createObjectURL(pageData.raw.data); 
-            // Normalized image
-            document.getElementById("normalized").src = URL.createObjectURL(pageData.display.data); 
-        });
-
-        // Restore Button function
-        document.getElementById("restore").onclick = () => {
-            captureViewer.currentDocument.deleteAllPages();
-            captureViewer.play();
-            document.getElementById("container").style.display = "";
-        };
+      /* Defines the result receiver for the task.*/
+      const resultReceiver = new Dynamsoft.CVR.CapturedResultReceiver();
+      resultReceiver.onCapturedResultReceived = handleCapturedResult;
+      router.addResultReceiver(resultReceiver);
     })();
-</script>
+
+    /**
+     * Defines the callback function that is executed after each image has been processed.
+     */
+    async function handleCapturedResult(result) {
+      /* Do something with the result */
+      /* Saves the image data of the current frame for subsequent image editing. */
+      const originalImage = result.items.filter((item) => item.type === 1);
+      originalImageData = originalImage.length && originalImage[0].imageData;
+      if (!autoNormalize.checked) {
+        /* why > 1? Because the "result items" always contain a result of the original image. */
+        if (result.items.length > 1) {
+          items = result.items;
+        }
+      } else if (originalImageData) {
+        /** If "Normalize Automatically" is checked, the library uses the document boundaries found in consecutive
+         * image frames to decide whether conditions are suitable for automatic normalization.
+         */
+        if (result.items.length <= 1) {
+          frameCount = 0;
+          return;
+        }
+        frameCount++;
+        /**
+         * In our case, we determine a good condition for "automatic normalization" to be
+         * "getting document boundary detected for 30 consecutive frames".
+         *
+         * NOTE that this condition will not be valid should you add a CapturedResultFilter
+         * with ResultDeduplication enabled.
+         */
+        if (frameCount === 30) {
+          frameCount = 0;
+          normalizedImageContainer.innerHTML = "";
+          /**
+           * When the condition is met, we use the document boundary found in this image frame
+           * to normalize the document by setting the coordinates of the ROI (region of interest)
+           * in the built-in template "NormalizeDocument_Default".
+           */
+          let settings = await router.getSimplifiedSettings("NormalizeDocument_Default");
+          settings.roiMeasuredInPercentage = 0;
+          settings.roi.points = result.items[1].location.points;
+          await router.updateSettings("NormalizeDocument_Default", settings);
+          /**
+           * After that, executes the normalization and shows the result on the page.
+           */
+          let normalizeResult = await router.capture(originalImageData, "NormalizeDocument_Default");
+          normalizedImageContainer.append(normalizeResult.items[0].toCanvas());
+          cameraViewContainer.style.display = "none";
+          btnStart.style.display = "none";
+          btnRestart.style.display = "inline";
+          btnEdit.disabled = true;
+          await router.stopCapturing();
+        }
+      }
+    }
+
+    btnStart.addEventListener("click", async () => {
+      try {
+        await (promiseCVRReady = promiseCVRReady || (async () => {
+          await cvrReady;
+          /* Starts streaming the video. */
+          await cameraEnhancer.open();
+          /* Uses the built-in template "DetectDocumentBoundaries_Default" to start a continuous boundary detection task. */
+          await router.startCapturing("DetectDocumentBoundaries_Default");
+        })());
+      } catch (ex) {
+        let errMsg = ex.message || ex;
+        console.error(errMsg);
+        alert(errMsg);
+      }
+    })
+
+    btnRestart.addEventListener("click", async () => {
+      /* Reset the UI elements and restart the detection task. */
+      imageEditorViewContainer.style.display = "none";
+      normalizedImageContainer.innerHTML = "";
+      cameraViewContainer.style.display = "block";
+      btnStart.style.display = "inline";
+      btnRestart.style.display = "none";
+      btnNormalize.disabled = true;
+      btnEdit.disabled = false;
+      layer.clearDrawingItems();
+
+      await router.startCapturing("DetectDocumentBoundaries_Default");
+    })
+
+    autoNormalize.addEventListener("change", () => {
+      btnEdit.style.display = autoNormalize.checked ? "none" : "inline";
+      btnNormalize.style.display = autoNormalize.checked ? "none" : "inline";
+    });
+
+    btnEdit.addEventListener("click", async () => {
+      if (!cameraEnhancer.isOpen() || items.length <= 1) return;
+      /* Stops the detection task since we assume we have found a good boundary. */
+      router.stopCapturing();
+      /* Hides the cameraView and shows the imageEditorView. */
+      cameraViewContainer.style.display = "none";
+      imageEditorViewContainer.style.display = "block";
+      /* Draws the image on the imageEditorView first. */
+      imageEditorView.setOriginalImage(originalImageData);
+      quads = [];
+      /* Draws the document boundary (quad) over the image. */
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].type === Dynamsoft.Core.EnumCapturedResultItemType.CRIT_ORIGINAL_IMAGE) continue;
+        const points = items[i].location.points;
+        const quad = new Dynamsoft.DCE.QuadDrawingItem({ points });
+        quads.push(quad);
+        layer.addDrawingItems(quads);
+      }
+      btnStart.style.display = "none";
+      btnRestart.style.display = "inline";
+      btnNormalize.disabled = false;
+      btnEdit.disabled = true;
+    });
+
+    btnNormalize.addEventListener("click", async () => {
+      /* Gets the selected quadrilateral. */
+      let seletedItems = imageEditorView.getSelectedDrawingItems();
+      let quad;
+      if (seletedItems.length) {
+        quad = seletedItems[0].getQuad();
+      } else {
+        quad = items[1].location;
+      }
+      const isPointOverBoundary = (point) => {
+        if (point.x < 0 ||
+          point.x > originalImageData.width ||
+          point.y < 0 ||
+          point.y > originalImageData.height) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+      /* Check if the points beyond the boundaries of the image. */
+      if (quad.points.some(point => isPointOverBoundary(point))) {
+        alert("The document boundaries extend beyond the boundaries of the image and cannot be used to normalize the document.");
+        return;
+      }
+
+      /* Hides the imageEditorView. */
+      imageEditorViewContainer.style.display = "none";
+      /* Removes the old normalized image if any. */
+      normalizedImageContainer.innerHTML = "";
+      /**
+       * Sets the coordinates of the ROI (region of interest)
+       * in the built-in template "NormalizeDocument_Default".
+       */
+      let newSettings = await router.getSimplifiedSettings("NormalizeDocument_Default");
+      newSettings.roiMeasuredInPercentage = 0;
+      newSettings.roi.points = quad.points;
+      await router.updateSettings("NormalizeDocument_Default", newSettings);
+      /* Executes the normalization and shows the result on the page. */
+      let normalizeResult = await router.capture(originalImageData, "NormalizeDocument_Default");
+      if (normalizeResult.items[0]) {
+        normalizedImageContainer.append(normalizeResult.items[0].toCanvas());
+      }
+      layer.clearDrawingItems();
+      btnNormalize.disabled = true;
+      btnEdit.disabled = true;
+    });
+  </script>
+</body>
 </html>
 ```
 
 ## Download the whole project
 
-- Hello World - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world/hello-world/)
-  - Angular App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-angular)
-  - React App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-react)
-  - Vue3 App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world-vue3)
+- Hello World - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world/hello-world) \| [Run](https://dynamsoft.github.io/mobile-web-capture/samples/hello-world-singlepage/hello-world/)
+  - Angular App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world-singlepage/hello-world-angular)
+  - React App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world-singlepage/hello-world-react)
+  - Vue3 App - [Github](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/hello-world-singlepage/hello-world-vue3)
 
 ## More use cases
 
