@@ -130,6 +130,7 @@ This is usually only required with frameworks like Angular or React, etc. where 
   Dynamsoft.Core.CoreModule.engineResourcePaths.dce = "https://cdn.jsdelivr.net/npm/dynamsoft-camera-enhancer@4.0.2/dist/";
   ```
 
+<!-- Not recommended
 ### Use your own hosted engine files
 
   ```typescript
@@ -143,4 +144,4 @@ This is usually only required with frameworks like Angular or React, etc. where 
   Dynamsoft.Core.CoreModule.engineResourcePaths.dip = "./node_modules/dynamsoft-image-processing/dist/";
   Dynamsoft.Core.CoreModule.engineResourcePaths.dce = "./node_modules/dynamsoft-camera-enhancer/dist/";
   ```
-  
+  -->
