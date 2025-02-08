@@ -17,6 +17,7 @@ description: Dynamsoft Document Scanner User Guide
 > See it in action with the [Dynamsoft Document Scanner Demo](https://demo.dynamsoft.com/document-scanner/).
 
 This guide walks you through building a web application that scans single-page documents using **DDS**, with pre-defined configurations.
+
 <!--  Keep TOC only for npm /github as readme
 **Table of Contents**
 - [License](#license)
@@ -41,7 +42,7 @@ This guide walks you through building a web application that scans single-page d
 
 ### Get a Trial License
 
-Try **DDS** by requesting a trial license through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&source=guide). The trial can be renewed twice, providing a total of two months of free access.
+If you haven't got a trial license for **DDS**, you can request one through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&source=guide). The trial license can be renewed twice, offering a total of two months of free access.
 
 > **DDS** and **MWC** share the same license keys. If you already have a **DDS** license, you can use it for **MWC**, and vice versa.
 

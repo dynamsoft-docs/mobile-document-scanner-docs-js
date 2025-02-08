@@ -41,7 +41,7 @@ This guide walks you through building a web application that scans multi-page do
 
 ### Get a Trial License
 
-If you haven't requested a **DDS** trial, you can try **MWC** by requesting a trial license through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&source=guide). The trial can be renewed twice for up to two months of free access.
+If you haven't got a trial license for **MWC**, you can request one through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&source=guide). The trial license can be renewed twice, offering a total of two months of free access.
 
 > **DDS** and **MWC** share the same license keys. If you already have a **DDS** license, you can use it for **MWC**, and vice versa.
 

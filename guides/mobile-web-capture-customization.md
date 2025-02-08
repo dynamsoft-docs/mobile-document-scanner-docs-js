@@ -14,6 +14,7 @@ description: Mobile Web Capture User Guide
 > Read the [MWC Getting Started Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture.html) before proceeding.
 
 This guide expands on the **Hello World** sample from the **MWC Getting Started Guide** and explores the available customization options.
+
  <!-- Keep TOC only for npm /github as readme
 **Table of Contents**
 - [MobileWebCaptureConfig Overview](#mobilewebcaptureconfig-overview)

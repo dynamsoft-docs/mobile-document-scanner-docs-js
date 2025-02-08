@@ -8,17 +8,11 @@ description: Mobile Web Capture Documentation Homepage
 # Mobile Web Capture
 
 - [Introduction]({{ site.introduction }}index.html)
-- Getting started
-    - [System Requirements]({{ site.gettingstarted }}sys_requirement.html)
-    - [License]({{ site.gettingstarted }}license.html)
-    - [Adding the Dependency]({{ site.gettingstarted }}add_dependency.html)
-    - [Creating HelloWorld - Single Page]({{ site.gettingstarted }}helloworld-singlepage.html)
-    - [Creating HelloWorld- Continuous Mode]({{ site.gettingstarted }}helloworld-continuousmode.html)
--  Code gallery
-    - [Use cases]({{ site.codegallery }}usecases/index.html)
-        - [Capture Single Page and Then Crop]({{ site.codegallery }}usecases/capture-single-page-and-then-crop.html)
-        - [Complete Document Capturing Workflow]({{ site.codegallery }}usecases/complete-doc-capturing-workflow.html)
-        - [Detect Boundaries on the Existing Image]({{ site.codegallery }}usecases/detect-boundaries-on-existing-image.html)
-    <!-- - [Demo]({{ site.codegallery }}demo/index.html) -->
-- [Related API reference]({{ site.api }}relatedapi.html)
+- [Developer Guides]({{ site.guides }}index.html)
+  - [Scan Single-Page Documents]({{ site.guides }}document-scanner.html)
+  - [Scan Multi-Page Documents]({{ site.guides }}mobile-web-capture.html)
+  - [Customize UI And Workflow]({{ site.guides }}mobile-web-capture-customization.html)
+- [API References]({{ site.api }}index.html)
+  - [Document Scanner]({{ site.api }}document-scanner.html)
+  - [Mobile Web Capture]({{ site.api }}mobile-web-capture.html)
 - [Release notes]({{ site.releasenotes }}index.html)

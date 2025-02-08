@@ -12,6 +12,7 @@ description: Mobile Web Capture API Reference
 # Mobile Web Capture API Reference
 
 The `MobileWebCapture` class manages document scanning, viewing, and management.
+
 <!--  Keep TOC only for npm /github as readme
 - [Constructor](#constructor)
   - [MobileWebCapture](#mobilewebcapture)
