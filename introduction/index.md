@@ -176,6 +176,6 @@ The table below lists the **minimum supported versions** of browsers based on th
 
 ## Next Step
 
-To get started, first read our [DDS Developer Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/document-scanner.html), as **MWC** is built on **DDS** and shares its core functionality.
+- If you only need to scan single-page documents and do not require handling PDF files (import or export), you can proceed to the [Dynamsoft Document Scanner Developer Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/document-scanner.html).
 
-Once you're familiar with **DDS**, proceed to the [MWC Developer Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture.html) to explore additional features for multi-page document management, editing, and annotation.
+- If you need to handle multi-page documents, PDF files, annotations, and more, you will need the full-featured **Mobile Web Capture (MWC)**. In this case, proceed to the [Mobile Web Capture Developer Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture.html).
