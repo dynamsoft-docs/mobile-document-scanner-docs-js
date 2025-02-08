@@ -12,6 +12,10 @@ permalink: /releasenotes/index.html
 
 # Release Notes
 
+## 3.0.1 (02/07/2025)
+
+* Fixed a bug in the Document Result View where the **Download** button icon was not displayed.
+
 ## 3.0.0 (02/07/2025)
 
 **⚠ IMPORTANT NOTE:This is a Beta Version**  
