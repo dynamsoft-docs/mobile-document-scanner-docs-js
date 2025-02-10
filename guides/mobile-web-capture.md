@@ -22,7 +22,8 @@ This guide walks you through building a web application that scans multi-page do
 
 > If you are looking for a solution that scans single-page documents, please read [Dynamsoft Document Scanner User Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/document-scanner.html) instead.
 
-<!--  Keep TOC only for npm /github as readme
+<!--
+Keep TOC only for npm /github as readme
 **Table of Contents**
 - [License](#license)
   - [Get a Trial License](#get-a-trial-license)
