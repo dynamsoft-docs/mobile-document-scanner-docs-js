@@ -15,7 +15,8 @@ description: Mobile Web Capture User Guide
 
 This guide expands on the **Hello World** sample from the **MWC Getting Started Guide** and explores the available customization options.
 
- <!-- Keep TOC only for npm /github as readme
+<!--
+Keep TOC only for npm /github as readme
 **Table of Contents**
 - [MobileWebCaptureConfig Overview](#mobilewebcaptureconfig-overview)
 - [Overall UI and Workflow Customization](#overall-ui-and-workflow-customization)
@@ -34,7 +35,8 @@ This guide expands on the **Hello World** sample from the **MWC Getting Started 
   - [Modify the Build Script](#modify-the-build-script)
   - [Build the Project](#build-the-project)
   - [Serve the Project Locally](#serve-the-project-locally)
-- [Next Step](#next-step) -->
+- [Next Step](#next-step) 
+-->
 
 ## MobileWebCaptureConfig Overview
 
