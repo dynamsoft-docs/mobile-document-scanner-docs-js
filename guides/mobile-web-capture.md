@@ -18,7 +18,7 @@ description: Mobile Web Capture User Guide
 
 > See it in action with the [Mobile Web Capture Demo](https://demo.dynamsoft.com/mobile-web-capture/).
 
-This guide walks you through building a web application that scans multi-page documents using **MWC**, with **pre-defined configurations**.
+This guide walks you through building a web application that scans multi-page documents using MWC, with **pre-defined configurations**.
 
 > If you are looking for a solution that scans single-page documents, please read [Dynamsoft Document Scanner User Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/document-scanner.html) instead.
 
@@ -42,9 +42,9 @@ Keep TOC only for npm /github as readme
 
 ### Get a Trial License
 
-If you haven't got a trial license for **MWC**, you can request one through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&source=guide). The trial license can be renewed twice, offering a total of two months of free access.
+If you haven't got a trial license for MWC, you can request one through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&source=guide). The trial license can be renewed twice, offering a total of two months of free access.
 
-> **DDS** and **MWC** share the same license keys. If you already have a **DDS** license, you can use it for **MWC**, and vice versa.
+> **DDS** and MWC share the same license keys. If you already have a **DDS** license, you can use it for MWC, and vice versa.
 
 ### Get a Full License
 
@@ -52,9 +52,9 @@ To purchase a full license, [contact us](https://www.dynamsoft.com/company/conta
 
 ## Quick Start
 
-To use **MWC**, the first step is to obtain its library files. You can acquire them from one of the following sources:
+To use MWC, the first step is to obtain its library files. You can acquire them from one of the following sources:
 
-1. [**GitHub**](https://github.com/Dynamsoft/mobile-web-capture) – Contains the source files for the **MWC** SDK, which can be compiled into library files.
+1. [**GitHub**](https://github.com/Dynamsoft/mobile-web-capture) – Contains the source files for the MWC SDK, which can be compiled into library files.
 2. [**npm**](https://www.npmjs.com/package/dynamsoft-mobile-web-capture) – Provides precompiled library files via npm for easier installation.
 3. [**CDN**](https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture) – Delivers precompiled library files through a CDN for quick and seamless integration.
 
@@ -65,14 +65,14 @@ You can choose one of the following methods to set up a Hello World page:
 
 ### Option 1: Build from Source
 
-This method retrieves all **MWC** source files from its [GitHub Repository](https://github.com/Dynamsoft/mobile-web-capture), compiles them into a distributable package, and then runs a *ready-made* Hello World sample page included in the repository.
+This method retrieves all MWC source files from its [GitHub Repository](https://github.com/Dynamsoft/mobile-web-capture), compiles them into a distributable package, and then runs a *ready-made* Hello World sample page included in the repository.
 
 Follow these steps:
 
 1. Download **MWC** from [GitHub](https://github.com/Dynamsoft/mobile-web-capture) as a compressed folder.
 2. Extract the contents of the archive.
 3. Enter the license key you received in [Get a Trial License](#get-a-trial-license).
-   > In your code editor, open the Hello World sample located at [`/samples/hello-world.html`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/samples/hello-world.html). Search for `"YOUR_LICENSE_KEY_HERE"` and replace it with your actual license key.
+   > In your code editor, open the Hello World sample located at [`/samples/hello-world.html`](https://github.com/Dynamsoft/mobile-web-capture/blob/master/samples/hello-world.html). Search for `"YOUR_LICENSE_KEY_HERE"` and replace it with your actual license key.
 4. Install project dependencies
     In the terminal, navigate to the project root directory and run:
     ```bash
@@ -89,11 +89,11 @@ Follow these steps:
     npm run serve
     ```
 Once the server is running, open the application in a browser using the address provided in the terminal output after running `npm run serve`.
-> See the server configuration details in [`/dev-server/index.js`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/dev-server/index.js).
+> See the server configuration details in [`/dev-server/index.js`](https://github.com/Dynamsoft/mobile-web-capture/blob/master/dev-server/index.js).
 
 ### Option 2: Use Precompiled Script
 
-Since the **MWC** library files are published on [npm](https://www.npmjs.com/package/dynamsoft-mobile-web-capture), it's easy to reference them from a CDN.
+Since the MWC library files are published on [npm](https://www.npmjs.com/package/dynamsoft-mobile-web-capture), it's easy to reference them from a CDN.
 
 To use the precompiled script, simply include the following URL in a `<script>` tag:
 ```html
@@ -101,7 +101,7 @@ To use the precompiled script, simply include the following URL in a `<script>` 
 ```
 
 Below is the complete Hello World sample page that uses this precompiled script from a CDN.
-> This code is identical to the [`/samples/hello-world.html`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/samples/hello-world.html) file mentioned in the [Build from Source](#option-1-build-from-source) section, except for the script source.
+> This code is identical to the [`/samples/hello-world.html`](https://github.com/Dynamsoft/mobile-web-capture/blob/master/samples/hello-world.html) file mentioned in the [Build from Source](#option-1-build-from-source) section, except for the script source.
 >
 > **Don't forget** to replace `"YOUR_LICENSE_KEY_HERE"` with your actual license key.
 
@@ -140,7 +140,7 @@ Alternatively, you can use other methods like `IIS` or `Apache` to serve the pro
 
 Let’s walk through the code in the Hello World sample to understand how it works.
 
-> Instead of using the code above, an alternative way to view the full code is by visiting the [Mobile Web Capture Hello World Sample](https://github.com/Dynamsoft/mobile-web-capture/blob/main/samples/hello-world.html).
+> Instead of using the code above, an alternative way to view the full code is by visiting the [Mobile Web Capture Hello World Sample](https://github.com/Dynamsoft/mobile-web-capture/blob/master/samples/hello-world.html).
 
 ### Reference MWC
 
@@ -158,7 +158,7 @@ Let’s walk through the code in the Hello World sample to understand how it wor
   </head>
 ```
 
-In this step, **MWC** is referenced using a relative local path in the `<head>` section of the HTML.
+In this step, MWC is referenced using a relative local path in the `<head>` section of the HTML.
 
 ```html
 <script src="../dist/mwc.bundle.js"></script>
@@ -170,7 +170,7 @@ Alternatively, the script can be referenced from a CDN:
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture@3.0.1/dist/mwc.bundle.js"></script>
 ```
 
-**MWC** wraps all its dependency scripts, so a **MWC** project only needs to include **MWC** itself as a single script. No additional dependency scripts are required.
+MWC wraps all its dependency scripts, so a MWC project only needs to include MWC itself as a single script. No additional dependency scripts are required.
 
 > ⚠**IMPORTANT**: Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the instructions in [Self-Hosting Resource File](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture-customization.html#self-hosting-resource-files).
 
@@ -185,7 +185,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 
 API Reference: [`MobileWebCapture()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#mobilewebcapture)
 
-This step creates the **MWC** UI, which, when launched, occupies the entire visible area of the browser window by default. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Specify the UI Container](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture-customization.html#example-1-specify-the-ui-container).
+This step creates the MWC UI, which, when launched, occupies the entire visible area of the browser window by default. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Specify the UI Container](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture-customization.html#specify-the-ui-container).
 
 > A **license key** is required for the instantiation.
 
