@@ -70,7 +70,6 @@ This method retrieves all **MWC** source files from its [GitHub Repository](http
 Follow these steps:
 
 1. Download **MWC** from [GitHub](https://github.com/Dynamsoft/mobile-web-capture) as a compressed folder.
-   > Alternatively, you can [download the same file from Dynamsoft website](https://www.dynamsoft.com/mobile-web-capture/downloads/).
 2. Extract the contents of the archive.
 3. Enter the license key you received in [Get a Trial License](#get-a-trial-license).
    > In your code editor, open the Hello World sample located at [`/samples/hello-world.html`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/samples/hello-world.html). Search for `"YOUR_LICENSE_KEY_HERE"` and replace it with your actual license key.
