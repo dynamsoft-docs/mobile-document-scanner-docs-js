@@ -36,7 +36,7 @@ The `MobileWebCapture` class manages document scanning, viewing, and management.
 
 ## Constructor
 
-### `MobileWebCapture`
+### MobileWebCapture
 
 #### Syntax
 ```typescript
@@ -67,7 +67,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 
 ## Methods
 
-### `launch()`
+### launch()
 
 Starts the **Mobile Web Capture** workflow.  
 
@@ -112,7 +112,7 @@ document.getElementById("initialFile").onchange = async function () {
 };
 ```
 
-### `dispose()`
+### dispose()
 
 Cleans up resources and closes the `MobileWebCapture` instance.
 
@@ -129,7 +129,7 @@ console.log("MWC resources released.");
 
 ## Properties
 
-### `hasLaunched`
+### hasLaunched
 
 Returns whether the `MobileWebCapture` instance is running.
 
@@ -159,7 +159,7 @@ document.getElementById("initialFile").onchange = async function () {
 
 ## Configuration Interfaces
 
-### `MobileWebCaptureConfig`
+### MobileWebCaptureConfig
 
 #### Syntax
 ```typescript
@@ -224,7 +224,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 });
 ```
 
-### `LibraryViewConfig`
+### LibraryViewConfig
 
 #### Syntax
 ```typescript
@@ -281,7 +281,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 });
 ```
 
-### `DocumentViewConfig`
+### DocumentViewConfig
 
 #### Syntax
 ```typescript
@@ -357,7 +357,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 });
 ```
 
-### `PageViewConfig`
+### PageViewConfig
 
 #### Syntax
 ```typescript
@@ -406,7 +406,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 });
 ```
 
-### `HistoryViewConfig`
+### HistoryViewConfig
 
 #### Syntax
 ```typescript
@@ -423,7 +423,7 @@ interface HistoryViewConfig {
 | `emptyContentConfig`   | `EmptyContentConfig`          | Configuration for the content displayed on the empty **HistoryView** screen. |
 | `toolbarButtonsConfig` | `HistoryToolbarButtonsConfig` | Configuration for the toolbar buttons in **HistoryView**.                    |
 
-### `TransferViewConfig`
+### TransferViewConfig
 
 #### Syntax
 ```typescript
@@ -440,7 +440,7 @@ interface TransferViewConfig {
 
 ## Toolbar Button Configurations
 
-### `ToolbarButtonConfig`
+### ToolbarButtonConfig
 
 A simplified configuration type for toolbar buttons.
 
@@ -476,7 +476,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 
 ### Configurable Buttons Per Each View
 
-#### `LibraryToolbarButtonsConfig`
+#### LibraryToolbarButtonsConfig
 ```typescript
 interface LibraryToolbarButtonsConfig {
   newDoc?: ToolbarButtonConfig;
@@ -493,7 +493,7 @@ interface LibraryToolbarButtonsConfig {
 }
 ```
 
-#### `DocumentToolbarButtonsConfig`
+#### DocumentToolbarButtonsConfig
 ```typescript
 interface DocumentToolbarButtonsConfig {
   backToLibrary?: ToolbarButtonConfig;
@@ -514,7 +514,7 @@ interface DocumentToolbarButtonsConfig {
 }
 ```
 
-#### `PageViewToolbarButtonsConfig`
+#### PageViewToolbarButtonsConfig
 ```typescript
 interface PageViewToolbarButtonsConfig {
   back?: ToolbarButtonConfig;
@@ -534,14 +534,14 @@ interface PageViewToolbarButtonsConfig {
 
 ```
 
-#### `HistoryToolbarButtonsConfig`
+#### HistoryToolbarButtonsConfig
 ```typescript
 interface HistoryToolbarButtonsConfig {
   back?: ToolbarButtonConfig;
 }
 ```
 
-#### `TransferToolbarButtonsConfig`
+#### TransferToolbarButtonsConfig
 ```typescript
 interface TransferToolbarButtonsConfig {
   cancel?: ToolbarButtonConfig;
@@ -551,25 +551,23 @@ interface TransferToolbarButtonsConfig {
 
 ## Assisting Interfaces 
 
-### `ExportConfig`
+### ExportConfig
 
 The `ExportConfig` interface defines methods for handling document export functionality, such as uploading, downloading, deleting files from a server, and managing the upload success process. This allows full customization of how documents are exported and managed in your application.
 
 #### Properties
 
-##### `uploadToServer`
+##### uploadToServer
 
 Uploads a document to the server. The function receives the document's file name and its binary data (`Blob`). It returns a `Promise` that resolves with `void` or an `UploadedDocument` object.
-
-> [!IMPORTANT]
-> Returning `{ status: "success" }` in this function is required to trigger [onUploadSuccess](#onuploadsuccess)
+> **Important:** Returning `{ status: "success" }` in this function is required to trigger [onUploadSuccess](#onuploadsuccess)
 
 ###### **Type**  
 ```typescript
 (fileName: string, blob: Blob) => Promise<void | UploadedDocument>
 ```
 
-##### `downloadFromServer`
+##### downloadFromServer
 
 Downloads a document from the server. The function receives an `UploadedDocument` object and returns a `Promise` that resolves once the download is complete.
 
@@ -578,7 +576,7 @@ Downloads a document from the server. The function receives an `UploadedDocument
 (doc: UploadedDocument) => Promise<void>
 ```
 
-##### `deleteFromServer`
+##### deleteFromServer
 
 Deletes a document from the server. The function receives an `UploadedDocument` object and returns a `Promise` that resolves once the deletion is successful.
 
@@ -587,12 +585,10 @@ Deletes a document from the server. The function receives an `UploadedDocument` 
 (doc: UploadedDocument) => Promise<void>
 ```
 
-##### `onUploadSuccess`
+##### onUploadSuccess
 
 Called after a successful upload. It receives the file name, file type, the current view (`EnumMWCViews`), and the binary data (`Blob`). The function should return a `Promise` that resolves to `true` if the `MobileWebCapture` instance should close after uploading or `false` if it should remain open.
-
-> [!IMPORTANT]
-> Returning `{ status: "success" }` in [uploadToServer](#uploadtoserver) is required to trigger this function.
+> **Important:** Returning `{ status: "success" }` in [uploadToServer](#uploadtoserver) is required to trigger this function.
 
 ###### **Type**  
 ```typescript

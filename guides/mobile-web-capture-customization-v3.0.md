@@ -10,8 +10,8 @@ description: Mobile Web Capture User Guide
 
 # How to Customize Mobile Web Capture
 
-> [!TIP] 
-> Prerequisites: read the [MWC Getting Started Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture.html) before proceeding.
+> **Prerequisites:**  
+> Read the [MWC Getting Started Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture.html) before proceeding.
 
 This guide expands on the **Hello World** sample from the **MWC Getting Started Guide** and explores the available customization options.
 
@@ -98,7 +98,6 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 
 By default, **MWC** starts with `DocumentView`, disabling `LibraryView`, so only one document is created and managed. Enabling `LibraryView` allows multiple documents.
 
-> [!NOTE]
 > Since **MWC** now starts with `LibraryView`, a document name is no longer required. If specified, `LibraryView` is still enabled, but **MWC** will start with `DocumentView`.
 
 ```javascript
@@ -177,13 +176,9 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 ### Enable File Upload
 
 When `exportConfig.uploadToServer` is defined, an **Upload** button appears in both `DocumentView` and `PageView`.
-
-> [!NOTE]
 > If `LibraryView` is enabled, the **Upload** button will also appear there.
 
 The following example demonstrates how to enable file upload and exit the Mobile Web Capture Instance after a successful upload.
-
-> [!TIP]
 > If you followed the steps in [Build from Source](#option-1-build-from-source) and are still using the predefined Express server setup, the following upload code will work correctly. See the server configuration details in [`/dev-server/index.js`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/dev-server/index.js).
 
 ```javascript
@@ -194,7 +189,7 @@ const uploadToServer = async (fileName, blob) => {
     formData.append("uploadFile", blob, fileName);
     // Upload file
     const response = await fetch(
-        `${host}/upload`, // Change this to your actual upload URL
+        `${host}/upload`, // Change this to your actul upload URL
         {
         method: "POST",
         body: formData,
@@ -229,8 +224,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 })();
 ```
 
-> [!IMPORTANT]
-> The **Upload** feature is enabled simultaneously in `DocumentView` and `PageView` (and in `LibraryView` if it is enabled). If this is not intended, you can hide the **Upload** button in these **Views**.
+> ⚠ **IMPORTANT**: The **Upload** feature is enabled simultaneously in `DocumentView` and `PageView` (and in `LibraryView` if it is enabled). If this is not intended, you can hide the **Upload** button in these **Views**.
 > Read more:  
 > 1. [Disable Upload in DocumentView](#example-2-disable-upload-in-documentview)  
 > 2. [Disable Upload in PageView](#example-1-disable-upload-in-pageview)
@@ -244,8 +238,6 @@ When **File Upload** feature is on and `LibraryView` is enabled, we can enable t
 3. `exportConfig.deleteFromServer`
 
 The following example demonstrates how to enable this feature.
-
-> [!NOTE]
 > If you followed the steps in [Build from Source](#option-1-build-from-source) and are still using the predefined Express server setup, the following code will work correctly. See the server configuration details in [`/dev-server/index.js`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/dev-server/index.js).
 
 ```javascript
@@ -258,7 +250,7 @@ const uploadToServer = async (fileName, blob) => {
     formData.append("sessionID", shortSessionID);
     // Upload file
     const response = await fetch(
-        `${host}/upload`, // Change this to your actual upload URL
+        `${host}/upload`, // Change this to your actul upload URL
         {
         method: "POST",
         body: formData,
@@ -352,7 +344,6 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 
 When `exportConfig.uploadToServer` is defined, the **Upload** button appears in both `DocumentView` and `PageView`. The following example demonstrates how to disable this feature by hiding it in `DocumentView`, ensuring that the **Upload** button only appears in `PageView`.
 
-> [!TIP]
 > Read more in [Enable File Upload](#enable-file-upload).
 
 ```javascript
@@ -426,8 +417,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 
 When `exportConfig.uploadToServer` is defined and `showLibraryView` is `true`, an **Upload** button will appears in `LibraryView`. The following example demonstrates how to hide the button.
 
-> [!NOTE]
-> Read more in [Enable File Upload](#enable-file-upload) & [Enable Upload History](#enable-upload-history).
+> Read more in [Enable File Upload](#enable-file-upload) & [Enabe Upload History](#enable-upload-history).
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
@@ -493,15 +483,12 @@ The configuration follows similar patterns, so we won’t cover them here for br
 ## Self-Hosting Resource Files
 
 By default, **MWC** relies on a **CDN** for resources such as `.wasm` engine files. If you require a **fully offline setup**, follow these steps:
-
-> [!IMPORTANT]
 > These steps are based on [Build from Source](#option-1-build-from-source), meaning that all **MWC** source files must be available on your local machine.
 
 #### Update the Resource Paths
 
 The following code modifies how resource files are referenced:  
 
-> [!TIP]
 > In this case, we reference local resource files that are copied during the build process. See [Modify the Build Script](#modify-the-build-script) for details. However, you can also reference your own copies, such as files hosted on your own server. If you need assistance, feel free to [contact us](https://www.dynamsoft.com/company/contact/).
 
 ```javascript
@@ -556,18 +543,19 @@ Once the server is running, open the application in a browser using the address 
 
 Now, all required files will be **served locally** without relying on a CDN.
 
-> [!IMPORTANT]
->* Certain legacy web application servers may lack support for the `application/wasm` mimetype for .wasm files. To address this, you have two options:
->  1. Upgrade your web application server to one that supports the `application/wasm` mimetype.
->  2. Manually define the mimetype on your server. You can refer to the guides for [apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings) / [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap) / [nginx](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types).
->
->* To work properly, the SDK requires a few engine files, which are relatively large and may take quite a few seconds to download. We recommend that you set a longer cache time for these engine files, to maximize the performance of your web application.
->
->  ```
->  Cache-Control: max-age=31536000
->  ```
->
->  Reference: [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control).
+⚠**IMPORTANT NOTE**:
+
+* Certain legacy web application servers may lack support for the `application/wasm` mimetype for .wasm files. To address this, you have two options:
+  1. Upgrade your web application server to one that supports the `application/wasm` mimetype.
+  2. Manually define the mimetype on your server. You can refer to the guides for [apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings) / [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap) / [nginx](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types).
+
+* To work properly, the SDK requires a few engine files, which are relatively large and may take quite a few seconds to download. We recommend that you set a longer cache time for these engine files, to maximize the performance of your web application.
+
+  ```
+  Cache-Control: max-age=31536000
+  ```
+
+  Reference: [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control).
 
 ## Next Step
 
