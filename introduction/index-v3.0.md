@@ -28,7 +28,6 @@ However, when hardware scanners are not feasible or convenient, mobile device ca
 
 **DDS** not only captures documents but also enhances their quality to meet professional standards, making it an ideal tool for **Scenario 1** as described above.
 
-> [!TIP]
 > Not sure if it is the right fit? **Try the** [DDS demo](https://demo.dynamsoft.com/document-scanner/) first. If it meets your needs, you can skip the rest of this introduction and proceed directly to the [DDS user guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/document-scanner.html).
 
 However, if you need multi-page capture, **MWC** extends DDS’s functionality by supporting multi-page documents. Additionally, **MWC** offers advanced features such as document processing, editing, and annotation, making it a comprehensive solution for managing complex document workflows.
@@ -51,7 +50,6 @@ In short, for scenarios requiring **document management beyond single-page captu
 | Export a single-page document as an image                                                           | ✓    | ✓    |
 | Export multi-page documents as PDFs with options for selected pages, one or multiple full documents |      | ✓    |
 
-> [!NOTE]
 > To deliver these features, we built **DDS** using two core Dynamsoft products: [**Dynamsoft Camera Enhancer**](https://www.dynamsoft.com/camera-enhancer/docs/web/programming/javascript/user-guide/index.html?lang=javascript) (DCE) and [**Dynamsoft Document Normalizer**](https://www.dynamsoft.com/document-normalizer/docs/web/programming/javascript/user-guide/index.html?lang=javascript) (DDN).
 > 
 > **MWC** extends this foundation by adding document management, processing, and editing features through [**Dynamsoft Document Viewer**](https://www.dynamsoft.com/document-viewer/docs/introduction/index.html) (DDV). Both products operate within the [**Dynamsoft Capture Vision**](https://www.dynamsoft.com/capture-vision/docs/core/architecture/?lang=javascript) (DCV) architecture.
@@ -152,7 +150,6 @@ The Transfer View  -->
 When deploying your web application for production, ensure it is served over a **secure HTTPS connection**. This is required for the following reasons:
 
 1. **Browser Security Restrictions** – Most browsers only allow access to camera video streams in a secure context.
-    > [!NOTE]
     > Some browsers like Chrome may grant access to camera video streams for `http://127.0.0.1`, `http://localhost`, or even pages opened directly from the local file system (`file:///...`). This can be helpful during development and testing.
 
 2. **Dynamsoft License Requirements** – A secure context is required for **Dynamsoft licenses** to function properly.

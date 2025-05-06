@@ -31,16 +31,14 @@ The `DocumentScanner` class handles the document scanning process, including ima
 -->
 
 ## Constructor
-
 ### DocumentScanner
-
 #### Syntax
 ```typescript
 new DocumentScanner(config: DocumentScannerConfig)
 ```
 
 #### Parameters
-- `config` ([`DocumentScannerConfig`](#documentscannerconfig)) : Configuration settings for the scanner, including license, container, view settings and more.
+- `config` *([DocumentScannerConfig](#documentscannerconfig))* : Configuration settings for the scanner, including license, container, view settings and more.
 
 #### Example
 
@@ -59,7 +57,7 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 ## Methods
 
-### `launch()`
+### launch()
 
 Starts the **document scanning workflow**.
 
@@ -84,7 +82,7 @@ if (result?.correctedImageResult) {
 }
 ```
 
-### `dispose()`
+### dispose()
 
 Cleans up resources and hides UI components.
 
@@ -100,8 +98,7 @@ console.log("Scanner resources released.");
 ```
 
 ## Configuration Interfaces
-
-### `DocumentScannerConfig`
+### DocumentScannerConfig
 
 #### Syntax
 ```typescript
@@ -148,7 +145,7 @@ const config = {
 };
 ```
 
-### `DocumentScannerViewConfig`
+### DocumentScannerViewConfig
 
 Configures the scanner view for capturing documents.
 
@@ -162,16 +159,10 @@ interface DocumentScannerViewConfig {
 
 #### Properties
 
-| Property                          | Type                    | Description                                                                              |
-| --------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------- |
-| `templateFilePath`                | `string`                | Path to a Capture Vision template for scanning configuration.                            |
-| `cameraEnhancerUIPath`            | `string`                | Path to the UI (`.html` template file) for the scanner view.                             |
-| `container`                       | `HTMLElement`           | The container element for the scanner view.                                              |
-| `utilizedTemplateNames`           | `UtilizedTemplateNames` | Capture Vision template names for detection and correction.                              |
-| `enableAutoCropMode`              | `boolean`               | The default auto-crop mode state.                                                        |
-| `enableSmartCaptureMode`          | `boolean`               | The default smart capture mode state.                                                    |
-| `scanRegion`                      | `ScanRegion`            | Defines the region within the viewport to detect documents.                              |
-| `minVerifiedFramesForAutoCapture` | `number`                | The minimum number of camera frames to detect document boundaries on Smart Capture mode. |
+| Property               | Type          | Description                                                  |
+| ---------------------- | ------------- | ------------------------------------------------------------ |
+| `cameraEnhancerUIPath` | `string`      | Path to the UI (`.html` template file) for the scanner view. |
+| `container`            | `HTMLElement` | The container element for the scanner view.                  |
 
 #### Example
 
@@ -184,7 +175,7 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 });
 ```
 
-### `DocumentCorrectionViewConfig`
+### DocumentCorrectionViewConfig
 
 Configures the correction view for adjusting scanned documents, including toolbar buttons and event handlers for completion.
 
@@ -219,7 +210,7 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 });
 ```
 
-### `DocumentResultViewConfig`
+### DocumentResultViewConfig
 
 Configures the result view for reviewing scanned documents, including toolbar buttons and event handlers for uploads and completion.
 
@@ -256,7 +247,7 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 });
 ```
 
-### `DocumentResult`
+### DocumentResult
 
 Represents the output of a scan, including the original and corrected images, detected boundaries, and scan status.
 
@@ -281,7 +272,7 @@ interface DocumentResult {
 
 ## Toolbar Button Configurations
 
-### `ToolbarButtonConfig`
+### ToolbarButtonConfig
 
 A simplified configuration type for toolbar buttons.
 

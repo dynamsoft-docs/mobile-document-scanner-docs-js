@@ -4,5 +4,6 @@ tree_file_list:
   - sidelist-api.html
   - sidelist-releasenotes.html
   - sidelist-full-tree.html
-
-
+  - sidelist-apis-v2.0.html
+  - sidelist-full-tree.v2.0.html
+  - sidelist-introduction-v2.0.html

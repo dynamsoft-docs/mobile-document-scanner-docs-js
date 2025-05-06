@@ -16,7 +16,6 @@ If you need to scan single-page documents and do not require handling PDF files 
 
 - [Dynamsoft Document Scanner API Reference]({{ site.api }}document-scanner.html)  
 
-> [!TIP]
 > See it in action with the [Dynamsoft Document Scanner Demo](https://demo.dynamsoft.com/document-scanner/).  
 
 ## Scan Multi-Page Documents  
@@ -25,5 +24,4 @@ If you need to handle multi-page documents, PDF files, annotations, and more, yo
 
 - [Mobile Web Capture API Reference]({{ site.api }}mobile-web-capture.html)  
 
-> [!TIP]
 > See it in action with the [Mobile Web Capture Demo](https://demo.dynamsoft.com/mobile-web-capture/).  

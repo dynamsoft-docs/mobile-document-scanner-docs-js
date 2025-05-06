@@ -10,17 +10,16 @@ description: Mobile Web Capture User Guide
 
 # Scan Multi-Page Documents with Mobile Web Capture
 
-> [!TIP]
-> Prerequisites: read the [Introduction](https://www.dynamsoft.com/mobile-web-capture/docs/introduction/index.html) before proceeding.
+> Prerequisites:
+> 
+> Read the [Introduction](https://www.dynamsoft.com/mobile-web-capture/docs/introduction/index.html) before proceeding.
 
 **Mobile Web Capture (MWC)** is an SDK designed for scanning multi-page documents.  It integrates **Dynamsoft Document Scanner (DDS)** functionality  while offering additional features such as multi-document management, annotation, and uploading, making it a comprehensive solution for managing complex document workflows.
 
-> [!TIP]
 > See it in action with the [Mobile Web Capture Demo](https://demo.dynamsoft.com/mobile-web-capture/).
 
 This guide walks you through building a web application that scans multi-page documents using **MWC**, with **pre-defined configurations**.
 
-> [!TIP]
 > If you are looking for a solution that scans single-page documents, please read [Dynamsoft Document Scanner User Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/document-scanner.html) instead.
 
 <!--
@@ -43,13 +42,8 @@ Keep TOC only for npm /github as readme
 
 ### Get a Trial License
 
-If you haven't got a trial license for **MWC**, you can request one here:
+If you haven't got a trial license for **MWC**, you can request one through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&source=guide). The trial license can be renewed twice, offering a total of two months of free access.
 
-{% include trialLicense.html %}
-
- The trial license can be renewed twice, offering a total of two months of free access.
-
-> [!NOTE]
 > **DDS** and **MWC** share the same license keys. If you already have a **DDS** license, you can use it for **MWC**, and vice versa.
 
 ### Get a Full License
@@ -78,7 +72,6 @@ Follow these steps:
 1. Download **MWC** from [GitHub](https://github.com/Dynamsoft/mobile-web-capture) as a compressed folder.
 2. Extract the contents of the archive.
 3. Enter the license key you received in [Get a Trial License](#get-a-trial-license).
-   > [!TIP]
    > In your code editor, open the Hello World sample located at [`/samples/hello-world.html`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/samples/hello-world.html). Search for `"YOUR_LICENSE_KEY_HERE"` and replace it with your actual license key.
 4. Install project dependencies
     In the terminal, navigate to the project root directory and run:
@@ -96,8 +89,6 @@ Follow these steps:
     npm run serve
     ```
 Once the server is running, open the application in a browser using the address provided in the terminal output after running `npm run serve`.
-
-> [!TIP]
 > See the server configuration details in [`/dev-server/index.js`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/dev-server/index.js).
 
 ### Option 2: Use Precompiled Script
@@ -106,15 +97,12 @@ Since the **MWC** library files are published on [npm](https://www.npmjs.com/pac
 
 To use the precompiled script, simply include the following URL in a `<script>` tag:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture@3.1.0/dist/mwc.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture@3.0.1/dist/mwc.bundle.js"></script>
 ```
 
 Below is the complete Hello World sample page that uses this precompiled script from a CDN.
-
-> [!NOTE]
 > This code is identical to the [`/samples/hello-world.html`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/samples/hello-world.html) file mentioned in the [Build from Source](#option-1-build-from-source) section, except for the script source.
-
-> [!WARNING]
+>
 > **Don't forget** to replace `"YOUR_LICENSE_KEY_HERE"` with your actual license key.
 
 ```html
@@ -124,7 +112,7 @@ Below is the complete Hello World sample page that uses this precompiled script 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mobile Web Capture - Hello World</title>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture@3.1.0/dist/mwc.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture@3.0.1/dist/mwc.bundle.js"></script>
   </head>
   <body>
     <script>
@@ -144,7 +132,7 @@ Below is the complete Hello World sample page that uses this precompiled script 
 
 To run the sample, create a new file called `hello-world.html`, then copy and paste the code above into the file. Next, serve the page directly by deploying it to a server.
 
-If you are using VS Code, a quick and easy way to serve the project is using the [Live Server (Five Server) VSCode extension](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server). Simply install the extension, open the `hello-world.html` file in the editor, and click "Go Live" in the bottom right corner of the editor. This will serve the application at `http://127.0.0.1:5500/hello-world.html`.
+If you are using VS Code, a quick and easy way to serve the project is using the [Live Server VSCode extension](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server). Simply install the extension, open the `hello-world.html` file in the editor, and click "Go Live" in the bottom right corner of the editor. This will serve the application at `http://127.0.0.1:5500/hello-world.html`.
 
 Alternatively, you can use other methods like `IIS` or `Apache` to serve the project, though we won't cover those here for brevity.
 
@@ -152,7 +140,6 @@ Alternatively, you can use other methods like `IIS` or `Apache` to serve the pro
 
 Let’s walk through the code in the Hello World sample to understand how it works.
 
-> [!TIP]
 > Instead of using the code above, an alternative way to view the full code is by visiting the [Mobile Web Capture Hello World Sample](https://github.com/Dynamsoft/mobile-web-capture/blob/main/samples/hello-world.html).
 
 ### Reference MWC
@@ -166,7 +153,7 @@ Let’s walk through the code in the Hello World sample to understand how it wor
     <title>Mobile Web Capture - Hello World</title>
     <script src="../dist/mwc.bundle.js"></script>
     <!--Alternatively, reference the script from CDN
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture@3.1.0/dist/mwc.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture@3.0.1/dist/mwc.bundle.js"></script>
     -->
   </head>
 ```
@@ -180,13 +167,12 @@ In this step, **MWC** is referenced using a relative local path in the `<head>` 
 Alternatively, the script can be referenced from a CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture@3.1.0/dist/mwc.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture@3.0.1/dist/mwc.bundle.js"></script>
 ```
 
 **MWC** wraps all its dependency scripts, so a **MWC** project only needs to include **MWC** itself as a single script. No additional dependency scripts are required.
 
-> [!IMPORTANT]
-> Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the instructions in [Self-Hosting Resource File](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture-customization.html#self-hosting-resource-files).
+> ⚠**IMPORTANT**: Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the instructions in [Self-Hosting Resource File](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture-customization.html#self-hosting-resource-files).
 
 ### Instantiate MWC
 
@@ -201,7 +187,6 @@ API Reference: [`MobileWebCapture()`](https://www.dynamsoft.com/mobile-web-captu
 
 This step creates the **MWC** UI, which, when launched, occupies the entire visible area of the browser window by default. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Specify the UI Container](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture-customization.html#example-1-specify-the-ui-container).
 
-> [!WARNING]
 > A **license key** is required for the instantiation.
 
 ### Launch MWC
@@ -214,12 +199,10 @@ await mobileWebCapture.launch(fileName);
 API Reference: [`launch()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#launch)
 
 This step launches the UI, starting in **`DocumentView`**, where the user can begin building a document in two ways:
+> Note: The `DocumentView` requires a document name, which is passed as a parameter in the `launch()` method.
 
-> [!NOTE]
-> The `DocumentView` requires a document name, which is passed as a parameter in the `launch()` method.
-
-1. **Capture**: Capture image(s) of the document pages.
-2. **Import**: Import one or multiple images or PDF files.
+1. Capture: Capture image(s) of the document pages.
+2. Import: Import one or multiple images or PDF files.
 
 Once a document has been created, the user can navigate between three views:
 
@@ -227,12 +210,12 @@ Once a document has been created, the user can navigate between three views:
 The user can:
 
 1. **Share**: Share the document as a multi-page PDF file.
-   - **Download** is enabled where **Share** is not supported (e.g., in Firefox).
-2. **Manage**: Select one or multiple pages for further actions.
+  >  **Download** is enabled where **Share** is not supported (e.g., in Firefox).
+2. Manage: Select one or multiple pages for further actions.
 3. **Manage** → **Select All** : Select all pages.
 4. **Manage** → **Delete** : Delete selected pages from the document.
 5. **Manage** → **Share** : Share individual pages as images (**.PNG**).
-   - **Download** is enabled where **Share** is not supported (e.g., in Firefox).
+  >  **Download** is enabled where **Share** is not supported (e.g., in Firefox).
 
 The user can also enable the **"Upload"** feature. Check out [Enable File Upload](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture-customization.html#enable-file-upload)
 
@@ -242,12 +225,12 @@ When the user presses an image, the `PageView` is launched for that page, where 
 1. **Delete** : Remove the current page.
 2. **Add Page** : Add more pages to the document.
 1. **Share** : Share the current page as an image (**.PNG**).
-   - **Download** is enabled where **Share** is not supported (e.g., in Firefox).
-2. **Edit** : Display additional editing features to further process the page.
-3. **Edit** → **Crop** : Select a portion of the page and crop.
-4. **Edit** → **Rotate** : Rotate the page **90 degrees counterclockwise**.
-5. **Edit** → **Filter** : Adjust the page's pixels.
-6. **Edit** → **Annotate** : Add annotations to the page.
+  >  **Download** is enabled where **Share** is not supported (e.g., in Firefox).
+4. **Edit** : Display additional editing features to further process the page.
+5. **Edit** → **Crop** : Select a portion of the page and crop.
+6. **Edit** → **Rotate** : Rotate the page **90 degrees counterclockwise**.
+7. **Edit** → **Filter** : Adjust the page's pixels.
+8. **Edit** → **Annotate** : Add annotations to the page.
 
 The user can also enable the **"Upload"** feature. Check out [Enable File Upload](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture-customization.html#enable-file-upload)
 
