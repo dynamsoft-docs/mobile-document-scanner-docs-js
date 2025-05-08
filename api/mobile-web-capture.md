@@ -45,9 +45,9 @@ constructor(config: MobileWebCaptureConfig)
 
 #### Parameters
 
-| Parameter | Type                     | Description                                          |
-| --------- | ------------------------ | ---------------------------------------------------- |
-| `config`  | `MobileWebCaptureConfig` | The configuration settings for **MobileWebCapture**. |
+| Parameter | Type                                                | Description                                          |
+| --------- | --------------------------------------------------- | ---------------------------------------------------- |
+| `config`  | [`MobileWebCaptureConfig`](#mobilewebcaptureconfig) | The configuration settings for **MobileWebCapture**. |
 
 #### Example
 ```javascript
@@ -73,14 +73,15 @@ Starts the **Mobile Web Capture** workflow.
 
 #### Syntax
 ```typescript
-launch(file?: File | string): Promise<void>
+async launch(file?: File | string, view?: EnumMWCStartingViews)
 ```
 
 #### Parameters
 
-| Parameter | Type                        | Description                                |
-| --------- | --------------------------- | ------------------------------------------ |
-| `file`    | `File \| string` (optional) | A file or document name to open at launch. |
+| Parameter | Type                              | Description                                |
+| --------- | --------------------------------- | ------------------------------------------ |
+| `file`    | `File \| string` (optional)       | A file or document name to open at launch. |
+| `view`    | `EnumMWCStartingViews` (optional) | The first View to display upon launch.     |
 
 #### Throws
 - An error if **MWC** is already running.
@@ -122,7 +123,7 @@ dispose(): Promise<void>
 ```
 
 #### Example
-```typescript
+```javascript
 await mobileWebCapture.dispose();
 console.log("MWC resources released.");
 ```
@@ -166,7 +167,7 @@ document.getElementById("initialFile").onchange = async function () {
 interface MobileWebCaptureConfig {
   license?: string;
   container?: HTMLElement | string;
-  exportConfig?: ExportConffig;
+  exportConfig?: ExportConfig;
   showLibraryView?: boolean;
   onClose?: () => void;
 
@@ -184,23 +185,25 @@ interface MobileWebCaptureConfig {
 
 #### Properties
 
-| Property                | Type                    | Description                                                                      |
-| ----------------------- | ----------------------- | -------------------------------------------------------------------------------- |
-| `license`               | `string`                | The license key for using **Mobile Web Capture (MWC)**.                          |
-| `container`             | `HTMLElement \| string` | The container element or selector for rendering the `MobileWebCapture` instance. |
-| `exportConfig`          | `ExportConfig`          | Configuration for exporting captured documents.                                  |
-| `showLibraryView`       | `boolean`               | Determines if the **LibraryView** is shown (default: `true`).                    |
-| `onClose`               | `() => void`            | Callback function triggered when the `MobileWebCapture` instance is closed.      |
-| `libraryViewConfig`     | `LibraryViewConfig`     | Configuration for the **LibraryView**.                                           |
-| `documentViewConfig`    | `DocumentViewConfig`    | Configuration for the **DocumentView**.                                          |
-| `pageViewConfig`        | `PageViewConfig`        | Configuration for the **PageView**.                                              |
-| `transferViewConfig`    | `TransferViewConfig`    | Configuration for the **TransferView**.                                          |
-| `historyViewConfig`     | `HistoryViewConfig`     | Configuration for the **HistoryView**.                                           |
-| `documentScannerConfig` | `DocumentScannerConfig` | Configuration for the built-in **DocumentScanner**.                              |
+| Property                | Type                                        | Description                                                                      |
+| ----------------------- | ------------------------------------------- | -------------------------------------------------------------------------------- |
+| `license`               | `string`                                    | The license key for using **Mobile Web Capture (MWC)**.                          |
+| `container`             | `HTMLElement \| string`                     | The container element or selector for rendering the `MobileWebCapture` instance. |
+| `ddvResourcePath`       | `string`                                    | File path to DDV resources.                                                      |
+| `exportConfig`          | [`ExportConfig`](#exportconfig)             | Configuration for exporting captured documents.                                  |
+| `showLibraryView`       | `boolean`                                   | Determines if the **LibraryView** is shown (default: `true`).                    |
+| `onClose`               | `() => void`                                | Callback function triggered when the `MobileWebCapture` instance is closed.      |
+| `libraryViewConfig`     | [`LibraryViewConfig`](#libraryviewconfig)   | Configuration for the **LibraryView**.                                           |
+| `documentViewConfig`    | [`DocumentViewConfig`](#documentviewconfig) | Configuration for the **DocumentView**.                                          |
+| `pageViewConfig`        | [`PageViewConfig`](#pageviewconfig)         | Configuration for the **PageView**.                                              |
+| `transferViewConfig`    | [`TransferViewConfig`](#transferviewconfig) | Configuration for the **TransferView**.                                          |
+| `transferViewConfig`    | [`TransferViewConfig`](#transferviewconfig) | Configuration for the **TransferView**.                                          |
+| `scanner`               | [`MWCScanner`](#mwcscanner)                 | Configured document scanner module (uses DDS by default).                        |
+| `documentScannerConfig` | `DocumentScannerConfig`                     | Configuration for the built-in **DocumentScanner**.                              |
 
 ##### See Also
 
-- [DocumentScannerConfig](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig) 
+- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig) 
 
 #### Example
 
@@ -236,10 +239,10 @@ interface LibraryViewConfig {
 
 #### Properties
 
-| Property               | Type                          | Description                                                                  |
-| ---------------------- | ----------------------------- | ---------------------------------------------------------------------------- |
-| `emptyContentConfig`   | `EmptyContentConfig`          | Configuration for the content displayed on the empty **LibraryView** screen. |
-| `toolbarButtonsConfig` | `LibraryToolbarButtonsConfig` | Configuration for the toolbar buttons in **LibraryView**.                    |
+| Property               | Type                                                          | Description                                                                  |
+| ---------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `emptyContentConfig`   | `EmptyContentConfig`                                          | Configuration for the content displayed on the empty **LibraryView** screen. |
+| `toolbarButtonsConfig` | [`LibraryToolbarButtonsConfig`](#librarytoolbarbuttonsconfig) | Configuration for the toolbar buttons in **LibraryView**.                    |
 
 #### Example 1: Display A Message In An Empty Library
 
@@ -293,10 +296,10 @@ interface DocumentViewConfig {
 
 #### Properties
 
-| Property               | Type                           | Description                                                                   |
-| ---------------------- | ------------------------------ | ----------------------------------------------------------------------------- |
-| `emptyContentConfig`   | `EmptyContentConfig`           | Configuration for the content displayed on the empty **DocumentView** screen. |
-| `toolbarButtonsConfig` | `DocumentToolbarButtonsConfig` | Configuration for the toolbar buttons in **DocumentView**.                    |
+| Property               | Type                                                            | Description                                                                   |
+| ---------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `emptyContentConfig`   | `EmptyContentConfig`                                            | Configuration for the content displayed on the empty **DocumentView** screen. |
+| `toolbarButtonsConfig` | [`DocumentToolbarButtonsConfig`](#documenttoolbarbuttonsconfig) | Configuration for the toolbar buttons in **DocumentView**.                    |
 
 #### Example 1: Display A Message In An Empty Document
 
@@ -418,10 +421,10 @@ interface HistoryViewConfig {
 
 #### Properties
 
-| Property               | Type                          | Description                                                                  |
-| ---------------------- | ----------------------------- | ---------------------------------------------------------------------------- |
-| `emptyContentConfig`   | `EmptyContentConfig`          | Configuration for the content displayed on the empty **HistoryView** screen. |
-| `toolbarButtonsConfig` | `HistoryToolbarButtonsConfig` | Configuration for the toolbar buttons in **HistoryView**.                    |
+| Property               | Type                                                          | Description                                                                  |
+| ---------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `emptyContentConfig`   | `EmptyContentConfig`                                          | Configuration for the content displayed on the empty **HistoryView** screen. |
+| `toolbarButtonsConfig` | [`HistoryToolbarButtonsConfig`](#historytoolbarbuttonsconfig) | Configuration for the toolbar buttons in **HistoryView**.                    |
 
 ### `TransferViewConfig`
 
@@ -434,9 +437,9 @@ interface TransferViewConfig {
 
 #### Properties
 
-| Property               | Type                           | Description                                                |
-| ---------------------- | ------------------------------ | ---------------------------------------------------------- |
-| `toolbarButtonsConfig` | `TransferToolbarButtonsConfig` | Configuration for the toolbar buttons in **TransferView**. |
+| Property               | Type                                                            | Description                                                |
+| ---------------------- | --------------------------------------------------------------- | ---------------------------------------------------------- |
+| `toolbarButtonsConfig` | [`TransferToolbarButtonsConfig`](#transfertoolbarbuttonsconfig) | Configuration for the toolbar buttons in **TransferView**. |
 
 ## Toolbar Button Configurations
 
@@ -458,7 +461,7 @@ export type ToolbarButtonConfig = Pick<"icon" | "label" | "isHidden">;
 | `isHidden` | `boolean` (optional) | Determines if the button is hidden. |
 
 #### Example
-```typescript
+```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
     license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
     documentViewConfig: {
