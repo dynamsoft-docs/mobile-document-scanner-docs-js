@@ -540,10 +540,14 @@ interface ScanRegion {
 }
 ```
 
+API Reference:
+
+[`ScanRegion`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#scanregion)
+
 Here is how the scanning region is set:
 
-1. The `ratio` property sets the height-to-width of the scanning region rectangle, then scales the rectangle up to fit within the viewfinder.
-2. Translate this rectangle up by the number of pixels specified by `regionBottomMargin`.
+1. Use the `ratio` property to set the height-to-width of the rectangular scanning region, then scale the rectangle up to fit within the viewfinder.
+2. Translate the rectangular up by the number of pixels specified by `regionBottomMargin`.
 3. Create a visual border for the scanning region boundary on the viewfinder with a given stroke width in pixels, and a stroke color.
 
 For example:

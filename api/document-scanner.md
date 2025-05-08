@@ -65,7 +65,7 @@ Starts the **document scanning workflow**.
 
 #### Syntax
 ```typescript
-launch(): Promise<DocumentResult>
+async launch(file?: File): Promise<DocumentResult>
 ```
 
 #### Returns
@@ -155,8 +155,16 @@ Configures the scanner view for capturing documents.
 #### Syntax
 ```typescript
 interface DocumentScannerViewConfig {
+  templateFilePath?: string;
   cameraEnhancerUIPath?: string;
-  container?: HTMLElement;
+  container?: HTMLElement | string;
+  utilizedTemplateNames?: UtilizedTemplateNames;
+  enableAutoCropMode?: boolean;
+  enableSmartCaptureMode?: boolean;
+  scanRegion: ScanRegion;
+  minVerifiedFramesForAutoCapture: number;
+  showSubfooter?: boolean;
+  showPoweredByDynamsoft?: boolean;
 }
 ```
 
@@ -170,8 +178,10 @@ interface DocumentScannerViewConfig {
 | `utilizedTemplateNames`           | `UtilizedTemplateNames` | Capture Vision template names for detection and correction.                              |
 | `enableAutoCropMode`              | `boolean`               | The default auto-crop mode state.                                                        |
 | `enableSmartCaptureMode`          | `boolean`               | The default smart capture mode state.                                                    |
-| `scanRegion`                      | `ScanRegion`            | Defines the region within the viewport to detect documents.                              |
+| `scanRegion`                      | [`ScanRegion`](#scanregion)            | Defines the region within the viewport to detect documents.                              |
 | `minVerifiedFramesForAutoCapture` | `number`                | The minimum number of camera frames to detect document boundaries on Smart Capture mode. |
+| `showSubfooter`                   | `boolean`               | Mode selector menu visibility.                                                           |
+| `showPoweredByDynamsoft`          | `boolean`               | Visibility of the Dynamsoft branding message.                                            |
 
 #### Example
 
@@ -278,6 +288,60 @@ interface DocumentResult {
 | `originalImageResult`   | `OriginalImageResultItem["imageData"]`     | The original captured image before correction.               |
 | `correctedImageResult`  | `NormalizedImageResultItem \| DSImageData` | The processed (corrected) image.                             |
 | `detectedQuadrilateral` | `Quadrilateral`                            | The detected document boundaries.                            |
+
+### `ScanRegion`
+
+Describes the scan region within the viewfinder for document scanning:
+
+1. Use the `ratio` property to set the height-to-width of the rectangular scanning region, then scale the rectangle up to fit within the viewfinder.
+2. Translate the rectangular up by the number of pixels specified by `regionBottomMargin`.
+3. Create a visual border for the scanning region boundary on the viewfinder with a given stroke width in pixels, and a stroke color.
+
+#### Syntax
+
+```typescript
+interface ScanRegion {
+  ratio: {
+    width: number;
+    height: number;
+  };
+  regionBottomMargin: number; // Bottom margin calculated in pixel
+  style: {
+    strokeWidth: number;
+    strokeColor: string;
+  };
+}
+```
+
+#### Properties
+
+| Property             | Type     | Description                                                |
+| -------------------- | -------- | ---------------------------------------------------------- |
+| `ratio`              | `object` | The aspect ratio of the rectangular scan region.           |
+| »`height`            | `number` | The height of the rectangular scan region.                 |
+| »`width`             | `number` | The width of the rectangular scan region.                  |
+| `regionBottomMargin` | `number` | Bottom margin below the scan region measured in pixels.    |
+| »`strokeWidth`       | `number` | The pixel width of the outline of the scan region.         |
+| »`strokeColor`       | `string` | The color of the outline of the scan region.               |
+| `style`              | `object` | The styling for the scan region outline in the viewfinder. |
+
+#### Example
+
+Create a scan region with a height-to-width ratio of 3:2, translated upwards by 20 pixels, with a green, 3 pixel-wide border in the viewfinder:
+
+```javascript
+scanRegion {
+  ratio: {
+    width: 2;
+    height: 3;
+  };
+  regionBottomMargin: 20;
+  style: {
+    strokeWidth: 3;
+    strokeColor: "green";
+  };
+}
+```
 
 ## Toolbar Button Configurations
 
