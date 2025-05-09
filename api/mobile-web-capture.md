@@ -646,3 +646,44 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
     await mobileWebCapture.launch(fileName);
 })();
 ```
+
+### `MWCScanner`
+
+MWC can scan from objects that satisfy this interface. When unassigned, MWC uses DDS by default.
+
+#### Properties
+
+##### `initialize()`
+
+Initialize scanner resources.
+
+###### **Type**
+
+```typescript
+async initialize(): Promise<any>
+```
+
+#### `launch()`
+
+Launch the scanner, and return a promise of a scan result that resolves once the scan completes. This scan result contains an `_imageData` object which contains a `toBlob()` that returns the scanned image as a blob. `imageData` (**not `_imageData`**) must be set to `true`.
+
+##### **Type**
+
+```typescript
+async launch(): Promise<{
+    _imageData: {
+        toBlob()
+    },
+    imageData: boolean,
+}>
+```
+
+#### `dispose()`
+
+Destructor for the scanner object.
+
+##### **Type**
+
+```typescript
+dispose(): void
+```
