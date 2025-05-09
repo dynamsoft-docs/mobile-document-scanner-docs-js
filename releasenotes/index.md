@@ -14,15 +14,16 @@ permalink: /releasenotes/index.html
 
 ## 3.1.0 (05/01/2025)
 
-The most notable improvement in this version is the pluggable scanner feature. This allows MWC to integrate any custom scanner, e.g. our existing [MRZ scanner].
+The most notable improvement in this version is the pluggable scanner feature. This allows MWC to integrate any custom scanner.<!-- , e.g. our existing [MRZ scanner](https://www.dynamsoft.com/mrz-scanner/docs/web/introduction/index.html). -->
  
 ### Features
 
 1. Add Pluggable Scanner feature which integrates any scanner satisfying the following:
-   1. Implements the `ImplementMWCScanner` interface
+   1. Implements the [`MWCScanner`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobilewebcapture.html#mwcscanner) interface
    2. Implements a `launch()` method to return a result that includes:
       1. `_imageData` with a `toBlob()` function
-      2. `status.code` equal to `EnumresultStatus.RS_SUCCESS`
+      2. `imageData: true`
+      3. `status.code` equal to `EnumresultStatus.RS_SUCCESS`
 2. Update Document Scanner to [version 1.2](https://github.com/Dynamsoft/document-scanner-javascript/releases/tag/v1.2.0)
 3. Change MWC Header color to make the component visually distinct
 4. Move the "Select All" and "Cancel" buttons to the header in the Document View
