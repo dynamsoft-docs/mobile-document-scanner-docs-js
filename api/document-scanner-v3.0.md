@@ -116,16 +116,16 @@ interface DocumentScannerConfig {
 
 #### Properties
 
-| Property                | Type                           | Description                                                     |
-| ----------------------- | ------------------------------ | --------------------------------------------------------------- |
-| `license`               | `string`                       | The license key for using the `DocumentScanner`.                |
-| `container`             | `HTMLElement \| string`        | The container element or selector for the `DocumentScanner` UI. |
-| `scannerViewConfig`     | `DocumentScannerViewConfig`    | Configuration settings for the scanner view.                    |
-| `resultViewConfig`      | `DocumentResultViewConfig`     | Configuration settings for the result view.                     |
-| `correctionViewConfig`  | `DocumentCorrectionViewConfig` | Configuration settings for the correction view.                 |
-| `templateFilePath`      | `string`                       | The file path to the document template used for scanning.       |
-| `utilizedTemplateNames` | `UtilizedTemplateNames`        | Specifies detection and correction templates.                   |
-| `engineResourcePaths`   | `EngineResourcePaths`          | Paths to the necessary resources for the scanning engine.       |
+| Property                | Type                           | Description                                               |
+| ----------------------- | ------------------------------ | --------------------------------------------------------- |
+| `license`               | `string`                       | The license key for using the `DocumentScanner`.          |
+| `container`             | ``HTMLElement                  | string``                                                  | The container element or selector for the `DocumentScanner` UI. |
+| `scannerViewConfig`     | `DocumentScannerViewConfig`    | Configuration settings for the scanner view.              |
+| `resultViewConfig`      | `DocumentResultViewConfig`     | Configuration settings for the result view.               |
+| `correctionViewConfig`  | `DocumentCorrectionViewConfig` | Configuration settings for the correction view.           |
+| `templateFilePath`      | `string`                       | The file path to the document template used for scanning. |
+| `utilizedTemplateNames` | `UtilizedTemplateNames`        | Specifies detection and correction templates.             |
+| `engineResourcePaths`   | `EngineResourcePaths`          | Paths to the necessary resources for the scanning engine. |
 
 #### Example
 ```typescript
@@ -263,12 +263,12 @@ interface DocumentResult {
 
 #### Properties
 
-| Property                | Type                                       | Description                                                  |
-| ----------------------- | ------------------------------------------ | ------------------------------------------------------------ |
-| `status`                | `ResultStatus`                             | The status of the document scan (success, failed, canceled). |
-| `originalImageResult`   | `OriginalImageResultItem["imageData"]`     | The original captured image before correction.               |
-| `correctedImageResult`  | `NormalizedImageResultItem \| DSImageData` | The processed (corrected) image.                             |
-| `detectedQuadrilateral` | `Quadrilateral`                            | The detected document boundaries.                            |
+| Property                | Type                                   | Description                                                  |
+| ----------------------- | -------------------------------------- | ------------------------------------------------------------ |
+| `status`                | `ResultStatus`                         | The status of the document scan (success, failed, canceled). |
+| `originalImageResult`   | `OriginalImageResultItem["imageData"]` | The original captured image before correction.               |
+| `correctedImageResult`  | ``NormalizedImageResultItem            | DSImageData``                                                | The processed (corrected) image. |
+| `detectedQuadrilateral` | `Quadrilateral`                        | The detected document boundaries.                            |
 
 ## Toolbar Button Configurations
 

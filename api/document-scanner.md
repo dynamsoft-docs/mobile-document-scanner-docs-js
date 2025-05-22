@@ -32,7 +32,7 @@ The `DocumentScanner` class handles the document scanning process, including ima
 
 ## Constructor
 
-### DocumentScanner
+### `DocumentScanner`
 
 #### Syntax
 ```typescript
@@ -69,7 +69,7 @@ async launch(file?: File): Promise<DocumentResult>
 ```
 
 #### Returns
-- A `Promise` resolving to a `DocumentResult` object.
+- A `Promise` resolving to a [`DocumentResult`](#documentresult) object.
 
 #### Example
 ```typescript
@@ -119,16 +119,16 @@ interface DocumentScannerConfig {
 
 #### Properties
 
-| Property                | Type                           | Description                                                     |
-| ----------------------- | ------------------------------ | --------------------------------------------------------------- |
-| `license`               | `string`                       | The license key for using the `DocumentScanner`.                |
-| `container`             | `HTMLElement \| string`        | The container element or selector for the `DocumentScanner` UI. |
-| `scannerViewConfig`     | `DocumentScannerViewConfig`    | Configuration settings for the scanner view.                    |
-| `resultViewConfig`      | `DocumentResultViewConfig`     | Configuration settings for the result view.                     |
-| `correctionViewConfig`  | `DocumentCorrectionViewConfig` | Configuration settings for the correction view.                 |
-| `templateFilePath`      | `string`                       | The file path to the document template used for scanning.       |
-| `utilizedTemplateNames` | `UtilizedTemplateNames`        | Specifies detection and correction templates.                   |
-| `engineResourcePaths`   | `EngineResourcePaths`          | Paths to the necessary resources for the scanning engine.       |
+| Property                | Type                                                            | Description                                                     |
+| ----------------------- | --------------------------------------------------------------- | ---------------------------------------------------------       |
+| `license`               | `string`                                                        | The license key for using the `DocumentScanner`.                |
+| `container`             | ``HTMLElement | string``                                        | The container element or selector for the `DocumentScanner` UI. |
+| `scannerViewConfig`     | [`DocumentScannerViewConfig`](#documentscannerconfig)           | Configuration settings for the scanner view.                    |
+| `resultViewConfig`      | [`DocumentResultViewConfig`](#documentresultviewconfig)         | Configuration settings for the result view.                     |
+| `correctionViewConfig`  | [`DocumentCorrectionViewConfig`](#documentcorrectionviewconfig) | Configuration settings for the correction view.                 |
+| `templateFilePath`      | `string`                                                        | The file path to the document template used for scanning.       |
+| `utilizedTemplateNames` | [`UtilizedTemplateNames`](#utilizedtemplatenames)               | Specifies detection and correction templates.                   |
+| `engineResourcePaths`   | [`EngineResourcePaths`](#engineresourcepaths)                   | Paths to the necessary resources for the scanning engine.       |
 
 #### Example
 ```typescript
@@ -170,18 +170,18 @@ interface DocumentScannerViewConfig {
 
 #### Properties
 
-| Property                          | Type                    | Description                                                                              |
-| --------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------- |
-| `templateFilePath`                | `string`                | Path to a Capture Vision template for scanning configuration.                            |
-| `cameraEnhancerUIPath`            | `string`                | Path to the UI (`.html` template file) for the scanner view.                             |
-| `container`                       | `HTMLElement`           | The container element for the scanner view.                                              |
-| `utilizedTemplateNames`           | `UtilizedTemplateNames` | Capture Vision template names for detection and correction.                              |
-| `enableAutoCropMode`              | `boolean`               | The default auto-crop mode state.                                                        |
-| `enableSmartCaptureMode`          | `boolean`               | The default smart capture mode state.                                                    |
-| `scanRegion`                      | [`ScanRegion`](#scanregion)            | Defines the region within the viewport to detect documents.                              |
-| `minVerifiedFramesForAutoCapture` | `number`                | The minimum number of camera frames to detect document boundaries on Smart Capture mode. |
-| `showSubfooter`                   | `boolean`               | Mode selector menu visibility.                                                           |
-| `showPoweredByDynamsoft`          | `boolean`               | Visibility of the Dynamsoft branding message.                                            |
+| Property                          | Type                                                | Description                                                                              |
+| --------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `templateFilePath`                | `string`                                            | Path to a Capture Vision template for scanning configuration.                            |
+| `cameraEnhancerUIPath`            | `string`                                            | Path to the UI (`.html` template file) for the scanner view.                             |
+| `container`                       | `HTMLElement`                                       | The container element for the scanner view.                                              |
+| `utilizedTemplateNames`           | `[`UtilizedTemplateNames`](#utilizedtemplatenames)` | Capture Vision template names for detection and correction.                              |
+| `enableAutoCropMode`              | `boolean`                                           | The default auto-crop mode state.                                                        |
+| `enableSmartCaptureMode`          | `boolean`                                           | The default smart capture mode state.                                                    |
+| `scanRegion`                      | [`ScanRegion`](#scanregion)                         | Defines the region within the viewport to detect documents.                              |
+| `minVerifiedFramesForAutoCapture` | `number`                                            | The minimum number of camera frames to detect document boundaries on Smart Capture mode. |
+| `showSubfooter`                   | `boolean`                                           | Mode selector menu visibility.                                                           |
+| `showPoweredByDynamsoft`          | `boolean`                                           | Visibility of the Dynamsoft branding message.                                            |
 
 #### Example
 
@@ -209,11 +209,11 @@ interface DocumentCorrectionViewConfig {
 
 #### Properties
 
-| Property               | Type                                         | Description                                               |
-| ---------------------- | -------------------------------------------- | --------------------------------------------------------- |
-| `container`            | `HTMLElement`                                | The container element for the correction view.            |
-| `toolbarButtonsConfig` | `DocumentCorrectionViewToolbarButtonsConfig` | Configuration for toolbar buttons in the correction view. |
-| `onFinish`             | `(result: DocumentResult) => void`           | Callback function triggered when correction is finished.  |
+| Property               | Type                                                                                        | Description                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `container`            | `HTMLElement`                                                                               | The container element for the correction view.            |
+| `toolbarButtonsConfig` | [`DocumentCorrectionViewToolbarButtonsConfig`](#documentcorrectionviewtoolbarbuttonsconfig) | Configuration for toolbar buttons in the correction view. |
+| `onFinish`             | `(result: DocumentResult) => void`                                                          | Callback function triggered when correction is finished.  |
 
 #### Example
 
@@ -245,12 +245,12 @@ interface DocumentResultViewConfig {
 
 #### Properties
 
-| Property               | Type                                        | Description                                                 |
-| ---------------------- | ------------------------------------------- | ----------------------------------------------------------- |
-| `container`            | `HTMLElement`                               | The container element for the result view.                  |
-| `toolbarButtonsConfig` | `DocumentResultViewToolbarButtonsConfig`    | Configuration for toolbar buttons in the result view.       |
-| `onDone`               | `(result: DocumentResult) => Promise<void>` | Callback function triggered when scanning is done.          |
-| `onUpload`             | `(result: DocumentResult) => Promise<void>` | Callback function triggered when uploading the scan result. |
+| Property               | Type                                                                                | Description                                                 |
+| ---------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| `container`            | `HTMLElement`                                                                       | The container element for the result view.                  |
+| `toolbarButtonsConfig` | [`DocumentResultViewToolbarButtonsConfig`](#documentresultviewtoolbarbuttonsconfig) | Configuration for toolbar buttons in the result view.       |
+| `onDone`               | `(result: DocumentResult) => Promise<void>`                                         | Callback function triggered when scanning is done.          |
+| `onUpload`             | `(result: DocumentResult) => Promise<void>`                                         | Callback function triggered when uploading the scan result. |
 
 #### Example
 ```javascript
@@ -282,12 +282,12 @@ interface DocumentResult {
 
 #### Properties
 
-| Property                | Type                                       | Description                                                  |
-| ----------------------- | ------------------------------------------ | ------------------------------------------------------------ |
-| `status`                | `ResultStatus`                             | The status of the document scan (success, failed, canceled). |
-| `originalImageResult`   | `OriginalImageResultItem["imageData"]`     | The original captured image before correction.               |
-| `correctedImageResult`  | `NormalizedImageResultItem \| DSImageData` | The processed (corrected) image.                             |
-| `detectedQuadrilateral` | `Quadrilateral`                            | The detected document boundaries.                            |
+| Property                | Type                                        | Description                                                  |
+| ----------------------- | ------------------------------------------- | ------------------------------------------------------------ |
+| `status`                | `ResultStatus`                              | The status of the document scan (success, failed, canceled). |
+| `originalImageResult`   | `OriginalImageResultItem["imageData"]`      | The original captured image before correction.               |
+| `correctedImageResult`  | ``NormalizedImageResultItem | DSImageData`` | The processed (corrected) image.                             |
+| `detectedQuadrilateral` | `Quadrilateral`                             | The detected document boundaries.                            |
 
 ### `ScanRegion`
 
@@ -383,15 +383,8 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 ### Configurable Buttons Per Each View
 
 #### DocumentCorrectionViewToolbarButtonsConfig
-```typescript
-interface DocumentCorrectionViewToolbarButtonsConfig {
-  fullImage?: ToolbarButtonConfig;
-  detectBorders?: ToolbarButtonConfig;
-  apply?: ToolbarButtonConfig;
-}
-```
 
-#### DocumentCorrectionViewToolbarButtonsConfig
+##### Syntax
 
 ```typescript
 interface DocumentCorrectionViewToolbarButtonsConfig {
@@ -403,6 +396,8 @@ interface DocumentCorrectionViewToolbarButtonsConfig {
 
 #### DocumentResultViewToolbarButtonsConfig
 
+##### Syntax
+
 ```typescript
 interface DocumentResultViewToolbarButtonsConfig {
   retake?: ToolbarButtonConfig;
@@ -413,3 +408,44 @@ interface DocumentResultViewToolbarButtonsConfig {
 }
 ```
 
+## Assisting Interfaces
+
+### `UtilizedTemplateNames`
+
+[Dynamsoft Capture Vision template](https://www.dynamsoft.com/capture-vision/docs/core/parameters/file/capture-vision-template.html?lang=javascript) names for detection and correction. This typically does not need to be set, as DDS uses the default template.
+
+#### Syntax
+
+```typescript
+interface UtilizedTemplateNames {
+  detect: string;
+  normalize: string;
+}
+```
+
+### `EngineResourcePaths`
+
+Paths to extra resources such as `.wasm` engine files. The default paths point to CDNs and so may be left unset. You may set custom paths for the purpose of [self-hosting resources]({{ site.guides }}mobile-web-capture-customization.html#self-hosting-resource-files).
+
+#### Syntax
+
+```typescript
+interface EngineResourcePaths {
+    "rootDirectory"?: string;
+    "std"?: string | PathInfo;
+    "dip"?: string | PathInfo;
+    "dnn"?: string | PathInfo;
+    "core"?: string | PathInfo;
+    "license"?: string | PathInfo;
+    "cvr"?: string | PathInfo;
+    "utility"?: string | PathInfo;
+    "dbr"?: string | PathInfo;
+    "dlr"?: string | PathInfo;
+    "ddn"?: string | PathInfo;
+    "dcp"?: string | PathInfo;
+    "dce"?: string | PathInfo;
+    "dlrData"?: string | PathInfo;
+    "ddv"?: string | PathInfo;
+    "dwt"?: string | DwtInfo;
+}
+```

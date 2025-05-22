@@ -7,7 +7,7 @@ title: Mobile Web Capture - Release Notes
 keywords: Documentation, Mobile Web Capture, Release Notes
 breadcrumbText: Release Notes
 description: Mobile Web Capture Documentation Release Notes
-permalink: /releasenotes/index.html
+permalink: /release-notes/mobile-web-capture.html
 ---
 
 # Release Notes
@@ -58,7 +58,7 @@ In this release, **Mobile Web Capture (MWC)** has been completely redesigned fro
 **MWC** features are organized into configurable UI views. Below is an overview of their main functionalities:
 
 > [!TIP]
-> Learn more in the [MWC user guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture.html).
+> Learn more in the [MWC user guide]({{ site.guides }}mobile-web-capture.html).
 
 #### Library View
 - Organize and manage multiple scanned documents
@@ -82,7 +82,7 @@ In this release, **Mobile Web Capture (MWC)** has been completely redesigned fro
 - View upload history
 
 > [!NOTE]
-> The following three views are powered by **Dynamsoft Document Scanner (DDS)**. Learn more in the [DDS user guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/document-scanner.html).
+> The following three views are powered by **Dynamsoft Document Scanner (DDS)**. Learn more in the [DDS user guide]({{ site.guides }}document-scanner.html).
 
 #### Document Scanner View
 - Camera viewfinder with resolution toggle and more

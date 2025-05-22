@@ -78,9 +78,9 @@ launch(file?: File | string): Promise<void>
 
 #### Parameters
 
-| Parameter | Type                        | Description                                |
-| --------- | --------------------------- | ------------------------------------------ |
-| `file`    | `File \| string` (optional) | A file or document name to open at launch. |
+| Parameter | Type                          | Description                                |
+| --------- | ----------------------------- | ------------------------------------------ |
+| `file`    | ``File \| string`` (optional) | A file or document name to open at launch. |
 
 #### Throws
 - An error if **MWC** is already running.
@@ -166,7 +166,7 @@ document.getElementById("initialFile").onchange = async function () {
 interface MobileWebCaptureConfig {
   license?: string;
   container?: HTMLElement | string;
-  exportConfig?: ExportConffig;
+  exportConfig?: ExportConfig;
   showLibraryView?: boolean;
   onClose?: () => void;
 
@@ -184,19 +184,19 @@ interface MobileWebCaptureConfig {
 
 #### Properties
 
-| Property                | Type                    | Description                                                                      |
-| ----------------------- | ----------------------- | -------------------------------------------------------------------------------- |
-| `license`               | `string`                | The license key for using **Mobile Web Capture (MWC)**.                          |
-| `container`             | `HTMLElement \| string` | The container element or selector for rendering the `MobileWebCapture` instance. |
-| `exportConfig`          | `ExportConfig`          | Configuration for exporting captured documents.                                  |
-| `showLibraryView`       | `boolean`               | Determines if the **LibraryView** is shown (default: `true`).                    |
-| `onClose`               | `() => void`            | Callback function triggered when the `MobileWebCapture` instance is closed.      |
-| `libraryViewConfig`     | `LibraryViewConfig`     | Configuration for the **LibraryView**.                                           |
-| `documentViewConfig`    | `DocumentViewConfig`    | Configuration for the **DocumentView**.                                          |
-| `pageViewConfig`        | `PageViewConfig`        | Configuration for the **PageView**.                                              |
-| `transferViewConfig`    | `TransferViewConfig`    | Configuration for the **TransferView**.                                          |
-| `historyViewConfig`     | `HistoryViewConfig`     | Configuration for the **HistoryView**.                                           |
-| `documentScannerConfig` | `DocumentScannerConfig` | Configuration for the built-in **DocumentScanner**.                              |
+| Property                | Type                    | Description                                                                 |
+| ----------------------- | ----------------------- | --------------------------------------------------------------------------- |
+| `license`               | `string`                | The license key for using **Mobile Web Capture (MWC)**.                     |
+| `container`             | ``HTMLElement           | string``                                                                    | The container element or selector for rendering the `MobileWebCapture` instance. |
+| `exportConfig`          | `ExportConfig`          | Configuration for exporting captured documents.                             |
+| `showLibraryView`       | `boolean`               | Determines if the **LibraryView** is shown (default: `true`).               |
+| `onClose`               | `() => void`            | Callback function triggered when the `MobileWebCapture` instance is closed. |
+| `libraryViewConfig`     | `LibraryViewConfig`     | Configuration for the **LibraryView**.                                      |
+| `documentViewConfig`    | `DocumentViewConfig`    | Configuration for the **DocumentView**.                                     |
+| `pageViewConfig`        | `PageViewConfig`        | Configuration for the **PageView**.                                         |
+| `transferViewConfig`    | `TransferViewConfig`    | Configuration for the **TransferView**.                                     |
+| `historyViewConfig`     | `HistoryViewConfig`     | Configuration for the **HistoryView**.                                      |
+| `documentScannerConfig` | `DocumentScannerConfig` | Configuration for the built-in **DocumentScanner**.                         |
 
 ##### See Also
 
@@ -605,7 +605,7 @@ const uploadToServer = async (fileName, blob) => {
     formData.append("uploadFile", blob, fileName);
     // Upload file
     const response = await fetch(
-        `${host}/upload`, // Change this to your actul upload URL
+        `${host}/upload`, // Change this to your actual upload URL
         {
         method: "POST",
         body: formData,
