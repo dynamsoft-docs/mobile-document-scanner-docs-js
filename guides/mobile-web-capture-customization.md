@@ -11,7 +11,7 @@ description: Mobile Web Capture User Guide
 # How to Customize Mobile Web Capture
 
 > [!TIP] 
-> Prerequisites: read the [MWC Getting Started Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture.html) before proceeding.
+> Prerequisites: read the [MWC Getting Started Guide]({{ site.guides }}mobile-web-capture.html) before proceeding.
 
 This guide expands on the **Hello World** sample from the **MWC Getting Started Guide** and explores the available customization options.
 
@@ -51,7 +51,7 @@ Keep TOC only for npm /github as readme
    4. `onUploadSuccess`: Specifies a function that is triggered when the upload operation succeeds.
 4. `showLibraryView`: Configures where or not this **MWC** instance starts with the `LibraryView`.
 5. `onClose`: Specifies a function that is triggered when the user closes this **MWC** instance.
-6. `documentScannerConfig`: Configures the behavior of the built-in `DocumentScanner` instance. See the details in [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/guides/document-scanner.html#documentscannerconfig-overview).
+6. `documentScannerConfig`: Configures the behavior of the built-in `DocumentScanner` instance. See the details in [`DocumentScannerConfig`]({{ site.guides }}document-scanner.html#documentscannerconfig-overview).
 7. `libraryViewConfig`: Configures the library view with the following properties:
    1. `emptyContentConfig`: Specifies the content displayed in the library view when it is empty (no document).
    2. `toolbarButtonsConfig`: Configures the buttons in the toolbar of the library view.
@@ -68,7 +68,7 @@ Keep TOC only for npm /github as readme
    2. `toolbarButtonsConfig`: Configures the button in the toolbar of the history view.
 12. `ddvResourcePath`: Paths to extra resources such as `.wasm` engine files and CSS files.
 
-API Reference: [`MobileWebCaptureConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#mobilewebcaptureconfig)
+API Reference: [`MobileWebCaptureConfig`]({{ site.api }}mobile-web-capture.html#mobilewebcaptureconfig)
 
 ## Overall UI and Workflow Customization
 
@@ -146,8 +146,8 @@ document.getElementById("initialFile").onchange = async function () {
 ```
 
 API Reference: 
-- [`hasLaunched`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#haslaunched)
-- [`dispose`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#dispose)
+- [`hasLaunched`]({{ site.api }}mobile-web-capture.html#haslaunched)
+- [`dispose`]({{ site.api }}mobile-web-capture.html#dispose)
 
 ### Scan Directly to Document
 
@@ -331,7 +331,7 @@ interface DocumentViewConfig {
 
 By default, the `DocumentView` displays the following when empty:
 
-![Empty Document View](https://www.dynamsoft.com/mobile-web-capture/docs/assets/imgs/empty-document-view.png)
+![Empty Document View]({{ site.assets }}imgs/empty-document-view.png)
 
 You can customize its appearance using the `emptyContentConfig` property.
 
@@ -404,7 +404,7 @@ interface LibraryViewConfig {
 
 By default, the `LibraryView` displays the following when empty:
 
-![Empty Library View](https://www.dynamsoft.com/mobile-web-capture/docs/assets/imgs/empty-library-view.png)
+![Empty Library View]({{ site.assets }}imgs/empty-library-view.png)
 
 You can customize its appearance using the `emptyContentConfig` property.
 

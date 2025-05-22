@@ -29,7 +29,7 @@ However, when hardware scanners are not feasible or convenient, mobile device ca
 **DDS** not only captures documents but also enhances their quality to meet professional standards, making it an ideal tool for **Scenario 1** as described above.
 
 > [!TIP]
-> Not sure if it is the right fit? **Try the** [DDS demo](https://demo.dynamsoft.com/document-scanner/) first. If it meets your needs, you can skip the rest of this introduction and proceed directly to the [DDS user guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/document-scanner.html).
+> Not sure if it is the right fit? **Try the** [DDS demo](https://demo.dynamsoft.com/document-scanner/) first. If it meets your needs, you can skip the rest of this introduction and proceed directly to the [DDS user guide]({{ site.guides }}document-scanner.html).
 
 However, if you need multi-page capture, **MWC** extends DDS’s functionality by supporting multi-page documents. Additionally, **MWC** offers advanced features such as document processing, editing, and annotation, making it a comprehensive solution for managing complex document workflows.
 
@@ -179,6 +179,6 @@ The table below lists the **minimum supported versions** of browsers based on th
 
 ## Next Step
 
-- If you only need to scan single-page documents and do not require handling PDF files (import or export), you can proceed to the [Dynamsoft Document Scanner Developer Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/document-scanner.html).
+- If you only need to scan single-page documents and do not require handling PDF files (import or export), you can proceed to the [Dynamsoft Document Scanner Developer Guide]({{ site.guides }}document-scanner.html).
 
-- If you need to handle multi-page documents, PDF files, annotations, and more, you will need the full-featured **Mobile Web Capture (MWC)**. In this case, proceed to the [Mobile Web Capture Developer Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture.html).
+- If you need to handle multi-page documents, PDF files, annotations, and more, you will need the full-featured **Mobile Web Capture (MWC)**. In this case, proceed to the [Mobile Web Capture Developer Guide]({{ site.guides }}mobile-web-capture.html).

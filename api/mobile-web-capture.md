@@ -78,10 +78,10 @@ async launch(file?: File | string, view?: EnumMWCStartingViews)
 
 #### Parameters
 
-| Parameter | Type                              | Description                                |
-| --------- | --------------------------------- | ------------------------------------------ |
-| `file`    | `File \| string` (optional)       | A file or document name to open at launch. |
-| `view`    | `EnumMWCStartingViews` (optional) | The first View to display upon launch.     |
+| Parameter | Type                                                       | Description                                |
+| --------- | ---------------------------------------------------------- | ------------------------------------------ |
+| `file`    | ``File | string`` (optional)                               | A file or document name to open at launch. |
+| `view`    | [`EnumMWCStartingViews`](#enummwcstartingviews) (optional) | The first View to display upon launch.     |
 
 #### Throws
 - An error if **MWC** is already running.
@@ -188,7 +188,7 @@ interface MobileWebCaptureConfig {
 | Property                | Type                                        | Description                                                                      |
 | ----------------------- | ------------------------------------------- | -------------------------------------------------------------------------------- |
 | `license`               | `string`                                    | The license key for using **Mobile Web Capture (MWC)**.                          |
-| `container`             | `HTMLElement \| string`                     | The container element or selector for rendering the `MobileWebCapture` instance. |
+| `container`             | ``HTMLElement | string``                    | The container element or selector for rendering the `MobileWebCapture` instance. |
 | `ddvResourcePath`       | `string`                                    | File path to DDV resources.                                                      |
 | `exportConfig`          | [`ExportConfig`](#exportconfig)             | Configuration for exporting captured documents.                                  |
 | `showLibraryView`       | `boolean`                                   | Determines if the **LibraryView** is shown (default: `true`).                    |
@@ -203,7 +203,7 @@ interface MobileWebCaptureConfig {
 
 ##### See Also
 
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig) 
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
 
 #### Example
 
@@ -241,16 +241,16 @@ interface LibraryViewConfig {
 
 | Property               | Type                                                          | Description                                                                  |
 | ---------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `emptyContentConfig`   | `EmptyContentConfig`                                          | Configuration for the content displayed on the empty **LibraryView** screen. |
+| `emptyContentConfig`   | [`EmptyContentConfig`](#emptycontentconfig)                   | Configuration for the content displayed on the empty **LibraryView** screen. |
 | `toolbarButtonsConfig` | [`LibraryToolbarButtonsConfig`](#librarytoolbarbuttonsconfig) | Configuration for the toolbar buttons in **LibraryView**.                    |
 
 #### Example 1: Display A Message In An Empty Library
 
 By default, the `LibraryView` displays the following when empty:
 
-![Empty Library View](https://www.dynamsoft.com/mobile-web-capture/docs/assets/imgs/empty-library-view.png)
+![Empty Library View]({{ site.assets }}imgs/empty-library-view.png)
 
-You can customize its appearance using the `emptyContentConfig` property.
+You can customize its appearance using the [`emptyContentConfig`](#emptycontentconfig) property.
 
 ```html
 <div id="customizedLibraryViewContent">Create Your First Document!</div>
@@ -298,7 +298,7 @@ interface DocumentViewConfig {
 
 | Property               | Type                                                            | Description                                                                   |
 | ---------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `emptyContentConfig`   | `EmptyContentConfig`                                            | Configuration for the content displayed on the empty **DocumentView** screen. |
+| `emptyContentConfig`   | [`EmptyContentConfig`](#emptycontentconfig)                     | Configuration for the content displayed on the empty **DocumentView** screen. |
 | `toolbarButtonsConfig` | [`DocumentToolbarButtonsConfig`](#documenttoolbarbuttonsconfig) | Configuration for the toolbar buttons in **DocumentView**.                    |
 
 #### Example 1: Display A Message In An Empty Document
@@ -307,7 +307,7 @@ By default, the `DocumentView` displays the following when empty:
 
 ![Empty Document View](https://www.dynamsoft.com/mobile-web-capture/docs/assets/imgs/empty-document-view.png)
 
-You can customize its appearance using the `emptyContentConfig` property.
+You can customize its appearance using the [`emptyContentConfig`](#emptycontentconfig) property.
 
 ```html
 <div id="customizedDocViewContent">Start Your Document!</div>
@@ -372,10 +372,10 @@ interface PageViewConfig {
 
 #### Properties
 
-| Property                       | Type                              | Description                                        |
-| ------------------------------ | --------------------------------- | -------------------------------------------------- |
-| `toolbarButtonsConfig`         | `PageViewToolbarButtonsConfig`    | Configuration for toolbar buttons in **PageView**. |
-| `annotationToolbarLabelConfig` | `DDVAnnotationToolbarLabelConfig` | Configuration for annotation toolbar labels.       |
+| Property                       | Type                                                                   | Description                                        |
+| ------------------------------ | ---------------------------------------------------------------------- | -------------------------------------------------- |
+| `toolbarButtonsConfig`         | [`PageViewToolbarButtonsConfig`](#pageviewtoolbarbuttonsconfig)        | Configuration for toolbar buttons in **PageView**. |
+| `annotationToolbarLabelConfig` | [`DDVAnnotationToolbarLabelConfig`](#ddvannotationstoolbarlabelconfig) | Configuration for annotation toolbar labels.       |
 
 #### Example 1: Disable Upload in PageView
 
@@ -423,7 +423,7 @@ interface HistoryViewConfig {
 
 | Property               | Type                                                          | Description                                                                  |
 | ---------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `emptyContentConfig`   | `EmptyContentConfig`                                          | Configuration for the content displayed on the empty **HistoryView** screen. |
+| `emptyContentConfig`   | [`EmptyContentConfig`](#emptycontentconfig)                   | Configuration for the content displayed on the empty **HistoryView** screen. |
 | `toolbarButtonsConfig` | [`HistoryToolbarButtonsConfig`](#historytoolbarbuttonsconfig) | Configuration for the toolbar buttons in **HistoryView**.                    |
 
 ### `TransferViewConfig`
@@ -552,6 +552,31 @@ interface TransferToolbarButtonsConfig {
 }
 ```
 
+#### `DDVAnnotationsToolbarLabelConfig`
+
+```typescript
+interface DDVAnnotationToolbarLabelConfig {
+  Undo: string;
+  Redo: string;
+  SelectAnnotation: string;
+  EraseAnnotation: string;
+  RectAnnotation: string;
+  EllipseAnnotation: string;
+  PolygonAnnotation: string;
+  PolylineAnnotation: string;
+  LineAnnotation: string;
+  InkAnnotation: string;
+  TextBoxAnnotation: string;
+  TextTypewriterAnnotation: string;
+  StampIconAnnotation: string;
+  StampImageAnnotation: string;
+  BringForward: string;
+  BringToFront: string;
+  SendBackward: string;
+  SendToBack: string;
+}
+```
+
 ## Assisting Interfaces 
 
 ### `ExportConfig`
@@ -565,7 +590,7 @@ The `ExportConfig` interface defines methods for handling document export functi
 Uploads a document to the server. The function receives the document's file name and its binary data (`Blob`). It returns a `Promise` that resolves with `void` or an `UploadedDocument` object.
 
 > [!IMPORTANT]
-> Returning `{ status: "success" }` in this function is required to trigger [onUploadSuccess](#onuploadsuccess)
+> Returning `{ status: "success" }` in this function is required to trigger [`onUploadSuccess`](#onuploadsuccess)
 
 ###### **Type**  
 ```typescript
@@ -592,10 +617,10 @@ Deletes a document from the server. The function receives an `UploadedDocument` 
 
 ##### `onUploadSuccess`
 
-Called after a successful upload. It receives the file name, file type, the current view (`EnumMWCViews`), and the binary data (`Blob`). The function should return a `Promise` that resolves to `true` if the `MobileWebCapture` instance should close after uploading or `false` if it should remain open.
+Called after a successful upload. It receives the file name, file type, the current view ([`EnumMWCViews`](#enummwcviews)), and the binary data (`Blob`). The function should return a `Promise` that resolves to `true` if the `MobileWebCapture` instance should close after uploading or `false` if it should remain open.
 
 > [!IMPORTANT]
-> Returning `{ status: "success" }` in [uploadToServer](#uploadtoserver) is required to trigger this function.
+> Returning `{ status: "success" }` in [`uploadToServer`](#uploadtoserver) is required to trigger this function.
 
 ###### **Type**  
 ```typescript
@@ -612,7 +637,7 @@ const uploadToServer = async (fileName, blob) => {
     formData.append("uploadFile", blob, fileName);
     // Upload file
     const response = await fetch(
-        `${host}/upload`, // Change this to your actul upload URL
+        `${host}/upload`, // Change this to your actual upload URL
         {
         method: "POST",
         body: formData,
@@ -686,4 +711,47 @@ Destructor for the scanner object.
 
 ```typescript
 dispose(): void
+```
+
+### `EmptyContentConfig`
+
+Configuration for the content displayed on an empty View screen.
+
+#### Syntax
+
+```typescript
+type EmptyContentConfig =
+  | string
+  | HTMLElement
+  | HTMLTemplateElement
+  | {
+      templatePath: string; // Path to HTML template file
+    };
+```
+
+## Enums
+
+### `EnumMWCViews`
+
+#### Type
+
+```typescript
+enum EnumMWCViews {
+  Library = "library",
+  Page = "page",
+  Document = "document",
+  Transfer = "transfer",
+  History = "history",
+  Scanner = "Scanner",
+}
+```
+
+### `EnumMWCStartingViews`
+
+Use with [`MobileWebCaptureConfig`](#mobilewebcaptureconfig) to set which View to show first upon launching MWC.
+
+#### Type
+
+```typescript
+type EnumMWCStartingViews = EnumMWCViews.Library | EnumMWCViews.Document | EnumMWCViews.Scanner
 ```

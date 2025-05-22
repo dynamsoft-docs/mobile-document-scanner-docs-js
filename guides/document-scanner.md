@@ -11,7 +11,7 @@ description: Dynamsoft Document Scanner User Guide
 # Scan Single-Page Documents with Dynamsoft Document Scanner
 
 > [!TIP]
-> Prerequisite: Read the [Introduction](https://www.dynamsoft.com/mobile-web-capture/docs/introduction/index.html) before proceeding.
+> Prerequisite: Read the [Introduction]({{ site.introduction }}index.html) before proceeding.
 
 **Dynamsoft Document Scanner (DDS)** is an SDK designed for scanning single-page documents. It not only captures images of the documents but also enhances their quality to professional standards, making it an ideal tool for mobile document scanning.
 
@@ -209,7 +209,7 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
 
 This step creates the **DDS** UI, which occupies the entire visible area of the browser window by default when launched. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Confine DocumentScanner UI to a Specific Container](#example-1-confine-documentscanner-ui-to-a-specific-container).
 
@@ -224,7 +224,7 @@ const result = await documentScanner.launch();
 
 API Reference:
 
-- [`launch()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#launch)
+- [`launch()`]({{ site.api }}document-scanner.html#launch)
 
 This step launches the user into the document scanning workflow, beginning in the `DocumentScannerView`, where they can scan a document using one of three methods: 
 
@@ -251,7 +251,7 @@ The workflow returns a scanned image object of type `CorrectedImageResult`. To d
 
 API Reference:
 
-- [`DocumentResult`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentresult)
+- [`DocumentResult`]({{ site.api }}document-scanner.html#documentresult)
 
 The following code clears the result container and displays the scanned result as a canvas:
 
@@ -271,7 +271,7 @@ This section builds on the Hello World sample to demonstrate how to configure **
 
 ### `DocumentScannerConfig` Overview
 
-[`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig) is the primary configuration object for customizing **DDS**. It includes the following properties:
+[`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig) is the primary configuration object for customizing **DDS**. It includes the following properties:
 
 1. `license`: The license key.
 2. `container`: The HTML container for the entire workflow. If not specified (like in the Hello World Sample), one is created automatically.
@@ -350,8 +350,8 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
 
 #### Example 2: Only Show `DocumentScannerView`
 
@@ -367,8 +367,8 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
 
 #### Example 3: Specify Individual View Containers
 
@@ -397,8 +397,8 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
 
 #### Example 4: Scan Static Image Directly
 
@@ -465,9 +465,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig)
-- [`DocumentScannerViewConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerviewconfig)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentScannerViewConfig`]({{ site.api }}document-scanner.html#documentscannerviewconfig)
 
 ### View-Based Customization
 
@@ -518,9 +518,9 @@ This file defines the UI for `DocumentScannerView`. However, since files on the 
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig)
-- [`DocumentScannerViewConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerviewconfig)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentScannerViewConfig`]({{ site.api }}document-scanner.html#documentscannerviewconfig)
 
 ##### Customizing the Scanning Region
 
@@ -542,7 +542,7 @@ interface ScanRegion {
 
 API Reference:
 
-[`ScanRegion`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#scanregion)
+[`ScanRegion`]({{ site.api }}document-scanner.html#scanregion)
 
 Here is how the scanning region is set:
 
@@ -616,9 +616,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig)
-- [`DocumentCorrectionViewConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentcorrectionviewconfig)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentCorrectionViewConfig`]({{ site.api }}document-scanner.html#documentcorrectionviewconfig)
 
 ##### Customizing Apply Button Callback
 
@@ -638,9 +638,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig)
-- [`DocumentCorrectionViewConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentcorrectionviewconfig)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentCorrectionViewConfig`]({{ site.api }}document-scanner.html#documentcorrectionviewconfig)
 
 #### `DocumentResultView` Configuration
 
@@ -694,9 +694,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig)
-- [`DocumentResultViewConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentresultviewconfig)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentResultViewConfig`]({{ site.api }}document-scanner.html#documentresultviewconfig)
 
 ##### Customizing the "Done" Button Callback
 
@@ -717,9 +717,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig)
-- [`DocumentResultViewConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentresultviewconfig)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentResultViewConfig`]({{ site.api }}document-scanner.html#documentresultviewconfig)
 
 ##### Customizing the "Upload" Button
 
@@ -755,9 +755,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig)
-- [`DocumentResultViewConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentresultviewconfig)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentResultViewConfig`]({{ site.api }}document-scanner.html#documentresultviewconfig)
 
 ### Self-Hosting Resource Files
 
@@ -789,9 +789,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerconfig)
-- [`DocumentScannerViewConfig`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#documentscannerviewconfig)
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentScannerViewConfig`]({{ site.api }}document-scanner.html#documentscannerviewconfig)
 
 #### Modify the Build Script
 
@@ -842,4 +842,4 @@ Now, all required files will be **served locally** without relying on a CDN.
 
 **DDS** is a fully functional, ready-to-use document scanning SDK with built-in UI layouts. However, to extend its capabilities for multi-page and multi-document processing, as well as advanced editing features, we developed **Mobile Web Capture (MWC)**.
 
-Read on to learn how to use this web-based wrapper SDK in the [MWC Getting Started Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture.html).
+Read on to learn how to use this web-based wrapper SDK in the [MWC Getting Started Guide]({{ site.guides }}mobile-web-capture.html).
