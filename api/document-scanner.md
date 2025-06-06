@@ -257,7 +257,7 @@ interface DocumentResultViewConfig {
 const documentScanner = new Dynamsoft.DocumentScanner({
     license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
     resultViewConfig: {
-        onDone: async (result) => 
+        onDone: async (result) =>
         {
             const canvas = result.correctedImageResult.toCanvas();
             resultContainer.appendChild(canvas);
@@ -332,14 +332,14 @@ Create a scan region with a height-to-width ratio of 3:2, translated upwards by 
 ```javascript
 scanRegion {
   ratio: {
-    width: 2;
-    height: 3;
-  };
-  regionBottomMargin: 20;
+    width: 2,
+    height: 3,
+  },
+  regionBottomMargin: 20,
   style: {
-    strokeWidth: 3;
-    strokeColor: "green";
-  };
+    strokeWidth: 3,
+    strokeColor: "green",
+  },
 }
 ```
 
@@ -354,7 +354,7 @@ A simplified configuration type for toolbar buttons.
 export type ToolbarButtonConfig = Pick<"icon" | "label" | "isHidden">;
 ```
 
-#### Properties  
+#### Properties
 
 | Property   | Type                 | Description                         |
 | ---------- | -------------------- | ----------------------------------- |
