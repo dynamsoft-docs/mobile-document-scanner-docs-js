@@ -4,7 +4,7 @@ _layouts/
 # Assets
 assets/font-face/
 assets/img-icon/
-assets/js/
+assets/js/**
 !assets/js/setLatestVersion.js
 assets/scripts/
 assets/css/
