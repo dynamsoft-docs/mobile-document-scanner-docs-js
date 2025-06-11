@@ -15,4 +15,4 @@ description: Mobile Web Capture Documentation Homepage
 - [API References]({{ site.api }}index.html)
   - [Document Scanner]({{ site.api }}document-scanner.html)
   - [Mobile Web Capture]({{ site.api }}mobile-web-capture.html)
-- [Release notes]({{ site.releasenotes }}index.html)
+- [Release notes]({{ site.release-notes }}mobile-web-capture.html)
