@@ -1,5 +1,38 @@
-﻿################################################################################
-# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
-################################################################################
+# Layout templates
+_layouts/**
 
-/.vs
+# Assets
+assets/font-face/**
+assets/img-icon/**
+assets/js/**
+assets/scripts/**
+assets/css/**
+
+# Includes
+_includes/productNav/*
+!_/includes/productNav/mwcNav.html
+_includes/auto-version-list.html
+_includes/head.html
+_includes/liquid_autoGenerateHistoryList.html
+_includes/liquid_breadcrumb.html
+_includes/liquid_generateFullTree.html
+_includes/liquid_searchVersionTreeFile.html
+_includes/livehelp.html
+_includes/main-page-head.html
+_includes/page_footer.html
+_includes/page_header.html
+_includes/productNav_OLD.html
+_includes/productNav.html
+_includes/search-input.html
+_includes/trialLicense.html
+
+# Plugins
+_plugins/**
+
+# Site resources
+_site/**
+
+sitemap.xml
+Hide_Tree_Page.md
+Gemfile.lock
+Gemfile
