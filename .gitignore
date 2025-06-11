@@ -5,12 +5,12 @@ _layouts/**
 assets/font-face/**
 assets/img-icon/**
 assets/js/**
+!assets/js/setLatestVersion.js
 assets/scripts/**
 assets/css/**
 
 # Includes
 _includes/productNav/*
-!_/includes/productNav/mwcNav.html
 _includes/auto-version-list.html
 _includes/head.html
 _includes/liquid_autoGenerateHistoryList.html
