@@ -12,7 +12,7 @@ permalink: /codegallery/usecases/detect-boundaries-on-existing-images-v1.1.html
 
 # Detect boundaries on the existing images
 
-This sample demonstrates how to detect the boundaries on the existing images which are from local directory/album. 
+This sample demonstrates how to detect the boundaries on the existing images which are from local directory/album.
 
 [Check out it online](https://dynamsoft.github.io/mobile-web-capture/samples/detect-boundaries-on-existing-images/)
 
@@ -108,7 +108,7 @@ router.maxCvsSideLength = 99999;
 
 ## Create a perspective viewer
 
-To review the detected boundaries on the loaded image(s), we will create a perspective viewer. 
+To review the detected boundaries on the loaded image(s), we will create a perspective viewer.
 
 - Customize the perspective viewer `UiConfig`
     - Bind click event to "PerspectiveAll" button.
@@ -146,7 +146,7 @@ To review the detected boundaries on the loaded image(s), we will create a persp
                         // Replace the default "RotateRight" button with an "AddNew" button in perspective viewer's footer and bind event to the new button
                         // The event will be registered later
                         type: Dynamsoft.DDV.Elements.Button,
-                        className: "ddv-load-image2 addNewButton", 
+                        className: "ddv-load-image2 addNewButton",
                         events: {
                             click: "addNew"
                         },
@@ -214,14 +214,14 @@ export function createFileInput(viewer, router){
             const blob = new Blob([files[i]], {
                 type: files[i].type,
             });
-            const detectResult = await router.capture(blob, "detect-document-boundaries"); 
+            const detectResult = await router.capture(blob, "detect-document-boundaries");
 
             if(detectResult.items.length >0) {
                 const quad = [];
                 detectResult.items[0].location.points.forEach(p => {
                     quad.push([p.x, p.y]);
                 });
-                
+
                 sourceArray.push({
                     fileData: blob,
                     extraPageData:[{
@@ -348,7 +348,7 @@ Since the workflow in this sample is very simple, only the two events mentioned 
                             // Replace the default "RotateRight" button with an "AddNew" button in perspective viewer's footer and bind event to the new button
                             // The event will be registered later
                             type: Dynamsoft.DDV.Elements.Button,
-                            className: "ddv-load-image2 addNewButton", 
+                            className: "ddv-load-image2 addNewButton",
                             events: {
                                 click: "addNew"
                             },

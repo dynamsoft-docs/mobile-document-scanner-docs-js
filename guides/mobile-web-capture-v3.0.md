@@ -4,14 +4,14 @@ needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
 title: Mobile Web Capture - Scan Multi-Page Documents
-keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner, 
+keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner,
 description: Mobile Web Capture User Guide
 ---
 
 # Scan Multi-Page Documents with Mobile Web Capture
 
 > Prerequisites:
-> 
+>
 > Read the [Introduction](https://www.dynamsoft.com/mobile-web-capture/docs/introduction/index.html) before proceeding.
 
 **Mobile Web Capture (MWC)** is an SDK designed for scanning multi-page documents.  It integrates **Dynamsoft Document Scanner (DDS)** functionality  while offering additional features such as multi-document management, annotation, and uploading, making it a comprehensive solution for managing complex document workflows.

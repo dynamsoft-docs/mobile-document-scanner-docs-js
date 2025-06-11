@@ -5,4 +5,3 @@ description: This is the FAQ page of Mobile Web Capture.
 keywords: faq
 needAutoGenerateSidebar: true
 ---
-
