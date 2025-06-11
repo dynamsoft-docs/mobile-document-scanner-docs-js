@@ -34,7 +34,7 @@ In this sample, we would like to achieve the workflow as below.
                 type: Dynamsoft.DDV.Elements.Layout,
                 className: "ddv-perspective-viewer-header-mobile",
                 children: [
-                    {   
+                    {
                         // Add a "Back" button in perspective viewer's header and bind the event to go back to the capture viewer
                         // The event will be registered later
                         type: Dynamsoft.DDV.Elements.Button,
@@ -241,7 +241,7 @@ document.getElementById("restore").onclick = () => {
             }
         });
         // Play video stream in 1080P
-        captureViewer.play({ 
+        captureViewer.play({
             resolution: [1920,1080],
             fill: true
         });
@@ -259,7 +259,7 @@ document.getElementById("restore").onclick = () => {
                     type: Dynamsoft.DDV.Elements.Layout,
                     className: "ddv-perspective-viewer-header-mobile",
                     children: [
-                        {   
+                        {
                             // Add a "Back" button in perspective viewer's header and bind the event
                             // The event will be registered later
                             type: Dynamsoft.DDV.Elements.Button,
@@ -316,7 +316,7 @@ document.getElementById("restore").onclick = () => {
             viewerConfig:{
                 scrollToLatest: true,
             }
-        }); 
+        });
 
         // Register the event for "Back" button
         perspectiveViewer.on("backToCaptureViewer",() => {
@@ -331,7 +331,7 @@ document.getElementById("restore").onclick = () => {
             if(count === 0) {
                 switchViewer(true,false)
             }
-        }); 
+        });
 
         // Register the event for "PerspectiveAll" button to display the result image
         perspectiveViewer.on("done", async () => {

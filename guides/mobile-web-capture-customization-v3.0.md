@@ -4,13 +4,13 @@ needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
 title: Mobile Web Capture - Scan Multi-Page Documents
-keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner, 
+keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner,
 description: Mobile Web Capture User Guide
 ---
 
 # How to Customize Mobile Web Capture
 
-> **Prerequisites:**  
+> **Prerequisites:**
 > Read the [MWC Getting Started Guide](https://www.dynamsoft.com/mobile-web-capture/docs/guides/mobile-web-capture.html) before proceeding.
 
 This guide expands on the **Hello World** sample from the **MWC Getting Started Guide** and explores the available customization options.
@@ -35,7 +35,7 @@ Keep TOC only for npm /github as readme
   - [Modify the Build Script](#modify-the-build-script)
   - [Build the Project](#build-the-project)
   - [Serve the Project Locally](#serve-the-project-locally)
-- [Next Step](#next-step) 
+- [Next Step](#next-step)
 -->
 
 ## MobileWebCaptureConfig Overview
@@ -137,24 +137,24 @@ document.getElementById("initialFile").onchange = async function () {
     const files = Array.from(this.files || []);
     if (files.length) {
         // Launch the Mobile Web Capture instance with an initial file
-        if (mobileWebCapture.hasLaunched) 
+        if (mobileWebCapture.hasLaunched)
             await mobileWebCapture.dispose();
         await mobileWebCapture.launch(files[0]);
     }
 };
 ```
 
-API Reference: 
+API Reference:
 - [`hasLaunched`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#haslaunched)
 - [`dispose`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#dispose)
 
 ### Scan Directly to Document
 
-When **capturing** a document, it goes through three views:  
+When **capturing** a document, it goes through three views:
 
-1. **`DocumentScannerView`**  
-2. **`DocumentCorrectionView`** (optional)  
-3. **`DocumentResultView`** (optional)  
+1. **`DocumentScannerView`**
+2. **`DocumentCorrectionView`** (optional)
+3. **`DocumentResultView`** (optional)
 
 The latter two views can be skipped to speed up the process.
 
@@ -225,8 +225,8 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 ```
 
 > ⚠ **IMPORTANT**: The **Upload** feature is enabled simultaneously in `DocumentView` and `PageView` (and in `LibraryView` if it is enabled). If this is not intended, you can hide the **Upload** button in these **Views**.
-> Read more:  
-> 1. [Disable Upload in DocumentView](#example-2-disable-upload-in-documentview)  
+> Read more:
+> 1. [Disable Upload in DocumentView](#example-2-disable-upload-in-documentview)
 > 2. [Disable Upload in PageView](#example-1-disable-upload-in-pageview)
 > 3. [Disable Upload in LibraryView](#example-2-disable-upload-in-libraryview)
 
@@ -487,7 +487,7 @@ By default, **MWC** relies on a **CDN** for resources such as `.wasm` engine fil
 
 #### Update the Resource Paths
 
-The following code modifies how resource files are referenced:  
+The following code modifies how resource files are referenced:
 
 > In this case, we reference local resource files that are copied during the build process. See [Modify the Build Script](#modify-the-build-script) for details. However, you can also reference your own copies, such as files hosted on your own server. If you need assistance, feel free to [contact us](https://www.dynamsoft.com/company/contact/).
 
@@ -560,5 +560,3 @@ Now, all required files will be **served locally** without relying on a CDN.
 ## Next Step
 
 Start building your own mobile document capture and management solution with **MWC**! If you encounter any technical issues or have suggestions, feel free to [contact us](https://www.dynamsoft.com/company/contact/).
-
-

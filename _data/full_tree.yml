@@ -2,7 +2,7 @@ tree_file_list:
   - sidelist-introduction.html
   - sidelist-guides.html
   - sidelist-api.html
-  - sidelist-releasenotes.html
+  - sidelist-release-notes.html
   - sidelist-full-tree.html
   - sidelist-apis-v2.0.html
   - sidelist-full-tree.v2.0.html

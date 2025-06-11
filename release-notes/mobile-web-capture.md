@@ -15,7 +15,7 @@ permalink: /release-notes/mobile-web-capture.html
 ## 3.1.0 (05/01/2025)
 
 The most notable improvement in this version is the pluggable scanner feature. This allows MWC to integrate any custom scanner.<!-- , e.g. our existing [MRZ scanner](https://www.dynamsoft.com/mrz-scanner/docs/web/introduction/index.html). -->
- 
+
 ### Features
 
 1. Add Pluggable Scanner feature which integrates any scanner satisfying the following:
@@ -51,7 +51,7 @@ In this release, **Mobile Web Capture (MWC)** has been completely redesigned fro
 - Full suite of PDF annotation and editing tools
 - Upload documents to a server or save them locally
 - Ready-to-use and flexible document scanning workflow
-- Modular, view-based design for easy maintenance and customization  
+- Modular, view-based design for easy maintenance and customization
 
 ### Views
 

@@ -109,7 +109,7 @@ If you would like to use the SDKs completely offline, please refer to [Use your 
 
 ## Specify the location of the engine files
 
-This is usually only required with frameworks like Angular or React, etc. where the referenced JavaScript files such as cvr.js, ddn.js are compiled into another file, or hosting the engine files and using the SDKs completely offline. The purpose is to tell the SDK where to find the engine files (*.worker.js, *.wasm.js and *.wasm, etc.). 
+This is usually only required with frameworks like Angular or React, etc. where the referenced JavaScript files such as cvr.js, ddn.js are compiled into another file, or hosting the engine files and using the SDKs completely offline. The purpose is to tell the SDK where to find the engine files (*.worker.js, *.wasm.js and *.wasm, etc.).
 
 ### Use the jsDelivr CDN with frameworks like Angular or React, etc.
   ```typescript

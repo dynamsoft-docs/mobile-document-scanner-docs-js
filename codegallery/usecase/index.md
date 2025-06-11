@@ -6,13 +6,13 @@ noTitleIndex: true
 title: Mobile Web Capture - Use Cases
 keywords: Documentation, Mobile Web Capture, Use Cases
 breadcrumbText: Use Cases
-description: Mobile Web Capture Documentation Use Cases 
+description: Mobile Web Capture Documentation Use Cases
 permalink: /codegallery/usecases/index.html
 ---
 
 # Use Cases
 
-Because the two SDKs, DDV and DDN, support comprehensive functions and flexible and efficient development, Mobile Web Capture can meet various workflows and needs. 
+Because the two SDKs, DDV and DDN, support comprehensive functions and flexible and efficient development, Mobile Web Capture can meet various workflows and needs.
 
 This part will introduce four popular use cases that the Mobile Web Capture solution can achieve.
 
