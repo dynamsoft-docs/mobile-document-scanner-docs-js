@@ -12,7 +12,7 @@ permalink: /introduction/index.html
 
 # Introduction
 
-When digitizing physical documents—whether for easier storage, better accessibility, or streamlined processing — a hardware scanner is often the preferred choice. For integrating this functionality into web applications, **Dynamsoft’s** [Dynamic Web TWAIN](https://www.dynamsoft.com/web-twain/docs/introduction/index.html) is a widely popular option.
+When digitizing physical documents — whether for easier storage, better accessibility, or streamlined processing — a hardware scanner is often the preferred choice. For integrating this functionality into web applications, **Dynamsoft’s** [Dynamic Web TWAIN](https://www.dynamsoft.com/web-twain/docs/introduction/index.html) is a widely popular option.
 
 However, when hardware scanners are not feasible or convenient, mobile device cameras can serve as effective alternatives. **Mobile Web Capture (MWC)** is a document scanning SDK specifically designed to address this need.
 
