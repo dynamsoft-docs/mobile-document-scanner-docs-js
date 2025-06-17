@@ -51,7 +51,7 @@ In short, for scenarios requiring **document management beyond single-page captu
 | Export multi-page documents as PDFs with options for selected pages, one or multiple full documents |      | ✓    |
 
 > To deliver these features, we built **DDS** using two core Dynamsoft products: [**Dynamsoft Camera Enhancer**](https://www.dynamsoft.com/camera-enhancer/docs/web/programming/javascript/user-guide/index.html?lang=javascript) (DCE) and [**Dynamsoft Document Normalizer**](https://www.dynamsoft.com/document-normalizer/docs/web/programming/javascript/user-guide/index.html?lang=javascript) (DDN).
-> 
+>
 > **MWC** extends this foundation by adding document management, processing, and editing features through [**Dynamsoft Document Viewer**](https://www.dynamsoft.com/document-viewer/docs/introduction/index.html) (DDV). Both products operate within the [**Dynamsoft Capture Vision**](https://www.dynamsoft.com/capture-vision/docs/core/architecture/?lang=javascript) (DCV) architecture.
 
 ## Design Principles

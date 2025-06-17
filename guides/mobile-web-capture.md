@@ -4,7 +4,7 @@ needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
 title: Mobile Web Capture - Scan Multi-Page Documents
-keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner, 
+keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner,
 description: Mobile Web Capture User Guide
 ---
 

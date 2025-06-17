@@ -12,7 +12,7 @@ permalink: /introduction/index.html
 
 # Introduction
 
-When digitizing physical documents—whether for easier storage, better accessibility, or streamlined processing — a hardware scanner is often the preferred choice. For integrating this functionality into web applications, **Dynamsoft’s** [Dynamic Web TWAIN](https://www.dynamsoft.com/web-twain/docs/introduction/index.html) is a widely popular option.
+When digitizing physical documents — whether for easier storage, better accessibility, or streamlined processing — a hardware scanner is often the preferred choice. For integrating this functionality into web applications, **Dynamsoft’s** [Dynamic Web TWAIN](https://www.dynamsoft.com/web-twain/docs/introduction/index.html) is a widely popular option.
 
 However, when hardware scanners are not feasible or convenient, mobile device cameras can serve as effective alternatives. **Mobile Web Capture (MWC)** is a document scanning SDK specifically designed to address this need.
 
@@ -53,7 +53,7 @@ In short, for scenarios requiring **document management beyond single-page captu
 
 > [!NOTE]
 > To deliver these features, we built **DDS** using two core Dynamsoft products: [**Dynamsoft Camera Enhancer**](https://www.dynamsoft.com/camera-enhancer/docs/web/programming/javascript/user-guide/index.html?lang=javascript) (DCE) and [**Dynamsoft Document Normalizer**](https://www.dynamsoft.com/document-normalizer/docs/web/programming/javascript/user-guide/index.html?lang=javascript) (DDN).
-> 
+>
 > **MWC** extends this foundation by adding document management, processing, and editing features through [**Dynamsoft Document Viewer**](https://www.dynamsoft.com/document-viewer/docs/introduction/index.html) (DDV). Both products operate within the [**Dynamsoft Capture Vision**](https://www.dynamsoft.com/capture-vision/docs/core/architecture/?lang=javascript) (DCV) architecture.
 
 ## Design Principles

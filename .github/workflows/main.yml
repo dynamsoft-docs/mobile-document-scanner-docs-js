@@ -4,11 +4,11 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push events but only for the master branch
+  # Triggers the workflow on push events to the main and preview branches
   push:
-    branches: 
-    - main 
-    # - preview 
+    branches:
+    - main
+    - preview
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,7 +26,7 @@ jobs:
 
   Build-Preview:
     if: ${{ github.ref == 'refs/heads/preview' }}
-    uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-testing.yml@preview
+    uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-testing.yml@main
     with:
       doc-repo: mobile-web-capture-docs
       doc-url: mobile-web-capture/docs/

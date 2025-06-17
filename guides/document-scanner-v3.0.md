@@ -207,14 +207,14 @@ const result = await documentScanner.launch();
 
 API Reference: [`launch()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/document-scanner.html#launch)
 
-This step launches the user into the document scanning workflow, beginning in the `DocumentScannerView`, where they can scan a document using one of three methods: 
+This step launches the user into the document scanning workflow, beginning in the `DocumentScannerView`, where they can scan a document using one of three methods:
 
 * Option 1: Manually scan by pressing the **shutter button**.
 * Option 2: Enable "**Smart Capture**" - the scanner will automatically capture an image once a document is detected.
 * Option 3: Enable "**Auto Crop**" - the scanner will automatically capture an image, detect the document, and crop it out of the video frame.
 
 > For Options 1 & 2: The user is directed to `DocumentCorrectionView` to review detected document boundaries and make any necessary adjustments before applying corrections. Afterward, they proceed to `DocumentResultView`.
-> 
+>
 > For Option 3: The `DocumentCorrectionView` step is skipped. Image correction is applied automatically, and the user is taken directly to `DocumentResultView`.
 
 In `DocumentResultView`, if needed, the user can return to `DocumentCorrectionView` to make additional adjustments or press "Re-take" to restart the scanning process.
@@ -375,20 +375,20 @@ We previously covered `container` in [Workflow Customization](#workflow-customiz
 
 > If **DDS** performance does not meet your needs in your usage scenario, you may require a customized algorithm template for better results. In this case, please contact our experienced [Technical Support Team](https://www.dynamsoft.com/company/contact/) to discuss your requirements. They will help tailor a suitable template for you, which you can then apply by updating `templateFilePath`.
 
-By default, `cameraEnhancerUIPath` points to a file hosted on the jsDelivr CDN:  
-[https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.1.1/dist/document-scanner.ui.html](https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.1.1/dist/document-scanner.ui.html).  
+By default, `cameraEnhancerUIPath` points to a file hosted on the jsDelivr CDN:
+[https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.1.1/dist/document-scanner.ui.html](https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.1.1/dist/document-scanner.ui.html).
 
 This file defines the UI for `DocumentScannerView`. However, since files on the CDN **cannot be modified directly**, you need to use a **local version** to customize the UI. `cameraEnhancerUIPath` is used to specify the local version.
 
 ##### Steps to Customize the UI for `DocumentScannerView`
-1. Follow the instructions in [Build from Source](#option-1-build-from-source) to obtain the source files for **DDS**.  
-2. Edit `/src/document-scanner.ui.html` to apply your customizations.  
-3. Build the project to generate the updated file in `/dist/document-scanner.ui.html`:  
+1. Follow the instructions in [Build from Source](#option-1-build-from-source) to obtain the source files for **DDS**.
+2. Edit `/src/document-scanner.ui.html` to apply your customizations.
+3. Build the project to generate the updated file in `/dist/document-scanner.ui.html`:
 
    ```bash
    npm run build
    ```
-4. Update the configuration to use the local file instead of the CDN version:  
+4. Update the configuration to use the local file instead of the CDN version:
 
    ```javascript
    const documentScanner = new Dynamsoft.DocumentScanner({
@@ -519,7 +519,7 @@ The `onDone` callback is triggered when the "Done" button is pressed. For exampl
 const documentScanner = new Dynamsoft.DocumentScanner({
     license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
     resultViewConfig: {
-        onDone: async (result) => 
+        onDone: async (result) =>
         {
             const canvas = result.correctedImageResult.toCanvas();
             resultContainer.appendChild(canvas);
@@ -529,7 +529,7 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 ```
 ##### Customizing the "Upload" Button
 
-The `onUpload` callback is triggered when the "Upload" button is pressed. Note that the Upload button _only appears_ if a callback function is defined for `onUpload`; otherwise, the button remains hidden.  
+The `onUpload` callback is triggered when the "Upload" button is pressed. Note that the Upload button _only appears_ if a callback function is defined for `onUpload`; otherwise, the button remains hidden.
 
 The following example demonstrates how to upload the result image to a server:
 

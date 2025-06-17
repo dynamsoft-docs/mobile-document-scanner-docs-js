@@ -7,12 +7,12 @@ docHomePage: /mobile-web-capture/docs/introduction/
 introduction: /mobile-web-capture/docs/introduction/
 gettingstarted: /mobile-web-capture/docs/gettingstarted/
 codegallery: /mobile-web-capture/docs/codegallery/
+code-gallery: /mobile-web-capture/docs/code-gallery/
 api: /mobile-web-capture/docs/api/
 
 guides: /mobile-web-capture/docs/guides/
 
-
-releasenotes: /mobile-web-capture/docs/releasenotes/
+release-notes: /mobile-web-capture/docs/release-notes/
 
 useVersionTree: true
 
@@ -28,7 +28,6 @@ download: "/mobile-web-capture/downloads/"
 plugins:
   - jemoji
   - jekyll-sitemap
-
 
 defaults:
   - scope:

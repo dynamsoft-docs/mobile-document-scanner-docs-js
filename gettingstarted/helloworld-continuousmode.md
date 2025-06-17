@@ -161,12 +161,12 @@ export async function initDocDetectModule(DDV, CVR) {
                     success: false
                 });
             };
-    
+
             let width = image.width;
             let height = image.height;
             let ratio = 1;
             let data;
-    
+
             if (height > 720) {
                 ratio = height / 720;
                 height = 720;
@@ -175,8 +175,8 @@ export async function initDocDetectModule(DDV, CVR) {
             } else {
                 data = image.data.slice(0);
             }
-    
-    
+
+
             // Define DSImage according to the usage of DDN
             const DSImage = {
                 bytes: new Uint8Array(data),
@@ -185,33 +185,33 @@ export async function initDocDetectModule(DDV, CVR) {
                 stride: width * 4, //RGBA
                 format: 10 // IPF_ABGR_8888
             };
-    
+
             // Use DDN normalized module
             const results = await router.capture(DSImage, 'detect-document-boundaries');
-    
+
             // Filter the results and generate corresponding return values
             if (results.items.length <= 0) {
                 return Promise.resolve({
                     success: false
                 });
             };
-    
+
             const quad = [];
             results.items[0].location.points.forEach((p) => {
                 quad.push([p.x * ratio, p.y * ratio]);
             });
-    
+
             const detectResult = this.processDetectResult({
                 location: quad,
                 width: image.width,
                 height: image.height,
                 config
             });
-    
+
             return Promise.resolve(detectResult);
         }
     }
-  
+
     DDV.setProcessingHandler('documentBoundariesDetect', new DDNNormalizeHandler())
 }
 
@@ -228,42 +228,42 @@ function compress(
     } catch (error) {
         source = new Uint8Array(imageData);
     }
-  
+
     const scaleW = newWidth / imageWidth;
     const scaleH = newHeight / imageHeight;
     const targetSize = newWidth * newHeight * 4;
     const targetMemory = new ArrayBuffer(targetSize);
     let distData = null;
-  
+
     try {
         distData = new Uint8ClampedArray(targetMemory, 0, targetSize);
     } catch (error) {
         distData = new Uint8Array(targetMemory, 0, targetSize);
     }
-  
+
     const filter = (distCol, distRow) => {
         const srcCol = Math.min(imageWidth - 1, distCol / scaleW);
         const srcRow = Math.min(imageHeight - 1, distRow / scaleH);
         const intCol = Math.floor(srcCol);
         const intRow = Math.floor(srcRow);
-  
+
         let distI = (distRow * newWidth) + distCol;
         let srcI = (intRow * imageWidth) + intCol;
-  
+
         distI *= 4;
         srcI *= 4;
-  
+
         for (let j = 0; j <= 3; j += 1) {
             distData[distI + j] = source[srcI + j];
         }
     };
-  
+
     for (let col = 0; col < newWidth; col += 1) {
         for (let row = 0; row < newHeight; row += 1) {
             filter(col, row);
         }
     }
-  
+
     return distData;
 }
 ```
@@ -307,11 +307,11 @@ To capture images, we need to create a capture viewer.
                         type: Dynamsoft.DDV.Elements.Capture,
                         className: "ddv-capture-viewer-captureButton",
                     },
-                    {   
+                    {
                         // Bind click event to "ImagePreview" element
                         // The event will be registered later.
                         type: Dynamsoft.DDV.Elements.ImagePreview,
-                        events:{ 
+                        events:{
                             click: "showEditViewer",
                         }
                     },
@@ -321,7 +321,7 @@ To capture images, we need to create a capture viewer.
         ],
     };
     ```
- 
+
 - Create the viewer by using the new `UiConfig`.
 
     ```javascript
@@ -357,7 +357,7 @@ To review and edit the captured images, we create an edit viewer.
                 type:  Dynamsoft.DDV.Elements.Layout,
                 className: "ddv-edit-viewer-header-mobile",
                 children: [
-                    {   
+                    {
                         // Add a "Back" button to header and bind click event to go back the capture viewer
                         // The event will be registered later
                         type: Dynamsoft.DDV.Elements.Button,
@@ -430,7 +430,7 @@ To review and edit the captured images, we create an edit viewer.
                 children: [
                     Dynamsoft.DDV.Elements.Blank,
                     Dynamsoft.DDV.Elements.Pagination,
-                    {   
+                    {
                         // Bind event for "PerspectiveAll" button to show the edit viewer
                         // The event will be registered later.
                         type: Dynamsoft.DDV.Elements.PerspectiveAll,
@@ -589,11 +589,11 @@ Since the workflow in this sample is very simple, only the four events mentioned
                             type: Dynamsoft.DDV.Elements.Capture,
                             className: "ddv-capture-viewer-captureButton",
                         },
-                        {   
+                        {
                             // Bind click event to "ImagePreview" element
                             // The event will be registered later.
                             type: Dynamsoft.DDV.Elements.ImagePreview,
-                            events:{ 
+                            events:{
                                 click: "showEditViewer",
                             }
                         },
@@ -628,7 +628,7 @@ Since the workflow in this sample is very simple, only the four events mentioned
                     type:  Dynamsoft.DDV.Elements.Layout,
                     className: "ddv-edit-viewer-header-mobile",
                     children: [
-                        {   
+                        {
                             // Add a "Back" button to header and bind click event to go back the capture viewer
                             // The event will be registered later
                             type: Dynamsoft.DDV.Elements.Button,
@@ -687,7 +687,7 @@ Since the workflow in this sample is very simple, only the four events mentioned
                     children: [
                         Dynamsoft.DDV.Elements.Blank,
                         Dynamsoft.DDV.Elements.Pagination,
-                        {   
+                        {
                             // Bind event for "PerspectiveAll" button to show the edit viewer
                             // The event will be registered later.
                             type: Dynamsoft.DDV.Elements.PerspectiveAll,
@@ -715,7 +715,7 @@ Since the workflow in this sample is very simple, only the four events mentioned
         // Create an perspective viewer
         const perspectiveViewer = new Dynamsoft.DDV.PerspectiveViewer({
             container: "container",
-            groupUid: captureViewer.groupUid, // Data sync with the capture viewer 
+            groupUid: captureViewer.groupUid, // Data sync with the capture viewer
             uiConfig: newPerspectiveUiConfig,
         });
 

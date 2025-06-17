@@ -21,4 +21,4 @@ description: Mobile Web Capture Documentation Homepage
         - [Detect boundaries on the existing images]({{ site.codegallery }}usecases/detect-boundaries-on-existing-images-v1.1.html)
     <!-- - [Demo]({{ site.codegallery }}demo/index.html) -->
 - [Related API reference]({{ site.api }}relatedapi.html)
-- [Release notes]({{ site.releasenotes }}index.html)
+- [Release notes]({{ site.release-notes }}index.html)
