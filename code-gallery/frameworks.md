@@ -24,3 +24,5 @@ We host samples with Hello World implementations of DDS and MWC on GitHub, in th
 ### Mobile Web Capture
 
 - [Angular](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/frameworks/angular)
+- [React](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/frameworks/react-hooks)
+- [Vue](https://github.com/Dynamsoft/mobile-web-capture/tree/master/samples/frameworks/vue)
