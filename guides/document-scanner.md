@@ -159,6 +159,58 @@ If you are using VS Code, a quick and easy way to serve the project is using the
 
 Alternatively, you can use other methods like `IIS` or `Apache` to serve the project, though we won't cover those here for brevity.
 
+### Self-Host Resources
+
+Self hosting library resources gives you full control over hosting your application. Rather than using the CDN to serve resources, you have the option to download the resource files and host them on your own servers to deliver to your users when they use your application.
+
+#### Download Resources
+
+First, download a copy of the resources. There are two options:
+
+1. GitHub: go to the official [Github repository](https://github.com/Dynamsoft/mrz-scanner-javascript), and download the repository as an archive.
+
+2. NPM: Install the DDS package through NPM using the command `npm i dynamsoft-document-scanner@1.2.0 -E`.
+
+Locate the `node_modules` directory. You need the resources located in all the modules with the `dynamsoft` prefix, namely:
+
+- `dynamsoft-camera-enhancer`
+- `dynamsoft-capture-vision-bundle`
+- `dynamsoft-capture-vision-router`
+- `dynamsoft-capture-vision-std`
+- `dynamsoft-code-parser`
+- `dynamsoft-core`
+- `dynamsoft-document-normalizer`
+- `dynamsoft-image-processing`
+- `dynamsoft-label-recognizer`
+- `dynamsoft-license`
+- `dynamsoft-utility`
+
+Place all these directories directories in the location of your choice on your web server, in the same parent directory. Take note of the path to the parent directory, as later you must configure the library to use these resources over the default CDN-hosted resources.
+
+####  Serve over HTTPS
+
+When deploying your web application for production, you must serve it over a **secure HTTPS connection**. We require this for the following reasons:
+
+1. **Browser Security Restrictions** – Most browsers only allow access to camera video streams in a secure context.
+  > [!NOTE]
+  > Some browsers like Chrome may grant access to camera video streams for `http://127.0.0.1`, `http://localhost`, or even pages opened directly from the local file system (`file:///...`). This can be helpful during development and testing.
+
+2. **Dynamsoft License Requirements** – A secure context is required for **Dynamsoft licenses** to function properly.
+
+#### Set MIME Type
+
+Next, configure your server to send the correct `Content-Type` header for `wasm` files by setting the MIME type for `.wasm` as `application/wasm`. This allows the user's browser to correctly processes resource files.
+
+Different web servers have their own way of configuring the MIME type. Here are instructions for some popular web servers:
+
+- [Apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings)
+- [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap)
+- [NGINX](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types)
+
+#### Configure `engineResourcePaths`
+
+The library uses the [`engineResourcePaths`]({{ site.api }}document-scanner.html#engineresourcepaths) configuration property locate library resources by pointing to the location of the resources on your web server. Set `rootDirectory` within `engineResourcePaths` to the path of the parent directory containing all the resource modules. The string should terminate with a `/`, e.g. `path/to/resources/`.
+
 ## Hello World Sample Explained
 
 Let’s walk through the code in the Hello World Sample to understand how it works.
