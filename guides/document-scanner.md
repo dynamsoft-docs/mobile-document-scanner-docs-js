@@ -18,7 +18,7 @@ description: Dynamsoft Document Scanner User Guide
 > [!NOTE]
 > See it in action with the [Dynamsoft Document Scanner Demo](https://demo.dynamsoft.com/document-scanner/).
 
-This guide walks you through building a web application that scans single-page documents using **DDS**, with pre-defined configurations.
+This guide walks you through building a web application that scans single-page documents using **DDS** with pre-defined configurations.
 
 <!--  Keep TOC only for npm /github as readme
 **Table of Contents**
@@ -44,11 +44,11 @@ This guide walks you through building a web application that scans single-page d
 
 ### Get a Trial License
 
-If you haven't got a trial license for **DDS**, you can request one here:
+If you do not have a trial license for **DDS**, you can request one here:
 
 {% include trialLicense.html %}
 
- The trial license can be renewed twice, offering a total of two months of free access.
+ The trial license can be renewed twice for a total of two months of free access.
 
 > [!IMPORTANT]
 > **DDS** and **MWC** share the same license keys. If you already have a **DDS** license, you can use it for **MWC**, and vice versa.
@@ -67,8 +67,8 @@ The first step in using **DDS** is to obtain its library files. You can acquire 
 
 You can choose one of the following methods to set up a Hello World page:
 
-1. **Build from Source** – Download the source files from GitHub and compile the resource script yourself.
-2. **Using Precompiled Script** – Use the precompiled resource scripts from npm or the CDN for a quicker setup.
+1. **Build from source** – Download the source files from GitHub and compile the resource script yourself.
+2. **Use precompiled scripts** – Use the precompiled resource scripts from npm or the CDN for a quicker setup.
 
 ### Option 1: Build from Source
 
@@ -101,7 +101,7 @@ Once the server is running, open the application in a browser using the address 
 
 ### Option 2: Use Precompiled Script
 
-Since the **DDS** library files are published on [npm](https://www.npmjs.com/package/dynamsoft-document-scanner), it's easy to reference them from a CDN.
+We publish **DDS** library files on [npm](https://www.npmjs.com/package/dynamsoft-document-scanner) to make them simple to reference from a CDN.
 
 To use the precompiled script, simply include the following URL in a `<script>` tag:
 ```html
@@ -114,7 +114,7 @@ Below is the complete Hello World sample page that uses this precompiled script 
 > The code is identical to the [`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html) file mentioned in the [Build from Source](#option-1-build-from-source) section, except for the script source.
 
 > [!WARNING]
-> **Don't forget** to replace `"YOUR_LICENSE_KEY_HERE"` with your actual license key.
+> **Remember** to replace `"YOUR_LICENSE_KEY_HERE"` with your actual license key.
 
 ```html
 <!DOCTYPE html>
@@ -157,7 +157,7 @@ To run the sample, create a new file called `hello-world.html`, then copy and pa
 
 If you are using VS Code, a quick and easy way to serve the project is using the [Live Server (Five Server) VSCode extension](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server). Simply install the extension, open the `hello-world.html` file in the editor, and click "Go Live" in the bottom right corner of the editor. This will serve the application at `http://127.0.0.1:5500/hello-world.html`.
 
-Alternatively, you can use other methods like `IIS` or `Apache` to serve the project, though we won't cover those here for brevity.
+Alternatively, you can use other methods like `IIS` or `Apache` to serve the project, though we skip those here for brevity.
 
 ### Self-Host Resources
 
@@ -213,7 +213,7 @@ The library uses the [`engineResourcePaths`]({{ site.api }}document-scanner.html
 
 ## Hello World Sample Explained
 
-Let’s walk through the code in the Hello World Sample to understand how it works.
+Here we walk through the code in the Hello World sample to explain how it works.
 
 > [!TIP]
 > You can also view the full code by visiting the [Dynamsoft Document Scanner Hello World Sample on Github](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html).
@@ -266,7 +266,7 @@ API Reference:
 This step creates the **DDS** UI, which occupies the entire visible area of the browser window by default when launched. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Confine DocumentScanner UI to a Specific Container](#example-1-confine-documentscanner-ui-to-a-specific-container).
 
 > [!WARNING]
-> A license key is required for instantiation.
+> Instantiating the `DocumentScanner` requires a valid license key.
 
 ### Launch DDS
 
@@ -377,11 +377,11 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 const result = await documentScanner.launch();
 ```
 
-In this case, **DDS** automatically creates "containers" for its **Views**. In this section, we'll discuss a few examples to adjust the **DDS** workflow.
+In this case, **DDS** automatically creates "containers" for its **Views**. In this section we discuss a few ways to adjust the **DDS** workflow.
 
 #### Example 1: Confine DocumentScanner UI to a Specific Container
 
-As long as the `DocumentScanner` container is assigned, **DDS** will confine its **Views** within that container.
+As long as the `DocumentScanner` container is assigned, **DDS** confines its **Views** within that container.
 
 > [!NOTE]
 > Containers assigned to its constituent **Views** will be ignored.
@@ -424,7 +424,7 @@ API Reference:
 
 #### Example 3: Specify Individual View Containers
 
-If only the `DocumentScannerView`, `DocumentResultView`, and `DocumentCorrectionView` containers are provided without the `DocumentScanner` container, **DDS** will render the full workflow using these three containers.
+If only the `DocumentScannerView`, `DocumentResultView`, and `DocumentCorrectionView` containers are provided without the `DocumentScanner` container, **DDS** renders the full workflow using these three containers.
 
 ```html
 <div id="myDocumentScannerViewContainer" style="width: 80vw; height: 80vh"></div>
@@ -632,11 +632,11 @@ interface DocumentCorrectionViewConfig {
 }
 ```
 
-`container` is covered in [Workflow Customization](#workflow-customization), we'll look at the other two properties below.
+`container` is covered in [Workflow Customization](#workflow-customization). Below we discuss the other two properties.
 
 ##### Styling Buttons
 
-The `toolbarButtonsConfig` property, of type `DocumentCorrectionViewToolbarButtonsConfig`, customizes the appearance and functionality of the UI buttons. Here is its definition:
+The `toolbarButtonsConfig` property of type `DocumentCorrectionViewToolbarButtonsConfig` customizes the appearance and functionality of the UI buttons. Here is its definition:
 
 ```javascript
 type ToolbarButtonConfig = Pick<ToolbarButton, "icon" | "label" | "isHidden">;
@@ -647,7 +647,7 @@ interface DocumentCorrectionViewToolbarButtonsConfig {
 }
 ```
 
-We can use it to change the icon and label of each of the three UI buttons individually or even hide them. Below is an example that sets a custom label and image icon for the "Detect Borders" button and hides the "fullImage" button:
+We can use it to change the icon and label of each of the three buttons individually or even hide the buttons. Below is an example that sets a custom label and image icon for the "Detect Borders" button and hides the "Full Image" button:
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
@@ -674,7 +674,7 @@ API Reference:
 
 ##### Customizing Apply Button Callback
 
-The `onFinish` callback is triggered after the user's corrections have been applied. For example, the code below displays the corrected image in a `resultContainer` after the user clicks "Apply":
+The `onFinish` callback triggers after the user's corrections have been applied. For example, the code below displays the corrected image in a `resultContainer` after the user clicks "Apply":
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
@@ -724,7 +724,7 @@ interface interface DocumentResultViewToolbarButtonsConfig {
 }
 ```
 
-We can use it to change the icon and label of each of the three UI buttons individually or even hide them.
+We can use it to change the icon and label of each of the three buttons individually or even hide them.
 Below is an example that sets a custom label and image icon for the "retake" button and hides the "share" button:
 
 ```javascript
@@ -752,7 +752,7 @@ API Reference:
 
 ##### Customizing the "Done" Button Callback
 
-The `onDone` callback is triggered when the "Done" button is pressed. For example, the code below displays the result image in a `resultContainer` after the user clicks "Done":
+The `onDone` callback triggers when the "Done" button is pressed. For example, the code below displays the result image in a `resultContainer` after the user clicks "Done":
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
@@ -775,7 +775,7 @@ API Reference:
 
 ##### Customizing the "Upload" Button
 
-The `onUpload` callback is triggered when the "Upload" button is pressed. Note that the Upload button _only appears_ if a callback function is defined for `onUpload`; otherwise, the button remains hidden.
+The `onUpload` callback triggers when the "Upload" button is pressed. Note that the Upload button _only appears_ if a callback function is defined for `onUpload`; the button remains hidden otherwise.
 
 The following example demonstrates how to upload the result image to a server:
 
