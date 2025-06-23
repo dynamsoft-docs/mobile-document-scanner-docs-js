@@ -71,7 +71,12 @@ You can choose one of the following methods to set up a Hello World page:
 2. **Use precompiled scripts** – Use the precompiled resource scripts from npm or the CDN for a quicker setup.
 3. **Self-host resources** - Self-host both DDS and its dependencies on your web server.
 
-### Option 1: Build from Source
+<div class="multi-panel-switching-prefix"></div>
+
+<div class="multi-panel-start"></div>
+<div class="multi-panel-title">Build from Source</div>
+
+### Build from Source
 
 This method retrieves all **DDS** source files from its [GitHub Repository](https://github.com/Dynamsoft/document-scanner-javascript), compiles them into a distributable package, and then runs a *ready-made* Hello World sample page included in the repository:
 
@@ -100,7 +105,12 @@ Once the server is running, open the application in a browser using the address 
 > [!TIP]
 > See the server configuration details in [`/dev-server/index.js`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/dev-server/index.js).
 
-### Option 2: Use Precompiled Script
+<div class="multi-panel-end"></div>
+
+<div class="multi-panel-start"></div>
+<div class="multi-panel-title">Use Precompiled Script</div>
+
+### Use Precompiled Script
 
 We publish **DDS** library files on [npm](https://www.npmjs.com/package/dynamsoft-document-scanner) to make them simple to reference from a CDN.
 
@@ -258,6 +268,10 @@ The `wasm` resource files are relatively large and may take quite a few seconds 
 
 Reference:
 [`Cache-Control`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
+
+<div class="multi-panel-end"></div>
+
+<div class="multi-panel-switching-end"></div>
 
 ## Hello World Sample Explained
 
