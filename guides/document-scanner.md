@@ -161,35 +161,78 @@ Alternatively, you can use other methods like `IIS` or `Apache` to serve the pro
 
 ### Self-Host Resources
 
-Self hosting library resources gives you full control over hosting your application. Rather than using the CDN to serve resources, you have the option to download the resource files and host them on your own servers to deliver to your users when they use your application.
+Self-hosting library resources gives you full control over hosting your application. By default, the DDS script fetches Dynamsoft `node` dependencies and an HTML UI template from CDNs. Rather than using CDNs to serve resources, you can instead host these resources on your own servers to deliver to your users directly when they use your application.
 
 #### Download Resources
 
 First, download a copy of the resources. There are two options:
 
-1. GitHub: go to the official [Github repository](https://github.com/Dynamsoft/mrz-scanner-javascript), and download the repository as an archive.
+1. GitHub: go to the official [Github repository](https://github.com/Dynamsoft/mrz-scanner-javascript), and follow steps 1 through 4 in [*build from source*](document-scanner#option-1-build-from-source).
+2. `npm`: Install the DDS package through NPM using the command `npm i dynamsoft-document-scanner@1.2.0 -E`.
 
-2. NPM: Install the DDS package through NPM using the command `npm i dynamsoft-document-scanner@1.2.0 -E`.
+#### Point to Resources
 
-Locate the `node_modules` directory. You need the resources located in all the modules with the `dynamsoft` prefix, namely:
+The library uses [`engineResourcePaths`]({{ site.api }}document-scanner.html#engineresourcepaths) to locate required Dynamsoft `node` dependencies by pointing to the location of the resources on your web server. The library also uses `scannerViewConfig.cameraEnhancerUIPath` similarly to set the path for the HTML UI template of the `ScannerView`. Later steps will place both the `node` dependencies and the HTML template in the local `dist` directory. Therefore, set `engineResourcePaths` in the DDS constructor to point to the local `dist` directory (along with setting your license key, and all other configurations):
 
-- `dynamsoft-camera-enhancer`
-- `dynamsoft-capture-vision-bundle`
-- `dynamsoft-capture-vision-router`
-- `dynamsoft-capture-vision-std`
-- `dynamsoft-code-parser`
-- `dynamsoft-core`
-- `dynamsoft-document-normalizer`
-- `dynamsoft-image-processing`
-- `dynamsoft-label-recognizer`
-- `dynamsoft-license`
-- `dynamsoft-utility`
+```javascript
+const documentScanner = new Dynamsoft.DocumentScanner({
+    license: "YOUR_LICENSE_KEY_HERE",
+    scannerViewConfig: {
+        cameraEnhancerUIPath: "./dist/document-scanner.ui.html", // Use the local file
+    },
+    engineResourcePaths: {
+        std: "./dist/libs/dynamsoft-capture-vision-std/dist/",
+        dip: "./dist/libs/dynamsoft-image-processing/dist/",
+        core: "./dist/libs/dynamsoft-core/dist/",
+        license: "./dist/libs/dynamsoft-license/dist/",
+        cvr: "./dist/libs/dynamsoft-capture-vision-router/dist/",
+        ddn: "./dist/libs/dynamsoft-document-normalizer/dist/",
+    },
+});
+```
 
-Place all these directories directories in the location of your choice on your web server, in the same parent directory. Take note of the path to the parent directory, as later you must configure the library to use these resources over the default CDN-hosted resources.
+API Reference:
+
+- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentScannerViewConfig`]({{ site.api }}document-scanner.html#documentscannerviewconfig)
+- [`engineResourcePaths`]({{ site.api }}document-scanner.html#engineresourcepaths)
+- [`cameraEnhancerUIPath`]({{ site.api }}document-scanner.html#cameraenhanceruipaths)
+
+#### Modify the Build Script
+
+Update the `scripts` section in `package.json` to automatically copy resources to the output `dist` directory during the build process.
+
+```json
+"scripts": {
+    "serve": "node dev-server/index.js",
+    "build": "rollup -c && npm run copy-libs",
+    "copy-libs": "npx mkdirp dist/libs && npx cpx \"node_modules/dynamsoft-*/**/*\" dist/libs/ --dereference",
+    "build:production": "rollup -c --environment BUILD:production"
+},
+```
+
+#### Build the Project
+
+Build the project by running:
+
+```bash
+npm run build
+```
+
+#### Serve the Project Locally
+
+Start the local development server by running:
+
+```bash
+npm run serve
+```
+
+Once the server is running, open the application in a browser using the address provided in the terminal output.
 
 ####  Serve over HTTPS
 
-When deploying your web application for production, you must serve it over a **secure HTTPS connection**. We require this for the following reasons:
+**Place the `dist` directory** onto your web server for to serve the web application. When deploying your web application for production, you must serve it over a **secure HTTPS connection**. We require this for the following reasons:
 
 1. **Browser Security Restrictions** – Most browsers only allow access to camera video streams in a secure context.
   > [!NOTE]
@@ -199,17 +242,21 @@ When deploying your web application for production, you must serve it over a **s
 
 #### Set MIME Type
 
-Next, configure your server to send the correct `Content-Type` header for `wasm` files by setting the MIME type for `.wasm` as `application/wasm`. This allows the user's browser to correctly processes resource files.
+Certain legacy web application servers may lack support for the `application/wasm` mimetype for .wasm files. To address this, you have two options:
 
-Different web servers have their own way of configuring the MIME type. Here are instructions for some popular web servers:
+1. Upgrade your web application server to one that supports the `application/wasm` mimetype.
+2. Manually define the mimetype on your server  by setting the MIME type for `.wasm` as `application/wasm`. This allows the user's browser to correctly processes resource files. Different web servers have their own way of configuring the MIME type. Here are instructions for [Apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings), [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap), and [NGINX](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types).
 
-- [Apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings)
-- [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap)
-- [NGINX](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types)
+#### Resource Caching
 
-#### Configure `engineResourcePaths`
+The `wasm` resource files are relatively large and may take quite a few seconds to download. We recommend setting a longer cache time for these resource files to maximize the performance of your web application using the `Cache-Control` HTTP header. For example, use the `max-age` directive to cache resources for a specified time in seconds:
 
-The library uses the [`engineResourcePaths`]({{ site.api }}document-scanner.html#engineresourcepaths) configuration property locate library resources by pointing to the location of the resources on your web server. Set `rootDirectory` within `engineResourcePaths` to the path of the parent directory containing all the resource modules. The string should terminate with a `/`, e.g. `path/to/resources/`.
+ ```
+ Cache-Control: max-age=31536000
+ ```
+
+Reference:
+[`Cache-Control`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
 
 ## Hello World Sample Explained
 
