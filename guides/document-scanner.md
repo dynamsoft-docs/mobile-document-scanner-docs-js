@@ -170,6 +170,11 @@ If you are using VS Code, a quick and easy way to serve the project is using the
 
 Alternatively, you can use other methods like `IIS` or `Apache` to serve the project, though we skip those here for brevity.
 
+<div class="multi-panel-end"></div>
+
+<div class="multi-panel-start"></div>
+<div class="multi-panel-title">Self-Host Resources</div>
+
 ### Self-Host Resources
 
 By default, the DDS library (whether pre-compiled or self-compiled) fetches resource files (Dynamsoft `node` dependencies and an HTML UI template) from CDNs. Self-hosting library resources gives you full control over hosting your application. Rather than using CDNs to serve these resources, you can instead host these resources on your own servers to deliver to your users directly when they use your application.
