@@ -67,8 +67,9 @@ The first step in using **DDS** is to obtain its library files. You can acquire 
 
 You can choose one of the following methods to set up a Hello World page:
 
-1. **Build from source** – Download the source files from GitHub and compile the resource script yourself.
+1. **Build from source** – Download the source files from GitHub and compile the library files yourself.
 2. **Use precompiled scripts** – Use the precompiled resource scripts from npm or the CDN for a quicker setup.
+3. **Self-host resources** - Self-host both DDS and its dependencies on your web server.
 
 ### Option 1: Build from Source
 
@@ -161,7 +162,7 @@ Alternatively, you can use other methods like `IIS` or `Apache` to serve the pro
 
 ### Self-Host Resources
 
-Self-hosting library resources gives you full control over hosting your application. By default, the DDS script fetches Dynamsoft `node` dependencies and an HTML UI template from CDNs. Rather than using CDNs to serve resources, you can instead host these resources on your own servers to deliver to your users directly when they use your application.
+By default, the DDS library (whether pre-compiled or self-compiled) fetches resource files (Dynamsoft `node` dependencies and an HTML UI template) from CDNs. Self-hosting library resources gives you full control over hosting your application. Rather than using CDNs to serve these resources, you can instead host these resources on your own servers to deliver to your users directly when they use your application.
 
 #### Download Resources
 
