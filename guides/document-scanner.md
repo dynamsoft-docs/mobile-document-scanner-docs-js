@@ -13,7 +13,7 @@ description: Dynamsoft Document Scanner User Guide
 > [!TIP]
 > Prerequisite: Read the [Introduction]({{ site.introduction }}index.html) before proceeding.
 
-**Dynamsoft Document Scanner (DDS)** is an SDK designed for scanning single-page documents. It not only captures images of the documents but also enhances their quality to professional standards, making it an ideal tool for mobile document scanning.
+**Dynamsoft Document Scanner (DDS)** is an SDK designed for scanning single-page documents. DDS captures images of the documents and also enhances their quality to professional standards, making it an ideal tool for mobile document scanning.
 
 > [!NOTE]
 > See it in action with the [Dynamsoft Document Scanner Demo](https://demo.dynamsoft.com/document-scanner/).
@@ -26,8 +26,9 @@ This guide walks you through building a web application that scans single-page d
   - [Get a Trial License](#get-a-trial-license)
   - [Get a Full License](#get-a-full-license)
 - [Quick Start](#quick-start)
-  - [Option 1: Build from Source](#option-1-build-from-source)
-  - [Option 2: Use Precompiled Script](#option-2-use-precompiled-script)
+  - [Build from Source](#build-from-source)
+  - [Use Precompiled Script](#use-precompiled-script)
+  - [Self-Host Resources](#self-host-resources)
 - [Hello World Sample Explained](#hello-world-sample-explained)
   - [Reference DDS](#reference-dds)
   - [Instantiate DDS](#instantiate-dds)
@@ -37,7 +38,6 @@ This guide walks you through building a web application that scans single-page d
   - [DocumentScannerConfig Overview](#documentscannerconfig-overview)
   - [Workflow Customization](#workflow-customization)
   - [View-Based Customization](#view-based-customization)
-  - [Self-Hosting Resource Files](#self-hosting-resource-files)
 - [Next Step](#next-step) -->
 
 ## License
@@ -316,7 +316,7 @@ Alternatively, the script can be referenced from a CDN:
 **DDS** wraps all its dependency scripts, so a **DDS** project only needs to include **DDS** itself as a single script. No additional dependency scripts are required.
 
 > [!WARNING]
-> Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the instructions in [Self-Hosting Resource File](#self-hosting-resource-files).
+> Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the instructions in [Self-Host Resources](#self-host-resources).
 
 ### Instantiate DDS
 
