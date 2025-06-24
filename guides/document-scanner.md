@@ -181,10 +181,18 @@ By default, the DDS library (whether pre-compiled or self-compiled) fetches reso
 
 #### Download Resources
 
-First, download a copy of the resources. There are two options:
+First, download a copy of the resources:
 
-1. GitHub: go to the official [Github repository](https://github.com/Dynamsoft/mrz-scanner-javascript), and follow steps 1 through 4 in [*build from source*](document-scanner#build-from-source).
-2. `npm`: Install the DDS package through NPM using the command `npm i dynamsoft-document-scanner@1.2.0 -E`.
+1. Download **DDS** from [GitHub](https://github.com/Dynamsoft/document-scanner-javascript) as a compressed folder.
+2. Extract the contents of the archive, and open the extracted directory in a code editor.
+3. Set your [license key](#get-a-trial-license) in the Hello World sample:
+   1. Open the Hello World sample at ([`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html)).
+   2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
+4. Install project dependencies
+    In the terminal, navigate to the project root directory and run:
+    ```bash
+    npm install
+    ```
 
 #### Point to Resources
 
