@@ -122,7 +122,7 @@ To use the precompiled script, simply include the following URL in a `<script>` 
 Below is the complete Hello World sample page that uses this precompiled script from a CDN.
 
 > [!TIP]
-> The code is identical to the [`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html) file mentioned in the [Build from Source](#option-1-build-from-source) section, except for the script source.
+> The code is identical to the [`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html) file mentioned in the [Build from Source](#build-from-source) section, except for the script source.
 
 > [!WARNING]
 > **Remember** to replace `"YOUR_LICENSE_KEY_HERE"` with your actual license key.
@@ -183,7 +183,7 @@ By default, the DDS library (whether pre-compiled or self-compiled) fetches reso
 
 First, download a copy of the resources. There are two options:
 
-1. GitHub: go to the official [Github repository](https://github.com/Dynamsoft/mrz-scanner-javascript), and follow steps 1 through 4 in [*build from source*](document-scanner#option-1-build-from-source).
+1. GitHub: go to the official [Github repository](https://github.com/Dynamsoft/mrz-scanner-javascript), and follow steps 1 through 4 in [*build from source*](document-scanner#build-from-source).
 2. `npm`: Install the DDS package through NPM using the command `npm i dynamsoft-document-scanner@1.2.0 -E`.
 
 #### Point to Resources
@@ -423,7 +423,7 @@ We will discuss two main methods of customizing **DDS** with `DocumentScannerCon
 1. [**Workflow Customization**](#workflow-customization): Through container definitions.
 2. [**View-Based Customization**](#view-based-customization): Through configuration objects.
 
-The customization examples below will build on the Hello World code from the [previous section](#option-2-use-precompiled-script). The only change required is adjusting the constructor argument.
+The customization examples below will build on the Hello World code from the [previous section](#use-precompiled-script). The only change required is adjusting the constructor argument.
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
@@ -617,7 +617,7 @@ By default, `cameraEnhancerUIPath` points to a file hosted on the jsDelivr CDN:
 This file defines the UI for `DocumentScannerView`. However, since files on the CDN **cannot be modified directly**, you need to use a **local version** to customize the UI. `cameraEnhancerUIPath` is used to specify the local version.
 
 ##### Steps to Customize the UI for `DocumentScannerView`
-1. Follow the instructions in [Build from Source](#option-1-build-from-source) to obtain the source files for **DDS**.
+1. Follow the instructions in [Build from Source](#build-from-source) to obtain the source files for **DDS**.
 2. Edit `/src/document-scanner.ui.html` to apply your customizations.
 3. Build the project to generate the updated file in `/dist/document-scanner.ui.html`:
 
@@ -847,7 +847,7 @@ The `onUpload` callback triggers when the "Upload" button is pressed. Note that 
 The following example demonstrates how to upload the result image to a server:
 
 > [!TIP]
-> If you followed the steps in [Build from Source](#option-1-build-from-source) and are still using the predefined Express server setup, the following upload code will work correctly. The image will be uploaded directly to the dev server as "uploadedFile.png". See the server configuration details in [`/dev-server/index.js`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/dev-server/index.js).
+> If you followed the steps in [Build from Source](#build-from-source) and are still using the predefined Express server setup, the following upload code will work correctly. The image will be uploaded directly to the dev server as "uploadedFile.png". See the server configuration details in [`/dev-server/index.js`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/dev-server/index.js).
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
