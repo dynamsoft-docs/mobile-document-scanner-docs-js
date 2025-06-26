@@ -4,7 +4,7 @@ needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
 title: Mobile Web Capture - Introduction
-keywords: Documentation, Mobile Web Capture, Introduction
+keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Introduction
 breadcrumbText: Introduction
 description: Mobile Web Capture Documentation Introduction
 permalink: /introduction/index.html

@@ -4,7 +4,7 @@ layout: default-layout
 # needGenerateH3Content: true
 # noTitleIndex: false
 title: Mobile Web Capture - Frameworks
-keywords: Documentation, Mobile Web Capture, frameworks, web frameworks, angular, vue, react
+keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Mobile Web Capture, frameworks, web frameworks, angular, vue, react
 breadcrumbText: Frameworks
 description: Mobile Web Capture Framework Samples
 permalink: /code-gallery/frameworks.html

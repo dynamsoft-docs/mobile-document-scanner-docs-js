@@ -4,7 +4,7 @@ needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
 title: Dynamsoft Document Scanner - Scan Single-Page Documents
-keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner,
+keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Dynamsoft Document Scanner,
 description: Dynamsoft Document Scanner User Guide
 ---
 
@@ -254,7 +254,7 @@ npm run serve
 
 Once the server is running, open the application in a browser using the address provided in the terminal output.
 
-####  Serve over HTTPS
+#### Serve over HTTPS
 
 **Place the `dist` directory** onto your web server for to serve the web application. When deploying your web application for production, you must serve it over a **secure HTTPS connection**. We require this for the following reasons:
 

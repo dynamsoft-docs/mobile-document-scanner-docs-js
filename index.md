@@ -1,7 +1,7 @@
 ---
 layout: home-page
 title: Mobile Web Capture Documentation
-keywords: Mobile Web Capture, documentation
+keywords: Mobile Document Scanner, Web, JS Edition, documentation
 description: Mobile Web Capture Documentation Homepage
 ---
 
