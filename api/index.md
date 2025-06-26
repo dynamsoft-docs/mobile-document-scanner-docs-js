@@ -3,7 +3,7 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Mobile Web Capture - API Reference Index
+title: Mobile Document Scanner JS Edition - API Reference Index
 keywords: Documentation, Mobile Document Scanner, Web, JS Edition, API Index
 description: Mobile Web Capture Documentation API Reference Index
 ---

@@ -1,8 +1,8 @@
 ---
 layout: home-page
-title: Mobile Web Capture Documentation
+title: Mobile Document Scanner JS Edition Documentation
 keywords: Mobile Document Scanner, Web, JS Edition, documentation
-description: Mobile Web Capture Documentation Homepage
+description: Mobile Document Scanner JS Edition Documentation Homepage
 ---
 
 # Mobile Web Capture

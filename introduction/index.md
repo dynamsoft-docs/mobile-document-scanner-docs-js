@@ -3,11 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
-title: Mobile Web Capture - Introduction
+title: Mobile Document Scanner JS Edition - Introduction
 keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Introduction
 breadcrumbText: Introduction
-description: Mobile Web Capture Documentation Introduction
-permalink: /introduction/index.html
+description: Mobile Document Scanner JS Edition Documentation Introduction
 ---
 
 # Introduction

@@ -3,7 +3,7 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-title: Mobile Web Capture - User Guide Index
+title: Mobile Document Scanner JS Edition - User Guide Index
 keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Dynamsoft Document Scanner, User Guide Index
 description: Mobile Web Capture User Guide Index
 ---

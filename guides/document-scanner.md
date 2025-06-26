@@ -3,9 +3,9 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
-title: Dynamsoft Document Scanner - Scan Single-Page Documents
+title: Mobile Document Scanner JS Edition - Scan Single-Page Documents
 keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Dynamsoft Document Scanner,
-description: Dynamsoft Document Scanner User Guide
+description: Mobile Document Scanner JS Edition User Guide
 ---
 
 # Scan Single-Page Documents with Dynamsoft Document Scanner

@@ -3,9 +3,9 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
-title: Mobile Web Capture - Scan Multi-Page Documents
+title: Mobile Document Scanner JS Edition - Scan Multi-Page Documents
 keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Mobile Web Capture, Dynamsoft Document Scanner,
-description: Mobile Web Capture User Guide
+description: Mobile Document Scanner JS Edition User Guide
 ---
 
 # How to Customize Mobile Web Capture
