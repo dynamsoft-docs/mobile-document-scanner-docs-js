@@ -82,17 +82,17 @@ Follow these steps:
    > In your code editor, open the Hello World sample located at [`/samples/hello-world.html`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/samples/hello-world.html). Search for `"YOUR_LICENSE_KEY_HERE"` and replace it with your actual license key.
 4. Install project dependencies
     In the terminal, navigate to the project root directory and run:
-    ```bash
+    ```shell
     npm install
     ```
 5. Build the project
     After the dependencies are installed, build the project by running:
-    ```bash
+    ```shell
     npm run build
     ```
 6. Serve the project locally
     Start the local server by running:
-    ```bash
+    ```shell
     npm run serve
     ```
 Once the server is running, open the application in a browser using the address provided in the terminal output after running `npm run serve`.
