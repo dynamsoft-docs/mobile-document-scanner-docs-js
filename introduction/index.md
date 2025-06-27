@@ -11,7 +11,7 @@ description: Mobile Document Scanner JS Edition Documentation Introduction
 
 # Introduction
 
-When digitizing physical documents — whether for easier storage, better accessibility, or streamlined processing — a hardware scanner is often the preferred choice. However, when hardware scanners are not feasible or convenient, mobile device cameras can serve as effective alternatives. Dynamsoft designed the **Mobile Document Scanner JavaScript Edition (MDS)** SDK to address this need.
+When digitizing physical documents - whether for easier storage, better accessibility, or streamlined processing - a hardware scanner is often the preferred choice. However, when hardware scanners are not feasible or convenient, mobile device cameras can serve as effective alternatives. Dynamsoft designed the **Mobile Document Scanner JavaScript Edition (MDS)** SDK to address this need.
 
 > [!TIP]
 > If you are integrating **hardware scanners** into web applications, you may be interested in **Dynamsoft’s** [**Dynamic Web TWAIN**](https://www.dynamsoft.com/web-twain/docs/introduction/index.html) solution.
