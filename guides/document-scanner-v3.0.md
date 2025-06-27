@@ -74,17 +74,17 @@ This method retrieves all **DDS** source files from its [GitHub Repository](http
    2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
 4. Install project dependencies
     In the terminal, navigate to the project root directory and run:
-    ```bash
+    ```shell
     npm install
     ```
 5. Build the project
     After installing dependencies, build the project by running:
-    ```bash
+    ```shell
     npm run build
     ```
 6. Serve the project locally
     Start the local server by running:
-    ```bash
+    ```shell
     npm run serve
     ```
 Once the server is running, open the application in a browser using the address provided in the terminal output after running `npm run serve`.
@@ -385,7 +385,7 @@ This file defines the UI for `DocumentScannerView`. However, since files on the 
 2. Edit `/src/document-scanner.ui.html` to apply your customizations.
 3. Build the project to generate the updated file in `/dist/document-scanner.ui.html`:
 
-   ```bash
+   ```shell
    npm run build
    ```
 4. Update the configuration to use the local file instead of the CDN version:
@@ -601,14 +601,14 @@ Update the `scripts` section in `package.json` to automatically copy the librari
 
 Build the project by running:
 
-```bash
+```shell
 npm run build
 ```
 
 #### Serve the Project Locally
 
 Start the local development server by running:
-```bash
+```shell
 npm run serve
 ```
 

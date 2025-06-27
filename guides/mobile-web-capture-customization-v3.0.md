@@ -528,14 +528,14 @@ Update the `scripts` section in `package.json` to automatically copy the librari
 
 Once all dependencies are installed, build the project by running:
 
-```bash
+```shell
 npm run build
 ```
 
 ### Serve the Project Locally
 
 Start the local development server by running:
-```bash
+```shell
 npm run serve
 ```
 

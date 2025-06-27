@@ -3,10 +3,10 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
-title: Dynamsoft Document Scanner - API Reference
-keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner, API, APIs
+title: Mobile Document Scanner JS Edition - API Reference
+keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Dynamsoft Document Scanner, API, APIs
 breadcrumbText: API References
-description: Dynamsoft Document Scanner - API Reference
+description: Mobile Document Scanner JS Edition - API Reference
 ---
 
 # Dynamsoft Document Scanner API Reference

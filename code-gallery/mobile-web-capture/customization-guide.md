@@ -3,9 +3,9 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
-title: Mobile Web Capture - Scan Multi-Page Documents
-keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner,
-description: Mobile Web Capture User Guide
+title: Mobile Document Scanner JS Edition - Scan Multi-Page Documents
+keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Mobile Web Capture, Dynamsoft Document Scanner,
+description: Mobile Document Scanner JS Edition User Guide
 ---
 
 # How to Customize Mobile Web Capture
@@ -541,14 +541,14 @@ Update the `scripts` section in `package.json` to automatically copy the librari
 
 Once all dependencies are installed, build the project by running:
 
-```bash
+```shell
 npm run build
 ```
 
 ### Serve the Project Locally
 
 Start the local development server by running:
-```bash
+```shell
 npm run serve
 ```
 
