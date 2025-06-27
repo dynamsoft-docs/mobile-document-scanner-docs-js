@@ -8,7 +8,7 @@ keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Dynamsoft Doc
 description: Mobile Document Scanner JS Edition User Guide
 ---
 
-# Scan Single-Page Documents with Dynamsoft Document Scanner
+# Scan Single-Page Documents with Mobile Document Scanner
 
 > [!TIP]
 > Prerequisite: Read the [Introduction]({{ site.introduction }}index.html) before proceeding.
@@ -16,7 +16,7 @@ description: Mobile Document Scanner JS Edition User Guide
 Dynamsoft's **Mobile Document Scanner JavaScript Edition (MDS)** is a web SDK designed for scanning single-page documents. MDS captures images of the documents and enhances their quality to professional standards, making it an ideal tool for mobile document scanning.
 
 > [!NOTE]
-> See it in action with the [Dynamsoft Document Scanner Demo](https://demo.dynamsoft.com/document-scanner/).
+> See it in action with the [Mobile Document Scanner Demo](https://demo.dynamsoft.com/document-scanner/).
 
 This guide walks you through building a web application that scans single-page documents using **MDS** with pre-defined configurations.
 
@@ -130,15 +130,15 @@ Below is the complete Hello World sample page that uses this precompiled script 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamsoft Document Scanner - Hello World</title>
+    <title>Mobile Document Scanner - Hello World</title>
     <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2/dist/dds.bundle.js"></script>
   </head>
   <body>
-    <h1 style="font-size: large">Dynamsoft Document Scanner</h1>
+    <h1 style="font-size: large">Mobile Document Scanner</h1>
     <div id="results"></div>
     <script>
       const resultContainer = document.querySelector("#results");
-      // Instantiate a Dynamsoft Document Scanner Object
+      // Instantiate a Document Scanner Object
       const documentScanner = new Dynamsoft.DocumentScanner({
         license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
       });
@@ -288,7 +288,7 @@ Reference:
 Here we walk through the code in the Hello World sample to explain how it works.
 
 > [!TIP]
-> You can also view the full code by visiting the [Dynamsoft Document Scanner Hello World Sample on Github](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html).
+> You can also view the full code by visiting the [Document Scanner JS Hello World Sample on Github](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html).
 
 ### Reference MDS
 
@@ -298,7 +298,7 @@ Here we walk through the code in the Hello World sample to explain how it works.
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamsoft Document Scanner - Hello World</title>
+    <title>Mobile Document Scanner - Hello World</title>
     <script src="../dist/dds.bundle.js"></script>
     <!--Alternatively, reference the script from CDN
     <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2/dist/dds.bundle.js"></script>
@@ -369,7 +369,7 @@ The workflow returns a scanned image object of type `CorrectedImageResult`. To d
 
 ```html
 <body>
-    <h1 style="font-size: large">Dynamsoft Document Scanner</h1>
+    <h1 style="font-size: large">Mobile Document Scanner</h1>
     <div id="results"></div>
 ```
 
@@ -885,6 +885,6 @@ API Reference:
 
 ## Next Step
 
-**MDS** is a fully functional, ready-to-use document scanning SDK with built-in UI layouts. However, to extend its capabilities for multi-page and multi-document processing, as well as advanced editing features, we developed **Mobile Web Capture (MWC)**.
+**MDS** is a fully functional, ready-to-use **single page** scanning SDK with built-in UI layouts. However, to extend its capabilities for multi-page and multi-document processing, as well as advanced editing features, we developed **Mobile Web Capture (MWC)**.
 
 Read on to learn how to use this web-based wrapper SDK in the [**Mobile Web Capture User Guide**]({{ site.code-gallery }}mobile-web-capture/index.html).
