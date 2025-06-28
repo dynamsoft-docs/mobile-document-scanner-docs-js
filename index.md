@@ -8,10 +8,7 @@ description: Mobile Document Scanner JS Edition Documentation Homepage
 # Mobile Web Capture
 
 - [Introduction]({{ site.introduction }}index.html)
-- [Developer Guides]({{ site.guides }}index.html)
-  - [Scan Single-Page Documents]({{ site.guides }}document-scanner.html)
-  - [Scan Multi-Page Documents]({{ site.guides }}mobile-web-capture.html)
-  - [Customize UI And Workflow]({{ site.guides }}mobile-web-capture-customization.html)
+- [Developer Guide]({{ site.guides }}index.html)
 - Code Gallery
   - [Mobile Web Capture](({{ site.code-gallery }}mobile-web-capture/index.html))
     - [Customization Guide]({{ site.code-gallery }}mobile-web-capture/customization-guide.html)
