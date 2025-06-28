@@ -9,7 +9,7 @@ breadcrumbText: API References
 description: Mobile Document Scanner JS Edition - API Reference
 ---
 
-# Dynamsoft Document Scanner API Reference
+# Mobile Document Scanner API Reference
 
 The `DocumentScanner` class handles the document scanning process, including image capture, correction, and result display.
 

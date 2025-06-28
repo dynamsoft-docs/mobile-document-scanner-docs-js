@@ -11,7 +11,7 @@ description: Mobile Web Capture Framework Samples
 
 # Frameworks
 
-Dynamsoft provides samples that show how to integrate Dynamsoft Document Scanner and Mobile Web Capture in various frameworks. We recommend using our samples as references when building web applications with DDS and MWC with frameworks.
+Dynamsoft provides samples that show how to integrate Mobile Document Scanner and Mobile Web Capture in various frameworks. We recommend using our samples as references when building web applications with MDS and MWC with frameworks.
 
 > [!NOTE]
 > Please [contact us](https://www.dynamsoft.com/company/contact/) for any inquiries about currently unsupported frameworks.

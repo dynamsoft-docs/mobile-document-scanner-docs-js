@@ -13,7 +13,7 @@ description: Mobile Document Scanner JS Edition User Guide
 > [!TIP]
 > Prerequisites: read the [Introduction]({{ site.introduction }}index.html) before proceeding.
 
-**Mobile Web Capture (MWC)** is an SDK designed for scanning multi-page documents.  It integrates **Dynamsoft Document Scanner (DDS)** functionality  while offering additional features such as multi-document management, annotation, and uploading, making it a comprehensive solution for managing complex document workflows.
+**Mobile Web Capture (MWC)** is an SDK designed for scanning multi-page documents.  It integrates **Mobile Document Scanner (MDS)** functionality  while offering additional features such as multi-document management, annotation, and uploading, making it a comprehensive solution for managing complex document workflows.
 
 > [!TIP]
 > See it in action with the [Mobile Web Capture Demo](https://demo.dynamsoft.com/mobile-web-capture/).
@@ -21,7 +21,7 @@ description: Mobile Document Scanner JS Edition User Guide
 This guide walks you through building a web application that scans multi-page documents using **MWC**, with **pre-defined configurations**.
 
 > [!TIP]
-> If you are looking for a solution that scans single-page documents, please read [Dynamsoft Document Scanner User Guide]({{ site.guides }}document-scanner.html) instead.
+> If you are looking for a solution that scans single-page documents, please read [Mobile Document Scanner User Guide]({{ site.guides }}index.html) instead.
 
 <!--
 Keep TOC only for npm /github as readme

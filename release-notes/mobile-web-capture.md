@@ -82,7 +82,7 @@ In this release, **Mobile Web Capture (MWC)** has been completely redesigned fro
 - View upload history
 
 > [!NOTE]
-> The following three views are powered by **Dynamsoft Document Scanner (DDS)**. Learn more in the [DDS user guide]({{ site.guides }}document-scanner.html).
+> The following three views are powered by **Mobile Document Scanner (MDS)**. Learn more in the [MDS user guide]({{ site.guides }}index.html).
 
 #### Document Scanner View
 - Camera viewfinder with resolution toggle and more

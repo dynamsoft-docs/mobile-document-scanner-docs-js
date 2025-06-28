@@ -12,12 +12,12 @@ description: Mobile Web Capture Documentation API Reference Index
 
 ## Scan Single-Page Documents
 
-If you need to scan single-page documents and do not require handling PDF files (import or export), you only need **Dynamsoft Document Scanner (DDS)**, a component of **Mobile Web Capture (MWC)**. You can find its API reference here:
+If you need to scan single-page documents and do not require handling PDF files (import or export), you only need **Mobile Document Scanner (MDS)**, a component of **Mobile Web Capture (MWC)**. You can find its API reference here:
 
-- [Dynamsoft Document Scanner API Reference]({{ site.api }}document-scanner.html)
+- [Mobile Document Scanner API Reference]({{ site.api }}index.html)
 
 > [!TIP]
-> See it in action with the [Dynamsoft Document Scanner Demo](https://demo.dynamsoft.com/document-scanner/).
+> See it in action with the [Mobile Document Scanner Demo](https://demo.dynamsoft.com/document-scanner/).
 
 ## Scan Multi-Page Documents
 
