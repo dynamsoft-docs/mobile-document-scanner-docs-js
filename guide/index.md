@@ -3,6 +3,7 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
+breadcrumbText: Developer Guide
 title: Mobile Document Scanner JS Edition - Scan Single-Page Documents
 keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Dynamsoft Document Scanner,
 description: Mobile Document Scanner JS Edition User Guide
