@@ -12,7 +12,7 @@ description: Mobile Document Scanner JS Edition User Guide
 # Scan Single-Page Documents with Mobile Document Scanner
 
 > [!TIP]
-> Prerequisite: Read the [Introduction]({{ site.introduction }}index.html) before proceeding.
+> Read the [Introduction]({{ site.introduction }}index.html) for an overview of the SDK architecture.
 
 Dynamsoft's **Mobile Document Scanner JavaScript Edition (MDS)** is a web SDK designed for scanning single-page documents. MDS captures images of the documents and enhances their quality to professional standards, making it an ideal tool for mobile document scanning.
 
@@ -49,7 +49,7 @@ If you do not have a trial license for **MDS**, you can request one here:
 
 {% include trialLicense.html %}
 
- The trial license can be renewed twice for a total of two months of free access.
+The trial license can be renewed twice for a total of two months of free access.
 
 ### Get a Full License
 
@@ -76,32 +76,40 @@ You can choose one of the following methods to set up a Hello World page:
 
 ### Build from Source
 
-This method retrieves all **MDS** source files from its [GitHub Repository](https://github.com/Dynamsoft/document-scanner-javascript), compiles them into a distributable package, and then runs a *ready-made* Hello World sample page included in the repository:
+This method retrieves all **MDS** source files from its [GitHub Repository](https://github.com/Dynamsoft/document-scanner-javascript), compiles them into a distributable package, and then runs a _ready-made_ Hello World sample page included in the repository:
 
 1. Download **MDS** from [GitHub](https://github.com/Dynamsoft/document-scanner-javascript) as a compressed folder.
+
 2. Extract the contents of the archive, and open the extracted directory in a code editor.
+
 3. Set your [license key](#get-a-trial-license) in the Hello World sample:
-   1. Open the Hello World sample at ([`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html)).
-   2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
-4. Install project dependencies
-    In the terminal, navigate to the project root directory and run:
+
+    1. Open the Hello World sample at ([`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html)).
+
+    2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
+
+4. In the terminal, navigate to the project root directory and run the following to install project dependencies:
+
     ```shell
     npm install
     ```
-5. Build the project
-    After installing dependencies, build the project by running:
+
+5. After installing dependencies, build the project by running:
+
     ```shell
     npm run build
     ```
-6. Serve the project locally
-    Start the local server by running:
-    ```shell
-    npm run serve
-    ```
-Once the server is running, open the application in a browser using the address provided in the terminal output after running `npm run serve`.
 
-> [!TIP]
-> See the server configuration details in [`/dev-server/index.js`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/dev-server/index.js).
+6. Start the local server by running the following to serve the project locally:
+
+    ```shell
+      npm run serve
+    ```
+
+    Once the server is running, open the application in a browser using the address provided in the terminal output after running `npm run serve`.
+
+    > [!TIP]
+    > See the server configuration details in [`/dev-server/index.js`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/dev-server/index.js).
 
 <div class="multi-panel-end"></div>
 
@@ -113,6 +121,7 @@ Once the server is running, open the application in a browser using the address 
 We publish **MDS** library files on [npm](https://www.npmjs.com/package/dynamsoft-document-scanner) to make them simple to reference from a CDN.
 
 To use the precompiled script, simply include the following URL in a `<script>` tag:
+
 ```html
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2/dist/dds.bundle.js"></script>
 ```
@@ -154,7 +163,8 @@ Below is the complete Hello World sample page that uses this precompiled script 
           const canvas = result.correctedImageResult.toCanvas();
           resultContainer.appendChild(canvas);
         } else {
-          resultContainer.innerHTML = "<p>No image scanned. Please try again.</p>";
+          resultContainer.innerHTML =
+            "<p>No image scanned. Please try again.</p>";
         }
       })();
     </script>
@@ -182,15 +192,20 @@ By default, the MDS library (whether pre-compiled or self-compiled) fetches reso
 First, download a copy of the resources:
 
 1. Download **Document Scanner** from [GitHub](https://github.com/Dynamsoft/document-scanner-javascript) as a compressed folder.
+
 2. Extract the contents of the archive, and open the extracted directory in a code editor.
+
 3. Set your [license key](#get-a-trial-license) in the Hello World sample:
-   1. Open the Hello World sample at ([`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html)).
-   2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
-4. Install project dependencies
-    In the terminal, navigate to the project root directory and run:
-    ```shell
-    npm install
-    ```
+
+    1. Open the Hello World sample at ([`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html)).
+
+    2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
+
+4. In the terminal, navigate to the project root directory and run the following to install project dependencies:
+
+      ```shell
+      npm install
+      ```
 
 #### Point to Resources
 
@@ -198,18 +213,18 @@ The library uses [`engineResourcePaths`]({{ site.api }}document-scanner.html#eng
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE",
-    scannerViewConfig: {
-        cameraEnhancerUIPath: "./dist/document-scanner.ui.html", // Use the local file
-    },
-    engineResourcePaths: {
-        std: "./dist/libs/dynamsoft-capture-vision-std/dist/",
-        dip: "./dist/libs/dynamsoft-image-processing/dist/",
-        core: "./dist/libs/dynamsoft-core/dist/",
-        license: "./dist/libs/dynamsoft-license/dist/",
-        cvr: "./dist/libs/dynamsoft-capture-vision-router/dist/",
-        ddn: "./dist/libs/dynamsoft-document-normalizer/dist/",
-    },
+  license: "YOUR_LICENSE_KEY_HERE",
+  scannerViewConfig: {
+    cameraEnhancerUIPath: "./dist/document-scanner.ui.html", // Use the local file
+  },
+  engineResourcePaths: {
+    std: "./dist/libs/dynamsoft-capture-vision-std/dist/",
+    dip: "./dist/libs/dynamsoft-image-processing/dist/",
+    core: "./dist/libs/dynamsoft-core/dist/",
+    license: "./dist/libs/dynamsoft-license/dist/",
+    cvr: "./dist/libs/dynamsoft-capture-vision-router/dist/",
+    ddn: "./dist/libs/dynamsoft-document-normalizer/dist/",
+  },
 });
 ```
 
@@ -257,8 +272,9 @@ Once the server is running, open the application in a browser using the address 
 **Place the `dist` directory** onto your web server for to serve the web application. When deploying your web application for production, you must serve it over a **secure HTTPS connection**. We require this for the following reasons:
 
 1. **Browser Security Restrictions** – Most browsers only allow access to camera video streams in a secure context.
-  > [!NOTE]
-  > Some browsers like Chrome may grant access to camera video streams for `http://127.0.0.1`, `http://localhost`, or even pages opened directly from the local file system (`file:///...`). This can be helpful during development and testing.
+
+    > [!NOTE]
+    > Some browsers like Chrome may grant access to camera video streams for `http://127.0.0.1`, `http://localhost`, or even pages opened directly from the local file system (`file:///...`). This can be helpful during development and testing.
 
 2. **Dynamsoft License Requirements** – A secure context is required for **Dynamsoft licenses** to function properly.
 
@@ -267,15 +283,15 @@ Once the server is running, open the application in a browser using the address 
 Certain legacy web application servers may lack support for the `application/wasm` mimetype for .wasm files. To address this, you have two options:
 
 1. Upgrade your web application server to one that supports the `application/wasm` mimetype.
-2. Manually define the mimetype on your server  by setting the MIME type for `.wasm` as `application/wasm`. This allows the user's browser to correctly processes resource files. Different web servers have their own way of configuring the MIME type. Here are instructions for [Apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings), [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap), and [NGINX](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types).
+2. Manually define the mimetype on your server by setting the MIME type for `.wasm` as `application/wasm`. This allows the user's browser to correctly processes resource files. Different web servers have their own way of configuring the MIME type. Here are instructions for [Apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings), [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap), and [NGINX](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types).
 
 #### Resource Caching
 
 The `wasm` resource files are relatively large and may take quite a few seconds to download. We recommend setting a longer cache time for these resource files to maximize the performance of your web application using the `Cache-Control` HTTP header. For example, use the `max-age` directive to cache resources for a specified time in seconds:
 
- ```
- Cache-Control: max-age=31536000
- ```
+```
+Cache-Control: max-age=31536000
+```
 
 Reference:
 [`Cache-Control`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
@@ -305,6 +321,7 @@ Here we walk through the code in the Hello World sample to explain how it works.
     <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2/dist/dds.bundle.js"></script>
     -->
   </head>
+</html>
 ```
 
 In this step, MDS is referenced using a relative local path in the `<head>` section of the HTML.
@@ -328,7 +345,7 @@ Alternatively, the script can be referenced from a CDN:
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
 });
 ```
 
@@ -353,9 +370,9 @@ API Reference:
 
 This step launches the user into the document scanning workflow, beginning in the `DocumentScannerView`, where they can scan a document using one of three methods:
 
-* Option 1: Manually scan by pressing the **shutter button**.
-* Option 2: Enable "**Smart Capture**" - the scanner will automatically capture an image once a document is detected.
-* Option 3: Enable "**Auto Crop**" - the scanner will automatically capture an image, detect the document, and crop it out of the video frame.
+- Option 1: Manually scan by pressing the **shutter button**.
+- Option 2: Enable "**Smart Capture**" - the scanner will automatically capture an image once a document is detected.
+- Option 3: Enable "**Auto Crop**" - the scanner will automatically capture an image, detect the document, and crop it out of the video frame.
 
 > [!TIP]
 > For Options 1 & 2: The user is directed to `DocumentCorrectionView` to review detected document boundaries and make any necessary adjustments before applying corrections. Afterward, they proceed to `DocumentResultView`.
@@ -370,8 +387,9 @@ The workflow returns a scanned image object of type `CorrectedImageResult`. To d
 
 ```html
 <body>
-    <h1 style="font-size: large">Mobile Document Scanner</h1>
-    <div id="results"></div>
+  <h1 style="font-size: large">Mobile Document Scanner</h1>
+  <div id="results"></div>
+</body>
 ```
 
 API Reference:
@@ -382,11 +400,11 @@ The following code clears the result container and displays the scanned result a
 
 ```javascript
 if (result?.correctedImageResult) {
-    resultContainer.innerHTML = "";
-    const canvas = result.correctedImageResult.toCanvas();
-    resultContainer.appendChild(canvas);
+  resultContainer.innerHTML = "";
+  const canvas = result.correctedImageResult.toCanvas();
+  resultContainer.appendChild(canvas);
 } else {
-    resultContainer.innerHTML = "<p>No image scanned. Please try again.</p>";
+  resultContainer.innerHTML = "<p>No image scanned. Please try again.</p>";
 }
 ```
 
@@ -433,8 +451,8 @@ The customization examples below will build on the Hello World code from the [pr
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    // Add more arguments
+  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+  // Add more arguments
 });
 ```
 
@@ -444,7 +462,7 @@ In the Hello World sample, we use the complete workflow with minimum configurati
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
 });
 // Launch the scanner and wait for the result
 const result = await documentScanner.launch();
@@ -465,11 +483,11 @@ As long as the `DocumentScanner` container is assigned, **MDS** confines its **V
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    container: document.getElementById("myDocumentScannerContainer") , // Use this container for the full workflow
-    scannerViewConfig: {
-        container: document.getElementById("myDocumentScannerViewContainer") // This container is ignored
-    }
+  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+  container: document.getElementById("myDocumentScannerContainer"), // Use this container for the full workflow
+  scannerViewConfig: {
+    container: document.getElementById("myDocumentScannerViewContainer"), // This container is ignored
+  },
 });
 ```
 
@@ -484,9 +502,9 @@ In some cases, `DocumentResultView` and `DocumentCorrectionView` may not be need
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    showResultView: false,
-    showCorrectionView: false
+  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+  showResultView: false,
+  showCorrectionView: false,
 });
 ```
 
@@ -500,23 +518,29 @@ API Reference:
 If only the `DocumentScannerView`, `DocumentResultView`, and `DocumentCorrectionView` containers are provided without the `DocumentScanner` container, **MDS** renders the full workflow using these three containers.
 
 ```html
-<div id="myDocumentScannerViewContainer" style="width: 80vw; height: 80vh"></div>
-<div id="myDocumentCorrectionViewContainer" style="width: 80vw; height: 80vh"></div>
+<div
+  id="myDocumentScannerViewContainer"
+  style="width: 80vw; height: 80vh"
+></div>
+<div
+  id="myDocumentCorrectionViewContainer"
+  style="width: 80vw; height: 80vh"
+></div>
 <div id="myScanResultViewContainer" style="width: 80vw; height: 80vh"></div>
 ```
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    scannerViewConfig: {
-        container: document.getElementById("myDocumentScannerViewContainer")
-    },
-    correctionViewConfig: {
-        container: document.getElementById("myDocumentCorrectionViewContainer")
-    },
-    resultViewConfig: {
-        container: document.getElementById("myScanResultViewContainer")
-    }
+  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+  scannerViewConfig: {
+    container: document.getElementById("myDocumentScannerViewContainer"),
+  },
+  correctionViewConfig: {
+    container: document.getElementById("myDocumentCorrectionViewContainer"),
+  },
+  resultViewConfig: {
+    container: document.getElementById("myScanResultViewContainer"),
+  },
 });
 ```
 
@@ -537,20 +561,20 @@ Then get the input file as a `File` object, and pass that file object to `launch
 
 ```js
 document.getElementById("initialFile").onchange = async function () {
-const files = Array.from(this.files || []);
-if (files.length) {
+  const files = Array.from(this.files || []);
+  if (files.length) {
     const result = await documentScanner.launch(files[0]);
     console.log(result);
 
     // Clear the result container and display the scanned result as a canvas
     if (result?.correctedImageResult) {
-    resultContainer.innerHTML = ""; // Clear placeholder content
-    const canvas = result.correctedImageResult.toCanvas();
-    resultContainer.appendChild(canvas);
+      resultContainer.innerHTML = ""; // Clear placeholder content
+      const canvas = result.correctedImageResult.toCanvas();
+      resultContainer.appendChild(canvas);
     } else {
-    resultContainer.innerHTML = "<p>No image scanned. Please try again.</p>";
+      resultContainer.innerHTML = "<p>No image scanned. Please try again.</p>";
     }
-}
+  }
 };
 ```
 
@@ -623,23 +647,27 @@ By default, `cameraEnhancerUIPath` points to a file hosted on the jsDelivr CDN:
 This file defines the UI for `DocumentScannerView`. However, since files on the CDN **cannot be modified directly**, you need to use a **local version** to customize the UI. `cameraEnhancerUIPath` is used to specify the local version.
 
 ##### Steps to Customize the UI for `DocumentScannerView`
+
 1. Follow the instructions in [Build from Source](#build-from-source) to obtain the source files for **MDS**.
+
 2. Edit `/src/document-scanner.ui.html` to apply your customizations.
+
 3. Build the project to generate the updated file in `/dist/document-scanner.ui.html`:
 
-   ```shell
-   npm run build
-   ```
+    ```shell
+    npm run build
+    ```
+
 4. Update the configuration to use the local file instead of the CDN version:
 
-   ```javascript
-   const documentScanner = new Dynamsoft.DocumentScanner({
-       license: "YOUR_LICENSE_KEY_HERE", // Replace with your actual license key
-       scannerViewConfig: {
-           cameraEnhancerUIPath: "../dist/document-scanner.ui.html", // Use the local file
-       },
-   });
-   ```
+    ```javascript
+    const documentScanner = new Dynamsoft.DocumentScanner({
+      license: "YOUR_LICENSE_KEY_HERE", // Replace with your actual license key
+      scannerViewConfig: {
+        cameraEnhancerUIPath: "../dist/document-scanner.ui.html", // Use the local file
+      },
+    });
+    ```
 
 API Reference:
 
@@ -724,18 +752,18 @@ We can use it to change the icon and label of each of the three buttons individu
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    correctionViewConfig: {
-        toolbarButtonsConfig: {
-            fullImage: {
-                isHidden: true
-            },
-            detectBorders: {
-                icon: "path/to/new_icon.png", // Change to the actual path of the new icon
-                label: "Custom Label"
-            }
-        }
-    }
+  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+  correctionViewConfig: {
+    toolbarButtonsConfig: {
+      fullImage: {
+        isHidden: true,
+      },
+      detectBorders: {
+        icon: "path/to/new_icon.png", // Change to the actual path of the new icon
+        label: "Custom Label",
+      },
+    },
+  },
 });
 ```
 
@@ -751,13 +779,13 @@ The `onFinish` callback triggers after the user's corrections have been applied.
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    correctionViewConfig: {
-        onFinish: (result) => {
-            const canvas = result.correctedImageResult.toCanvas();
-            resultContainer.appendChild(canvas);
-        }
-    }
+  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+  correctionViewConfig: {
+    onFinish: (result) => {
+      const canvas = result.correctedImageResult.toCanvas();
+      resultContainer.appendChild(canvas);
+    },
+  },
 });
 ```
 
@@ -802,18 +830,18 @@ Below is an example that sets a custom label and image icon for the "retake" but
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    resultViewConfig: {
-        toolbarButtonsConfig: {
-            retake: {
-                icon: "path/to/new_icon.png", // Change to the actual path of the new icon
-                label: "Custom Label"
-            },
-            share: {
-                isHidden: true
-            }
-        }
-    }
+  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+  resultViewConfig: {
+    toolbarButtonsConfig: {
+      retake: {
+        icon: "path/to/new_icon.png", // Change to the actual path of the new icon
+        label: "Custom Label",
+      },
+      share: {
+        isHidden: true,
+      },
+    },
+  },
 });
 ```
 
@@ -829,14 +857,13 @@ The `onDone` callback triggers when the "Done" button is pressed. For example, t
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    resultViewConfig: {
-        onDone: async (result) =>
-        {
-            const canvas = result.correctedImageResult.toCanvas();
-            resultContainer.appendChild(canvas);
-        }
-    }
+  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+  resultViewConfig: {
+    onDone: async (result) => {
+      const canvas = result.correctedImageResult.toCanvas();
+      resultContainer.appendChild(canvas);
+    },
+  },
 });
 ```
 
@@ -857,24 +884,24 @@ The following example demonstrates how to upload the result image to a server:
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    resultViewConfig: {
-        onUpload: async (result) => {
-            const host = window.location.origin;
-            const blob = await result.correctedImageResult.toBlob();
-            // Create form data
-            const formData = new FormData();
-            formData.append("uploadFile", blob, "uploadedFile.png");
-            // Upload file
-            const response = await fetch(
-                `${host}/upload`, // Change this to your actual upload URL
-                {
-                    method: "POST",
-                    body: formData,
-                }
-            );
+  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+  resultViewConfig: {
+    onUpload: async (result) => {
+      const host = window.location.origin;
+      const blob = await result.correctedImageResult.toBlob();
+      // Create form data
+      const formData = new FormData();
+      formData.append("uploadFile", blob, "uploadedFile.png");
+      // Upload file
+      const response = await fetch(
+        `${host}/upload`, // Change this to your actual upload URL
+        {
+          method: "POST",
+          body: formData,
         },
+      );
     },
+  },
 });
 ```
 
