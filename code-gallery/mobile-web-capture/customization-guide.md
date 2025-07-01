@@ -68,7 +68,7 @@ Keep TOC only for npm /github as readme
    2. `toolbarButtonsConfig`: Configures the button in the toolbar of the history view.
 12. `ddvResourcePath`: Paths to extra resources such as `.wasm` engine files and CSS files.
 
-API Reference: [`MobileWebCaptureConfig`]({{ site.api }}mobile-web-capture.html#mobilewebcaptureconfig)
+API Reference: [`MobileWebCaptureConfig`]({{ site.code-gallery }}}mobile-web-capture/api.html#mobilewebcaptureconfig)
 
 ## Overall UI and Workflow Customization
 
@@ -146,7 +146,7 @@ document.getElementById("initialFile").onchange = async function () {
 ```
 
 API Reference:
-- [`hasLaunched`]({{ site.api }}mobile-web-capture.html#haslaunched)
+- [`hasLaunched`]({{ site.code-gallery }}}mobile-web-capture/.html#haslaunched)
 - [`dispose`]({{ site.api }}mobile-web-capture.html#dispose)
 
 ### Scan Directly to Document

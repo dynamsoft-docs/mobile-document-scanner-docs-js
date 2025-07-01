@@ -209,7 +209,7 @@ First, download a copy of the resources:
 
 #### Point to Resources
 
-The library uses [`engineResourcePaths`]({{ site.api }}document-scanner.html#engineresourcepaths) to locate required Dynamsoft `node` dependencies by pointing to the location of the resources on your web server. The library also uses `scannerViewConfig.cameraEnhancerUIPath` similarly to set the path for the HTML UI template of the `ScannerView`. Later steps will place both the `node` dependencies and the HTML template in the local `dist` directory. Therefore, set `engineResourcePaths` in the MDS constructor to point to the local `dist` directory (along with setting your license key, and all other configurations):
+The library uses [`engineResourcePaths`]({{ site.api }}index.html#engineresourcepaths) to locate required Dynamsoft `node` dependencies by pointing to the location of the resources on your web server. The library also uses `scannerViewConfig.cameraEnhancerUIPath` similarly to set the path for the HTML UI template of the `ScannerView`. Later steps will place both the `node` dependencies and the HTML template in the local `dist` directory. Therefore, set `engineResourcePaths` in the MDS constructor to point to the local `dist` directory (along with setting your license key, and all other configurations):
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
@@ -230,11 +230,11 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
-- [`DocumentScannerViewConfig`]({{ site.api }}document-scanner.html#documentscannerviewconfig)
-- [`engineResourcePaths`]({{ site.api }}document-scanner.html#engineresourcepaths)
-- [`cameraEnhancerUIPath`]({{ site.api }}document-scanner.html#cameraenhanceruipaths)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
+- [`DocumentScannerViewConfig`]({{ site.api }}index.html#documentscannerviewconfig)
+- [`engineResourcePaths`]({{ site.api }}index.html#engineresourcepaths)
+- [`cameraEnhancerUIPath`]({{ site.api }}index.html#cameraenhanceruipaths)
 
 #### Modify the Build Script
 
@@ -351,7 +351,7 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
 
 This step creates the **MDS** UI, which occupies the entire visible area of the browser window by default when launched. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Confine DocumentScanner UI to a Specific Container](#example-1-confine-documentscanner-ui-to-a-specific-container).
 
@@ -366,7 +366,7 @@ const result = await documentScanner.launch();
 
 API Reference:
 
-- [`launch()`]({{ site.api }}document-scanner.html#launch)
+- [`launch()`]({{ site.api }}index.html#launch)
 
 This step launches the user into the document scanning workflow, beginning in the `DocumentScannerView`, where they can scan a document using one of three methods:
 
@@ -394,7 +394,7 @@ The workflow returns a scanned image object of type `CorrectedImageResult`. To d
 
 API Reference:
 
-- [`DocumentResult`]({{ site.api }}document-scanner.html#documentresult)
+- [`DocumentResult`]({{ site.api }}index.html#documentresult)
 
 The following code clears the result container and displays the scanned result as a canvas:
 
@@ -414,7 +414,7 @@ This section builds on the Hello World sample to demonstrate how to configure **
 
 ### `DocumentScannerConfig` Overview
 
-[`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig) is the primary configuration object for customizing **MDS**. It includes the following properties:
+[`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig) is the primary configuration object for customizing **MDS**. It includes the following properties:
 
 1. `license`: The license key.
 2. `container`: The HTML container for the entire workflow. If not specified (like in the Hello World Sample), one is created automatically.
@@ -493,8 +493,8 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
 
 #### Example 2: Only Show `DocumentScannerView`
 
@@ -510,8 +510,8 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
 
 #### Example 3: Specify Individual View Containers
 
@@ -546,8 +546,8 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
 
 #### Example 4: Scan Static Image Directly
 
@@ -614,9 +614,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
-- [`DocumentScannerViewConfig`]({{ site.api }}document-scanner.html#documentscannerviewconfig)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
+- [`DocumentScannerViewConfig`]({{ site.api }}index.html#documentscannerviewconfig)
 
 ### View-Based Customization
 
@@ -671,9 +671,9 @@ This file defines the UI for `DocumentScannerView`. However, since files on the 
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
-- [`DocumentScannerViewConfig`]({{ site.api }}document-scanner.html#documentscannerviewconfig)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
+- [`DocumentScannerViewConfig`]({{ site.api }}index.html#documentscannerviewconfig)
 
 ##### Customizing the Scanning Region
 
@@ -695,7 +695,7 @@ interface ScanRegion {
 
 API Reference:
 
-[`ScanRegion`]({{ site.api }}document-scanner.html#scanregion)
+[`ScanRegion`]({{ site.api }}index.html#scanregion)
 
 Here is how the scanning region is set:
 
@@ -769,9 +769,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
-- [`DocumentCorrectionViewConfig`]({{ site.api }}document-scanner.html#documentcorrectionviewconfig)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
+- [`DocumentCorrectionViewConfig`]({{ site.api }}index.html#documentcorrectionviewconfig)
 
 ##### Customizing Apply Button Callback
 
@@ -791,9 +791,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
-- [`DocumentCorrectionViewConfig`]({{ site.api }}document-scanner.html#documentcorrectionviewconfig)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
+- [`DocumentCorrectionViewConfig`]({{ site.api }}index.html#documentcorrectionviewconfig)
 
 #### `DocumentResultView` Configuration
 
@@ -847,9 +847,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
-- [`DocumentResultViewConfig`]({{ site.api }}document-scanner.html#documentresultviewconfig)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
+- [`DocumentResultViewConfig`]({{ site.api }}index.html#documentresultviewconfig)
 
 ##### Customizing the "Done" Button Callback
 
@@ -869,9 +869,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
-- [`DocumentResultViewConfig`]({{ site.api }}document-scanner.html#documentresultviewconfig)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
+- [`DocumentResultViewConfig`]({{ site.api }}index.html#documentresultviewconfig)
 
 ##### Customizing the "Upload" Button
 
@@ -907,9 +907,9 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 
 API Reference:
 
-- [`DocumentScanner()`]({{ site.api }}document-scanner.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
-- [`DocumentResultViewConfig`]({{ site.api }}document-scanner.html#documentresultviewconfig)
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
+- [`DocumentResultViewConfig`]({{ site.api }}index.html#documentresultviewconfig)
 
 ## Next Step
 
