@@ -425,7 +425,7 @@ interface UtilizedTemplateNames {
 
 ### `EngineResourcePaths`
 
-Paths to extra resources such as `.wasm` engine files. The default paths point to CDNs and so may be left unset. You may set custom paths for the purpose of [self-hosting resources]({{ site.guides }}mobile-web-capture-customization.html#self-hosting-resource-files).
+Paths to extra resources such as `.wasm` engine files. The default paths point to CDNs and so may be left unset. You may set custom paths for the purpose of [self-hosting resources]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#self-hosting-resource-files).
 
 #### Syntax
 

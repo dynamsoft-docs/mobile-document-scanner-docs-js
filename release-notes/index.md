@@ -4,13 +4,12 @@ needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
 title: Document Scanner - Release Notes
-keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Document Scanner, DDS, MWC, Release Notes
+keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Document Scanner, MDS, MWC, Release Notes
 breadcrumbText: Release Notes
 description: Mobile Web Capture Documentation Release Notes
-permalink: /release-notes/document-scanner.html
 ---
 
-# Document Scanner Release Notes
+# Mobile Document Scanner JavaScript Edition Release Notes
 
 ## 1.2.0 (30/04/2025)
 
@@ -27,7 +26,7 @@ permalink: /release-notes/document-scanner.html
     - `minVerifiedFramesForAutoCapture`: Change the minimum verified frames to auto capture the document. `2` frames are needed by default. Lower this number to make the capture faster (this could have an effect on accuracy/quality of image scanned).
     - `scanRegion`: allows users to set a scan region while scanning a document
 
-```
+```typescript
 export interface ScanRegion {
   ratio: {
     width: number;

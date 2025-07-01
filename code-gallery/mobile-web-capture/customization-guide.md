@@ -11,7 +11,7 @@ description: Mobile Document Scanner JS Edition User Guide
 # How to Customize Mobile Web Capture
 
 > [!TIP]
-> Prerequisites: read the [MWC Getting Started Guide]({{ site.guides }}mobile-web-capture.html) before proceeding.
+> Prerequisites: read the [MWC Getting Started Guide]({{ site.guide }}mobile-web-capture/index.html) before proceeding.
 
 This guide expands on the **Hello World** sample from the **MWC Getting Started Guide** and explores the available customization options.
 
@@ -51,7 +51,7 @@ Keep TOC only for npm /github as readme
    4. `onUploadSuccess`: Specifies a function that is triggered when the upload operation succeeds.
 4. `showLibraryView`: Configures where or not this **MWC** instance starts with the `LibraryView`.
 5. `onClose`: Specifies a function that is triggered when the user closes this **MWC** instance.
-6. `documentScannerConfig`: Configures the behavior of the built-in `DocumentScanner` instance. See the details in [`DocumentScannerConfig`]({{ site.guides }}document-scanner.html#documentscannerconfig-overview).
+6. `documentScannerConfig`: Configures the behavior of the built-in `DocumentScanner` instance. See the details in [`DocumentScannerConfig`]({{ site.guide }}document-scanner.html#documentscannerconfig-overview).
 7. `libraryViewConfig`: Configures the library view with the following properties:
    1. `emptyContentConfig`: Specifies the content displayed in the library view when it is empty (no document).
    2. `toolbarButtonsConfig`: Configures the buttons in the toolbar of the library view.

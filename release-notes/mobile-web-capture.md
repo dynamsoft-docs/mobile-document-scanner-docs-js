@@ -58,7 +58,7 @@ In this release, **Mobile Web Capture (MWC)** has been completely redesigned fro
 **MWC** features are organized into configurable UI views. Below is an overview of their main functionalities:
 
 > [!TIP]
-> Learn more in the [MWC user guide]({{ site.guides }}mobile-web-capture.html).
+> Learn more in the [MWC user guide]({{ site.code-gallery }}mobile-web-capture/index.html).
 
 #### Library View
 - Organize and manage multiple scanned documents
@@ -82,7 +82,7 @@ In this release, **Mobile Web Capture (MWC)** has been completely redesigned fro
 - View upload history
 
 > [!NOTE]
-> The following three views are powered by **Mobile Document Scanner (MDS)**. Learn more in the [MDS user guide]({{ site.guides }}index.html).
+> The following three views are powered by **Mobile Document Scanner (MDS)**. Learn more in the [MDS user guide]({{ site.guide }}index.html).
 
 #### Document Scanner View
 - Camera viewfinder with resolution toggle and more
