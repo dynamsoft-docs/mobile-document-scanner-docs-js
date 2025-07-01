@@ -8,7 +8,7 @@ description: Mobile Document Scanner JS Edition Documentation Homepage
 # Mobile Web Capture
 
 - [Introduction]({{ site.introduction }}index.html)
-- [Developer Guide]({{ site.guides }}index.html)
+- [Developer Guide]({{ site.guide }}index.html)
 - Code Gallery
   - [Mobile Web Capture](({{ site.code-gallery }}mobile-web-capture/index.html))
     - [Customization Guide]({{ site.code-gallery }}mobile-web-capture/customization-guide.html)

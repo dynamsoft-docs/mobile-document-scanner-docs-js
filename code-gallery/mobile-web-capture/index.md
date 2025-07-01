@@ -21,7 +21,7 @@ description: Mobile Document Scanner JS Edition User Guide
 This guide walks you through building a web application that scans multi-page documents using **MWC**, with **pre-defined configurations**.
 
 > [!TIP]
-> If you are looking for a solution that scans single-page documents, please read [Mobile Document Scanner User Guide]({{ site.guides }}index.html) instead.
+> If you are looking for a solution that scans single-page documents, please read [Mobile Document Scanner User Guide]({{ site.guide }}index.html) instead.
 
 <!--
 Keep TOC only for npm /github as readme
@@ -186,7 +186,7 @@ Alternatively, the script can be referenced from a CDN:
 **MWC** wraps all its dependency scripts, so a **MWC** project only needs to include **MWC** itself as a single script. No additional dependency scripts are required.
 
 > [!IMPORTANT]
-> Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the instructions in [Self-Hosting Resource File]({{ site.guides }}mobile-web-capture-customization.html#self-hosting-resource-files).
+> Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the instructions in [Self-Hosting Resource File]({{ site.guide }}mobile-web-capture/customization-guide.html#self-hosting-resource-files).
 
 ### Instantiate MWC
 
@@ -199,7 +199,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 
 API Reference: [`MobileWebCapture()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#mobilewebcapture)
 
-This step creates the **MWC** UI, which, when launched, occupies the entire visible area of the browser window by default. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Specify the UI Container]({{ site.guides }}mobile-web-capture-customization.html#example-1-specify-the-ui-container).
+This step creates the **MWC** UI, which, when launched, occupies the entire visible area of the browser window by default. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Specify the UI Container]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#example-1-specify-the-ui-container).
 
 > [!WARNING]
 > A **license key** is required for the instantiation.
@@ -234,7 +234,7 @@ The user can:
 5. **Manage** → **Share** : Share individual pages as images (**.PNG**).
    - **Download** is enabled where **Share** is not supported (e.g., in Firefox).
 
-The user can also enable the **"Upload"** feature. Check out [Enable File Upload]({{ site.guides }}mobile-web-capture-customization.html#enable-file-upload)
+The user can also enable the **"Upload"** feature. Check out [Enable File Upload]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#enable-file-upload)
 
 #### The PageView
 When the user presses an image, the `PageView` is launched for that page, where the user can
@@ -249,8 +249,8 @@ When the user presses an image, the `PageView` is launched for that page, where 
 5. **Edit** → **Filter** : Adjust the page's pixels.
 6. **Edit** → **Annotate** : Add annotations to the page.
 
-The user can also enable the **"Upload"** feature. Check out [Enable File Upload]({{ site.guides }}mobile-web-capture-customization.html#enable-file-upload)
+The user can also enable the **"Upload"** feature. Check out [Enable File Upload]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#enable-file-upload)
 
 ## Next Step
 
-Mobile Web Capture provides extensive customization options. Read on to explore the available customizations in the [MWC Customization Guide]({{ site.guides }}mobile-web-capture-customization.html).
+Mobile Web Capture provides extensive customization options. Read on to explore the available customizations in the [MWC Customization Guide]({{ site.code-gallery }}mobile-web-capture/customization-guide.html).

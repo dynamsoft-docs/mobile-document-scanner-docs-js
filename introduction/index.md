@@ -23,7 +23,7 @@ When digitizing physical documents - whether for easier storage, better accessib
 3. **Document Processing** – Add *annotations* to scanned pages and perform common editing tasks such as cropping and color filtering.
 
 > [!TIP]
-> Not sure if it is the right fit? **Try the** [DDS demo](https://demo.dynamsoft.com/document-scanner/) first. If it meets your needs, you can skip the rest of this introduction and proceed directly to the [DDS user guide]({{ site.guides }}document-scanner.html).
+> Not sure if it is the right fit? **Try the** [DDS demo](https://demo.dynamsoft.com/document-scanner/) first. If it meets your needs, you can skip the rest of this introduction and proceed directly to the [MDS user guide]({{ site.guide }}index.html).
 
 > [!NOTE]
 > To deliver these features, we built the **Document Scanner** using two core Dynamsoft products: [**Dynamsoft Camera Enhancer**](https://www.dynamsoft.com/camera-enhancer/docs/web/programming/javascript/user-guide/index.html?lang=javascript) (DCE) and [**Dynamsoft Document Normalizer**](https://www.dynamsoft.com/document-normalizer/docs/web/programming/javascript/user-guide/index.html?lang=javascript) (DDN).
@@ -96,6 +96,6 @@ The table below lists the **minimum supported versions** of browsers based on th
 
 ## Next Step
 
-- If you only need to scan single-page documents, proceed to the [Mobile Document Scanner Developer Guide]({{ site.guides }}index.html).
+- If you only need to scan single-page documents, proceed to the [Mobile Document Scanner Developer Guide]({{ site.guide }}index.html).
 
-- If you need to handle multi-page documents, **multi-document** scenarios, PDF files, annotations, and more, you will need the fully-featured **Mobile Web Capture (MWC)**. In this case, proceed to the [Mobile Web Capture Developer Guide]({{ site.guides }}mobile-web-capture.html).
+- If you need to handle multi-page documents, **multi-document** scenarios, PDF files, annotations, and more, you will need the fully-featured **Mobile Web Capture (MWC)**. In this case, proceed to the [Mobile Web Capture Developer Guide]({{ site.code-gallery }}mobile-web-capture/index.html).
