@@ -203,7 +203,7 @@ interface MobileWebCaptureConfig {
 
 ##### See Also
 
-- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
 
 #### Example
 
