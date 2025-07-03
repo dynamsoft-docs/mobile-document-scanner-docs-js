@@ -8,12 +8,12 @@ keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Mobile Web Ca
 description: Mobile Document Scanner JS Edition User Guide
 ---
 
-# Scan Multi-Page Documents with Mobile Web Capture
+# Extend Mobile Document Scanner to Full Document Management
 
 > [!TIP]
 > Prerequisites: read the [Introduction]({{ site.introduction }}index.html) before proceeding.
 
-**Mobile Web Capture (MWC)** is an SDK designed for scanning multi-page documents.  It integrates **Mobile Document Scanner (MDS)** functionality  while offering additional features such as multi-document management, annotation, and uploading, making it a comprehensive solution for managing complex document workflows.
+**Mobile Web Capture (MWC)** is an advanced sample designed to extend the features of MDS for managing and scanning multi-page documents.  It integrates **Mobile Document Scanner (MDS)** functionality  while offering additional features such as multi-document management, annotation, and uploading, making it a comprehensive solution for managing complex document workflows.
 
 > [!TIP]
 > See it in action with the [Mobile Web Capture Demo](https://demo.dynamsoft.com/mobile-web-capture/).
@@ -60,7 +60,7 @@ To purchase a full license, [contact us](https://www.dynamsoft.com/company/conta
 
 To use **MWC**, the first step is to obtain its library files. You can acquire them from one of the following sources:
 
-1. [**GitHub**](https://github.com/Dynamsoft/mobile-web-capture) – Contains the source files for the **MWC** SDK, which can be compiled into library files.
+1. [**GitHub**](https://github.com/Dynamsoft/mobile-web-capture) – Contains the source files for the **MWC** sample, which can be compiled into library files.
 2. [**npm**](https://www.npmjs.com/package/dynamsoft-mobile-web-capture) – Provides precompiled library files via npm for easier installation.
 3. [**CDN**](https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture) – Delivers precompiled library files through a CDN for quick and seamless integration.
 
