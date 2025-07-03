@@ -11,26 +11,20 @@ description: Mobile Document Scanner JS Edition Documentation Introduction
 
 # Introduction
 
-When digitizing physical documents - whether for easier storage, better accessibility, or streamlined processing - a hardware scanner is often the preferred choice. However, when hardware scanners are not feasible or convenient, mobile device cameras can serve as effective alternatives. Dynamsoft designed the **Mobile Document Scanner JavaScript Edition (MDS)** SDK to address this need.
+When digitizing physical documents - whether for easier storage, better accessibility, or streamlined processing - a hardware scanner is often the preferred choice. However, when hardware scanners are not feasible or convenient, mobile device cameras can serve as effective alternatives. To address this need, Dynamsoft created the **Mobile Document Scanner JavaScript Edition (MDS) SDK**.
 
 > [!TIP]
 > If you are integrating **hardware scanners** into web applications, you may be interested in **Dynamsoft’s** [**Dynamic Web TWAIN**](https://www.dynamsoft.com/web-twain/docs/introduction/index.html) solution.
 
 ## Common Usage Scenarios
 
-1. **Document Capture** – Capture a *single* clear image of a physical document, such as a patient intake form or the biographical page of a passport.
-2. **Document Management** – Capture images of *multiple* document pages (e.g., a contract) and compile them into a single PDF.
-3. **Document Processing** – Add *annotations* to scanned pages and perform common editing tasks such as cropping and color filtering.
-
-> [!TIP]
-> Not sure if it is the right fit? **Try the** [DDS demo](https://demo.dynamsoft.com/document-scanner/) first. If it meets your needs, you can skip the rest of this introduction and proceed directly to the [MDS user guide]({{ site.guide }}index.html).
-
-> [!NOTE]
-> To deliver these features, we built the **Document Scanner** using two core Dynamsoft products: [**Dynamsoft Camera Enhancer**](https://www.dynamsoft.com/camera-enhancer/docs/web/programming/javascript/user-guide/index.html?lang=javascript) (DCE) and [**Dynamsoft Document Normalizer**](https://www.dynamsoft.com/document-normalizer/docs/web/programming/javascript/user-guide/index.html?lang=javascript) (DDN).
+1. **Single Page Capture** – Capture a single, clear image of a physical document, such as an invoice or patient-intake form. This is the core functionality of MDS. You can try this feature in the [**MDS demo**](https://demo.dynamsoft.com/document-scanner/). If it meets your needs, feel free to go directly to the [**MDS user guide**]({{ site.guide }}index.html).
+2. **Document Management** – Capture images of multiple document pages (e.g., a contract) and compile them into a single PDF. Please contact [Dynamsoft Support](https://www.dynamsoft.com/company/contact/) if you need this feature.
+3. **Advanced Document Management** – Handle multi-page documents, **multiple documents**, PDF files, annotations, and more with the Mobile Web Capture advanced sample project. Check out the [**online demo**](https://demo.dynamsoft.com/mobile-web-capture/), or read the [**developer guide**]({{ site.code-gallery }}mobile-web-capture/index.html) to try it for yourself.
 
 ## Design Principles
 
-We designed the **Document Scanner** with three core principles in mind:
+We designed **MDS** with three core principles in mind:
 
 1. **Minimal Code** - High-level APIs provide full functionality with just **a couple of lines of code**, significantly reducing development and maintenance costs.
 2. **Ready-to-Use UI** - Pre-integrated components and a pre-designed UI enable a **quick setup** while minimizing design efforts.
@@ -50,7 +44,7 @@ The following section provides a high-level overview of the Views.
 
 ## Views
 
-Document Scanner workflows are composed of **Views**, each of which comes **ready-to-use** and can be easily customized using configuration objects. These include the following Views for document scanning and correction:
+MDS workflows are composed of **Views**, each of which comes **ready-to-use** and can be easily customized using configuration objects. These include the following Views for document scanning and correction:
 
 1. **Document Scanner View** – Captures documents using a camera scanner.
 2. **Document Correction View** – Applies further perspective cropping and adjustments.
@@ -76,7 +70,7 @@ When deploying your web application for production, ensure it is served over a *
 
 ### Required Browser Features
 
-The following** browser features** are required for the **DCE** and **DDN** components of the **Document Scanner**:
+The following** browser features** are required for the **DCE** and **DDN** components of **MDS**:
 
 1. [`WebAssembly`](https://caniuse.com/?search=WebAssembly)
 2. [`Blob`](https://caniuse.com/?search=Blob)
@@ -98,4 +92,4 @@ The table below lists the **minimum supported versions** of browsers based on th
 
 - If you only need to scan single-page documents, proceed to the [Mobile Document Scanner Developer Guide]({{ site.guide }}index.html).
 
-- If you need to handle multi-page documents, **multi-document** scenarios, PDF files, annotations, and more, you will need the fully-featured **Mobile Web Capture (MWC)**. In this case, proceed to the [Mobile Web Capture Developer Guide]({{ site.code-gallery }}mobile-web-capture/index.html).
+- If you need to handle multi-page documents, **multi-document** scenarios, PDF files, annotations, and more, you will need the fully-featured **Mobile Web Capture (MWC)**. Please proceed to the [Mobile Web Capture Developer Guide]({{ site.code-gallery }}mobile-web-capture/index.html) **after** the [Mobile Document Scanner Developer Guide]({{ site.guide }}index.html).

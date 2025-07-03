@@ -24,7 +24,7 @@ The most notable improvement in this version is the pluggable scanner feature. T
       1. `_imageData` with a `toBlob()` function
       2. `imageData: true`
       3. `status.code` equal to `EnumresultStatus.RS_SUCCESS`
-2. Update Document Scanner to [version 1.2](https://github.com/Dynamsoft/document-scanner-javascript/releases/tag/v1.2.0)
+2. Update MDS to [version 1.2](https://github.com/Dynamsoft/document-scanner-javascript/releases/tag/v1.2.0)
 3. Change MWC Header color to make the component visually distinct
 4. Move the "Select All" and "Cancel" buttons to the header in the Document View
 

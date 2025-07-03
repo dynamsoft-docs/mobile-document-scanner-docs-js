@@ -57,9 +57,9 @@ The trial license can be renewed twice for a total of two months of free access.
 
 ## Quick Start
 
-To use the **Document Scanner**, first obtain its library files. You can acquire them from one of the following sources:
+To use the **Mobile Document Scanner**, first obtain its library files. You can acquire them from one of the following sources:
 
-1. [**GitHub**](https://github.com/Dynamsoft/document-scanner-javascript) – Contains the source files for the **Document Scanner** SDK, which can be compiled into library files.
+1. [**GitHub**](https://github.com/Dynamsoft/document-scanner-javascript) – Contains the source files for the **MDS** SDK, which can be compiled into library files.
 2. [**npm**](https://www.npmjs.com/package/dynamsoft-document-scanner) – Provides precompiled library files via npm for easier installation.
 3. [**CDN**](https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner) – Delivers precompiled library files through a CDN for quick and seamless integration.
 
@@ -191,7 +191,7 @@ By default, the MDS library (whether pre-compiled or self-compiled) fetches reso
 
 First, download a copy of the resources:
 
-1. Download **Document Scanner** from [GitHub](https://github.com/Dynamsoft/document-scanner-javascript) as a compressed folder.
+1. Download **MDS** from [GitHub](https://github.com/Dynamsoft/document-scanner-javascript) as a compressed folder.
 
 2. Extract the contents of the archive, and open the extracted directory in a code editor.
 
@@ -305,7 +305,7 @@ Reference:
 Here we walk through the code in the Hello World sample to explain how it works.
 
 > [!TIP]
-> You can also view the full code by visiting the [Document Scanner JS Hello World Sample on Github](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html).
+> You can also view the full code by visiting the [MDS JS Hello World Sample on Github](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html).
 
 ### Reference MDS
 
@@ -913,6 +913,8 @@ API Reference:
 
 ## Next Step
 
-**MDS** is a fully functional, ready-to-use **single page** scanning SDK with built-in UI layouts. However, to extend its capabilities for multi-page and multi-document processing, as well as advanced editing features, we developed **Mobile Web Capture (MWC)**.
+**MDS** is a fully functional, ready-to-use **single page** scanning SDK with built-in UI layouts. There are two options which extend the features of MDS:
 
-Read on to learn how to use this web-based wrapper SDK in the [**Mobile Web Capture User Guide**]({{ site.code-gallery }}mobile-web-capture/index.html).
+1. To scan multi-page documents as PDFs, please contact [Dynamsoft Support](https://www.dynamsoft.com/company/contact/) for further information.
+
+2. For multi-page and multi-document processing, as well as advanced editing features, we developed **Mobile Web Capture (MWC)**. Read on to learn how to use this web-based wrapper SDK in the [**Mobile Web Capture User Guide**]({{ site.code-gallery }}mobile-web-capture/index.html).
