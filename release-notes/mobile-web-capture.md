@@ -24,7 +24,7 @@ The most notable improvement in this version is the pluggable scanner feature. T
       1. `_imageData` with a `toBlob()` function
       2. `imageData: true`
       3. `status.code` equal to `EnumresultStatus.RS_SUCCESS`
-2. Update Document Scanner to [version 1.2](https://github.com/Dynamsoft/document-scanner-javascript/releases/tag/v1.2.0)
+2. Update MDS to [version 1.2](https://github.com/Dynamsoft/document-scanner-javascript/releases/tag/v1.2.0)
 3. Change MWC Header color to make the component visually distinct
 4. Move the "Select All" and "Cancel" buttons to the header in the Document View
 
@@ -58,7 +58,7 @@ In this release, **Mobile Web Capture (MWC)** has been completely redesigned fro
 **MWC** features are organized into configurable UI views. Below is an overview of their main functionalities:
 
 > [!TIP]
-> Learn more in the [MWC user guide]({{ site.guides }}mobile-web-capture.html).
+> Learn more in the [MWC user guide]({{ site.code-gallery }}mobile-web-capture/index.html).
 
 #### Library View
 - Organize and manage multiple scanned documents
@@ -82,7 +82,7 @@ In this release, **Mobile Web Capture (MWC)** has been completely redesigned fro
 - View upload history
 
 > [!NOTE]
-> The following three views are powered by **Dynamsoft Document Scanner (DDS)**. Learn more in the [DDS user guide]({{ site.guides }}document-scanner.html).
+> The following three views are powered by **Mobile Document Scanner (MDS)**. Learn more in the [MDS user guide]({{ site.guide }}index.html).
 
 #### Document Scanner View
 - Camera viewfinder with resolution toggle and more

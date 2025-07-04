@@ -1,20 +1,18 @@
 ---
 layout: home-page
-title: Mobile Web Capture Documentation
-keywords: Mobile Web Capture, documentation
-description: Mobile Web Capture Documentation Homepage
+title: Mobile Document Scanner JS Edition Documentation
+keywords: Mobile Document Scanner, Web, JS Edition, documentation
+description: Mobile Document Scanner JS Edition Documentation Homepage
 ---
 
-# Mobile Web Capture
+# Mobile Document Scanner JavaScript Edition
 
 - [Introduction]({{ site.introduction }}index.html)
-- [Developer Guides]({{ site.guides }}index.html)
-  - [Scan Single-Page Documents]({{ site.guides }}document-scanner.html)
-  - [Scan Multi-Page Documents]({{ site.guides }}mobile-web-capture.html)
-  - [Customize UI And Workflow]({{ site.guides }}mobile-web-capture-customization.html)
+- [Developer Guide]({{ site.guide }}index.html)
 - Code Gallery
   - [Frameworks]({{ site.code-gallery }}frameworks.html)
-- [API References]({{ site.api }}index.html)
-  - [Document Scanner]({{ site.api }}document-scanner.html)
-  - [Mobile Web Capture]({{ site.api }}mobile-web-capture.html)
-- [Release notes]({{ site.release-notes }}mobile-web-capture.html)
+  - [Mobile Web Capture](({{ site.code-gallery }}mobile-web-capture/index.html))
+    - [Customization Guide]({{ site.code-gallery }}mobile-web-capture/customization-guide.html)
+    - [API Reference]({{ site.code-gallery }}mobile-web-capture/api.html)
+- [API Reference]({{ site.api }}index.html)
+- [Release notes]({{ site.release-notes }}index.html)

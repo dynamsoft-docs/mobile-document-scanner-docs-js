@@ -1,7 +1,7 @@
 ---
 layout: default-layout
-title: Mobile Web Capture - FAQ
-description: This is the FAQ page of Mobile Web Capture.
+title: Mobile Document Scanner JS Edition - FAQ
+description: Frequently asked questions - Mobile Document Scanner JS Edition
 keywords: faq
 needAutoGenerateSidebar: true
 ---

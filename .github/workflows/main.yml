@@ -20,14 +20,14 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-production.yml@main
     with:
-      doc-repo: mobile-web-capture-docs
-      doc-url: mobile-web-capture/docs/
+      doc-repo: mobile-document-scanner-docs-js
+      doc-url: mobile-document-scanner/docs/web/
     secrets: inherit
 
   Build-Preview:
     if: ${{ github.ref == 'refs/heads/preview' }}
     uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-testing.yml@main
     with:
-      doc-repo: mobile-web-capture-docs
-      doc-url: mobile-web-capture/docs/
+      doc-repo: mobile-document-scanner-docs-js
+      doc-url: mobile-document-scanner/docs/web/
     secrets: inherit

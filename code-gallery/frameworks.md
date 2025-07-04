@@ -3,16 +3,15 @@ layout: default-layout
 # needAutoGenerateSidebar: true
 # needGenerateH3Content: true
 # noTitleIndex: false
-title: Mobile Web Capture - Frameworks
-keywords: Documentation, Mobile Web Capture, frameworks, web frameworks, angular, vue, react
+title: Mobile Document Scanner JS Edition - Frameworks
+keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Mobile Web Capture, frameworks, web frameworks, angular, vue, react
 breadcrumbText: Frameworks
 description: Mobile Web Capture Framework Samples
-permalink: /code-gallery/frameworks.html
 ---
 
 # Frameworks
 
-Dynamsoft provides samples that show how to integrate Dynamsoft Document Scanner and Mobile Web Capture in various frameworks. We recommend using our samples as references when building web applications with DDS and MWC with frameworks.
+Dynamsoft provides samples that show how to integrate Mobile Document Scanner and Mobile Web Capture in various frameworks. We recommend using our samples as references when building web applications with MDS and MWC with frameworks.
 
 > [!NOTE]
 > Please [contact us](https://www.dynamsoft.com/company/contact/) for any inquiries about currently unsupported frameworks.

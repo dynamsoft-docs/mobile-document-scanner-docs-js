@@ -1,29 +1,29 @@
 repository: dynamsoft-docs/mobile-web-capture-docs
 repositoryUrl: https://github.com/dynamsoft-docs/mobile-web-capture-docs/blob/main
-docFullPath: https://www.dynamsoft.com/mobile-web-capture/docs
-firstLevelUrl: /mobile-web-capture/docs
-docHomePage: /mobile-web-capture/docs/introduction/
+docFullPath: https://www.dynamsoft.com/mobile-document-scanner/docs/web
+firstLevelUrl: /mobile-document-scanner/docs/web
+docHomePage: /mobile-document-scanner/docs/web/introduction/
 
-introduction: /mobile-web-capture/docs/introduction/
-gettingstarted: /mobile-web-capture/docs/gettingstarted/
-codegallery: /mobile-web-capture/docs/codegallery/
-code-gallery: /mobile-web-capture/docs/code-gallery/
-api: /mobile-web-capture/docs/api/
+introduction: /mobile-document-scanner/docs/web/introduction/
+gettingstarted: /mobile-document-scanner/docs/web/gettingstarted/
+codegallery: /mobile-document-scanner/docs/web/codegallery/
+code-gallery: /mobile-document-scanner/docs/web/code-gallery/
+api: /mobile-document-scanner/docs/web/api/
 
-guides: /mobile-web-capture/docs/guides/
+guide: /mobile-document-scanner/docs/web/guide/
 
-release-notes: /mobile-web-capture/docs/release-notes/
+release-notes: /mobile-document-scanner/docs/web/release-notes/
 
 useVersionTree: true
 
-assets: /mobile-web-capture/docs/assets/
-edit_icon: /mobile-web-capture/docs/assets/img-icon/edit-icon.png
-smile_icon: /mobile-web-capture/docs/assets/img-icon/icon-smile.png
-sad_icon: /mobile-web-capture/docs/assets/img-icon/icon-sad.png
+assets: /mobile-document-scanner/docs/web/assets/
+edit_icon: /mobile-document-scanner/docs/web/assets//img-icon/edit-icon.png
+smile_icon: /mobile-document-scanner/docs/web/assets/img-icon/icon-smile.png
+sad_icon: /mobile-document-scanner/docs/web/assets/img-icon/icon-sad.png
 
-baseurl: "/mobile-web-capture/docs"
+baseurl: "/mobile-document-scanner/docs/web"
 
-download: "/mobile-web-capture/downloads/"
+download: "/mobile-document-scanner/downloads/"
 
 plugins:
   - jemoji
