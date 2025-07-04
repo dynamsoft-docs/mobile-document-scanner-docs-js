@@ -186,7 +186,7 @@ Alternatively, the script can be referenced from a CDN:
 **MWC** wraps all its dependency scripts, so a **MWC** project only needs to include **MWC** itself as a single script. No additional dependency scripts are required.
 
 > [!IMPORTANT]
-> Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the instructions in [Self-Hosting Resource File]({{ site.guide }}mobile-web-capture/customization-guide.html#self-hosting-resource-files).
+> Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the instructions in [Self-Hosting Resource File]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#self-hosting-resource-files).
 
 ### Instantiate MWC
 
@@ -197,7 +197,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 });
 ```
 
-API Reference: [`MobileWebCapture()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#mobilewebcapture)
+API Reference: [`MobileWebCapture()`]({{ site.code-gallery }}}mobile-web-capture/api.html#mobilewebcapture)
 
 This step creates the **MWC** UI, which, when launched, occupies the entire visible area of the browser window by default. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Specify the UI Container]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#example-1-specify-the-ui-container).
 
@@ -211,7 +211,7 @@ const fileName = `New_Document_${Date.now().toString().slice(-5)}`; // Generates
 await mobileWebCapture.launch(fileName);
 ```
 
-API Reference: [`launch()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#launch)
+API Reference: [`launch()`]({{ site.code-gallery }}}mobile-web-capture/api.html#launch)
 
 This step launches the UI, starting in **`DocumentView`**, where the user can begin building a document in two ways:
 

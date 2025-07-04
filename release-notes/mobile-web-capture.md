@@ -19,7 +19,7 @@ The most notable improvement in this version is the pluggable scanner feature. T
 ### Features
 
 1. Add Pluggable Scanner feature which integrates any scanner satisfying the following:
-   1. Implements the [`MWCScanner`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#mwcscanner) interface
+   1. Implements the [`MWCScanner`]({{ site.code-gallery }}}mobile-web-capture/api.html#mwcscanner) interface
    2. Implements a `launch()` method to return a result that includes:
       1. `_imageData` with a `toBlob()` function
       2. `imageData: true`
