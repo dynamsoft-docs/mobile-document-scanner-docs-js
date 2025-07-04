@@ -90,6 +90,4 @@ The table below lists the **minimum supported versions** of browsers based on th
 
 ## Next Step
 
-- If you only need to scan single-page documents, proceed to the [Mobile Document Scanner Developer Guide]({{ site.guide }}index.html).
-
-- If you need to handle multi-page documents, **multi-document** scenarios, PDF files, annotations, and more, you will need the fully-featured **Mobile Web Capture (MWC)**. Please proceed to the [Mobile Web Capture Developer Guide]({{ site.code-gallery }}mobile-web-capture/index.html) **after** the [Mobile Document Scanner Developer Guide]({{ site.guide }}index.html).
+Proceed to the [Mobile Document Scanner Developer Guide]({{ site.guide }}index.html) to build your own document scanning web application.
