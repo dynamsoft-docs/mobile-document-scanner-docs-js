@@ -1,1 +1,1 @@
-# Mobile-Web-Capture-Docs
+# Mobile-Document-Scanner-Docs

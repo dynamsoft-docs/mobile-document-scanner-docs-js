@@ -11,7 +11,7 @@ description: Mobile Document Scanner JS Edition User Guide
 # How to Customize Mobile Web Capture
 
 > [!TIP]
-> Prerequisites: read the [MWC Getting Started Guide]({{ site.guide }}mobile-web-capture/index.html) before proceeding.
+> Prerequisites: read the [MWC Getting Started Guide]({{ site.code-gallery }}mobile-web-capture/index.html) before proceeding.
 
 This guide expands on the **Hello World** sample from the **MWC Getting Started Guide** and explores the available customization options.
 
@@ -146,8 +146,8 @@ document.getElementById("initialFile").onchange = async function () {
 ```
 
 API Reference:
-- [`hasLaunched`]({{ site.code-gallery }}}mobile-web-capture/.html#haslaunched)
-- [`dispose`]({{ site.api }}mobile-web-capture.html#dispose)
+- [`hasLaunched`]({{ site.code-gallery }}}mobile-web-capture/api.html#haslaunched)
+- [`dispose`]({{ site.code-gallery }}}mobile-web-capture/api.html#dispose)
 
 ### Scan Directly to Document
 

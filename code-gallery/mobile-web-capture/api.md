@@ -305,7 +305,7 @@ interface DocumentViewConfig {
 
 By default, the `DocumentView` displays the following when empty:
 
-![Empty Document View](https://www.dynamsoft.com/mobile-web-capture/docs/assets/imgs/empty-document-view.png)
+![Empty Document View]({{ site.assets }}imgs/empty-document-view.png)
 
 You can customize its appearance using the [`emptyContentConfig`](#emptycontentconfig) property.
 

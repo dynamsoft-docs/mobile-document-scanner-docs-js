@@ -119,16 +119,16 @@ interface DocumentScannerConfig {
 
 #### Properties
 
-| Property                | Type                                                            | Description                                                     |
-| ----------------------- | --------------------------------------------------------------- | ---------------------------------------------------------       |
-| `license`               | `string`                                                        | The license key for using the `DocumentScanner`.                |
-| `container`             | ``HTMLElement | string``                                        | The container element or selector for the `DocumentScanner` UI. |
-| `scannerViewConfig`     | [`DocumentScannerViewConfig`](#documentscannerconfig)           | Configuration settings for the scanner view.                    |
-| `resultViewConfig`      | [`DocumentResultViewConfig`](#documentresultviewconfig)         | Configuration settings for the result view.                     |
-| `correctionViewConfig`  | [`DocumentCorrectionViewConfig`](#documentcorrectionviewconfig) | Configuration settings for the correction view.                 |
-| `templateFilePath`      | `string`                                                        | The file path to the document template used for scanning.       |
-| `utilizedTemplateNames` | [`UtilizedTemplateNames`](#utilizedtemplatenames)               | Specifies detection and correction templates.                   |
-| `engineResourcePaths`   | [`EngineResourcePaths`](#engineresourcepaths)                   | Paths to the necessary resources for the scanning engine.       |
+| Property                | Type                                                            | Description                                                                                                                                                                                                                         |
+| ----------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `license`               | `string`                                                        | The license key for using the `DocumentScanner`.                                                                                                                                                                                    |
+| `container`             | ``HTMLElement | string``                                        | The container element or selector for the `DocumentScanner` UI.                                                                                                                                                                     |
+| `scannerViewConfig`     | [`DocumentScannerViewConfig`](#documentscannerconfig)           | Configuration settings for the scanner view.                                                                                                                                                                                        |
+| `resultViewConfig`      | [`DocumentResultViewConfig`](#documentresultviewconfig)         | Configuration settings for the result view.                                                                                                                                                                                         |
+| `correctionViewConfig`  | [`DocumentCorrectionViewConfig`](#documentcorrectionviewconfig) | Configuration settings for the correction view.                                                                                                                                                                                     |
+| `templateFilePath`      | `string`                                                        | The file path to the document template used for scanning. You may set custom paths to self-host the template, or host MDS fully offline - see [self-hosting resources]({{ site.guide }}index.html#self-host-resources) for details. |
+| `utilizedTemplateNames` | [`UtilizedTemplateNames`](#utilizedtemplatenames)               | Specifies detection and correction templates. You may set custom names to self-host resources, or host MDS fully offline - see [self-hosting resources]({{ site.guide }}index.html#self-host-resources) for details.                |
+| `engineResourcePaths`   | [`EngineResourcePaths`](#engineresourcepaths)                   | Paths to the necessary resources for the scanning engine. You may set custom paths to self-host resources, or host MDS fully offline - see [self-hosting resources]({{ site.guide }}index.html#self-host-resources) for details.    |
 
 #### Example
 ```typescript
@@ -170,18 +170,18 @@ interface DocumentScannerViewConfig {
 
 #### Properties
 
-| Property                          | Type                                                | Description                                                                              |
-| --------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `templateFilePath`                | `string`                                            | Path to a Capture Vision template for scanning configuration.                            |
-| `cameraEnhancerUIPath`            | `string`                                            | Path to the UI (`.html` template file) for the scanner view.                             |
-| `container`                       | `HTMLElement`                                       | The container element for the scanner view.                                              |
-| `utilizedTemplateNames`           | `[`UtilizedTemplateNames`](#utilizedtemplatenames)` | Capture Vision template names for detection and correction.                              |
-| `enableAutoCropMode`              | `boolean`                                           | The default auto-crop mode state.                                                        |
-| `enableSmartCaptureMode`          | `boolean`                                           | The default smart capture mode state.                                                    |
-| `scanRegion`                      | [`ScanRegion`](#scanregion)                         | Defines the region within the viewport to detect documents.                              |
-| `minVerifiedFramesForAutoCapture` | `number`                                            | The minimum number of camera frames to detect document boundaries on Smart Capture mode. |
-| `showSubfooter`                   | `boolean`                                           | Mode selector menu visibility.                                                           |
-| `showPoweredByDynamsoft`          | `boolean`                                           | Visibility of the Dynamsoft branding message.                                            |
+| Property                          | Type                                                | Description                                                                                                                                                                                                                                         |
+| --------------------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `templateFilePath`                | `string`                                            | Path to a Capture Vision template for scanning configuration.                                                                                                                                                                                       |
+| `cameraEnhancerUIPath`            | `string`                                            | Path to the UI (`.html` template file) for the scanner view. You may set custom paths to self-host or customize the template, or host MDS fully offline - see [self-hosting resources]({{ site.guide }}index.html#self-host-resources) for details. |
+| `container`                       | `HTMLElement`                                       | The container element for the scanner view.                                                                                                                                                                                                         |
+| `utilizedTemplateNames`           | `[`UtilizedTemplateNames`](#utilizedtemplatenames)` | Capture Vision template names for detection and correction.                                                                                                                                                                                         |
+| `enableAutoCropMode`              | `boolean`                                           | The default auto-crop mode state.                                                                                                                                                                                                                   |
+| `enableSmartCaptureMode`          | `boolean`                                           | The default smart capture mode state.                                                                                                                                                                                                               |
+| `scanRegion`                      | [`ScanRegion`](#scanregion)                         | Defines the region within the viewport to detect documents.                                                                                                                                                                                         |
+| `minVerifiedFramesForAutoCapture` | `number`                                            | The minimum number of camera frames to detect document boundaries on Smart Capture mode.                                                                                                                                                            |
+| `showSubfooter`                   | `boolean`                                           | Mode selector menu visibility.                                                                                                                                                                                                                      |
+| `showPoweredByDynamsoft`          | `boolean`                                           | Visibility of the Dynamsoft branding message.                                                                                                                                                                                                       |
 
 #### Example
 
@@ -425,7 +425,7 @@ interface UtilizedTemplateNames {
 
 ### `EngineResourcePaths`
 
-Paths to extra resources such as `.wasm` engine files. The default paths point to CDNs and so may be left unset. You may set custom paths for the purpose of [self-hosting resources]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#self-hosting-resource-files).
+Paths to extra resources such as `.wasm` engine files. The default paths point to CDNs and so may be left unset. You may set custom paths to self-host resources, or host MDS fully offline - see [self-hosting resources]({{ site.guide }}index.html#self-host-resources) for details.
 
 #### Syntax
 
