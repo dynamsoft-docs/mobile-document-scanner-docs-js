@@ -61,7 +61,7 @@ To use the **Mobile Document Scanner**, first obtain its library files. You can 
 
 1. [**GitHub**](https://github.com/Dynamsoft/document-scanner-javascript) – Contains the source files for the **MDS** SDK, which can be compiled into library files.
 2. [**npm**](https://www.npmjs.com/package/dynamsoft-document-scanner) – Provides precompiled library files via npm for easier installation.
-3. [**CDN**](https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner) – Delivers precompiled library files through a CDN for quick and seamless integration.
+3. [**CDN**](https://www.jsdelivr.com/package/npm/dynamsoft-document-scanner) – Delivers precompiled library files through a CDN for quick and seamless integration.
 
 You can choose one of the following methods to set up a Hello World page:
 
@@ -123,7 +123,7 @@ We publish **MDS** library files on [npm](https://www.npmjs.com/package/dynamsof
 To use the precompiled script, simply include the following URL in a `<script>` tag:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2/dist/dds.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2.0/dist/dds.bundle.js"></script>
 ```
 
 Below is the complete Hello World sample page that uses this precompiled script from a CDN.
@@ -141,7 +141,7 @@ Below is the complete Hello World sample page that uses this precompiled script 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mobile Document Scanner - Hello World</title>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2/dist/dds.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2.0/dist/dds.bundle.js"></script>
   </head>
   <body>
     <h1 style="font-size: large">Mobile Document Scanner</h1>
@@ -318,7 +318,7 @@ Here we walk through the code in the Hello World sample to explain how it works.
     <title>Mobile Document Scanner - Hello World</title>
     <script src="../dist/dds.bundle.js"></script>
     <!--Alternatively, reference the script from CDN
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2/dist/dds.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2.0/dist/dds.bundle.js"></script>
     -->
   </head>
 </html>
@@ -333,7 +333,7 @@ In this step, MDS is referenced using a relative local path in the `<head>` sect
 Alternatively, the script can be referenced from a CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2/dist/dds.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2.0/dist/dds.bundle.js"></script>
 ```
 
 **MDS** wraps all its dependency scripts, so a **MDS** project only needs to include **MDS** itself as a single script. No additional dependency scripts are required.
@@ -642,7 +642,7 @@ We previously covered `container` in [Workflow Customization](#workflow-customiz
 > If **MDS** performance does not meet your needs in your usage scenario, you may require a customized algorithm template for better results. In this case, please contact our experienced [Technical Support Team](https://www.dynamsoft.com/company/contact/) to discuss your requirements. They will help tailor a suitable template for you, which you can then apply by updating `templateFilePath`.
 
 By default, `cameraEnhancerUIPath` points to a file hosted on the jsDelivr CDN:
-[https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2/dist/document-scanner.ui.html](https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2/dist/document-scanner.ui.html).
+[https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2.0/dist/document-scanner.ui.html](https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.2.0/dist/document-scanner.ui.html).
 
 This file defines the UI for `DocumentScannerView`. However, since files on the CDN **cannot be modified directly**, you need to use a **local version** to customize the UI. `cameraEnhancerUIPath` is used to specify the local version.
 

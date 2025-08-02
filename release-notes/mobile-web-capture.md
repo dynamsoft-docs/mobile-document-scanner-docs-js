@@ -41,6 +41,9 @@ The most notable improvement in this version is the pluggable scanner feature. T
 > [!IMPORTANT]
 > **This is a Beta Version**
 
+> [!IMPORTANT]
+> MWC version 3.0.0 is a **complete rewrite** and is not based on previous versions.
+
 In this release, **Mobile Web Capture (MWC)** has been completely redesigned from the ground up. It is now a **ready-to-use, fully developed,** browser-based document management system for mobile devices.
 
 ### Highlighted Features
