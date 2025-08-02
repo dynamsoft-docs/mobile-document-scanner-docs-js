@@ -61,7 +61,7 @@ To use the **Mobile Document Scanner**, first obtain its library files. You can 
 
 1. [**GitHub**](https://github.com/Dynamsoft/document-scanner-javascript) – Contains the source files for the **MDS** SDK, which can be compiled into library files.
 2. [**npm**](https://www.npmjs.com/package/dynamsoft-document-scanner) – Provides precompiled library files via npm for easier installation.
-3. [**CDN**](https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner) – Delivers precompiled library files through a CDN for quick and seamless integration.
+3. [**CDN**](https://www.jsdelivr.com/package/npm/dynamsoft-document-scanner) – Delivers precompiled library files through a CDN for quick and seamless integration.
 
 You can choose one of the following methods to set up a Hello World page:
 
