@@ -13,7 +13,7 @@ description: Mobile Document Scanner JS Edition User Guide
 > [!TIP]
 > Prerequisites: read the [Introduction]({{ site.introduction }}index.html) before proceeding.
 
-**Mobile Web Capture (MWC)** is an advanced sample designed to extend the features of MDS for managing and scanning multi-page documents.  It integrates **Mobile Document Scanner (MDS)** functionality  while offering additional features such as multi-document management, annotation, and uploading, making it a comprehensive solution for managing complex document workflows.
+**Mobile Web Capture (MWC)** is an advanced sample designed to extend the features of MDS for managing and scanning multi-page documents. It integrates **Mobile Document Scanner (MDS)** functionality while offering additional features such as multi-document management, annotation, and uploading by integrating **Dynamsoft Document Viewer (DDV)**, making it a comprehensive solution for managing complex document workflows.
 
 > [!TIP]
 > See it in action with the [Mobile Web Capture Demo](https://demo.dynamsoft.com/mobile-web-capture/).
