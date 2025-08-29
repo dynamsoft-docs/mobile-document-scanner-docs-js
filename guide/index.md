@@ -21,53 +21,6 @@ Dynamsoft's **Mobile Document Scanner JavaScript Edition (MDS)** is a web SDK de
 
 This guide walks you through building a web application that scans single-page documents using **MDS** with pre-defined configurations.
 
-<!--Keep TOC only for npm /github as readme
-**Table of Contents**-->
-<!--toc:start-->
-<!--- [Scan Single-Page Documents with Mobile Document Scanner](#scan-single-page-documents-with-mobile-document-scanner)
-  - [License](#license)
-    - [Get a Trial License](#get-a-trial-license)
-    - [Get a Full License](#get-a-full-license)
-  - [Quick Start](#quick-start)
-    - [Build from Source](#build-from-source)
-    - [Use Precompiled Script](#use-precompiled-script)
-    - [Self-Host Resources](#self-host-resources)
-      - [Download Resources](#download-resources)
-      - [Point to Resources](#point-to-resources)
-      - [Modify the Build Script](#modify-the-build-script)
-      - [Build the Project](#build-the-project)
-      - [Serve the Project Locally](#serve-the-project-locally)
-      - [Serve over HTTPS](#serve-over-https)
-      - [Set MIME Type](#set-mime-type)
-      - [Resource Caching](#resource-caching)
-  - [Hello World Sample Explained](#hello-world-sample-explained)
-    - [Reference MDS](#reference-mds)
-    - [Instantiate MDS](#instantiate-mds)
-    - [Launch MDS](#launch-mds)
-    - [Display the Result](#display-the-result)
-  - [Custom Usage](#custom-usage)
-    - [`DocumentScannerConfig` Overview](#documentscannerconfig-overview)
-    - [Workflow Customization](#workflow-customization)
-      - [Example 1: Confine DocumentScanner UI to a Specific Container](#example-1-confine-documentscanner-ui-to-a-specific-container)
-      - [Example 2: Only Show `DocumentScannerView`](#example-2-only-show-documentscannerview)
-      - [Example 3: Specify Individual View Containers](#example-3-specify-individual-view-containers)
-      - [Example 4: Scan Static Image Directly](#example-4-scan-static-image-directly)
-      - [Example 5: Configure Scan Modes](#example-5-configure-scan-modes)
-    - [View-Based Customization](#view-based-customization)
-      - [`DocumentScannerView` Configuration](#documentscannerview-configuration)
-        - [Customizing the `DocumentScannerView` UI](#customizing-the-documentscannerview-ui)
-        - [Steps to Customize the UI for `DocumentScannerView`](#steps-to-customize-the-ui-for-documentscannerview)
-        - [Customizing the Scanning Region](#customizing-the-scanning-region)
-      - [`DocumentCorrectionView` Configuration](#documentcorrectionview-configuration)
-        - [Styling Buttons](#styling-buttons)
-        - [Customizing Apply Button Callback](#customizing-apply-button-callback)
-      - [`DocumentResultView` Configuration](#documentresultview-configuration)
-        - [Styling Buttons](#styling-buttons)
-        - [Customizing the "Done" Button Callback](#customizing-the-done-button-callback)
-        - [Customizing the "Upload" Button](#customizing-the-upload-button)
-  - [Next Step](#next-step)-->
-<!--toc:end-->
-
 ## License
 
 ### Get a Trial License
@@ -110,7 +63,7 @@ This method retrieves all **MDS** source files from its [GitHub Repository](http
 2. Extract the contents of the archive, and open the extracted directory in a code editor.
 
 3. Set your [license key](#get-a-trial-license) in the Hello World sample:
-    1. Open the Hello World sample at ([`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html)).
+    1. Open the Hello World sample at [`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html).
     2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
 
 4. In the terminal, navigate to the project root directory and run the following to install project dependencies:
@@ -363,7 +316,7 @@ Alternatively, you can reference the script hosted on a CDN, for example, on JSD
 **MDS** wraps all its dependency scripts, so a **MDS** project only needs to include **MDS** itself as a single script. No additional dependency scripts are required.
 
 > [!WARNING]
-> Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the [quick start instructions to self-host resources](#quick-start).
+> Even if you reference the script itself locally, MDS still defaults to loading supporting resources like `.wasm` engine files from the CDN at runtime. If you require a **fully offline setup**, follow the [quick start instructions to self-host resources](#quick-start).
 
 ### Instantiate MDS
 
@@ -756,7 +709,7 @@ interface DocumentCorrectionViewConfig {
 
 This section omits the `container` option, as we cover it in the [Workflow Customization](#workflow-customization) section. Below we discuss the other two properties.
 
-##### Styling Buttons
+##### Styling `DocumentCorrectionView` Buttons
 
 The `toolbarButtonsConfig` property (of type `DocumentCorrectionViewToolbarButtonsConfig`) customizes the **appearance and functionality** of the UI buttons. Here is its definition:
 
@@ -829,7 +782,7 @@ interface DocumentResultViewConfig {
 }
 ```
 
-##### Styling Buttons
+##### Styling `DocumentResultView` Buttons
 
 The `toolbarButtonsConfig` property, of type `DocumentResultViewToolbarButtonsConfig`, customizes the appearance and functionality of the UI buttons. Here is its definition:
 
