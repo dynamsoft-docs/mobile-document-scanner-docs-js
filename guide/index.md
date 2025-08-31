@@ -94,7 +94,7 @@ This method retrieves all **MDS** source files from its [GitHub Repository](http
 <div class="multi-panel-start"></div>
 <div class="multi-panel-title">Use Precompiled Script</div>
 
-### Use Precompiled Script
+### Use Precompiled Scripts
 
 We publish **MDS** library files on [npm](https://www.npmjs.com/package/dynamsoft-document-scanner) to make them simple to reference from a CDN.
 
