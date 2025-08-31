@@ -9,17 +9,21 @@ keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Dynamsoft Doc
 description: Mobile Document Scanner JS Edition React User Guide
 ---
 
-# 📦 Document Scanner - React
+# Mobile Document Scanner - React
 
-This sample demonstrates how to use the `Document Scanner` API from the [Dynamsoft Document Scanner SDK](https://www.dynamsoft.com/mobile-document-scanner/docs/web/introduction/index.html) in a **React** app to capture and scan documents using the camera.
+> [!IMPORTANT]
+> This article builds on the prerequisite [MDS developer guide]({{ site.developer-guide }}index.html) for plain JavaScript; please read it before proceeding.
 
-## ✨ Features
+Mobile Document Scanner integrates easily with React applications. Just as in plain JavaScript, you can add document scanning in your **React application** in just a few lines of code, and achieve most customizations through the same accessible configuration object.
+
+## Features
 
 - Easy integration with pre-built UI
 - Renders Document Scanner inside a React component
 - Captures and processes documents from video stream
 - Mobile-optimized scanning interface
 - Automatic document detection and cropping
+- TypeScript support with type definitions
 
 ## Requirements
 
