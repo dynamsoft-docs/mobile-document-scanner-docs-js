@@ -12,19 +12,19 @@ description: Mobile Document Scanner JS Edition Angular User Guide
 # Mobile Document Scanner - Angular
 
 > [!IMPORTANT]
-> This article builds on the prerequisite [MDS developer guide]({{ site.developer-guide }}index.html) for plain JavaScript; please read it before proceeding.
+> This article builds on the prerequisite [MDS developer guide]({{ site.guide }}index.html) for plain JavaScript; please read it before proceeding.
 
-Mobile Document Scanner integrates easily with Angular applications. Just as in plain JavaScript, you can add document scanning in your Angular application in just a few lines of code, and achieve most customizations through the same accessible configuration object.
+Mobile Document Scanner integrates easily with Angular applications. Just as in plain JavaScript, you can add document scanning in your **Angular application** in just a few lines of code, and achieve most customizations through the same accessible configuration object.
 
 ## Features
 
 - Easy integration with pre-built UI
 - Render MDS inside an Angular component
-- TypeScript support with type definitions
 - **Standalone components** (modern Angular architecture)
 - Capture and process documents from video stream
 - Automatic document detection and cropping
 - Mobile-optimized scanning interface
+- TypeScript support with type definitions
 
 ## Requirements
 
@@ -35,7 +35,7 @@ Mobile Document Scanner integrates easily with Angular applications. Just as in 
 
 ### Get a Trial License
 
-Try **MDS** by requesting a trial license through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&source=guide). You can renew the license twice for up to a total of two months of free access.
+Try **MDS** by requesting a trial license through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&utm_source=github_angular_readme). You can renew the license twice for up to a total of two months of free access.
 
 ### Get a Full License
 
@@ -78,7 +78,7 @@ Open `http://localhost:4200/` to view the sample app.
 
 ## Customization
 
-Please check the official [documentation](https://www.dynamsoft.com/mobile-document-scanner/docs/web/introduction/index.html).
+Please check the official [documentation]({{ site.guide }}index.html).
 
 ## Support
 

@@ -12,57 +12,64 @@ description: Mobile Document Scanner JS Edition React User Guide
 # Mobile Document Scanner - React
 
 > [!IMPORTANT]
-> This article builds on the prerequisite [MDS developer guide]({{ site.developer-guide }}index.html) for plain JavaScript; please read it before proceeding.
+> This article builds on the prerequisite [MDS developer guide]({{ site.guide }}index.html) for plain JavaScript; please read it before proceeding.
 
 Mobile Document Scanner integrates easily with React applications. Just as in plain JavaScript, you can add document scanning in your **React application** in just a few lines of code, and achieve most customizations through the same accessible configuration object.
 
 ## Features
 
 - Easy integration with pre-built UI
-- Renders Document Scanner inside a React component
-- Captures and processes documents from video stream
-- Mobile-optimized scanning interface
+- Render MDS inside a React component
+- Capture and process documents from video stream
 - Automatic document detection and cropping
+- Mobile-optimized scanning interface
 - TypeScript support with type definitions
 
 ## Requirements
 
 - **Node.js 20.19.0 or later**
+- [Base requirements]({{ site.introduction }}index.html#system-requirements)
 
-## 🚀 Quick Start
+## License
 
-### 1. Install Dependencies
+### Get a Trial License
 
-```bash
+Try **MDS** by requesting a trial license through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&utm_source=github_react_readme). You can renew the license twice for up to a total of two months of free access.
+
+### Get a Full License
+
+[Contact us](https://www.dynamsoft.com/company/contact?product=mwc&utm_source=github_react_readme) to purchase a full license.
+
+## Quick Start
+
+We publish **MDS** library files on [npm](https://www.npmjs.com/package/dynamsoft-document-scanner) to make them simple to reference from a CDN. We reference the library files in our _ready-made_ Hello World sample for React included in our GitHub source repository:
+
+1. Download **MDS** from [GitHub](https://github.com/Dynamsoft/document-scanner-javascript) as a compressed folder.
+
+2. Extract the contents of the archive, and open the extracted directory in a code editor.
+
+3. Set your [license key](#get-a-trial-license) in the **React framework sample**:
+    1. Open the sample at [`/samples/frameworks/react-hooks/src/App.tsx`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/document-scanner-javascript-dev/samples/frameworks/react-hooks/src/App.tsx).
+    2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
+
+### Install Dependencies
+
+```shell
 npm install
 ```
 
-### 2. Configure License Key
+### Start the App
 
-Search for the string `"YOUR_LICENSE_KEY_HERE"` in the sample and replace it with your actual license key.
-
-#### Get a Trial License
-
-You can try **MDS** by requesting a trial license through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&utm_source=github_react_readme). The trial can be renewed twice for up to two months of free access.
-
-> [!NOTE] > **MDS** and **MWC** share the same license keys. The license portal currently shows **Mobile Web Capture** but requesting this license will provide access to both **MDS** and **MWC** functionality. If you already have a **MWC** license, you can use it for **MDS**, and vice versa.
-
-#### Get a Full License
-
-To purchase a full license, [contact us](https://www.dynamsoft.com/company/contact?product=mwc&utm_source=github_react_readme).
-
-### 3. Start the App
-
-```bash
+```shell
 npm start
 ```
 
 Then open https://localhost:3000/ to view the sample app.
 
-## 📌 Customization
+## Customization
 
-Please check the official [documentation](https://www.dynamsoft.com/mobile-document-scanner/docs/web/introduction/index.html).
+Please check the official [documentation]({{ site.guide }}index.html).
 
-## 📄 Support
+## Support
 
 If you have any questions, feel free to [contact Dynamsoft Support](https://www.dynamsoft.com/company/contact?product=mwc&utm_source=github_react_readme).
