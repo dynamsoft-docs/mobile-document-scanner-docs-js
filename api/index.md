@@ -72,7 +72,7 @@ async launch(file?: File): Promise<DocumentResult>
 - A `Promise` resolving to a [`DocumentResult`](#documentresult) object.
 
 #### Example
-```typescript
+```javascript
 const result = await documentScanner.launch();
 
 if (result?.correctedImageResult) {
@@ -94,7 +94,7 @@ dispose(): void
 ```
 
 #### Example
-```typescript
+```javascript
 documentScanner.dispose();
 console.log("Scanner resources released.");
 ```
@@ -131,7 +131,7 @@ interface DocumentScannerConfig {
 | `engineResourcePaths`   | [`EngineResourcePaths`](#engineresourcepaths)                   | Paths to the necessary resources for the scanning engine. You may set custom paths to self-host resources, or host MDS fully offline - see [self-hosting resources]({{ site.guide }}index.html#self-host-resources) for details.    |
 
 #### Example
-```typescript
+```javascript
 const config = {
     license: "YOUR_LICENSE_KEY_HERE",
     scannerViewConfig: {
@@ -184,7 +184,6 @@ interface DocumentScannerViewConfig {
 | `showPoweredByDynamsoft`          | `boolean`                                           | Visibility of the Dynamsoft branding message.                                                                                                                                                                                                       |
 
 #### Example
-
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
     license: "YOUR_LICENSE_KEY_HERE", // Replace with your actual license key
@@ -216,7 +215,6 @@ interface DocumentCorrectionViewConfig {
 | `onFinish`             | `(result: DocumentResult) => void`                                                          | Callback function triggered when correction is finished.  |
 
 #### Example
-
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
     license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
@@ -298,7 +296,6 @@ Describes the scan region within the viewfinder for document scanning:
 3. Create a visual border for the scanning region boundary on the viewfinder with a given stroke width in pixels, and a stroke color.
 
 #### Syntax
-
 ```typescript
 interface ScanRegion {
   ratio: {
@@ -321,9 +318,9 @@ interface ScanRegion {
 | »`height`            | `number` | The height of the rectangular scan region.                 |
 | »`width`             | `number` | The width of the rectangular scan region.                  |
 | `regionBottomMargin` | `number` | Bottom margin below the scan region measured in pixels.    |
+| `style`              | `object` | The styling for the scan region outline in the viewfinder. |
 | »`strokeWidth`       | `number` | The pixel width of the outline of the scan region.         |
 | »`strokeColor`       | `string` | The color of the outline of the scan region.               |
-| `style`              | `object` | The styling for the scan region outline in the viewfinder. |
 
 #### Example
 
@@ -363,7 +360,7 @@ export type ToolbarButtonConfig = Pick<"icon" | "label" | "isHidden">;
 | `isHidden` | `boolean` (optional) | Determines if the button is hidden. |
 
 #### Example
-```typescript
+```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
     license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
     correctionViewConfig: {
@@ -385,7 +382,6 @@ const documentScanner = new Dynamsoft.DocumentScanner({
 #### DocumentCorrectionViewToolbarButtonsConfig
 
 ##### Syntax
-
 ```typescript
 interface DocumentCorrectionViewToolbarButtonsConfig {
   fullImage?: ToolbarButtonConfig;
@@ -397,7 +393,6 @@ interface DocumentCorrectionViewToolbarButtonsConfig {
 #### DocumentResultViewToolbarButtonsConfig
 
 ##### Syntax
-
 ```typescript
 interface DocumentResultViewToolbarButtonsConfig {
   retake?: ToolbarButtonConfig;
@@ -415,7 +410,6 @@ interface DocumentResultViewToolbarButtonsConfig {
 [Dynamsoft Capture Vision template](https://www.dynamsoft.com/capture-vision/docs/core/parameters/file/capture-vision-template.html?lang=javascript) names for detection and correction. This typically does not need to be set, as DDS uses the default template.
 
 #### Syntax
-
 ```typescript
 interface UtilizedTemplateNames {
   detect: string;
@@ -428,7 +422,6 @@ interface UtilizedTemplateNames {
 Paths to extra resources such as `.wasm` engine files. The default paths point to CDNs and so may be left unset. You may set custom paths to self-host resources, or host MDS fully offline - see [self-hosting resources]({{ site.guide }}index.html#self-host-resources) for details.
 
 #### Syntax
-
 ```typescript
 interface EngineResourcePaths {
     "rootDirectory"?: string;
