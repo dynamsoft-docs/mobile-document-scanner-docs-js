@@ -1,9 +1,10 @@
 useGroupedVersion: true
 
 version_info_list:
-  - value: latest version(3.1)
-  - value: 3.0
-  - value: 2.0
-  - value: 1.x
+  - value: 1.3.1 MDS (latest version)
+  - value: 3.1 MWC (MDS 1.1)
+  - value: 3.0 MWC (MDS 1.0)
+  - value: 2.0 MWC
+  - value: 1.x MWC
     child:
-      - 1.1
+      - 1.1 MWC

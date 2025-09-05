@@ -3,17 +3,17 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
-title: Mobile Document Scanner JS Edition - Scan Multi-Page Documents
-keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Mobile Web Capture, Dynamsoft Document Scanner,
-description: Mobile Document Scanner JS Edition User Guide
+title: Mobile Web Capture - Scan Multi-Page Documents
+keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner,
+description: Mobile Web Capture User Guide
 ---
 
-# Extend Mobile Document Scanner to Full Document Management
+# Scan Multi-Page Documents with Mobile Web Capture
 
 > [!TIP]
 > Prerequisites: read the [Introduction]({{ site.introduction }}index.html) before proceeding.
 
-**Mobile Web Capture (MWC)** is an advanced sample designed to extend the features of MDS for managing and scanning multi-page documents. It integrates **Mobile Document Scanner (MDS)** functionality while offering additional features such as multi-document management, annotation, and uploading by integrating **Dynamsoft Document Viewer (DDV)**, making it a comprehensive solution for managing complex document workflows.
+**Mobile Web Capture (MWC)** is an SDK designed for scanning multi-page documents.  It integrates **Dynamsoft Document Scanner (DDS)** functionality  while offering additional features such as multi-document management, annotation, and uploading, making it a comprehensive solution for managing complex document workflows.
 
 > [!TIP]
 > See it in action with the [Mobile Web Capture Demo](https://demo.dynamsoft.com/mobile-web-capture/).
@@ -21,7 +21,7 @@ description: Mobile Document Scanner JS Edition User Guide
 This guide walks you through building a web application that scans multi-page documents using **MWC**, with **pre-defined configurations**.
 
 > [!TIP]
-> If you are looking for a solution that scans single-page documents, please read [Mobile Document Scanner User Guide]({{ site.guide }}index.html) instead.
+> If you are looking for a solution that scans single-page documents, please read [Dynamsoft Document Scanner User Guide]({{ site.guides }}document-scanner.html) instead.
 
 <!--
 Keep TOC only for npm /github as readme
@@ -60,7 +60,7 @@ To purchase a full license, [contact us](https://www.dynamsoft.com/company/conta
 
 To use **MWC**, the first step is to obtain its library files. You can acquire them from one of the following sources:
 
-1. [**GitHub**](https://github.com/Dynamsoft/mobile-web-capture) – Contains the source files for the **MWC** sample, which can be compiled into library files.
+1. [**GitHub**](https://github.com/Dynamsoft/mobile-web-capture) – Contains the source files for the **MWC** SDK, which can be compiled into library files.
 2. [**npm**](https://www.npmjs.com/package/dynamsoft-mobile-web-capture) – Provides precompiled library files via npm for easier installation.
 3. [**CDN**](https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture) – Delivers precompiled library files through a CDN for quick and seamless integration.
 
@@ -82,17 +82,17 @@ Follow these steps:
    > In your code editor, open the Hello World sample located at [`/samples/hello-world.html`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/samples/hello-world.html). Search for `"YOUR_LICENSE_KEY_HERE"` and replace it with your actual license key.
 4. Install project dependencies
     In the terminal, navigate to the project root directory and run:
-    ```shell
+    ```bash
     npm install
     ```
 5. Build the project
     After the dependencies are installed, build the project by running:
-    ```shell
+    ```bash
     npm run build
     ```
 6. Serve the project locally
     Start the local server by running:
-    ```shell
+    ```bash
     npm run serve
     ```
 Once the server is running, open the application in a browser using the address provided in the terminal output after running `npm run serve`.
@@ -186,7 +186,7 @@ Alternatively, the script can be referenced from a CDN:
 **MWC** wraps all its dependency scripts, so a **MWC** project only needs to include **MWC** itself as a single script. No additional dependency scripts are required.
 
 > [!IMPORTANT]
-> Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the instructions in [Self-Hosting Resource File]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#self-hosting-resource-files).
+> Even if you reference the script locally, supporting resources like `.wasm` engine files are still loaded from the CDN at runtime. If you require a **fully offline setup**, follow the instructions in [Self-Hosting Resource File]({{ site.guides }}mobile-web-capture-customization.html#self-hosting-resource-files).
 
 ### Instantiate MWC
 
@@ -197,9 +197,9 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 });
 ```
 
-API Reference: [`MobileWebCapture()`]({{ site.code-gallery }}}mobile-web-capture/api.html#mobilewebcapture)
+API Reference: [`MobileWebCapture()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#mobilewebcapture)
 
-This step creates the **MWC** UI, which, when launched, occupies the entire visible area of the browser window by default. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Specify the UI Container]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#example-1-specify-the-ui-container).
+This step creates the **MWC** UI, which, when launched, occupies the entire visible area of the browser window by default. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Specify the UI Container]({{ site.guides }}mobile-web-capture-customization.html#example-1-specify-the-ui-container).
 
 > [!WARNING]
 > A **license key** is required for the instantiation.
@@ -211,7 +211,7 @@ const fileName = `New_Document_${Date.now().toString().slice(-5)}`; // Generates
 await mobileWebCapture.launch(fileName);
 ```
 
-API Reference: [`launch()`]({{ site.code-gallery }}}mobile-web-capture/api.html#launch)
+API Reference: [`launch()`](https://www.dynamsoft.com/mobile-web-capture/docs/api/mobile-web-capture.html#launch)
 
 This step launches the UI, starting in **`DocumentView`**, where the user can begin building a document in two ways:
 
@@ -234,7 +234,7 @@ The user can:
 5. **Manage** → **Share** : Share individual pages as images (**.PNG**).
    - **Download** is enabled where **Share** is not supported (e.g., in Firefox).
 
-The user can also enable the **"Upload"** feature. Check out [Enable File Upload]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#enable-file-upload)
+The user can also enable the **"Upload"** feature. Check out [Enable File Upload]({{ site.guides }}mobile-web-capture-customization.html#enable-file-upload)
 
 #### The PageView
 When the user presses an image, the `PageView` is launched for that page, where the user can
@@ -249,8 +249,8 @@ When the user presses an image, the `PageView` is launched for that page, where 
 5. **Edit** → **Filter** : Adjust the page's pixels.
 6. **Edit** → **Annotate** : Add annotations to the page.
 
-The user can also enable the **"Upload"** feature. Check out [Enable File Upload]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#enable-file-upload)
+The user can also enable the **"Upload"** feature. Check out [Enable File Upload]({{ site.guides }}mobile-web-capture-customization.html#enable-file-upload)
 
 ## Next Step
 
-Mobile Web Capture provides extensive customization options. Read on to explore the available customizations in the [MWC Customization Guide]({{ site.code-gallery }}mobile-web-capture/customization-guide.html).
+Mobile Web Capture provides extensive customization options. Read on to explore the available customizations in the [MWC Customization Guide]({{ site.guides }}mobile-web-capture-customization.html).

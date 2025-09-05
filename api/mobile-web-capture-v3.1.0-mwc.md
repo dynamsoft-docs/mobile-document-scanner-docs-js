@@ -4,7 +4,7 @@ needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
 title: Dynamsoft Mobile Web Capture - API Reference
-keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Dynamsoft Document Scanner, API, APIs
+keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner, API, APIs
 breadcrumbText: API Reference
 description: Mobile Web Capture API Reference
 ---
@@ -69,7 +69,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 
 ### `launch()`
 
-Starts the **Mobile Web Capture** workflow.
+Starts the **Mobile Web Capture** workflow.  
 
 #### Syntax
 ```typescript
@@ -106,7 +106,7 @@ document.getElementById("initialFile").onchange = async function () {
     const files = Array.from(this.files || []);
     if (files.length) {
         // Launch the Mobile Web Capture instance with an initial file
-        if (mobileWebCapture.hasLaunched)
+        if (mobileWebCapture.hasLaunched) 
             await mobileWebCapture.dispose();
         await mobileWebCapture.launch(files[0]);
     }
@@ -151,7 +151,7 @@ document.getElementById("initialFile").onchange = async function () {
     const files = Array.from(this.files || []);
     if (files.length) {
         // Launch the Mobile Web Capture instance with an initial file
-        if (mobileWebCapture.hasLaunched)
+        if (mobileWebCapture.hasLaunched) 
             await mobileWebCapture.dispose();
         await mobileWebCapture.launch(files[0]);
     }
@@ -203,7 +203,7 @@ interface MobileWebCaptureConfig {
 
 ##### See Also
 
-- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
+- [`DocumentScannerConfig`]({{ site.api }}document-scanner.html#documentscannerconfig)
 
 #### Example
 
@@ -305,7 +305,7 @@ interface DocumentViewConfig {
 
 By default, the `DocumentView` displays the following when empty:
 
-![Empty Document View]({{ site.assets }}imgs/empty-document-view.png)
+![Empty Document View](https://www.dynamsoft.com/mobile-web-capture/docs/assets/imgs/empty-document-view.png)
 
 You can customize its appearance using the [`emptyContentConfig`](#emptycontentconfig) property.
 
@@ -452,7 +452,7 @@ A simplified configuration type for toolbar buttons.
 export type ToolbarButtonConfig = Pick<"icon" | "label" | "isHidden">;
 ```
 
-#### Properties
+#### Properties  
 
 | Property   | Type                 | Description                         |
 | ---------- | -------------------- | ----------------------------------- |
@@ -577,7 +577,7 @@ interface DDVAnnotationToolbarLabelConfig {
 }
 ```
 
-## Assisting Interfaces
+## Assisting Interfaces 
 
 ### `ExportConfig`
 
@@ -592,7 +592,7 @@ Uploads a document to the server. The function receives the document's file name
 > [!IMPORTANT]
 > Returning `{ status: "success" }` in this function is required to trigger [`onUploadSuccess`](#onuploadsuccess)
 
-###### **Type**
+###### **Type**  
 ```typescript
 (fileName: string, blob: Blob) => Promise<void | UploadedDocument>
 ```
@@ -601,7 +601,7 @@ Uploads a document to the server. The function receives the document's file name
 
 Downloads a document from the server. The function receives an `UploadedDocument` object and returns a `Promise` that resolves once the download is complete.
 
-###### **Type**
+###### **Type**  
 ```typescript
 (doc: UploadedDocument) => Promise<void>
 ```
@@ -610,7 +610,7 @@ Downloads a document from the server. The function receives an `UploadedDocument
 
 Deletes a document from the server. The function receives an `UploadedDocument` object and returns a `Promise` that resolves once the deletion is successful.
 
-###### **Type**
+###### **Type**  
 ```typescript
 (doc: UploadedDocument) => Promise<void>
 ```
@@ -622,7 +622,7 @@ Called after a successful upload. It receives the file name, file type, the curr
 > [!IMPORTANT]
 > Returning `{ status: "success" }` in [`uploadToServer`](#uploadtoserver) is required to trigger this function.
 
-###### **Type**
+###### **Type**  
 ```typescript
 (fileName: string, fileType: string, view: EnumMWCViews, blob: Blob) => Promise<boolean>
 ```

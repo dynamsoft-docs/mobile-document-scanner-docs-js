@@ -3,15 +3,15 @@ layout: default-layout
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: false
-title: Mobile Document Scanner JS Edition - Scan Multi-Page Documents
-keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Mobile Web Capture, Dynamsoft Document Scanner,
-description: Mobile Document Scanner JS Edition User Guide
+title: Mobile Web Capture - Scan Multi-Page Documents
+keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner,
+description: Mobile Web Capture User Guide
 ---
 
 # How to Customize Mobile Web Capture
 
 > [!TIP]
-> Prerequisites: read the [MWC Getting Started Guide]({{ site.code-gallery }}mobile-web-capture/index.html) before proceeding.
+> Prerequisites: read the [MWC Getting Started Guide]({{ site.guides }}mobile-web-capture.html) before proceeding.
 
 This guide expands on the **Hello World** sample from the **MWC Getting Started Guide** and explores the available customization options.
 
@@ -51,7 +51,7 @@ Keep TOC only for npm /github as readme
    4. `onUploadSuccess`: Specifies a function that is triggered when the upload operation succeeds.
 4. `showLibraryView`: Configures where or not this **MWC** instance starts with the `LibraryView`.
 5. `onClose`: Specifies a function that is triggered when the user closes this **MWC** instance.
-6. `documentScannerConfig`: Configures the behavior of the built-in `DocumentScanner` instance. See the details in [`DocumentScannerConfig`]({{ site.guide }}document-scanner.html#documentscannerconfig-overview).
+6. `documentScannerConfig`: Configures the behavior of the built-in `DocumentScanner` instance. See the details in [`DocumentScannerConfig`]({{ site.guides }}document-scanner.html#documentscannerconfig-overview).
 7. `libraryViewConfig`: Configures the library view with the following properties:
    1. `emptyContentConfig`: Specifies the content displayed in the library view when it is empty (no document).
    2. `toolbarButtonsConfig`: Configures the buttons in the toolbar of the library view.
@@ -68,7 +68,7 @@ Keep TOC only for npm /github as readme
    2. `toolbarButtonsConfig`: Configures the button in the toolbar of the history view.
 12. `ddvResourcePath`: Paths to extra resources such as `.wasm` engine files and CSS files.
 
-API Reference: [`MobileWebCaptureConfig`]({{ site.code-gallery }}}mobile-web-capture/api.html#mobilewebcaptureconfig)
+API Reference: [`MobileWebCaptureConfig`]({{ site.api }}mobile-web-capture.html#mobilewebcaptureconfig)
 
 ## Overall UI and Workflow Customization
 
@@ -146,8 +146,8 @@ document.getElementById("initialFile").onchange = async function () {
 ```
 
 API Reference:
-- [`hasLaunched`]({{ site.code-gallery }}}mobile-web-capture/api.html#haslaunched)
-- [`dispose`]({{ site.code-gallery }}}mobile-web-capture/api.html#dispose)
+- [`hasLaunched`]({{ site.api }}mobile-web-capture.html#haslaunched)
+- [`dispose`]({{ site.api }}mobile-web-capture.html#dispose)
 
 ### Scan Directly to Document
 
@@ -541,14 +541,14 @@ Update the `scripts` section in `package.json` to automatically copy the librari
 
 Once all dependencies are installed, build the project by running:
 
-```shell
+```bash
 npm run build
 ```
 
 ### Serve the Project Locally
 
 Start the local development server by running:
-```shell
+```bash
 npm run serve
 ```
 

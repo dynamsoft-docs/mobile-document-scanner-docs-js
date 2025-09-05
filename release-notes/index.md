@@ -11,9 +11,35 @@ description: Mobile Web Capture Documentation Release Notes
 
 # Mobile Document Scanner JavaScript Edition Release Notes
 
-## 1.2.0 (30/04/2025)
+## 1.3.1 (04/09/2025)
 
-# Release Notes
+### SDK
+
+#### Features
+
+- Upgrade to version 3.0.6001 of [Dynamsoft Capture Vision JS](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/index.html) (from version 2.6.1000).
+  - This upgrade improves document detection effectiveness, especially for white documents on white backgrounds.
+  - Simplify build and bundling approach.
+- Improve TypeScript configuration and module resolution.
+- Add ready-made samples for Angular, React, and Vue.
+
+#### Fixes
+
+- Set `boundsDetectionEnabled` to `true` to make code clearer, since its value already overridden to `true` when instantiating the MDS object.
+- Change the type of `DocumentResult.correctedImageResult` from `DeskewedImageResultItem | DSImageData` to `DeskewedImageResultItem` to fix a TypeScript error when calling methods like `toCanvas()`.
+- Create the `dds.esm.d.ts` declaration file to fix ESM import/export issues.
+
+#### Dependencies
+
+- [Dynamsoft Capture Vision JS 3.0.6001](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/release-notes/dcvb-3.html#30600108282025)
+
+### Documentation
+
+- Update SDK versions from v1.2.0 to v1.3.1.
+- Add [`tsdoc`](https://tsdoc.org/) annotations to bring API references to IDEs and allow content extraction with compatible development tools.
+- Add developer guides for JavaScript Framework samples.
+
+## 1.2.0 (30/04/2025)
 
 ### Features
 
