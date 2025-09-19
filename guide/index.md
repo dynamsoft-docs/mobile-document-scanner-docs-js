@@ -163,11 +163,11 @@ Alternatively, you can use other methods like `IIS` or `Apache` to serve the pro
 
 ### Self-Host Resources
 
-By default, the MDS library (whether pre-compiled or self-compiled) fetches resource files (Dynamsoft `node` dependencies and an HTML UI template) from CDNs. Self-hosting library resources gives you full control over hosting your application. Rather than using CDNs to serve these resources, you can instead host these resources on your own servers to deliver to your users directly when they use your application. You can also use this option to host MDS fully offline by pointing to local resources.
+By default, the MDS library (whether pre-compiled or self-compiled) fetches resource files (Dynamsoft `node` packages `dynamsoft-capture-vision-bundle` and `dynamsoft-capture-vision-data`, and an HTML UI template) from CDNs. Self-hosting library resources gives you full control over hosting your application. Rather than using CDNs to serve these resources, you can instead host these resources on your own servers to deliver to your users directly when they use your application. You can also use this option to host MDS fully offline by pointing to local resources.
 
 #### Download Resources
 
-First, download a copy of the resources:
+First, download a copy of the library:
 
 1. Download **MDS** from [GitHub](https://github.com/Dynamsoft/document-scanner-javascript) as a compressed folder.
 
@@ -186,7 +186,7 @@ First, download a copy of the resources:
 
 #### Point to Resources
 
-The library uses [`engineResourcePaths`]({{ site.api }}index.html#engineresourcepaths) to locate required Dynamsoft `node` dependencies by pointing to the location of the resources on your web server. The library also uses `scannerViewConfig.cameraEnhancerUIPath` similarly to set the path for the HTML UI template of the `ScannerView`. Later steps will place both the `node` dependencies and the HTML template in the local `dist` directory. Therefore, set `engineResourcePaths` in the MDS constructor to point to the local `dist` directory (along with setting your license key, and all other configurations):
+The library uses [`engineResourcePaths`]({{ site.api }}index.html#engineresourcepaths) to locate required Dynamsoft `node` dependencies by pointing to the location of the resources on your web server. The library also uses `scannerViewConfig.cameraEnhancerUIPath` similarly to set the path for the HTML UI template of the `ScannerView`.  The included sample server at `dev-server/index.js` can serve local files for this demonstration. Later steps will place both the `node` dependencies and the HTML template in the local `dist` directory. Therefore, set `engineResourcePaths` in the MDS constructor to point to the local `dist` directory (along with setting your license key, and all other configurations):
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
@@ -195,12 +195,7 @@ const documentScanner = new Dynamsoft.DocumentScanner({
     cameraEnhancerUIPath: "./dist/document-scanner.ui.html", // Use the local file
   },
   engineResourcePaths: {
-    std: "./dist/libs/dynamsoft-capture-vision-std/dist/",
-    dip: "./dist/libs/dynamsoft-image-processing/dist/",
-    core: "./dist/libs/dynamsoft-core/dist/",
-    license: "./dist/libs/dynamsoft-license/dist/",
-    cvr: "./dist/libs/dynamsoft-capture-vision-router/dist/",
-    ddn: "./dist/libs/dynamsoft-document-normalizer/dist/",
+    rootDirectory: "dist/libs/"
   },
 });
 ```
@@ -215,16 +210,24 @@ API Reference:
 
 #### Modify the Build Script
 
-Update the `scripts` section in `package.json` to automatically copy resources to the output `dist` directory during the build process.
+Update the `scripts` section in `package.json` to automatically copy resources to the output `dist` directory during the build process. This script gets the `dynamsoft-capture-vision-data` package, and moves both `dynamsoft-capture-vision-data` and `dynamsoft-capture-vision-bundle` to `dist/libs/`, which is where we set the resource directory to.
 
 ```json
 "scripts": {
     "serve": "node dev-server/index.js",
-    "build": "rollup -c && npm run copy-libs",
-    "copy-libs": "npx mkdirp dist/libs && npx cpx \"node_modules/dynamsoft-*/**/*\" dist/libs/ --dereference",
+    "build": "rollup -c && npm run get-libs",
+    "get-libs": "npm install --no-save dynamsoft-capture-vision-data && npx mkdirp dist/libs && npx cpx 'node_modules/dynamsoft-*/**/*' dist/libs/ --dereference",
     "build:production": "rollup -c --environment BUILD:production"
 },
 ```
+
+#### Serve the Resources
+
+The included sample server at `dev-server/index.js` needs an extra statement to serve the resources. Include this line:
+
+```javascript
+app.use("/dist/libs", express.static(path.resolve(__dirname, "../dist/libs")));
+````
 
 #### Build the Project
 
