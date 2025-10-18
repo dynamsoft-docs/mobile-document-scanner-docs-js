@@ -192,7 +192,7 @@ The library uses [`engineResourcePaths`]({{ site.api }}index.html#engineresource
 const documentScanner = new Dynamsoft.DocumentScanner({
   license: "YOUR_LICENSE_KEY_HERE",
   scannerViewConfig: {
-    cameraEnhancerUIPath: "./dist/document-scanner.ui.html", // Use the local file
+    cameraEnhancerUIPath: "dist/document-scanner.ui.html", // Use the local file
   },
   engineResourcePaths: {
     rootDirectory: "dist/libs/"
@@ -216,7 +216,7 @@ Update the `scripts` section in `package.json` to automatically copy resources t
 "scripts": {
     "serve": "node dev-server/index.js",
     "build": "rollup -c && npm run get-libs",
-    "get-libs": "npm install --no-save dynamsoft-capture-vision-data && npx mkdirp dist/libs && npx cpx 'node_modules/dynamsoft-*/**/*' dist/libs/ --dereference",
+    "get-libs": "npm install --no-save dynamsoft-capture-vision-data dynamsoft-capture-vision-bundle && npx mkdirp /dist/libs && npx cpx 'node_modules/dynamsoft-*/**/*' dist/libs/ --dereference,
     "build:production": "rollup -c --environment BUILD:production"
 },
 ```

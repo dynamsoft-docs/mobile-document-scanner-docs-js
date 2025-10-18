@@ -66,6 +66,39 @@ npm start
 
 Then open https://localhost:3000/ to view the sample app.
 
+## Self-Host Resources
+
+You can self host the resources for the Hello World by following a few simple steps. Refer to the [plain JavaScript self-hosting guide]({{ site.guide }}index.html#quick-start) for details.
+
+### Set File Paths
+
+First we set MDS to look resource paths where we will place the resources later:
+
+```typescript
+const documentScanner = new Dynamsoft.DocumentScanner({
+  license: "YOUR_LICENSE_KEY_HERE",
+  scannerViewConfig: {
+    cameraEnhancerUIPath: "dist/libs/dynamsoft-document-scanner/dist/document-scanner.ui.html",
+  },
+  engineResourcePaths: {
+    rootDirectory: "dist/libs/"
+  },
+});
+```
+
+### Move Resources
+
+Now, add a script (`get-libs`) to automatically move the resources to their destination when building the project (`build`) in `samples/framework/react-hooks/package.json`:
+
+```json
+"scripts": {
+  "dev": "vite",
+  "build": "tsc && vite build && npm run get-libs",
+  "get-libs": "npm install --no-save dynamsoft-capture-vision-data dynamsoft-capture-vision-bundle && npx mkdirp /dist/libs && npx cpx 'node_modules/dynamsoft-*/**/*' dist/libs/ --dereference",
+  "preview": "vite preview"
+},
+```
+
 ## Customization
 
 Please check the official [documentation]({{ site.guide }}index.html).
