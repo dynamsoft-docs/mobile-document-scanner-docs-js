@@ -14,7 +14,7 @@ description: Mobile Document Scanner JS Edition User Guide
 > [!TIP]
 > Read the [Introduction]({{ site.introduction }}index.html) for common use cases, an overview of the SDK architecture, and system requirements.
 
-Dynamsoft's **Mobile Document Scanner JavaScript Edition (MDS)** is a web SDK designed for scanning single-page documents. MDS captures images of the documents and enhances their quality to professional standards, making it an ideal tool for mobile document scanning.
+Dynamsoft's **Mobile Document Scanner JavaScript Edition (MDS)** is a web SDK designed for scanning documents. MDS captures images of the documents and enhances their quality to professional standards, making it an ideal tool for mobile document scanning.
 
 > [!NOTE]
 > See it in action with the [Mobile Document Scanner Demo](https://demo.dynamsoft.com/document-scanner/).
@@ -216,7 +216,7 @@ Update the `scripts` section in `package.json` to automatically copy resources t
 "scripts": {
     "serve": "node dev-server/index.js",
     "build": "rollup -c && npm run get-libs",
-    "get-libs": "npm install --no-save dynamsoft-capture-vision-data dynamsoft-capture-vision-bundle && npx mkdirp /dist/libs && npx cpx 'node_modules/dynamsoft-*/**/*' dist/libs/ --dereference,
+    "get-libs": "npm install --no-save dynamsoft-capture-vision-data dynamsoft-capture-vision-bundle && npx mkdirp /dist/libs && npx cpx 'node_modules/dynamsoft-*/**/*' dist/libs/ --dereference,"
     "build:production": "rollup -c --environment BUILD:production"
 },
 ```
