@@ -9,7 +9,7 @@ keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Dynamsoft Doc
 description: Mobile Document Scanner JS Edition User Guide
 ---
 
-# Scan Single-Page Documents with Mobile Document Scanner
+# Scan Documents with Mobile Document Scanner
 
 > [!TIP]
 > Read the [Introduction]({{ site.introduction }}index.html) for common use cases, an overview of the SDK architecture, and system requirements.
