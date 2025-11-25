@@ -11,9 +11,45 @@ description: Mobile Web Capture Documentation Release Notes
 
 # Mobile Document Scanner JavaScript Edition Release Notes
 
-## 1.3.1 (04/09/2025)
+## 1.4.0 (24/11/2025)
 
-### SDK
+
+### Features
+
+#### Scanning Capabilities
+
+- Select the clearest of multiple video frames on scan with `enableFrameVerification` (default `true`).
+- Add continuous scanning mode to make multiple scans on a single `launch()`, enabled by `enableContinuousScanning` (default `false`).
+  - Add `onDocumentScanned` handler to get single scan results in continuous scanning mode.
+  - Add a thumbnail scan preview in the scanner view for continuous scanning mode with an optional `onThumbnailClicked` click handler.
+  - Add `stopContinuousScanning` to programmatically stop the scanning loop.
+- Add `enableBoundsDetectionMode` to set default bounds detection mode
+  
+#### UI/UX Improvements
+
+- Remove the animated shutter spinner.
+
+#### Samples
+
+- Add sample demonstrating minimal code to integrate MDS with Dynamsoft Document Scanner (DDV) to scan to PDF with continuous scanning.
+- Add minimal MDS-only continuous scanning sample.
+
+### Fixes
+
+- Fix "Torch not supported" message appearing unecessarily.
+- Update framework sample dependencies to resolve security vulnerabilities.
+- Remove memory leak caused by logging results to console.
+
+### Documentation
+
+- Add guides to using continuous scan mode and integrating with DDV.
+- Add full [`tsdoc`](https://tsdoc.org/) annotation coverage for all MDS APIs to bring API references to IDEs and allow content extraction with compatible development tools.
+
+#### Dependencies
+
+- [Dynamsoft Capture Vision JS 3.2.4000](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/release-notes/dcvb-3.html#324000-11112025)
+
+## 1.3.1 (04/09/2025)
 
 #### Features
 
@@ -35,7 +71,6 @@ description: Mobile Web Capture Documentation Release Notes
 
 ### Documentation
 
-- Update SDK versions from v1.2.0 to v1.3.1.
 - Add [`tsdoc`](https://tsdoc.org/) annotations to bring API references to IDEs and allow content extraction with compatible development tools.
 - Add developer guides for JavaScript Framework samples.
 
