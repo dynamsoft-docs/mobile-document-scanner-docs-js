@@ -19,7 +19,7 @@ When digitizing physical documents - whether for easier storage, better accessib
 ## Common Usage Scenarios
 
 1. **Single Page Capture** – Capture a single, clear image of a physical document, such as an invoice or patient-intake form. This is the core functionality of MDS. You can try this feature in the [**MDS demo**](https://demo.dynamsoft.com/document-scanner/). If it meets your needs, feel free to go directly to the [**MDS user guide**]({{ site.guide }}index.html).
-2. **Multi-Page Capture** – Capture images of multiple document pages (e.g., a contract). You can further leverage our Dynamsoft Document Viewer (DDV) for built-in PDF support, editing, annotations, and more. See our [sample for reference](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/scenarios/scanning-and-viewing.html).
+2. **Document Management** – Capture images of multiple document pages (e.g., a contract) and compile them into a single PDF. Please contact [Dynamsoft Support](https://www.dynamsoft.com/company/contact/) if you need this feature.
 3. **Advanced Document Management** – Handle multi-page documents, **multiple documents**, PDF files, annotations, and more with the Mobile Web Capture advanced sample project. Check out the [**online demo**](https://demo.dynamsoft.com/mobile-web-capture/), or read the [**developer guide**]({{ site.code-gallery }}mobile-web-capture/index.html) to try it for yourself.
 
 ## Design Principles
