@@ -13,8 +13,12 @@ description: Mobile Web Capture Documentation Release Notes
 
 ## 1.4.0 (24/11/2025)
 
-
 ### Features
+
+#### Breaking changes
+
+- Rename `document-scanner.ui.html` to `document-scanner.ui.xml` to better reflect its purpose as a declarative UI configuration template.
+  - This affects self hosting users only - you must update the path in the `scannerViewConfig.cameraEnhancerUIPath` property accordingly and rebuild the library.
 
 #### Scanning Capabilities
 
@@ -45,7 +49,7 @@ description: Mobile Web Capture Documentation Release Notes
 - Add guides to using continuous scan mode and integrating with DDV.
 - Add full [`tsdoc`](https://tsdoc.org/) annotation coverage for all MDS APIs to bring API references to IDEs and allow content extraction with compatible development tools.
 
-#### Dependencies
+### Dependencies
 
 - [Dynamsoft Capture Vision JS 3.2.4000](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/release-notes/dcvb-3.html#324000-11112025)
 
