@@ -11,11 +11,32 @@ description: Mobile Web Capture Documentation Release Notes
 
 # Mobile Document Scanner JavaScript Edition Release Notes
 
+### 1.4.2 (23/01/2026)
+
+### Features
+
+#### Breaking Changes
+
+None
+
+#### Fixes
+
+1. Update DCV JS to v3.2.5000 to resolve a vulnerability from its dependency.
+2. Update Angular sample node dependencies.
+
+#### Documentation
+
+1. Synchronize minor documentation updates to the README.
+
+#### Dependencies
+
+- [Dynamsoft Capture Vision JS 3.2.5000](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/release-notes/dcvb-3.html#325000-12162025)
+
 ## 1.4.0 (24/11/2025)
 
 ### Features
 
-#### Breaking changes
+#### Breaking Changes
 
 - Rename `document-scanner.ui.html` to `document-scanner.ui.xml` to better reflect its purpose as a declarative UI configuration template.
   - This affects self hosting users only - you must update the path in the `scannerViewConfig.cameraEnhancerUIPath` property accordingly and rebuild the library.
