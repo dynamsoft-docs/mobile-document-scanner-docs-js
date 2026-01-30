@@ -13,15 +13,12 @@ description: Mobile Document Scanner JS Edition User Guide
 > [!TIP]
 > Prerequisites: read the [Introduction]({{ site.introduction }}index.html) before proceeding.
 
-**Mobile Web Capture (MWC)** is an advanced sample designed to extend the features of MDS for managing and scanning multi-page documents. It integrates **Mobile Document Scanner (MDS)** functionality while offering additional features such as multi-document management, annotation, and uploading by integrating **Dynamsoft Document Viewer (DDV)**, making it a comprehensive solution for managing complex document workflows.
+**Mobile Web Capture (MWC)** is an advanced sample designed to extend the features of [Mobile Document Scanner (MDS)]({{ site.guide }}index.html) for managing and scanning multi-page documents. It integrates **Mobile Document Scanner (MDS)** functionality while offering additional features such as multi-document management, annotation, and uploading by integrating **Dynamsoft Document Viewer (DDV)**, making it a comprehensive solution for managing complex document workflows.
 
 > [!TIP]
 > See it in action with the [Mobile Web Capture Demo](https://demo.dynamsoft.com/mobile-web-capture/).
 
 This guide walks you through building a web application that scans multi-page documents using **MWC**, with **pre-defined configurations**.
-
-> [!TIP]
-> If you are looking for a solution that scans single-page documents, please read [Mobile Document Scanner User Guide]({{ site.guide }}index.html) instead.
 
 <!--
 Keep TOC only for npm /github as readme
@@ -43,14 +40,14 @@ Keep TOC only for npm /github as readme
 
 ### Get a Trial License
 
-If you haven't got a trial license for **MWC**, you can request one here:
+If you do not have a trial license for **MWC**, you can request one here:
 
 {% include trialLicense.html %}
 
- The trial license can be renewed twice, offering a total of two months of free access.
+The trial license can be renewed twice, offering a total of two months of free access.
 
 > [!NOTE]
-> **DDS** and **MWC** share the same license keys. If you already have a **DDS** license, you can use it for **MWC**, and vice versa.
+> **MDS** and **MWC** share the same license keys. If you already have a **MDS** license, you can use it for **MWC**, and vice versa.
 
 ### Get a Full License
 
@@ -66,7 +63,7 @@ To use **MWC**, the first step is to obtain its library files. You can acquire t
 
 You can choose one of the following methods to set up a Hello World page:
 
-1. **Build from Source** – Download the source files from GitHub and compile the resource script yourself.
+1. **Build from Source** – Download the source files from GitHub and compile the resource scripts yourself.
 2. **Using Precompiled Script** – Use the precompiled resource scripts from npm or the CDN for a quicker setup.
 
 ### Option 1: Build from Source
@@ -77,7 +74,7 @@ Follow these steps:
 
 1. Download **MWC** from [GitHub](https://github.com/Dynamsoft/mobile-web-capture) as a compressed folder.
 2. Extract the contents of the archive.
-3. Enter the license key you received in [Get a Trial License](#get-a-trial-license).
+3. Enter the license key you received from [Get a Trial License](#get-a-trial-license).
    > [!TIP]
    > In your code editor, open the Hello World sample located at [`/samples/hello-world.html`](https://github.com/Dynamsoft/mobile-web-capture/blob/main/samples/hello-world.html). Search for `"YOUR_LICENSE_KEY_HERE"` and replace it with your actual license key.
 4. Install project dependencies
@@ -142,11 +139,11 @@ Below is the complete Hello World sample page that uses this precompiled script 
 </html>
 ```
 
-To run the sample, create a new file called `hello-world.html`, then copy and paste the code above into the file. Next, serve the page directly by deploying it to a server.
+To run the sample, create a new file called `hello-world.html`, then copy and paste the code above into the file. Next, serve the page from a local web server.
 
-If you are using VS Code, a quick and easy way to serve the project is using the [Live Server (Five Server) VSCode extension](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server). Simply install the extension, open the `hello-world.html` file in the editor, and click "Go Live" in the bottom right corner of the editor. This will serve the application at `http://127.0.0.1:5500/hello-world.html`.
+If you are using VS Code, a quick and easy way to serve the project is to use the [Live Server (Five Server) VSCode extension](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server). Simply install the extension, open the `hello-world.html` file in the editor, and click "Go Live" in the bottom-right corner of the editor. This will serve the application at `http://127.0.0.1:5500/hello-world.html`.
 
-Alternatively, you can use other methods like `IIS` or `Apache` to serve the project, though we won't cover those here for brevity.
+Alternatively, you can use other servers like `IIS` or `Apache`, but they are outside the scope of this guide for brevity.
 
 ## Hello World Sample Explained
 
@@ -197,7 +194,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 });
 ```
 
-API Reference: [`MobileWebCapture()`]({{ site.code-gallery }}}mobile-web-capture/api.html#mobilewebcapture)
+API Reference: [`MobileWebCapture()`]({{ site.code-gallery }}mobile-web-capture/api.html#mobilewebcapture)
 
 This step creates the **MWC** UI, which, when launched, occupies the entire visible area of the browser window by default. If needed, you can specify a container to restrict the UI's size. For more details, refer to [Specify the UI Container]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#example-1-specify-the-ui-container).
 
@@ -211,7 +208,7 @@ const fileName = `New_Document_${Date.now().toString().slice(-5)}`; // Generates
 await mobileWebCapture.launch(fileName);
 ```
 
-API Reference: [`launch()`]({{ site.code-gallery }}}mobile-web-capture/api.html#launch)
+API Reference: [`launch()`]({{ site.code-gallery }}mobile-web-capture/api.html#launch)
 
 This step launches the UI, starting in **`DocumentView`**, where the user can begin building a document in two ways:
 
@@ -229,27 +226,27 @@ The user can:
 1. **Share**: Share the document as a multi-page PDF file.
    - **Download** is enabled where **Share** is not supported (e.g., in Firefox).
 2. **Manage**: Select one or multiple pages for further actions.
-3. **Manage** → **Select All** : Select all pages.
-4. **Manage** → **Delete** : Delete selected pages from the document.
-5. **Manage** → **Share** : Share individual pages as images (**.PNG**).
+3. **Manage** → **Select all**: Select all pages.
+4. **Manage** → **Delete**: Delete selected pages from the document.
+5. **Manage** → **Share**: Share individual pages as images (**.PNG**).
    - **Download** is enabled where **Share** is not supported (e.g., in Firefox).
 
-The user can also enable the **"Upload"** feature. Check out [Enable File Upload]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#enable-file-upload)
+The user can also enable the **Upload** feature. See [Enable File Upload]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#enable-file-upload).
 
 #### The PageView
-When the user presses an image, the `PageView` is launched for that page, where the user can
+When the user selects a page thumbnail, the `PageView` opens for that page, where the user can:
 
-1. **Delete** : Remove the current page.
-2. **Add Page** : Add more pages to the document.
-1. **Share** : Share the current page as an image (**.PNG**).
+1. **Delete**: Remove the current page.
+2. **Add Page**: Add more pages to the document.
+3. **Share**: Share the current page as an image (**.png**).
    - **Download** is enabled where **Share** is not supported (e.g., in Firefox).
-2. **Edit** : Display additional editing features to further process the page.
-3. **Edit** → **Crop** : Select a portion of the page and crop.
-4. **Edit** → **Rotate** : Rotate the page **90 degrees counterclockwise**.
-5. **Edit** → **Filter** : Adjust the page's pixels.
-6. **Edit** → **Annotate** : Add annotations to the page.
+4. **Edit**: Display additional editing features to further process the page.
+5. **Edit** → **Crop**: Select a portion of the page and crop.
+6. **Edit** → **Rotate**: Rotate the page **90 degrees counterclockwise**.
+7. **Edit** → **Filter**: Adjust the page's pixels.
+8. **Edit** → **Annotate**: Add annotations to the page.
 
-The user can also enable the **"Upload"** feature. Check out [Enable File Upload]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#enable-file-upload)
+The user can also enable the **Upload** feature. See [Enable File Upload]({{ site.code-gallery }}mobile-web-capture/customization-guide.html#enable-file-upload).
 
 ## Next Step
 
