@@ -12,6 +12,27 @@ permalink: /release-notes/mobile-web-capture.html
 
 # Release Notes
 
+# 4.0.0 (02/02/2026)
+
+### Breaking Changes
+
+1. Do not depend on DCV directly, rather depend on it through MDS and DDV.
+2. Do not expose raw DCV APIs, rather only expose MDS and DDV.
+3. MDS JS changed its scanner UI template file from `html` to `xml` for security purposes, which affects consumers self hosting this UI template file (no impact if using the CDN-hosted file).
+
+### Fixes
+
+1. Update MDS JS to v1.4.2 and DDV to v3.2 to resolve a DCV JS vulnerability from its `libpng` dependency (CVE-2025-64505 CVSS 6.1, CVE-2025-64506 CVSS 6.1, CVE-2025-64720 CVSS 7.1, CVE-2025-65018 CVSS 7.1, CVE-2025-66293 CVSS 7.1).
+
+### Documentation
+
+1. Synchronize minor documentation updates to the README.
+
+### Dependencies
+
+- [Mobile Document Scanner JS v1.4.2](https://www.dynamsoft.com/mobile-document-scanner/docs/web/release-notes/index.html#142-23012026)
+- [Dynamsoft Document Scanner v3.2.0](https://www.dynamsoft.com/document-viewer/docs/releasenotes/index.html#32-01132026)
+
 ## 3.1.0 (05/01/2025)
 
 The most notable improvement in this version is the pluggable scanner feature. This allows MWC to integrate any custom scanner.<!-- , e.g. our existing [MRZ scanner](https://www.dynamsoft.com/mrz-scanner/docs/web/introduction/index.html). -->
