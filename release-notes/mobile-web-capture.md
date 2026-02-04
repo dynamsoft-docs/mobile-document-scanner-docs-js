@@ -31,7 +31,7 @@ permalink: /release-notes/mobile-web-capture.html
 ### Dependencies
 
 - [Mobile Document Scanner JS v1.4.2](https://www.dynamsoft.com/mobile-document-scanner/docs/web/release-notes/index.html#142-23012026)
-- [Dynamsoft Document Scanner v3.2.0](https://www.dynamsoft.com/document-viewer/docs/releasenotes/index.html#32-01132026)
+- [Dynamsoft Document Viewer v3.2.0](https://www.dynamsoft.com/document-viewer/docs/releasenotes/index.html#32-01132026)
 
 ## 3.1.0 (05/01/2025)
 
