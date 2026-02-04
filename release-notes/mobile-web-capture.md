@@ -22,7 +22,7 @@ permalink: /release-notes/mobile-web-capture.html
 
 ### Fixes
 
-1. Update MDS JS to v1.4.2 and DDV to v3.2 to resolve a DCV JS vulnerability from its `libpng` dependency (CVE-2025-64505 CVSS 6.1, CVE-2025-64506 CVSS 6.1, CVE-2025-64720 CVSS 7.1, CVE-2025-65018 CVSS 7.1, CVE-2025-66293 CVSS 7.1).
+1. Update MDS JS to v1.4.2 and DDV to v3.2 to improve security.
 
 ### Documentation
 
