@@ -17,4 +17,5 @@ description: Mobile Document Scanner JS Edition Documentation Homepage
     - [Customization Guide]({{ site.code-gallery }}mobile-web-capture/customization-guide.html)
     - [API Reference]({{ site.code-gallery }}mobile-web-capture/api.html)
 - [API Reference]({{ site.api }}index.html)
-- [Release notes]({{ site.release-notes }}index.html)
+- [MDS Release notes]({{ site.release-notes }}index.html)
+  - [MWC Release notes]({{ site.release-notes }}mobile-web-capture.html)
