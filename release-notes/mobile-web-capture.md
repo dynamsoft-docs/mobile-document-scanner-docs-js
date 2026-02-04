@@ -12,7 +12,7 @@ permalink: /release-notes/mobile-web-capture.html
 
 # Release Notes
 
-# 4.0.0 (02/02/2026)
+## 4.0.0 (02/02/2026)
 
 ### Breaking Changes
 
