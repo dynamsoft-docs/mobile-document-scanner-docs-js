@@ -5,7 +5,7 @@ needGenerateH3Content: true
 noTitleIndex: false
 title: Mobile Document Scanner JS Edition - Scan Multi-Page Documents
 keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Mobile Web Capture, Dynamsoft Document Scanner,
-description: Mobile Document Scanner JS Edition User Guide
+description: "Learn how to customize Dynamsoft Mobile Document Scanner Web UI, scanner behavior, and capture workflows to create faster, user-friendly document apps."
 ---
 
 # How to Customize Mobile Web Capture

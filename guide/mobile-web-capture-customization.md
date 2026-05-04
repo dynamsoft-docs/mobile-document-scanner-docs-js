@@ -5,7 +5,7 @@ needGenerateH3Content: true
 noTitleIndex: false
 title: Mobile Web Capture - Scan Multi-Page Documents
 keywords: Documentation, Mobile Web Capture, Dynamsoft Document Scanner,
-description: Mobile Web Capture User Guide
+description: "Learn how to use Dynamsoft Mobile Document Scanner Web features with practical setup guidance, workflow tips, and examples for building reliable capture apps."
 ---
 
 # How to Customize Mobile Web Capture
