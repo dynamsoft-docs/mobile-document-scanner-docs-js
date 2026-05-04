@@ -6,7 +6,7 @@ noTitleIndex: false
 breadcrumbText: Developer Guide
 title: Mobile Document Scanner JS Edition - Scan Single-Page Documents
 keywords: Documentation, Mobile Document Scanner, Web, JS Edition, Dynamsoft Document Scanner,
-description: Mobile Document Scanner JS Edition User Guide
+description: "Learn how to use Dynamsoft Mobile Document Scanner Web features with practical setup guidance, workflow tips, and examples for building reliable capture apps."
 ---
 
 # Scan Documents with Mobile Document Scanner
