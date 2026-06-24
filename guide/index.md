@@ -25,7 +25,7 @@ This guide walks you through building a web application that scans single-page d
 
 ### Get a Trial License
 
-You can request a trial license for **Mobile Document Scanner** here:
+You can request a trial license for **Mobile Document Scanner** through our [customer portal](https://www.dynamsoft.com/customer/license/trialLicense?product=mwc&source=guide). The trial license can be renewed twice for a total of two months of free access.
 
 {% include trialLicense.html %}
 
@@ -47,12 +47,6 @@ You can choose one of the following methods to set up a Hello World page:
 
 1. **Build from source** – download the source files from GitHub and compile the library files yourself.
 2. **Use precompiled scripts** – use the precompiled resource scripts from npm or the CDN for a quicker setup.
-3. **Self-host resources** - self-host both MDS and its dependencies on your web server.
-
-<div class="multi-panel-switching-prefix"></div>
-
-<div class="multi-panel-start"></div>
-<div class="multi-panel-title">Build from Source</div>
 
 ### Build from Source
 
@@ -63,87 +57,83 @@ This method retrieves all **MDS** source files from its [GitHub Repository](http
 2. Extract the contents of the archive, and open the extracted directory in a code editor.
 
 3. Set your [license key](#get-a-trial-license) in the Hello World sample:
-    1. Open the Hello World sample at [`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html).
-    2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
+   1. Open the Hello World sample at [`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html).
+   2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
 
-4. In the terminal, navigate to the project root directory and run the following to install project dependencies:
+4. In the terminal, navigate to the project root directory and run the following to a. install project dependencies, b. build the library, and c. serve the sample:
 
-    ```shell
-    npm install
-    ```
+   ```shell
+   npm install
+   npm run build
+   npm run serve
+   ```
 
-5. After installing dependencies, build the project by running:
-
-    ```shell
-    npm run build
-    ```
-
-6. Start the local server by running the following to serve the project locally:
-
-    ```shell
-    npm run serve
-    ```
-
-    Once the server is running, open the application in a browser using the address provided in the terminal output after running `npm run serve`.
-
-    > [!TIP]
-    > See the server configuration details in [`/dev-server/index.js`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/dev-server/index.js).
-
-<div class="multi-panel-end"></div>
-
-<div class="multi-panel-start"></div>
-<div class="multi-panel-title">Use Precompiled Script</div>
+   Once the server is running, open the application in a browser using the addresses provided in the terminal output after running `npm run serve`.
 
 ### Use Precompiled Scripts
 
 We publish **MDS** library files on [npm](https://www.npmjs.com/package/dynamsoft-document-scanner) to make them simple to reference from a CDN.
 
-To use the precompiled script, simply include the following URL in a `<script>` tag:
+To use the precompiled ESM bundle script, simply import it from CDN:
+
+```javascript
+import { DocumentScanner } from "https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.js"
+```
+
+Or use the UMD bundle script by including the URL in a `<script>` tag in the document head:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.js"></script>
 ```
 
-Below is the complete Hello World sample page that uses this precompiled script from a CDN.
+Below is the complete Hello World sample page that uses the precompiled ESM bundle script from a CDN.
 
 > [!TIP]
-> The code is identical to the [`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html) file mentioned in the [Build from Source](#build-from-source) section, except for the script source.
+> The code is similar to the [`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html) file mentioned in the [Build from Source](#build-from-source) section, except for the script source.
 
 > [!WARNING]
 > **Remember** to replace `"YOUR_LICENSE_KEY_HERE"` with your actual license key.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mobile Document Scanner - Hello World</title>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.js"></script>
+    <title>Dynamsoft Mobile Document Scanner - Hello World</title>
+    <!--Optional UMD usage, remove the ESM import if you use this-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.esm.js"></script>-->
+    <style>
+      #results canvas {
+        width: 100%;
+        height: auto;
+      }
+    </style>
   </head>
   <body>
-    <h1 style="font-size: large">Mobile Document Scanner</h1>
+    <h1>Dynamsoft Mobile Document Scanner</h1>
     <div id="results"></div>
-    <script>
-      const resultContainer = document.querySelector("#results");
-      // Instantiate a Document Scanner Object
-      const documentScanner = new Dynamsoft.DocumentScanner({
-        license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-      });
-      (async () => {
-        // Launch the scanner and wait for the result
-        const result = await documentScanner.launch();
-        console.log(result);
 
-        // Clear the result container and display the scanned result as a canvas
-        if (result?.correctedImageResult) {
-          resultContainer.innerHTML = ""; // Clear placeholder content
-          const canvas = result.correctedImageResult.toCanvas();
-          resultContainer.appendChild(canvas);
-        } else {
-          resultContainer.innerHTML = "<p>No image scanned. Please try again.</p>";
-        }
-      })();
+    <script type="module">
+      import { DocumentScanner } from "https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.esm.js";
+
+      const results = document.querySelector("#results");
+
+      const documentScanner = new DocumentScanner({
+        license: "YOUR_LICENSE_KEY_HERE",
+        scannerViewConfig: {
+          enableAutoCropMode: true,
+          enableSmartCaptureMode: true,
+        },
+      });
+
+      const result = await documentScanner.launch();
+      if (result?.correctedImageResult) {
+        results.innerHTML = "";
+        results.appendChild(result.correctedImageResult.toCanvas());
+      } else {
+        results.textContent = "No image scanned. Please try again.";
+      }
     </script>
   </body>
 </html>
@@ -155,128 +145,6 @@ If you are using VS Code, a quick and easy way to serve the project is using the
 
 Alternatively, you can use other methods like `IIS` or `Apache` to serve the project, though we skip those here for brevity.
 
-<div class="multi-panel-end"></div>
-
-<div class="multi-panel-start"></div>
-<div class="multi-panel-title">Self-Host Resources</div>
-
-### Self-Host Resources
-
-By default, the MDS library (whether pre-compiled or self-compiled) fetches resource files (Dynamsoft `node` dependencies and an HTML UI template) from CDNs. Self-hosting library resources gives you full control over hosting your application. Rather than using CDNs to serve these resources, you can instead host these resources on your own servers to deliver to your users directly when they use your application. You can also use this option to host MDS fully offline by pointing to local resources. Here are the resources to self-host:
-
-1. `document-scanner.ui.xml` - the UI template for the `DocumentScannerView`/viewfinder.
-2. `dynamsoft-capture-vision-bundle` - the `node` package for the Dynamsoft Capture Vision (DCV) engine resources.
-3. `dynamsoft-capture-vision-data` - the `node` package for DCV engine configuration templates.
-
-#### Download Resources
-
-First, download a copy of the resources:
-
-1. Download **MDS** from [GitHub](https://github.com/Dynamsoft/document-scanner-javascript) as a compressed folder.
-
-2. Extract the contents of the archive, and open the extracted directory in a code editor.
-
-3. Set your [license key](#get-a-trial-license) in the Hello World sample:
-
-   1. Open the Hello World sample at ([`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html)).
-
-   2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
-
-4. Install node packages locally, along with the extra `dynamsoft-capture-vision-data` package. You must add this extra package explicitly as MDS does not include this package by default as it is not a build dependency. In the terminal, navigate to the project root directory and run the following to install the packages:
-
-   ```shell
-   npm install dynamsoft-capture-vision-data@1.1.0
-   ```
-
-#### Add Build Scripts
-
-Add scripts by updating the `scripts` property in `package.json` that automatically copy the two `node` dependencies to the output `dist` directory during the build process. Later on we configure MDS to request the resources at this path.
-
-```json
-"scripts": {
-  "serve": "node dev-server/index.js",
-  "build": "rollup -c",
-  "copy-libs": "npx mkdirp dist/libs && npx cpx \"node_modules/dynamsoft-capture-vision-bundle/**/*\" dist/libs/dynamsoft-capture-vision-bundle@3.2.5000/ && npx cpx \"node_modules/dynamsoft-capture-vision-data/**/*\" dist/libs/dynamsoft-capture-vision-data@1.1.0/",
-  "build:self-hosted": "npm run build && npm run copy-libs",
-  "build:production": "rollup -c --environment BUILD:production"
-},
-```
-
-#### Point to Resources
-
-The library uses [`engineResourcePaths`]({{ site.api }}index.html#engineresourcepaths) to locate required Dynamsoft `node` dependencies by pointing to the location of the resources on your web server. Similarly, `scannerViewConfig.cameraEnhancerUIPath` also sets the path for the HTML UI template of the `ScannerView`. To use the local resources in the Hello World, set `engineResourcePaths` in the `hello-world.html` to point to the local `dist` directory, where the resources are located (along with setting your license key, and all other configurations):
-
-```javascript
-const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE",
-  scannerViewConfig: {
-    cameraEnhancerUIPath: "dist/document-scanner.ui.xml", // Use the local file
-  },
-  engineResourcePaths: {
-    rootDirectory: "dist/libs/"
-  },
-});
-```
-
-API Reference:
-
-- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
-- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
-- [`DocumentScannerViewConfig`]({{ site.api }}index.html#documentscannerviewconfig)
-- [`engineResourcePaths`]({{ site.api }}index.html#engineresourcepaths)
-- [`cameraEnhancerUIPath`]({{ site.api }}index.html#cameraenhanceruipaths)
-
-#### Build the Project
-
-Build the project and move the resources to the set location with the following script:
-
-```shell
-npm run build:self-hosted
-```
-
-#### Serve the Project Locally
-
-Start the local development server by running:
-
-```shell
-npm run serve
-```
-
-Once the server is running, open the application in a browser using the address provided in the terminal output.
-
-#### Serve over HTTPS
-
-**Place the `dist` directory** onto your web server to serve the web application. When deploying your web application for production, you must serve it over a **secure HTTPS connection**. We require this for the following reasons:
-
-1. **Browser Security Restrictions** – Most browsers only allow access to camera video streams in a secure context.
-
-    > [!NOTE]
-    > Some browsers like Chrome may grant access to camera video streams for `http://127.0.0.1`, `http://localhost`, or even pages opened directly from the local file system (`file:///...`). This can be helpful during development and testing.
-
-2. **Dynamsoft License Requirements** – A secure context is required for **Dynamsoft licenses** to function properly.
-
-#### Set MIME Type
-
-Certain legacy web application servers may lack support for the `application/wasm` mimetype for .wasm files. To address this, you have two options:
-
-1. Upgrade your web application server to one that supports the `application/wasm` mimetype.
-2. Manually define the mimetype on your server by setting the MIME type for `.wasm` as `application/wasm`. This allows the user's browser to correctly process resource files. Different web servers have their own way of configuring the MIME type. Here are instructions for [Apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings), [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap), and [NGINX](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types).
-
-#### Resource Caching
-
-The `wasm` resource files are relatively large and may take quite a few seconds to download. We recommend setting a longer cache time for these resource files to maximize the performance of your web application using the `Cache-Control` HTTP header. For example, use the `max-age` directive to cache resources for a specified time in seconds:
-
-```
-Cache-Control: max-age=31536000
-```
-
-Reference:
-[`Cache-Control`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
-
-<div class="multi-panel-end"></div>
-
-<div class="multi-panel-switching-end"></div>
-
 ## Hello World Sample Explained
 
 Here we walk through the code in the Hello World sample to explain its function and usage.
@@ -286,6 +154,17 @@ Here we walk through the code in the Hello World sample to explain its function 
 
 ### Reference MDS
 
+MDS provides the same bundle for different JS module systems.
+
+To use the ESM bundle, use the import statement in a `<script type=module>` script, followed by the rest of the code:
+
+```javascript
+import { DocumentScanner } from "/dist/dds.bundle.esm.js";
+// CDN links also work here: "https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.js"
+```
+
+This is equivalent to using a script tag with UMD:
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -293,7 +172,7 @@ Here we walk through the code in the Hello World sample to explain its function 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mobile Document Scanner - Hello World</title>
-    <script src="../dist/dds.bundle.js"></script>
+    <script src="/dist/dds.bundle.js"></script>
     <!--Alternatively, reference the script from CDN
     <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.js"></script>
     -->
@@ -301,22 +180,8 @@ Here we walk through the code in the Hello World sample to explain its function 
 </html>
 ```
 
-In this step, we reference MDS with a relative path to the local file in the `<head>` section of the HTML.
-
-```html
-<script src="../dist/dds.bundle.js"></script>
-```
-
-Alternatively, you can reference the script hosted on a CDN, for example, on JSDelivr:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.js"></script>
-```
-
-**MDS** wraps all its dependency scripts, so a **MDS** project only needs to include **MDS** itself as a single script. No additional dependency scripts are required.
-
 > [!WARNING]
-> Even if you reference the script itself locally, MDS still defaults to loading supporting resources like `.wasm` engine files from the CDN at runtime. If you require a **fully offline setup**, follow the [quick start instructions to self-host resources](#quick-start).
+> Even if you reference the script itself locally, MDS still defaults to loading supporting resources like `.wasm` engine files from the CDN at runtime. If you require a **fully offline setup**, see [self-host resources](#self-host-resources).
 
 ### Instantiate MDS
 
@@ -385,6 +250,73 @@ if (result?.correctedImageResult) {
 }
 ```
 
+### Deployment Tips
+
+#### Self-Host Resources
+
+By default, the MDS library (whether pre-compiled or self-compiled) fetches resource files (Dynamsoft `node` dependencies and an HTML UI template) from CDNs. Self-hosting library resources gives you full control over hosting your application. Rather than using CDNs to serve these resources, you can instead host these resources on your own servers to deliver to your users directly when they use your application. You can also use this option to host MDS fully offline by pointing to local resources. Here are the resources to self-host:
+
+1. `document-scanner.ui.xml` - the UI template for the `DocumentScannerView`/viewfinder.
+2. `dynamsoft-capture-vision-bundle` - the `node` package for the Dynamsoft Capture Vision (DCV) engine resources.
+3. `dynamsoft-capture-vision-data` - the `node` package for DCV engine configuration templates.
+
+#### Download Resources
+The Hello World sample in the GitHub repository is set up to use self-hosted resources. Follow the steps in [Build from Source](#build-from-source) to see this in action.
+
+The library uses [`engineResourcePaths`]({{ site.api }}index.html#engineresourcepaths) to locate required Dynamsoft `node` dependencies by pointing to the location of the resources on your web server. Similarly, `scannerViewConfig.cameraEnhancerUIPath` also sets the path for the HTML UI template of the `ScannerView`. Set the path properties to point to where your server is hosting your resources. For example, the Hello World and the project built-in development server (vite) places the resources in like so:
+
+```javascript
+const documentScanner = new DocumentScanner({
+  license: "YOUR_LICENSE_KEY_HERE",
+  engineResourcePaths: {
+    dcvBundle: "/dynamsoft-capture-vision-bundle/dist",
+    dcvData: "/dynamsoft-capture-vision-data",
+  },
+  scannerViewConfig: {
+    cameraEnhancerUIPath: "../dist/document-scanner.ui.xml",
+    enableAutoCropMode: true,
+    enableSmartCaptureMode: true,
+  },
+});
+```
+
+API Reference:
+
+- [`DocumentScanner()`]({{ site.api }}index.html#documentscanner)
+- [`DocumentScannerConfig`]({{ site.api }}index.html#documentscannerconfig)
+- [`DocumentScannerViewConfig`]({{ site.api }}index.html#documentscannerviewconfig)
+- [`engineResourcePaths`]({{ site.api }}index.html#engineresourcepaths)
+- [`cameraEnhancerUIPath`]({{ site.api }}index.html#cameraenhanceruipaths)
+
+#### Serve over HTTPS
+
+**Place the `dist` directory** onto your web server to serve the web application. When deploying your web application for production, you must serve it over a **secure HTTPS connection**. We require this for the following reasons:
+
+1. **Browser Security Restrictions** – Most browsers only allow access to camera video streams in a secure context.
+
+   > [!NOTE]
+   > Some browsers like Chrome may grant access to camera video streams for `http://127.0.0.1`, `http://localhost`, or even pages opened directly from the local file system (`file:///...`). This can be helpful during development and testing.
+
+2. **Dynamsoft License Requirements** – A secure context is required for **Dynamsoft licenses** to function properly.
+
+#### Set MIME Type
+
+Certain legacy web application servers may lack support for the `application/wasm` mimetype for .wasm files. To address this, you have two options:
+
+1. Upgrade your web application server to one that supports the `application/wasm` mimetype.
+2. Manually define the mimetype on your server by setting the MIME type for `.wasm` as `application/wasm`. This allows the user's browser to correctly process resource files. Different web servers have their own way of configuring the MIME type. Here are instructions for [Apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings), [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap), and [NGINX](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types).
+
+#### Resource Caching
+
+The `wasm` resource files are relatively large and may take quite a few seconds to download. We recommend setting a longer cache time for these resource files to maximize the performance of your web application using the `Cache-Control` HTTP header. For example, use the `max-age` directive to cache resources for a specified time in seconds:
+
+```
+Cache-Control: max-age=31536000
+```
+
+Reference:
+[`Cache-Control`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
+
 ## Custom Usage
 
 This section builds on the Hello World sample to demonstrate how to configure **MDS**, typically by adjusting the `DocumentScannerConfig` object.
@@ -423,6 +355,8 @@ This section builds on the Hello World sample to demonstrate how to configure **
 12. `templateFilePath` - path to a Capture Vision template for scanning configuration; typically not needed as the default template is used.
 13. `utilizedTemplateNames`- template names for detection and correction. Typically not needed as the default template is used.
 14. `engineResourcePaths` - paths to extra resources such as `.wasm` engine files.
+15. `themeColor` - configure the default colors used across the library.
+16. `stringConfig` - configure the default text strings used across the library.
 
 Furthermore, we explore three main (non-mutually-exclusive) avenues of customization with `DocumentScannerConfig`:
 
@@ -563,10 +497,10 @@ For brevity, we outline the key steps in this sample implementation:
 3. Instantiate the DDV edit viewer
 4. Create a DDV document
 5. Create a `DocumentScanner` instance
-  1. Enable continuous scanning
-  2. On confirming a scan, convert and send the image to the DDV document with [`loadSource()`](https://www.dynamsoft.com/document-viewer/docs/api/interface/idocument/index.html#loadsource) in the MDS event handler
-6. Add an event to launch MDS when clicking the custom scan button added to DDV
-7. Add an event to DDV that outputs a PDF of the scanned documents from DDV on close using [`saveToPdf()`](https://www.dynamsoft.com/document-viewer/docs/api/interface/idocument/#savetopdf)
+6. Enable continuous scanning
+7. On confirming a scan, convert and send the image to the DDV document with [`loadSource()`](https://www.dynamsoft.com/document-viewer/docs/api/interface/idocument/index.html#loadsource) in the MDS event handler
+8. Add an event to launch MDS when clicking the custom scan button added to DDV
+9. Add an event to DDV that outputs a PDF of the scanned documents from DDV on close using [`saveToPdf()`](https://www.dynamsoft.com/document-viewer/docs/api/interface/idocument/#savetopdf)
 
 ### Workflow Customization
 
@@ -732,6 +666,27 @@ API Reference:
 
 In addition to modifying the workflow, you can customize individual Views with configuration options for UI styling, button settings, and event handling.
 
+#### Theme Color and String Configuration
+
+You can configure theme colors and text strings across the library using `themeColor` and `stringConfig`. For example, the following changes the loading screen message, and sets the default primary color to red.
+
+```javascript
+const documentScanner = new Dynamsoft.DocumentScanner({
+  license: "YOUR_LICENSE_KEY_HERE", // Replace with your actual license key
+  stringConfig: {
+    loadingMsg: "My new loading screen message"
+  },
+  themeColor: {
+    primary: "#F54927"
+  }
+});
+```
+
+See the reference for a full list of available configurations:
+
+- [`themeColor`]({{ site.api }}index.html#themecolor)
+- [`stringConfig`]({{ site.api }}index.html#stringconfig)
+
 #### `DocumentScannerView` Configuration
 
 ##### Customizing the `DocumentScannerView` UI
@@ -764,20 +719,20 @@ This file defines the UI for `DocumentScannerView`. Since files on the CDN **can
 
 3. Build the project to generate the updated file in `/dist/document-scanner.ui.xml`:
 
-    ```shell
-    npm run build
-    ```
+   ```shell
+   npm run build
+   ```
 
 4. Update the configuration to use the local file instead of the CDN version:
 
-    ```javascript
-    const documentScanner = new Dynamsoft.DocumentScanner({
-      license: "YOUR_LICENSE_KEY_HERE", // Replace with your actual license key
-      scannerViewConfig: {
-        cameraEnhancerUIPath: "../dist/document-scanner.ui.xml", // Use the local file
-      },
-    });
-    ```
+   ```javascript
+   const documentScanner = new Dynamsoft.DocumentScanner({
+     license: "YOUR_LICENSE_KEY_HERE", // Replace with your actual license key
+     scannerViewConfig: {
+       cameraEnhancerUIPath: "../dist/document-scanner.ui.xml", // Use the local file
+     },
+   });
+   ```
 
 API Reference:
 
@@ -1005,7 +960,7 @@ const documentScanner = new Dynamsoft.DocumentScanner({
         {
           method: "POST",
           body: formData,
-        }
+        },
       );
     },
   },
