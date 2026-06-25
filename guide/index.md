@@ -250,9 +250,9 @@ if (result?.correctedImageResult) {
 }
 ```
 
-### Deployment Tips
+## Deployment Tips
 
-#### Self-Host Resources
+### Self-Host Resources
 
 By default, the MDS library (whether pre-compiled or self-compiled) fetches resource files (Dynamsoft `node` dependencies and an HTML UI template) from CDNs. Self-hosting library resources gives you full control over hosting your application. Rather than using CDNs to serve these resources, you can instead host these resources on your own servers to deliver to your users directly when they use your application. You can also use this option to host MDS fully offline by pointing to local resources. Here are the resources to self-host:
 
@@ -260,7 +260,7 @@ By default, the MDS library (whether pre-compiled or self-compiled) fetches reso
 2. `dynamsoft-capture-vision-bundle` - the `node` package for the Dynamsoft Capture Vision (DCV) engine resources.
 3. `dynamsoft-capture-vision-data` - the `node` package for DCV engine configuration templates.
 
-#### Download Resources
+### Download Resources
 The Hello World sample in the GitHub repository is set up to use self-hosted resources. Follow the steps in [Build from Source](#build-from-source) to see this in action.
 
 The library uses [`engineResourcePaths`]({{ site.api }}index.html#engineresourcepaths) to locate required Dynamsoft `node` dependencies by pointing to the location of the resources on your web server. Similarly, `scannerViewConfig.cameraEnhancerUIPath` also sets the path for the HTML UI template of the `ScannerView`. Set the path properties to point to where your server is hosting your resources. For example, the Hello World and the project built-in development server (vite) places the resources in like so:
@@ -288,7 +288,7 @@ API Reference:
 - [`engineResourcePaths`]({{ site.api }}index.html#engineresourcepaths)
 - [`cameraEnhancerUIPath`]({{ site.api }}index.html#cameraenhanceruipaths)
 
-#### Serve over HTTPS
+### Serve over HTTPS
 
 **Place the `dist` directory** onto your web server to serve the web application. When deploying your web application for production, you must serve it over a **secure HTTPS connection**. We require this for the following reasons:
 
@@ -299,14 +299,14 @@ API Reference:
 
 2. **Dynamsoft License Requirements** – A secure context is required for **Dynamsoft licenses** to function properly.
 
-#### Set MIME Type
+### Set MIME Type
 
 Certain legacy web application servers may lack support for the `application/wasm` mimetype for .wasm files. To address this, you have two options:
 
 1. Upgrade your web application server to one that supports the `application/wasm` mimetype.
 2. Manually define the mimetype on your server by setting the MIME type for `.wasm` as `application/wasm`. This allows the user's browser to correctly process resource files. Different web servers have their own way of configuring the MIME type. Here are instructions for [Apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings), [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap), and [NGINX](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types).
 
-#### Resource Caching
+### Resource Caching
 
 The `wasm` resource files are relatively large and may take quite a few seconds to download. We recommend setting a longer cache time for these resource files to maximize the performance of your web application using the `Cache-Control` HTTP header. For example, use the `max-age` directive to cache resources for a specified time in seconds:
 
