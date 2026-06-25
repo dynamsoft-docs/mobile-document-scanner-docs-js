@@ -40,6 +40,8 @@ await documentScanner.launch();
 ```
 The UI elements are modularized into distinct Views, each offering developer-friendly configuration options. These options enable flexible business logic through straightforward configuration objects, helping to reduce development costs and streamline maintenance.
 
+The Document Scanner returns the scanned pages as `canvas` or `blob`. Alternatively end users can import existing image files from their devices. The [multi-page scanner](https://demo.dynamsoft.com/document-scanner/multi-page-scanner/) sample additionally supports PDF output using the Dynamsoft Document Viewer SDK.
+
 The following section provides a high-level overview of the Views.
 
 ## Views
