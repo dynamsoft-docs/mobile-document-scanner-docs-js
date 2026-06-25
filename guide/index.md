@@ -764,23 +764,23 @@ API Reference:
 Here is how `ScanRegion` applies its settings to the viewfinder:
 
 1. Use the `ratio` property to set the height-to-width of the rectangular scanning region, then scale the rectangle up to fit within the viewfinder.
-2. Translate the rectangular up by the number of pixels specified by `regionBottomMargin`.
+2. Translate the rectangular region up by the number of pixels specified by `regionBottomMargin`.
 3. Create a visual border for the scanning region boundary on the viewfinder with a given stroke width in pixels, and a stroke color.
 
 For example:
 
 ```javascript
-scanRegion {
+const scanRegion = {
   ratio: {
-    width: 2;
-    height: 3;
-  };
-  regionBottomMargin: 20;
+    width: 2,
+    height: 3,
+  },
+  regionBottomMargin: 20,
   style: {
-    strokeWidth: 3;
-    strokeColor: "green";
-  };
-}
+    strokeWidth: 3,
+    strokeColor: "green",
+  },
+};
 ```
 
 This creates a scan region with a height-to-width ratio of 3:2, translated upwards by 20 pixels, with a green, 3 pixel-wide border in the viewfinder.
