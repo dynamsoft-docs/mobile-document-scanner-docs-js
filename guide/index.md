@@ -260,7 +260,6 @@ By default, the MDS library (whether pre-compiled or self-compiled) fetches reso
 2. `dynamsoft-capture-vision-bundle` - the `node` package for the Dynamsoft Capture Vision (DCV) engine resources.
 3. `dynamsoft-capture-vision-data` - the `node` package for DCV engine configuration templates.
 
-### Download Resources
 The Hello World sample in the GitHub repository is set up to use self-hosted resources. Follow the steps in [Build from Source](#build-from-source) to see this in action.
 
 The library uses [`engineResourcePaths`]({{ site.api }}index.html#engineresourcepaths) to locate required Dynamsoft `node` dependencies by pointing to the location of the resources on your web server. Similarly, `scannerViewConfig.cameraEnhancerUIPath` also sets the path for the HTML UI template of the `ScannerView`. Set the path properties to point to where your server is hosting your resources. For example, the Hello World and the project built-in development server (vite) places the resources in like so:
