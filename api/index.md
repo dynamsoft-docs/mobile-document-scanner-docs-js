@@ -27,6 +27,8 @@ The `DocumentScanner` class provides a complete document scanning solution that 
   - [DocumentCorrectionViewConfig](#documentcorrectionviewconfig)
   - [DocumentResultViewConfig](#documentresultviewconfig)
   - [DocumentResult](#documentresult)
+  - [ThemeColor](#themecolor)
+  - [StringConfig](#stringconfig)
 - [Toolbar Button Configurations](#toolbar-button-configurations)
   - [ToolbarButtonConfig](#toolbarbuttonconfig)
   - [ToolbarButton](#toolbarbutton)
@@ -330,6 +332,8 @@ interface DocumentScannerConfig {
   enableFrameVerification?: boolean;
   onDocumentScanned?: (result: DocumentResult) => void | Promise<void>;
   onThumbnailClicked?: (result: DocumentResult) => void | Promise<void>;
+  themeColor?: ThemeColor;
+  stringConfig?: StringConfig;
 }
 ```
 
@@ -351,6 +355,8 @@ interface DocumentScannerConfig {
 | `enableFrameVerification`  | `boolean`                                                       | `true`  | Enable automatic frame verification for best quality capture. When enabled, uses clarity detection and cross-filtering to automatically find the clearest frame.                                                                                                                                                                                                                |
 | `onDocumentScanned`        | `(result: DocumentResult) => void \| Promise<void>`             | -       | Callback invoked after each successful scan in continuous scanning mode. This callback is only called when `enableContinuousScanning` is true. The scanner loops back to capture another document after this callback completes. The callback receives a `DocumentResult` containing the original image, corrected image, detected boundaries, and scan status.                  |
 | `onThumbnailClicked`       | `(result: DocumentResult) => void \| Promise<void>`             | -       | Callback invoked when the thumbnail preview is clicked in continuous scanning mode. This callback is only invoked when `enableContinuousScanning` is enabled, `showCorrectionView` is disabled, and `showResultView` is disabled. The thumbnail preview displays the most recently scanned document. By default, clicking it does nothing unless this callback is defined, allowing you to implement custom behavior such as re-editing the image. |
+| `themeColor`               | [`ThemeColor`](#themecolor)                                     | -       | Override the default colors used across all views and the loading screen. See [`ThemeColor`](#themecolor) for the full list of themeable fields.                                                                                                                                                                                                                                  |
+| `stringConfig`             | [`StringConfig`](#stringconfig)                                 | -       | Override the default user-facing strings such as loading messages, the share dialog title, the download filename prefix, and alert text. Toolbar button labels are not set here — use the `toolbarButtonsConfig` of `correctionViewConfig`/`resultViewConfig` instead. See [`StringConfig`](#stringconfig) for the full list.                                                        |
 
 #### Example: Basic Configuration
 ```javascript
@@ -551,6 +557,126 @@ interface DocumentResult {
 | `correctedImageResult`  | `DeskewedImageResultItem`  | The processed (corrected) image.                             |
 | `originalImageResult`   | `DSImageData`              | The original captured image before correction.               |
 | `detectedQuadrilateral` | `Quadrilateral`            | The detected document boundaries.                            |
+
+### `ThemeColor`
+
+Override the default colors used across all views and the loading screen. Every field is optional; unset fields fall back to the library default. Set it through the `themeColor` property of [`DocumentScannerConfig`](#documentscannerconfig).
+
+#### Syntax
+```typescript
+interface ThemeColor {
+  primary?: string;
+  toolbarButtonInactive?: string;
+  activeIndicator?: string;
+  inactiveIndicator?: string;
+  correctionQuad?: string;
+  backgroundView?: string;
+  backgroundToolbar?: string;
+  filterMenuBackground?: string;
+  filterMenuText?: string;
+  scanMoreBackground?: string;
+  scanMoreText?: string;
+}
+```
+
+#### Properties
+
+| Property                | Type     | Default   | Description                                                                                                                                                                                                                          |
+| ----------------------- | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `primary`               | `string` | `#fe8e14` | Brand accent. Themes the shutter button, the continuous-mode "Done" button, active toggle labels in the scanner mode selector, selected camera/resolution option borders, and the pressed state of correction/result toolbar buttons. |
+| `toolbarButtonInactive` | `string` | `#ffffff` | Default color for toolbar and navigation buttons: correction/result toolbar icons and labels at rest, the scanner header nav icons (camera select, upload, torch, close), and inactive toggle labels in the scanner mode selector.    |
+| `activeIndicator`       | `string` | `#43cc48` | "On" status indicator color on scanner mode selector toggles.                                                                                                                                                                       |
+| `inactiveIndicator`     | `string` | `#575757` | "Off" status indicator color on scanner mode selector toggles.                                                                                                                                                                      |
+| `correctionQuad`        | `string` | `#fe8e14` | Stroke and corner-handle color of the boundary quadrilateral in the correction view. Independent of `primary`.                                                                                                                       |
+| `backgroundView`        | `string` | `#575757` | Body background for the correction and result views.                                                                                                                                                                                |
+| `backgroundToolbar`     | `string` | `#323234` | Chrome background: the toolbar in correction/result views, the scanner header bar, and the loading screen overlay.                                                                                                                   |
+| `filterMenuBackground`  | `string` | `#323234` | Panel background of the result view filter drop-up menu.                                                                                                                                                                             |
+| `filterMenuText`        | `string` | `#ffffff` | Text color of the result view filter menu options.                                                                                                                                                                                  |
+| `scanMoreBackground`    | `string` | `#323234` | Background of the continuous-mode "Scan More" button.                                                                                                                                                                               |
+| `scanMoreText`          | `string` | `#ffffff` | Text color of the continuous-mode "Scan More" button.                                                                                                                                                                               |
+
+#### Example
+```javascript
+const documentScanner = new Dynamsoft.DocumentScanner({
+    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+    themeColor: {
+        primary: "#0066cc",
+        backgroundView: "#1a1a1a",
+    }
+});
+```
+
+### `StringConfig`
+
+Override the default user-facing strings displayed by the `DocumentScanner`. Every field is optional; unset fields fall back to the library default. Set it through the `stringConfig` property of [`DocumentScannerConfig`](#documentscannerconfig).
+
+Toolbar button labels (Re-take, Apply, Done, etc.) are not configured here — use the `toolbarButtonsConfig` of [`DocumentCorrectionViewConfig`](#documentcorrectionviewconfig) and [`DocumentResultViewConfig`](#documentresultviewconfig) for those. Strings that include a `{count}` or `{error}` placeholder are noted in their descriptions; the placeholder is substituted at render time.
+
+> [!NOTE]
+> The resolved string config is process-global: instantiating a new `DocumentScanner` replaces any previously applied config. Running two scanners with different `stringConfig` values on the same page is not supported — the most recently constructed scanner wins.
+
+#### Syntax
+```typescript
+interface StringConfig {
+  loadingMsg?: string;
+  initializingCameraMsg?: string;
+  processingImageMsg?: string;
+  continuousScanDoneBtn?: string;
+  shareTitle?: string;
+  downloadFilenamePrefix?: string;
+  uploadShareFailedAlert?: string;
+  shareErrorAlert?: string;
+  selectCameraBtnTitle?: string;
+  uploadImageBtnTitle?: string;
+  closeScannerBtnTitle?: string;
+  cameraSwitcherCameraLabel?: string;
+  cameraSwitcherResolutionLabel?: string;
+  takePhotoBtnTitle?: string;
+  scanMoreBtn?: string;
+  filterOriginalBtn?: string;
+  filterGrayscaleBtn?: string;
+  filterBlackWhiteBtn?: string;
+  filterSepiaBtn?: string;
+  filterInvertedBtn?: string;
+}
+```
+
+#### Properties
+
+| Property                        | Type     | Default                           | Description                                                                                                               |
+| ------------------------------- | -------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `loadingMsg`                    | `string` | `Loading...`                      | Loading overlay message shown during initial DCV load.                                                                   |
+| `initializingCameraMsg`         | `string` | `Initializing camera...`          | Loading overlay message shown while opening the camera.                                                                  |
+| `processingImageMsg`            | `string` | `Processing image...`             | Loading overlay message shown while processing a captured or uploaded image.                                             |
+| `continuousScanDoneBtn`         | `string` | `Done ({count})`                  | Label of the "Done" button in continuous scanning mode. `{count}` is replaced with the current scan count at render time. |
+| `shareTitle`                    | `string` | `Scanned Document`                | `title` field passed to the Web Share API when sharing the corrected image.                                              |
+| `downloadFilenamePrefix`        | `string` | `document`                        | Filename prefix for downloaded images. Final filename is `{prefix}-{timestamp}.png`.                                     |
+| `uploadShareFailedAlert`        | `string` | `Failed`                          | Alert shown when the upload or share button handler throws.                                                              |
+| `shareErrorAlert`               | `string` | `Error processing image: {error}` | Alert shown when the share/download flow throws. `{error}` is replaced with the error message at render time.            |
+| `selectCameraBtnTitle`          | `string` | `Select Camera or Resolution`     | Tooltip on the scanner view header button that opens the camera/resolution picker.                                       |
+| `uploadImageBtnTitle`           | `string` | `Upload Image`                    | Tooltip on the scanner view header button that uploads an image file.                                                    |
+| `closeScannerBtnTitle`          | `string` | `Close`                           | Tooltip on the scanner view header close (X) button.                                                                     |
+| `cameraSwitcherCameraLabel`     | `string` | `Camera`                          | Section heading above the list of cameras in the camera switcher menu.                                                   |
+| `cameraSwitcherResolutionLabel` | `string` | `Resolution`                      | Section heading above the list of resolutions in the camera switcher menu.                                               |
+| `takePhotoBtnTitle`             | `string` | `Take Photo`                      | Tooltip / accessible label on the shutter (take photo) button.                                                           |
+| `scanMoreBtn`                   | `string` | `Scan More`                       | Label of the continuous-mode "Scan More" button.                                                                         |
+| `filterOriginalBtn`             | `string` | `Original`                        | Result view filter menu: the "no filter" option.                                                                        |
+| `filterGrayscaleBtn`            | `string` | `Grayscale`                       | Result view filter menu: the grayscale option.                                                                           |
+| `filterBlackWhiteBtn`           | `string` | `Black & White`                   | Result view filter menu: the black & white option.                                                                      |
+| `filterSepiaBtn`                | `string` | `Sepia`                           | Result view filter menu: the sepia option.                                                                               |
+| `filterInvertedBtn`             | `string` | `Inverted`                        | Result view filter menu: the inverted option.                                                                            |
+
+#### Example
+```javascript
+const documentScanner = new Dynamsoft.DocumentScanner({
+    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+    stringConfig: {
+        loadingMsg: "Cargando...",
+        continuousScanDoneBtn: "Listo ({count})",
+        downloadFilenamePrefix: "invoice",
+    }
+});
+```
 
 ### `ScanRegion`
 
