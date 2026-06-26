@@ -11,7 +11,7 @@ description: Mobile Web Capture Documentation Release Notes
 
 # Mobile Document Scanner JavaScript Edition Release Notes
 
-## 1.5.0 (25/06/2026)
+## 1.5.0 (26/06/2026)
 
 ## Breaking Changes
 
