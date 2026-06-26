@@ -11,6 +11,33 @@ description: Mobile Web Capture Documentation Release Notes
 
 # Mobile Document Scanner JavaScript Edition Release Notes
 
+## 1.5.0 (25/06/2026)
+
+## Breaking Changes
+
+None
+
+## Highlighted Features
+
+### UI/UX Improvements
+
+- Add image filtering and rotation to the result view.
+- Add string and theme colour customisation across the entire UI.
+
+### Samples
+
+- Update online demo to support multi-page scanning with DDV integration.
+
+### Fixes
+
+- Scanner view UI bugs
+- Inconsistent workflow on retake
+
+### Dependencies
+
+- [Dynamsoft Capture Vision JS 3.2.5000](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/release-notes/dcvb-3.html#325000-12162025)
+- [Dynamsoft Capture Vision Data 1.1.0](https://www.npmjs.com/package/dynamsoft-capture-vision-data) (runtime only)
+
 ## 1.4.2 (23/01/2026)
 
 ### Breaking Changes

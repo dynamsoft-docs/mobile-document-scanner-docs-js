@@ -57,18 +57,17 @@ This method retrieves all **MDS** source files from its [GitHub Repository](http
 2. Extract the contents of the archive, and open the extracted directory in a code editor.
 
 3. Set your [license key](#get-a-trial-license) in the Hello World sample:
-   1. Open the Hello World sample at [`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html).
-   2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
+	1. Open the Hello World sample at [`/samples/hello-world.html`](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/hello-world.html).
+	2. Search for `"YOUR_LICENSE_KEY_HERE"`, then replace it with your actual license key.
 
 4. In the terminal, navigate to the project root directory and run the following to a. install project dependencies, b. build the library, and c. serve the sample:
 
-   ```shell
-   npm install
-   npm run build
-   npm run serve
-   ```
-
-   Once the server is running, open the application in a browser using the addresses provided in the terminal output after running `npm run serve`.
+	```shell
+	npm install
+	npm run build
+	npm run dev
+	```
+	Once the server is running, open the application in a browser using the addresses provided in the terminal output after running `npm run dev`.
 
 ### Use Precompiled Scripts
 
@@ -77,7 +76,7 @@ We publish **MDS** library files on [npm](https://www.npmjs.com/package/dynamsof
 To use the precompiled ESM bundle script, simply import it from CDN:
 
 ```javascript
-import { DocumentScanner } from "https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.js"
+import { DocumentScanner } from "https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.js";
 ```
 
 Or use the UMD bundle script by including the URL in a `<script>` tag in the document head:
@@ -97,45 +96,45 @@ Below is the complete Hello World sample page that uses the precompiled ESM bund
 ```html
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamsoft Mobile Document Scanner - Hello World</title>
-    <!--Optional UMD usage, remove the ESM import if you use this-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.esm.js"></script>-->
-    <style>
-      #results canvas {
-        width: 100%;
-        height: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Dynamsoft Mobile Document Scanner</h1>
-    <div id="results"></div>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dynamsoft Mobile Document Scanner - Hello World</title>
+		<!--Optional UMD usage, remove the ESM import if you use this-->
+		<!--<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.esm.js"></script>-->
+		<style>
+			#results canvas {
+				width: 100%;
+				height: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Dynamsoft Mobile Document Scanner</h1>
+		<div id="results"></div>
 
-    <script type="module">
-      import { DocumentScanner } from "https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.esm.js";
+		<script type="module">
+			import { DocumentScanner } from "https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.esm.js";
 
-      const results = document.querySelector("#results");
+			const results = document.querySelector("#results");
 
-      const documentScanner = new DocumentScanner({
-        license: "YOUR_LICENSE_KEY_HERE",
-        scannerViewConfig: {
-          enableAutoCropMode: true,
-          enableSmartCaptureMode: true,
-        },
-      });
+			const documentScanner = new DocumentScanner({
+				license: "YOUR_LICENSE_KEY_HERE",
+				scannerViewConfig: {
+					enableAutoCropMode: true,
+					enableSmartCaptureMode: true,
+				},
+			});
 
-      const result = await documentScanner.launch();
-      if (result?.correctedImageResult) {
-        results.innerHTML = "";
-        results.appendChild(result.correctedImageResult.toCanvas());
-      } else {
-        results.textContent = "No image scanned. Please try again.";
-      }
-    </script>
-  </body>
+			const result = await documentScanner.launch();
+			if (result?.correctedImageResult) {
+				results.innerHTML = "";
+				results.appendChild(result.correctedImageResult.toCanvas());
+			} else {
+				results.textContent = "No image scanned. Please try again.";
+			}
+		</script>
+	</body>
 </html>
 ```
 
@@ -168,15 +167,15 @@ This is equivalent to using a script tag with UMD:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mobile Document Scanner - Hello World</title>
-    <script src="/dist/dds.bundle.js"></script>
-    <!--Alternatively, reference the script from CDN
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.js"></script>
-    -->
-  </head>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Mobile Document Scanner - Hello World</title>
+		<script src="/dist/dds.bundle.js"></script>
+		<!--Alternatively, reference the script from CDN
+		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-scanner@1.5.0/dist/dds.bundle.js"></script>
+		-->
+	</head>
 </html>
 ```
 
@@ -187,7 +186,7 @@ This is equivalent to using a script tag with UMD:
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
 });
 ```
 
@@ -229,8 +228,8 @@ The workflow returns a scanned image object of type `CorrectedImageResult`. To d
 
 ```html
 <body>
-  <h1 style="font-size: large">Mobile Document Scanner</h1>
-  <div id="results"></div>
+	<h1 style="font-size: large">Mobile Document Scanner</h1>
+	<div id="results"></div>
 </body>
 ```
 
@@ -242,11 +241,11 @@ The following code clears the result container and displays the scanned result a
 
 ```javascript
 if (result?.correctedImageResult) {
-  resultContainer.innerHTML = "";
-  const canvas = result.correctedImageResult.toCanvas();
-  resultContainer.appendChild(canvas);
+	resultContainer.innerHTML = "";
+	const canvas = result.correctedImageResult.toCanvas();
+	resultContainer.appendChild(canvas);
 } else {
-  resultContainer.innerHTML = "<p>No image scanned. Please try again.</p>";
+	resultContainer.innerHTML = "<p>No image scanned. Please try again.</p>";
 }
 ```
 
@@ -266,16 +265,16 @@ The library uses [`engineResourcePaths`]({{ site.api }}index.html#engineresource
 
 ```javascript
 const documentScanner = new DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE",
-  engineResourcePaths: {
-    dcvBundle: "/dynamsoft-capture-vision-bundle/dist",
-    dcvData: "/dynamsoft-capture-vision-data",
-  },
-  scannerViewConfig: {
-    cameraEnhancerUIPath: "../dist/document-scanner.ui.xml",
-    enableAutoCropMode: true,
-    enableSmartCaptureMode: true,
-  },
+	license: "YOUR_LICENSE_KEY_HERE",
+	engineResourcePaths: {
+		dcvBundle: "/dynamsoft-capture-vision-bundle/dist",
+		dcvData: "/dynamsoft-capture-vision-data",
+	},
+	scannerViewConfig: {
+		cameraEnhancerUIPath: "../dist/document-scanner.ui.xml",
+		enableAutoCropMode: true,
+		enableSmartCaptureMode: true,
+	},
 });
 ```
 
@@ -293,8 +292,8 @@ API Reference:
 
 1. **Browser Security Restrictions** – Most browsers only allow access to camera video streams in a secure context.
 
-   > [!NOTE]
-   > Some browsers like Chrome may grant access to camera video streams for `http://127.0.0.1`, `http://localhost`, or even pages opened directly from the local file system (`file:///...`). This can be helpful during development and testing.
+		> [!NOTE]
+		> Some browsers like Chrome may grant access to camera video streams for `http://127.0.0.1`, `http://localhost`, or even pages opened directly from the local file system (`file:///...`). This can be helpful during development and testing.
 
 2. **Dynamsoft License Requirements** – A secure context is required for **Dynamsoft licenses** to function properly.
 
@@ -333,24 +332,24 @@ This section builds on the Hello World sample to demonstrate how to configure **
 7. `onDocumentScanned` - handler to get single scan results in continuous scanning mode (if `enableContinuousScanning` is `true`).
 8. `stopContinuousScanning` - programmatically stop the scanning loop when continuous scanning mode is enabled.
 9. `scannerViewConfig` - configure the main scanner view with the following properties:
-   1. `container` - the HTML container for the `DocumentScannerView`.
-   2. `cameraEnhancerUIPath` - path to the UI definition file (.html) for the `DocumentScannerView`.
-   3. `enableAutoCropMode` - set the default value of Auto-Crop upon entering the `DocumentScannerView`.
-   4. `enableSmartCaptureMode` - set the default state of Smart Capture upon entering the `DocumentScannerView`.
-   5. `enableBoundsDetectionMode` - set the default state of bounds detection mode upon entering the `DocumentScannerView`.
-   6. `scanRegion` - set the scan region within the document scanning viewfinder.
-   7. `minVerifiedFramesForSmartCapture` - set the minimum number of video frames to verify detected document boundaries on Smart Capture mode. Higher frame counts lead to higher confidence at the cost of discarding results.
-   8. `showSubfooter` - toggle the visibility of the mode selector menu.
-   9. `showPoweredByDynamsoft` - set the visibility of the Dynamsoft branding message.
+	1. `container` - the HTML container for the `DocumentScannerView`.
+	2. `cameraEnhancerUIPath` - path to the UI definition file (.html) for the `DocumentScannerView`.
+	3. `enableAutoCropMode` - set the default value of Auto-Crop upon entering the `DocumentScannerView`.
+	4. `enableSmartCaptureMode` - set the default state of Smart Capture upon entering the `DocumentScannerView`.
+	5. `enableBoundsDetectionMode` - set the default state of bounds detection mode upon entering the `DocumentScannerView`.
+	6. `scanRegion` - set the scan region within the document scanning viewfinder.
+	7. `minVerifiedFramesForSmartCapture` - set the minimum number of video frames to verify detected document boundaries on Smart Capture mode. Higher frame counts lead to higher confidence at the cost of discarding results.
+	8. `showSubfooter` - toggle the visibility of the mode selector menu.
+	9. `showPoweredByDynamsoft` - set the visibility of the Dynamsoft branding message.
 10. `correctionViewConfig` - configure the `DocumentCorrectionView`.
-   1. `container` - the HTML container for the `DocumentCorrectionView`.
-   2. `toolbarButtonsConfig` - configure the appearance and labels of the buttons for the `DocumentCorrectionView` UI.
-   3. `onFinish` - handler called when the user clicks the "Apply" button.
+	1. `container` - the HTML container for the `DocumentCorrectionView`.
+	2. `toolbarButtonsConfig` - configure the appearance and labels of the buttons for the `DocumentCorrectionView` UI.
+	3. `onFinish` - handler called when the user clicks the "Apply" button.
 11. `resultViewConfig` - configure the result view with the following properties:
-   1. `container` - the HTML container for the `DocumentResultView`.
-   2. `toolbarButtonsConfig` - configure the appearance and labels of the buttons for the `DocumentResultView` UI.
-   3. `onDone` - handler called when the user clicks the "Done" button.
-   4. `onUpload` - handler called when the user clicks the "Upload" button.
+	1. `container` - the HTML container for the `DocumentResultView`.
+	2. `toolbarButtonsConfig` - configure the appearance and labels of the buttons for the `DocumentResultView` UI.
+	3. `onDone` - handler called when the user clicks the "Done" button.
+	4. `onUpload` - handler called when the user clicks the "Upload" button.
 12. `templateFilePath` - path to a Capture Vision template for scanning configuration; typically not needed as the default template is used.
 13. `utilizedTemplateNames`- template names for detection and correction. Typically not needed as the default template is used.
 14. `engineResourcePaths` - paths to extra resources such as `.wasm` engine files.
@@ -367,8 +366,8 @@ The customization examples below build on the Hello World code from the [previou
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-  // Add more arguments
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	// Add more arguments
 });
 ```
 
@@ -380,7 +379,7 @@ See [**Workflow Customization**](#workflow-customization) and [**View-Based Cust
 
 #### Basic Multi-Page Scanning
 
-[**Full Sample Source Code**](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/scenarios/multi-page-scanning.html)
+[**Full Sample Source Code**](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/multi-page-scanning.html)
 
 The most straightforward way to implement multi-page scanning is to enable continuous scanning mode and provide a callback handler to process each scanned document via [`onDocumentScanned`]({{ site.api }}index.html#ondocumentscanned). The scanner loops after each successful scan, allowing users to capture multiple pages in succession. The user can manually stop scanning by clicking the "Done" or close buttons from the Document Scanner View. Consider the relevant sections from the source code below:
 
@@ -390,13 +389,13 @@ The most straightforward way to implement multi-page scanning is to enable conti
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE",
-  enableContinuousScanning: true,
-  onDocumentScanned: (result) => {
-    // Process each scanned document
-    const canvas = result.correctedImageResult.toCanvas();
-    document.getElementById("results").appendChild(canvas);
-  },
+	license: "YOUR_LICENSE_KEY_HERE",
+	enableContinuousScanning: true,
+	onDocumentScanned: (result) => {
+		// Process each scanned document
+		const canvas = result.correctedImageResult.toCanvas();
+		document.getElementById("results").appendChild(canvas);
+	},
 });
 
 await documentScanner.launch();
@@ -431,7 +430,7 @@ To enhance the scanning process, you may also choose to use the following settin
 > [!TIP]
 > You can find the full set of comprehensive documentation Dynamsoft Document Viewer [on our website](https://www.dynamsoft.com/document-viewer/docs/introduction/index.html).
 
-[**Full Sample Source Code**](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/scenarios/scanning-to-pdf.html)
+[**Full Sample Source Code**](https://github.com/Dynamsoft/document-scanner-javascript/blob/main/samples/scanning-to-pdf.html)
 
 For a more advanced multi-page scanning solution with document management, image editing, and comprehensive file support capabilities (including PDF), you can integrate **MDS** with **Dynamsoft Document Viewer (DDV)**. This combination provides:
 
@@ -445,36 +444,36 @@ Given the length of the sample, we only provide a snippet for creating the MDS i
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  // Public trial license which is valid for 24 hours
-  // You can request a 30-day trial key from https://www.dynamsoft.com/customer/license/trialLicense/?product=mds
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-  container: scannerContainer,
-  scannerViewConfig: {
-    enableAutoCropMode: true,
-    enableSmartCaptureMode: true,
-  },
-  enableContinuousScanning: true,
-  onDocumentScanned: async (result) => {
-    try {
-      // Convert the scanned image to blob
-      const canvas = result.correctedImageResult.toCanvas();
-      const blob = await new Promise((resolve) => {
-        canvas.toBlob((b) => resolve(b), "image/jpeg", 0.9);
-      });
+	// Public trial license which is valid for 24 hours
+	// You can request a 30-day trial key from https://www.dynamsoft.com/customer/license/trialLicense/?product=mds
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	container: scannerContainer,
+	scannerViewConfig: {
+		enableAutoCropMode: true,
+		enableSmartCaptureMode: true,
+	},
+	enableContinuousScanning: true,
+	onDocumentScanned: async (result) => {
+		try {
+			// Convert the scanned image to blob
+			const canvas = result.correctedImageResult.toCanvas();
+			const blob = await new Promise((resolve) => {
+				canvas.toBlob((b) => resolve(b), "image/jpeg", 0.9);
+			});
 
-      // Add the scanned page to DDV document
-      if (blob) {
-        await doc.loadSource([
-          {
-            convertMode: "cm/auto",
-            fileData: blob,
-          },
-        ]);
-      }
-    } catch (error) {
-      console.error("Error adding scanned page to DDV:", error);
-    }
-  },
+			// Add the scanned page to DDV document
+			if (blob) {
+				await doc.loadSource([
+					{
+						convertMode: "cm/auto",
+						fileData: blob,
+					},
+				]);
+			}
+		} catch (error) {
+			console.error("Error adding scanned page to DDV:", error);
+		}
+	},
 });
 ```
 
@@ -507,7 +506,7 @@ In the Hello World sample, we use the complete workflow with minimum configurati
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
 });
 // Launch the scanner and wait for the result
 const result = await documentScanner.launch();
@@ -528,11 +527,11 @@ As long as the `DocumentScanner` container is assigned, **MDS** confines its **V
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-  container: document.getElementById("myDocumentScannerContainer"), // Use this container for the full workflow
-  scannerViewConfig: {
-    container: document.getElementById("myDocumentScannerViewContainer"), // This container is ignored
-  },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	container: document.getElementById("myDocumentScannerContainer"), // Use this container for the full workflow
+	scannerViewConfig: {
+		container: document.getElementById("myDocumentScannerViewContainer"), // This container is ignored
+	},
 });
 ```
 
@@ -547,9 +546,9 @@ If you do not need either the `DocumentResultView` or `DocumentCorrectionView` i
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-  showResultView: false,
-  showCorrectionView: false,
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	showResultView: false,
+	showCorrectionView: false,
 });
 ```
 
@@ -570,16 +569,16 @@ If the configuration object provide containers for the `DocumentScannerView`, `D
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-  scannerViewConfig: {
-    container: document.getElementById("myDocumentScannerViewContainer"),
-  },
-  correctionViewConfig: {
-    container: document.getElementById("myDocumentCorrectionViewContainer"),
-  },
-  resultViewConfig: {
-    container: document.getElementById("myScanResultViewContainer"),
-  },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	scannerViewConfig: {
+		container: document.getElementById("myDocumentScannerViewContainer"),
+	},
+	correctionViewConfig: {
+		container: document.getElementById("myDocumentCorrectionViewContainer"),
+	},
+	resultViewConfig: {
+		container: document.getElementById("myScanResultViewContainer"),
+	},
 });
 ```
 
@@ -600,20 +599,20 @@ Then get the input file as a `File` object, and pass that file object to `launch
 
 ```javascript
 document.getElementById("initialFile").onchange = async function () {
-  const files = Array.from(this.files || []);
-  if (files.length) {
-    const result = await documentScanner.launch(files[0]);
-    console.log(result);
+	const files = Array.from(this.files || []);
+	if (files.length) {
+		const result = await documentScanner.launch(files[0]);
+		console.log(result);
 
-    // Clear the result container and display the scanned result as a canvas
-    if (result?.correctedImageResult) {
-      resultContainer.innerHTML = ""; // Clear placeholder content
-      const canvas = result.correctedImageResult.toCanvas();
-      resultContainer.appendChild(canvas);
-    } else {
-      resultContainer.innerHTML = "<p>No image scanned. Please try again.</p>";
-    }
-  }
+		// Clear the result container and display the scanned result as a canvas
+		if (result?.correctedImageResult) {
+			resultContainer.innerHTML = ""; // Clear placeholder content
+			const canvas = result.correctedImageResult.toCanvas();
+			resultContainer.appendChild(canvas);
+		} else {
+			resultContainer.innerHTML = "<p>No image scanned. Please try again.</p>";
+		}
+	}
 };
 ```
 
@@ -646,12 +645,12 @@ For example, the following config enables all three scanning modes and hides the
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-  scannerViewConfig: {
-    enableAutoCropMode: true,
-    enableSmartCaptureMode: true,
-    showSubfooter: false,
-  },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	scannerViewConfig: {
+		enableAutoCropMode: true,
+		enableSmartCaptureMode: true,
+		showSubfooter: false,
+	},
 });
 ```
 
@@ -671,13 +670,13 @@ You can configure theme colors and text strings across the library using `themeC
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace with your actual license key
-  stringConfig: {
-    loadingMsg: "My new loading screen message"
-  },
-  themeColor: {
-    primary: "#F54927"
-  }
+	license: "YOUR_LICENSE_KEY_HERE", // Replace with your actual license key
+	stringConfig: {
+		loadingMsg: "My new loading screen message",
+	},
+	themeColor: {
+		primary: "#F54927",
+	},
 });
 ```
 
@@ -694,9 +693,9 @@ You can extensively customize the `DocumentScannerView` by editing its HTML temp
 
 ```typescript
 interface DocumentScannerViewConfig {
-  container?: HTMLElement;
-  templateFilePath?: string;
-  cameraEnhancerUIPath?: string;
+	container?: HTMLElement;
+	templateFilePath?: string;
+	cameraEnhancerUIPath?: string;
 }
 ```
 
@@ -718,20 +717,20 @@ This file defines the UI for `DocumentScannerView`. Since files on the CDN **can
 
 3. Build the project to generate the updated file in `/dist/document-scanner.ui.xml`:
 
-   ```shell
-   npm run build
-   ```
+	```shell
+	npm run build
+	```
 
 4. Update the configuration to use the local file instead of the CDN version:
 
-   ```javascript
-   const documentScanner = new Dynamsoft.DocumentScanner({
-     license: "YOUR_LICENSE_KEY_HERE", // Replace with your actual license key
-     scannerViewConfig: {
-       cameraEnhancerUIPath: "../dist/document-scanner.ui.xml", // Use the local file
-     },
-   });
-   ```
+	```javascript
+	const documentScanner = new Dynamsoft.DocumentScanner({
+		license: "YOUR_LICENSE_KEY_HERE", // Replace with your actual license key
+		scannerViewConfig: {
+			cameraEnhancerUIPath: "../dist/document-scanner.ui.xml", // Use the local file
+		},
+	});
+	```
 
 API Reference:
 
@@ -745,15 +744,15 @@ We can customize the scanning region in the viewfinder with the `scanRegion` pro
 
 ```typescript
 interface ScanRegion {
-  ratio: {
-    width: number;
-    height: number;
-  };
-  regionBottomMargin: number; // Bottom margin calculated in pixel
-  style: {
-    strokeWidth: number;
-    strokeColor: string;
-  };
+	ratio: {
+		width: number;
+		height: number;
+	};
+	regionBottomMargin: number; // Bottom margin calculated in pixel
+	style: {
+		strokeWidth: number;
+		strokeColor: string;
+	};
 }
 ```
 
@@ -771,15 +770,15 @@ For example:
 
 ```javascript
 const scanRegion = {
-  ratio: {
-    width: 2,
-    height: 3,
-  },
-  regionBottomMargin: 20,
-  style: {
-    strokeWidth: 3,
-    strokeColor: "green",
-  },
+	ratio: {
+		width: 2,
+		height: 3,
+	},
+	regionBottomMargin: 20,
+	style: {
+		strokeWidth: 3,
+		strokeColor: "green",
+	},
 };
 ```
 
@@ -791,9 +790,9 @@ The following configuration interface customizes the `DocumentCorrectionView`:
 
 ```typescript
 interface DocumentCorrectionViewConfig {
-  container?: HTMLElement;
-  toolbarButtonsConfig?: DocumentCorrectionViewToolbarButtonsConfig;
-  onFinish?: (result: DocumentScanResult) => void;
+	container?: HTMLElement;
+	toolbarButtonsConfig?: DocumentCorrectionViewToolbarButtonsConfig;
+	onFinish?: (result: DocumentScanResult) => void;
 }
 ```
 
@@ -804,30 +803,32 @@ This section omits the `container` option, as we cover it in the [Workflow Custo
 The `toolbarButtonsConfig` property (of type `DocumentCorrectionViewToolbarButtonsConfig`) customizes the **appearance and functionality** of the UI buttons. Here is its definition:
 
 ```typescript
-type ToolbarButtonConfig = Pick<ToolbarButton, "icon" | "label" | "isHidden">;
+type ToolbarButtonConfig = Partial<
+	Pick<ToolbarButton, "icon" | "label" | "className" | "isHidden">
+>;
 interface DocumentCorrectionViewToolbarButtonsConfig {
-  fullImage?: ToolbarButtonConfig;
-  detectBorders?: ToolbarButtonConfig;
-  apply?: ToolbarButtonConfig;
+	fullImage?: ToolbarButtonConfig;
+	detectBorders?: ToolbarButtonConfig;
+	apply?: ToolbarButtonConfig;
 }
 ```
 
-We can use it to **change the icon and label** of each of the three buttons individually or even **hide the buttons**. Below is an example that sets a custom label and image icon for the "Detect Borders" button and hides the "Full Image" button:
+We can use it to **change the icon and label** of each of the menu buttons individually or even **hide the buttons**. Below is an example that sets a custom label and image icon for the "Detect Borders" button and hides the "Full Image" button:
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-  correctionViewConfig: {
-    toolbarButtonsConfig: {
-      fullImage: {
-        isHidden: true,
-      },
-      detectBorders: {
-        icon: "path/to/new_icon.png", // Change to the actual path of the new icon
-        label: "Custom Label",
-      },
-    },
-  },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	correctionViewConfig: {
+		toolbarButtonsConfig: {
+			fullImage: {
+				isHidden: true,
+			},
+			detectBorders: {
+				icon: "path/to/new_icon.png", // Change to the actual path of the new icon
+				label: "Custom Label",
+			},
+		},
+	},
 });
 ```
 
@@ -843,13 +844,13 @@ The `onFinish` callback triggers upon having applied the user's corrections. For
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-  correctionViewConfig: {
-    onFinish: (result) => {
-      const canvas = result.correctedImageResult.toCanvas();
-      resultContainer.appendChild(canvas);
-    },
-  },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	correctionViewConfig: {
+		onFinish: (result) => {
+			const canvas = result.correctedImageResult.toCanvas();
+			resultContainer.appendChild(canvas);
+		},
+	},
 });
 ```
 
@@ -865,10 +866,10 @@ Consider `toolbarButtonsConfig`, `onDone` and `onUpload` from the `DocumentResul
 
 ```typescript
 interface DocumentResultViewConfig {
-  container?: HTMLElement;
-  toolbarButtonsConfig?: DocumentResultViewToolbarButtonsConfig;
-  onDone?: (result: DocumentResult) => Promise<void>;
-  onUpload?: (result: DocumentResult) => Promise<void>;
+	container?: HTMLElement;
+	toolbarButtonsConfig?: DocumentResultViewToolbarButtonsConfig;
+	onDone?: (result: DocumentResult) => Promise<void>;
+	onUpload?: (result: DocumentResult) => Promise<void>;
 }
 ```
 
@@ -879,30 +880,30 @@ The `toolbarButtonsConfig` property, of type `DocumentResultViewToolbarButtonsCo
 ```typescript
 type ToolbarButtonConfig = Pick<ToolbarButton, "icon" | "label" | "isHidden">;
 interface DocumentResultViewToolbarButtonsConfig {
-  retake?: ToolbarButtonConfig;
-  correct?: ToolbarButtonConfig;
-  share?: ToolbarButtonConfig;
-  upload?: ToolbarButtonConfig;
-  done?: ToolbarButtonConfig;
+	retake?: ToolbarButtonConfig;
+	correct?: ToolbarButtonConfig;
+	share?: ToolbarButtonConfig;
+	upload?: ToolbarButtonConfig;
+	done?: ToolbarButtonConfig;
 }
 ```
 
-This property can **change the icon and label** of each of the three buttons individually in the `DocumentResultView` or even **hide the buttons**. Below is an example that sets a custom label and image icon for the "Retake" button, and hides the "Share" button:
+This property can **change the icon and label** of each of the menu buttons individually in the `DocumentResultView` or even **hide the buttons**. Below is an example that sets a custom label and image icon for the "Retake" button, and hides the "Share" button:
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-  resultViewConfig: {
-    toolbarButtonsConfig: {
-      retake: {
-        icon: "path/to/new_icon.png", // Change to the actual path of the new icon
-        label: "Custom Label",
-      },
-      share: {
-        isHidden: true,
-      },
-    },
-  },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	resultViewConfig: {
+		toolbarButtonsConfig: {
+			retake: {
+				icon: "path/to/new_icon.png", // Change to the actual path of the new icon
+				label: "Custom Label",
+			},
+			share: {
+				isHidden: true,
+			},
+		},
+	},
 });
 ```
 
@@ -918,13 +919,13 @@ The `onDone` callback triggers upon pressing the "Done" button. For example, the
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-  resultViewConfig: {
-    onDone: async (result) => {
-      const canvas = result.correctedImageResult.toCanvas();
-      resultContainer.appendChild(canvas);
-    },
-  },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	resultViewConfig: {
+		onDone: async (result) => {
+			const canvas = result.correctedImageResult.toCanvas();
+			resultContainer.appendChild(canvas);
+		},
+	},
 });
 ```
 
@@ -945,24 +946,24 @@ The following example demonstrates how to upload the result image to a server:
 
 ```javascript
 const documentScanner = new Dynamsoft.DocumentScanner({
-  license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-  resultViewConfig: {
-    onUpload: async (result) => {
-      const host = window.location.origin;
-      const blob = await result.correctedImageResult.toBlob();
-      // Create form data
-      const formData = new FormData();
-      formData.append("uploadFile", blob, "uploadedFile.png");
-      // Upload file
-      const response = await fetch(
-        `${host}/upload`, // Change this to your actual upload URL
-        {
-          method: "POST",
-          body: formData,
-        },
-      );
-    },
-  },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	resultViewConfig: {
+		onUpload: async (result) => {
+			const host = window.location.origin;
+			const blob = await result.correctedImageResult.toBlob();
+			// Create form data
+			const formData = new FormData();
+			formData.append("uploadFile", blob, "uploadedFile.png");
+			// Upload file
+			const response = await fetch(
+				`${host}/upload`, // Change this to your actual upload URL
+				{
+					method: "POST",
+					body: formData,
+				},
+			);
+		},
+	},
 });
 ```
 
