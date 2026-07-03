@@ -11,7 +11,7 @@ description: "Learn how to use Dynamsoft Mobile Document Scanner Web features wi
 # How to Customize Mobile Web Capture
 
 > [!TIP]
-> Prerequisites: read the [MWC Getting Started Guide]({{ site.guides }}mobile-web-capture.html) before proceeding.
+> Prerequisites: read the [MWC Getting Started Guide{{ site.code-gallery }}mobile-web-capture.html) before proceeding.
 
 This guide expands on the **Hello World** sample from the **MWC Getting Started Guide** and explores the available customization options.
 
@@ -20,21 +20,21 @@ Keep TOC only for npm /github as readme
 **Table of Contents**
 - [MobileWebCaptureConfig Overview](#mobilewebcaptureconfig-overview)
 - [Overall UI and Workflow Customization](#overall-ui-and-workflow-customization)
-  - [Specify the UI Container](#specify-the-ui-container)
-  - [Enable the LibraryView](#enable-the-libraryview)
-  - [Start by Opening a Document](#start-by-opening-a-document)
-  - [Scan Directly to Document](#scan-directly-to-document)
-  - [Enable File Upload](#enable-file-upload)
-  - [Enable Upload History](#enable-upload-history)
+	- [Specify the UI Container](#specify-the-ui-container)
+	- [Enable the LibraryView](#enable-the-libraryview)
+	- [Start by Opening a Document](#start-by-opening-a-document)
+	- [Scan Directly to Document](#scan-directly-to-document)
+	- [Enable File Upload](#enable-file-upload)
+	- [Enable Upload History](#enable-upload-history)
 - [View-Based Customization](#view-based-customization)
-  - [DocumentView Configuration](#documentview-configuration)
-  - [LibraryView Configuration](#libraryview-configuration)
-  - [PageView Configuration](#pageview-configuration)
-  - [TransferView and HistoryView Configuration](#transferview-and-historyview-configuration)
+	- [DocumentView Configuration](#documentview-configuration)
+	- [LibraryView Configuration](#libraryview-configuration)
+	- [PageView Configuration](#pageview-configuration)
+	- [TransferView and HistoryView Configuration](#transferview-and-historyview-configuration)
 - [Self-Hosting Resource Files](#self-hosting-resource-files)
-  - [Modify the Build Script](#modify-the-build-script)
-  - [Build the Project](#build-the-project)
-  - [Serve the Project Locally](#serve-the-project-locally)
+	- [Modify the Build Script](#modify-the-build-script)
+	- [Build the Project](#build-the-project)
+	- [Serve the Project Locally](#serve-the-project-locally)
 - [Next Step](#next-step)
 -->
 
@@ -45,28 +45,28 @@ Keep TOC only for npm /github as readme
 1. `license`: The license key.
 2. `container`: The HTML container for the entire workflow. If not specified (like in the **Hello World** Sample), one is created automatically.
 3. `exportConfig`: Configures functions for handling document export operations.
-   1. `uploadToServer`: Specifies a function to upload a file to a server.
-   2. `downloadFromServer`: Specifies a function to download a document from the server.
-   3. `deleteFromServer`: Specifies a function to delete a document from the server.
-   4. `onUploadSuccess`: Specifies a function that is triggered when the upload operation succeeds.
+    1. `uploadToServer`: Specifies a function to upload a file to a server.
+    2. `downloadFromServer`: Specifies a function to download a document from the server.
+    3. `deleteFromServer`: Specifies a function to delete a document from the server.
+    4. `onUploadSuccess`: Specifies a function that is triggered when the upload operation succeeds.
 4. `showLibraryView`: Configures where or not this **MWC** instance starts with the `LibraryView`.
 5. `onClose`: Specifies a function that is triggered when the user closes this **MWC** instance.
 6. `documentScannerConfig`: Configures the behavior of the built-in `DocumentScanner` instance. See the details in [`DocumentScannerConfig`]({{ site.guides }}document-scanner.html#documentscannerconfig-overview).
 7. `libraryViewConfig`: Configures the library view with the following properties:
-   1. `emptyContentConfig`: Specifies the content displayed in the library view when it is empty (no document).
-   2. `toolbarButtonsConfig`: Configures the buttons in the toolbar of the library view.
+    1. `emptyContentConfig`: Specifies the content displayed in the library view when it is empty (no document).
+    2. `toolbarButtonsConfig`: Configures the buttons in the toolbar of the library view.
 8. `documentViewConfig`: Configures the document view with the following properties:
-   1. `emptyContentConfig`: Specifies the content displayed in the document view when it is empty (no page).
-   2. `toolbarButtonsConfig`: Configures the buttons in the toolbar of the document view.
-9.  `pageViewConfig`: Configures the page view.
-   1. `toolbarButtonsConfig`: Configures the buttons in the toolbar of the page view.
-   2. `annotationToolbarLabelConfig`: Configures the labels of the annotation options.
-10. `transferViewConfig`: Configures the transfer view.
-   1. `toolbarButtonsConfig`: Configures the buttons in the toolbar of the transfer view.
-11. `historyViewConfig`: Configures the history view.
-   1. `emptyContentConfig`: Specifies the content displayed in the history view when it is empty (no uploads).
-   2. `toolbarButtonsConfig`: Configures the button in the toolbar of the history view.
-12. `ddvResourcePath`: Paths to extra resources such as `.wasm` engine files and CSS files.
+    1. `emptyContentConfig`: Specifies the content displayed in the document view when it is empty (no page).
+    2. `toolbarButtonsConfig`: Configures the buttons in the toolbar of the document view.
+9. `pageViewConfig`: Configures the page view.
+10. `toolbarButtonsConfig`: Configures the buttons in the toolbar of the page view.
+11. `annotationToolbarLabelConfig`: Configures the labels of the annotation options.
+12. `transferViewConfig`: Configures the transfer view.
+13. `toolbarButtonsConfig`: Configures the buttons in the toolbar of the transfer view.
+14. `historyViewConfig`: Configures the history view.
+15. `emptyContentConfig`: Specifies the content displayed in the history view when it is empty (no uploads).
+16. `toolbarButtonsConfig`: Configures the button in the toolbar of the history view.
+17. `ddvResourcePath`: Paths to extra resources such as `.wasm` engine files and CSS files.
 
 API Reference: [`MobileWebCaptureConfig`]({{ site.api }}mobile-web-capture.html#mobilewebcaptureconfig)
 
@@ -84,13 +84,13 @@ When a container is assigned, **MWC** UI will be confined in that container elem
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    container: document.getElementById("myMobileWebCapture") , // Use this container for the full workflow
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	container: document.getElementById("myMobileWebCapture"), // Use this container for the full workflow
 });
 (async () => {
-    // Launch the Mobile Web Capture Instance
-    const fileName = `New_Document_${Date.now().toString().slice(-5)}`;
-    await mobileWebCapture.launch(fileName);
+	// Launch the Mobile Web Capture Instance
+	const fileName = `New_Document_${Date.now().toString().slice(-5)}`;
+	await mobileWebCapture.launch(fileName);
 })();
 ```
 
@@ -103,12 +103,12 @@ By default, **MWC** starts with `DocumentView`, disabling `LibraryView`, so only
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    showLibraryView: true // Enable LibraryView
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	showLibraryView: true, // Enable LibraryView
 });
 (async () => {
-    // Launch the Mobile Web Capture Instance
-    await mobileWebCapture.launch(); // No need to specify a document name.
+	// Launch the Mobile Web Capture Instance
+	await mobileWebCapture.launch(); // No need to specify a document name.
 })();
 ```
 
@@ -132,20 +132,20 @@ By default, **MWC** starts empty. However, you can specify a file to be opened a
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
 });
 document.getElementById("initialFile").onchange = async function () {
-    const files = Array.from(this.files || []);
-    if (files.length) {
-        // Launch the Mobile Web Capture instance with an initial file
-        if (mobileWebCapture.hasLaunched)
-            await mobileWebCapture.dispose();
-        await mobileWebCapture.launch(files[0]);
-    }
+	const files = Array.from(this.files || []);
+	if (files.length) {
+		// Launch the Mobile Web Capture instance with an initial file
+		if (mobileWebCapture.hasLaunched) await mobileWebCapture.dispose();
+		await mobileWebCapture.launch(files[0]);
+	}
 };
 ```
 
 API Reference:
+
 - [`hasLaunched`]({{ site.api }}mobile-web-capture.html#haslaunched)
 - [`dispose`]({{ site.api }}mobile-web-capture.html#dispose)
 
@@ -161,16 +161,16 @@ The latter two views can be skipped to speed up the process.
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    documentScannerConfig: {
-        showResultView: false,
-        showCorrectionView: false,
-    },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	documentScannerConfig: {
+		showResultView: false,
+		showCorrectionView: false,
+	},
 });
 (async () => {
-    // Launch the Mobile Web Capture Instance
-    const fileName = `New_Document_${Date.now().toString().slice(-5)}`;
-    await mobileWebCapture.launch(fileName);
+	// Launch the Mobile Web Capture Instance
+	const fileName = `New_Document_${Date.now().toString().slice(-5)}`;
+	await mobileWebCapture.launch(fileName);
 })();
 ```
 
@@ -188,50 +188,51 @@ The following example demonstrates how to enable file upload and exit the Mobile
 
 ```javascript
 const uploadToServer = async (fileName, blob) => {
-    const host = window.location.origin;
-    // Create form data
-    const formData = new FormData();
-    formData.append("uploadFile", blob, fileName);
-    // Upload file
-    const response = await fetch(
-        `${host}/upload`, // Change this to your actual upload URL
-        {
-        method: "POST",
-        body: formData,
-        }
-    );
-    if (response.status === 200) {
-        // **IMPORTANT**: Returning { status: "success" } is required to trigger onUploadSuccess.
-        return {
-            status: "success",
-        };
-    } else {
-        return {
-            status: "failed",
-        };
-    }
+	const host = window.location.origin;
+	// Create form data
+	const formData = new FormData();
+	formData.append("uploadFile", blob, fileName);
+	// Upload file
+	const response = await fetch(
+		`${host}/upload`, // Change this to your actual upload URL
+		{
+			method: "POST",
+			body: formData,
+		},
+	);
+	if (response.status === 200) {
+		// **IMPORTANT**: Returning { status: "success" } is required to trigger onUploadSuccess.
+		return {
+			status: "success",
+		};
+	} else {
+		return {
+			status: "failed",
+		};
+	}
 };
 const onUploadSuccess = async (fileName) => {
-    console.log(`${fileName} uploaded successfully!`);
-    return true; // Exit the Mobile Web Capture Instance
+	console.log(`${fileName} uploaded successfully!`);
+	return true; // Exit the Mobile Web Capture Instance
 };
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    exportConfig: {
-        uploadToServer,
-        onUploadSuccess,
-    },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	exportConfig: {
+		uploadToServer,
+		onUploadSuccess,
+	},
 });
 (async () => {
-    // Launch the Mobile Web Capture Instance
-    const fileName = `New_Document_${Date.now().toString().slice(-5)}`;
-    await mobileWebCapture.launch(fileName);
+	// Launch the Mobile Web Capture Instance
+	const fileName = `New_Document_${Date.now().toString().slice(-5)}`;
+	await mobileWebCapture.launch(fileName);
 })();
 ```
 
 > [!IMPORTANT]
 > The **Upload** feature is enabled simultaneously in `DocumentView` and `PageView` (and in `LibraryView` if it is enabled). If this is not intended, you can hide the **Upload** button in these **Views**.
 > Read more:
+>
 > 1. [Disable Upload in DocumentView](#example-2-disable-upload-in-documentview)
 > 2. [Disable Upload in PageView](#example-1-disable-upload-in-pageview)
 > 3. [Disable Upload in LibraryView](#example-2-disable-upload-in-libraryview)
@@ -239,6 +240,7 @@ const mobileWebCapture = new Dynamsoft.MobileWebCapture({
 ### Enable Upload History
 
 When **File Upload** feature is on and `LibraryView` is enabled, we can enable the **Upload History** feature in the `LibraryView` by defining all the following:
+
 1. `exportConfig.uploadToServer`
 2. `exportConfig.downloadFromServer`
 3. `exportConfig.deleteFromServer`
@@ -252,70 +254,69 @@ The following example demonstrates how to enable this feature.
 const host = window.location.origin;
 const shortSessionID = Math.random().toString(36).substring(2, 12);
 const uploadToServer = async (fileName, blob) => {
-    const formData = new FormData();
-    formData.append("uploadFile", blob, fileName);
-    formData.append("fileName", fileName);
-    formData.append("sessionID", shortSessionID);
-    // Upload file
-    const response = await fetch(
-        `${host}/upload`, // Change this to your actual upload URL
-        {
-        method: "POST",
-        body: formData,
-        }
-    );
-    const responseText = await response.text();
-    if (!responseText || !responseText.includes("UploadedFileName")) {
-        throw new Error("Invalid server response");
-    }
-    const serverFileName = responseText.match(
-        /UploadedFileName:(.+)_(\d+)_(.+)$/
-    );
-    if (!serverFileName) {
-        throw new Error("Failed to parse server response");
-    }
-    const [, sessionID, uploadTime, realFileName] = serverFileName;
-    const downloadUrl = `${host}/download?fileName=${encodeURIComponent(
-        `${sessionID}_${uploadTime}_${realFileName}`
-    )}`;
-    // NOTE: Ensure the object returned contains status, fileName, and downloadUrl
-    return {
-        status: "success",
-        fileName: realFileName,
-        downloadUrl,
-        uploadTime,
-    };
+	const formData = new FormData();
+	formData.append("uploadFile", blob, fileName);
+	formData.append("fileName", fileName);
+	formData.append("sessionID", shortSessionID);
+	// Upload file
+	const response = await fetch(
+		`${host}/upload`, // Change this to your actual upload URL
+		{
+			method: "POST",
+			body: formData,
+		},
+	);
+	const responseText = await response.text();
+	if (!responseText || !responseText.includes("UploadedFileName")) {
+		throw new Error("Invalid server response");
+	}
+	const serverFileName = responseText.match(/UploadedFileName:(.+)_(\d+)_(.+)$/);
+	if (!serverFileName) {
+		throw new Error("Failed to parse server response");
+	}
+	const [, sessionID, uploadTime, realFileName] = serverFileName;
+	const downloadUrl = `${host}/download?fileName=${encodeURIComponent(
+		`${sessionID}_${uploadTime}_${realFileName}`,
+	)}`;
+	// NOTE: Ensure the object returned contains status, fileName, and downloadUrl
+	return {
+		status: "success",
+		fileName: realFileName,
+		downloadUrl,
+		uploadTime,
+	};
 };
 const deleteFromServer = async (doc) => {
-    const response = await fetch(
-    `${host}/delete?fileName=${encodeURIComponent(
-        `${shortSessionID}_${doc.uploadTime}_${doc.fileName}`
-    )}`,
-    {
-        method: "POST",
-    }
-    );
+	const response = await fetch(
+		`${host}/delete?fileName=${encodeURIComponent(
+			`${shortSessionID}_${doc.uploadTime}_${doc.fileName}`,
+		)}`,
+		{
+			method: "POST",
+		},
+	);
 };
 const downloadFromServer = async (doc) => {
-    window.open(doc.downloadUrl);
+	window.open(doc.downloadUrl);
 };
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    showLibraryView: true, // Enable LibraryView
-    exportConfig: {
-        uploadToServer,
-        downloadFromServer,
-        deleteFromServer,
-    }
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	showLibraryView: true, // Enable LibraryView
+	exportConfig: {
+		uploadToServer,
+		downloadFromServer,
+		deleteFromServer,
+	},
 });
 (async () => {
-    // Launch the Mobile Web Capture Instance
-    const fileName = `New_Document_${Date.now().toString().slice(-5)}`;
-    await mobileWebCapture.launch(fileName);
+	// Launch the Mobile Web Capture Instance
+	const fileName = `New_Document_${Date.now().toString().slice(-5)}`;
+	await mobileWebCapture.launch(fileName);
 })();
 ```
 
 ## View-Based Customization
+
 ### DocumentView Configuration
 
 Consider the following configuration interface used for customizing the `DocumentView`:
@@ -341,10 +342,10 @@ You can customize its appearance using the `emptyContentConfig` property.
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    documentViewConfig: {
-        emptyContentConfig: document.getElementById("customizedDocViewContent"),
-    },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	documentViewConfig: {
+		emptyContentConfig: document.getElementById("customizedDocViewContent"),
+	},
 });
 ```
 
@@ -357,17 +358,18 @@ When `exportConfig.uploadToServer` is defined, the **Upload** button appears in 
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    documentViewConfig: {
-        toolbarButtonsConfig: { // Note that there are two upload buttons in DocumentView
-            uploadDocument: {
-                isHidden: true
-            },
-            uploadImage: {
-                isHidden: true
-            }
-        }
-    }
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	documentViewConfig: {
+		toolbarButtonsConfig: {
+			// Note that there are two upload buttons in DocumentView
+			uploadDocument: {
+				isHidden: true,
+			},
+			uploadImage: {
+				isHidden: true,
+			},
+		},
+	},
 });
 ```
 
@@ -377,15 +379,16 @@ If you don't like a button's icon, you can customize it. The following example s
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    documentViewConfig: {
-        toolbarButtonsConfig: { // Note that there are two upload buttons in DocumentView
-            shareDocument: {
-                icon: "path/to/new_icon.png", // Change to the actual path of the new icon
-                label: "Custom Label"
-            }
-        }
-    }
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	documentViewConfig: {
+		toolbarButtonsConfig: {
+			// Note that there are two upload buttons in DocumentView
+			shareDocument: {
+				icon: "path/to/new_icon.png", // Change to the actual path of the new icon
+				label: "Custom Label",
+			},
+		},
+	},
 });
 ```
 
@@ -414,11 +417,11 @@ You can customize its appearance using the `emptyContentConfig` property.
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    showLibraryView: true, // Enable LibraryView
-    libraryViewConfig: {
-        emptyContentConfig: document.getElementById("customizedLibraryViewContent"),
-    },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	showLibraryView: true, // Enable LibraryView
+	libraryViewConfig: {
+		emptyContentConfig: document.getElementById("customizedLibraryViewContent"),
+	},
 });
 ```
 
@@ -431,15 +434,15 @@ When `exportConfig.uploadToServer` is defined and `showLibraryView` is `true`, a
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    showLibraryView: true // Enable LibraryView
-    libraryViewConfig: {
-        toolbarButtonsConfig: {
-            upload: {
-                isHidden: true
-            }
-        }
-    }
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	showLibraryView: true // Enable LibraryView
+	libraryViewConfig: {
+		toolbarButtonsConfig: {
+			upload: {
+				isHidden: true
+			}
+		}
+	}
 });
 ```
 
@@ -449,8 +452,8 @@ Consider the following configuration interface used for customizing the `PageVie
 
 ```javascript
 interface PageViewConfig {
-  toolbarButtonsConfig?: PageViewToolbarButtonsConfig;
-  annotationToolbarLabelConfig?: DDVAnnotationToolbarLabelConfig;
+	toolbarButtonsConfig?: PageViewToolbarButtonsConfig;
+	annotationToolbarLabelConfig?: DDVAnnotationToolbarLabelConfig;
 }
 ```
 
@@ -460,14 +463,14 @@ In this example, we'll demonstrate how to hide the **Upload** button in `PageVie
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    pageViewConfig: {
-        toolbarButtonsConfig: {
-            upload: {
-                isHidden: true
-            }
-        }
-    }
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	pageViewConfig: {
+		toolbarButtonsConfig: {
+			upload: {
+				isHidden: true,
+			},
+		},
+	},
 });
 ```
 
@@ -477,12 +480,12 @@ You can customize the labels of the annotation toolbar buttons as follows:
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    pageViewConfig: {
-        annotationToolbarLabelConfig: {
-            TextBoxAnnotation: "Input Text",
-        },
-    }
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	pageViewConfig: {
+		annotationToolbarLabelConfig: {
+			TextBoxAnnotation: "Input Text",
+		},
+	},
 });
 ```
 
@@ -506,21 +509,21 @@ The following code modifies how resource files are referenced:
 
 ```javascript
 const mobileWebCapture = new Dynamsoft.MobileWebCapture({
-    license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
-    ddvResourcePath: "./dist/libs/dynamsoft-document-viewer/dist/",
-    documentScannerConfig: {
-        scannerViewConfig: {
-            cameraEnhancerUIPath: "./dist/document-scanner.ui.html", // Use the local file
-        },
-        engineResourcePaths: {
-            std: "./dist/libs/dynamsoft-capture-vision-std/dist/",
-            dip: "./dist/libs/dynamsoft-image-processing/dist/",
-            core: "./dist/libs/dynamsoft-core/dist/",
-            license: "./dist/libs/dynamsoft-license/dist/",
-            cvr: "./dist/libs/dynamsoft-capture-vision-router/dist/",
-            ddn: "./dist/libs/dynamsoft-document-normalizer/dist/",
-        },
-    },
+	license: "YOUR_LICENSE_KEY_HERE", // Replace this with your actual license key
+	ddvResourcePath: "./dist/libs/dynamsoft-document-viewer/dist/",
+	documentScannerConfig: {
+		scannerViewConfig: {
+			cameraEnhancerUIPath: "./dist/document-scanner.ui.html", // Use the local file
+		},
+		engineResourcePaths: {
+			std: "./dist/libs/dynamsoft-capture-vision-std/dist/",
+			dip: "./dist/libs/dynamsoft-image-processing/dist/",
+			core: "./dist/libs/dynamsoft-core/dist/",
+			license: "./dist/libs/dynamsoft-license/dist/",
+			cvr: "./dist/libs/dynamsoft-capture-vision-router/dist/",
+			ddn: "./dist/libs/dynamsoft-document-normalizer/dist/",
+		},
+	},
 });
 ```
 
@@ -530,10 +533,10 @@ Update the `scripts` section in `package.json` to automatically copy the librari
 
 ```json
 "scripts": {
-    "serve": "node dev-server/index.js",
-    "build": "rollup -c && npm run copy-libs",
-    "copy-libs": "npx mkdirp dist/libs && npx cpx \"node_modules/dynamsoft-*/**/*\" dist/libs/ --dereference",
-    "build:production": "rollup -c --environment BUILD:production"
+	"serve": "node dev-server/index.js",
+	"build": "rollup -c && npm run copy-libs",
+	"copy-libs": "npx mkdirp dist/libs && npx cpx \"node_modules/dynamsoft-*/**/*\" dist/libs/ --dereference",
+	"build:production": "rollup -c --environment BUILD:production"
 },
 ```
 
@@ -548,6 +551,7 @@ npm run build
 ### Serve the Project Locally
 
 Start the local development server by running:
+
 ```bash
 npm run serve
 ```
@@ -557,17 +561,19 @@ Once the server is running, open the application in a browser using the address 
 Now, all required files will be **served locally** without relying on a CDN.
 
 > [!IMPORTANT]
->* Certain legacy web application servers may lack support for the `application/wasm` mimetype for .wasm files. To address this, you have two options:
->  1. Upgrade your web application server to one that supports the `application/wasm` mimetype.
->  2. Manually define the mimetype on your server. You can refer to the guides for [apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings) / [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap) / [nginx](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types).
 >
->* To work properly, the SDK requires a few engine files, which are relatively large and may take quite a few seconds to download. We recommend that you set a longer cache time for these engine files, to maximize the performance of your web application.
+> - Certain legacy web application servers may lack support for the `application/wasm` mimetype for .wasm files. To address this, you have two options:
 >
->  ```
->  Cache-Control: max-age=31536000
->  ```
+> 1.  Upgrade your web application server to one that supports the `application/wasm` mimetype.
+> 2.  Manually define the mimetype on your server. You can refer to the guides for [apache](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#media_types_and_character_encodings) / [IIS](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/mimemap) / [nginx](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types).
 >
->  Reference: [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control).
+> - To work properly, the SDK requires a few engine files, which are relatively large and may take quite a few seconds to download. We recommend that you set a longer cache time for these engine files, to maximize the performance of your web application.
+>
+> ```
+> Cache-Control: max-age=31536000
+> ```
+>
+> Reference: [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control).
 
 ## Next Step
 
