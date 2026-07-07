@@ -130,7 +130,7 @@ Below is the complete Hello World sample page that uses this precompiled script 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Mobile Web Capture - Hello World</title>
-		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture@3.1.0/dist/mwc.bundle.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-mobile-web-capture@4.1.0/dist/mwc.bundle.js"></script>
 	</head>
 	<body>
 		<script>
