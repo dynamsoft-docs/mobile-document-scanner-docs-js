@@ -12,6 +12,30 @@ permalink: /release-notes/mobile-web-capture.html
 
 # Release Notes
 
+## 4.1.0 (07/06/2026)
+
+### Breaking Changes
+
+None
+
+### Highlighted Features
+
+- Update MDS JS to v1.5.0.
+- Update DDV JS to v3.2.1 for security updates.
+
+### Samples
+
+- Update dependencies and README.
+
+### Fixes
+
+- Fix error when clicking the close button from the library view (and triggering `onClose()`).
+
+### Dependencies
+
+- [Dynamsoft Mobile Document Scanner JS v1.5.0](https://www.dynamsoft.com/mobile-document-scanner/docs/web/release-notes/index.html#150-26062026)
+- [Dynamsoft Document Viewer v3.2.1](https://www.dynamsoft.com/document-viewer/docs/releasenotes/index.html#321-03102026)
+
 ## 4.0.0 (02/02/2026)
 
 ### Breaking Changes
